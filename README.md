@@ -1,26 +1,5 @@
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
-# Sampo-UI
-
-A framework for building user interfaces for semantic portals. 
-
-The following research prototype portals use this repository as a base:
-
-1. [NameSampo](https://github.com/SemanticComputing/nimisampo.fi)
-2. [Mapping Manuscript Migrations](https://github.com/mapping-manuscript-migrations/mmm-web-app)
-3. [WarVictimSampo 1914&ndash;1922](https://github.com/SemanticComputing/sotasurmat-web-app)
-4. [LawSampo](https://github.com/SemanticComputing/lawsampo-web-app)
-5. [AcademySampo](https://github.com/SemanticComputing/academysampo-web-app)
-6. [FindSampo](https://github.com/SemanticComputing/findsampo-web-app) 
-7. [HistorySampo](https://github.com/SemanticComputing/historysampo-web-app) 
-8. [LetterSampo](https://github.com/SemanticComputing/lettersampo-web-app)
-9. [Hellerau](https://github.com/SemanticComputing/hellerau-web-app)
-10. [ParliamentSampo](https://github.com/SemanticComputing/parliamentsampo-web-app)
-11. [WarMemoirSampo](https://github.com/SemanticComputing/veterans-web-app)
-12. [WarSampo analyzer](https://github.com/SemanticComputing/warsa-analyzer-web-app)
-13. [ArtSampo](https://github.com/SemanticComputing/artsampo-web-app)
-14. [Constellations of Correspondence](https://github.com/SemanticComputing/coco-web-app)
-
-An example deployment generated from this repository is published at [sampo-ui.demo.seco.cs.aalto.fi](https://sampo-ui.demo.seco.cs.aalto.fi). It combines perspectives from the Mapping Manuscript Migrations and NameSampo portals, and can be used for testing and as a starting point for developing new portals. 
+# Booksampo
 
 The Sampo-UI framework is being developed by the [Semantic Computing Research Group (SeCo)](https://seco.cs.aalto.fi) 
 at the Aalto University, Finland. See the [research page](https://seco.cs.aalto.fi/tools/sampo-ui) for 
@@ -123,38 +102,3 @@ Sampo-UI's backend is based on the following JavaScript libraries:
 * [Express &ndash; Fast, unopinionated, minimalist web framework for Node.js](https://expressjs.com/)
 * [axios &ndash; Promise based HTTP client for the browser and Node.js](https://github.com/axios/axios)
 * [Lodash &ndash; A modern JavaScript utility library delivering modularity, performance & extras](https://lodash.com/)
-
-## Extra: forking into the same organization account
-
-In GitHub it's not possible to fork an organization's repository to that same organization. If a new repository needs to be created
-using the *SemanticComputing* organization account, here is an alternative workflow for forking:
-
-1. Clone this repository:
-`git clone git@github.com:SemanticComputing/sampo-ui.git`
-
-2. Set up a new GitHub repository. Do not initialize it with anything. It needs to be an empty repository.
-You can name it how you like and you can rename your local folder to match that.
-
-3. Copy the url of your new repository.
-
-4. With terminal go to the folder with the clone of this repository (*sampo-ui*).
-
-5. Change remote origin from *sampo-ui* to your new repository:
-`git remote set-url origin [your new github repo here]`
-
-6. Check that the origin changed to your new repository:
-`git remote -v`
-
-7. Push your local clone of *sampo-ui* to your new repository:
-`git push`
-
-8. Set *sampo-ui* as the upstream of your new repository:
-`git remote add upstream git@github.com:SemanticComputing/sampo-ui.git`
-
-9. When new commits appear on the *sampo-ui* repository you can fetch them to your new repository.
-The example fetches only master branch:
-`git fetch upstream master`
-
-10. Go to the branch of your new repository where you want to merge the changes in upstream.
-Merge, solve conflicts and enjoy:
-`git merge upstream/master`
