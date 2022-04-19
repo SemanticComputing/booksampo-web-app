@@ -1,26 +1,15 @@
 {
-    "portalID": "sampo",
+    "portalID": "booksampo",
     "rootUrl": "",
     "perspectives": {
         "searchPerspectives": [
-            "perspective1",
-            "perspective2",
-            "perspective3",
-            "perspective4",
-            "fullTextSearch"
+            "novels"
         ],
         "onlyInstancePages": [
-            "manuscripts",
-            "collections",
-            "works",
-            "expressions",
-            "events",
-            "actors",
-            "places"
         ]
     },
     "localeConfig": {
-        "defaultLocale": "en",
+        "defaultLocale": "fi",
         "readTranslationsFromGoogleSheets": "false",
         "availableLocales": [
             {
@@ -45,7 +34,7 @@
     },
     "knowledgeGraphMetadataConfig": {
         "showTable": false,
-        "perspective": "perspective1" 
+        "perspective": "novels" 
     },
     "layoutConfig": {
         "colorPalette": {
@@ -121,19 +110,12 @@
         "yasguiParams": {
             "contentTypeConstruct": "text/turtle",
             "contentTypeSelect": "application/sparql-results+json",
-            "endpoint": "https://ldf.fi/mmm/sparql",
+            "endpoint": "https://saha.kirjastot.fi/kirjasampo/sparql",
             "requestMethod": "POST",
             "tabTitle": "Exported query"
         }
     },
     "documentFinderConfig": {
         "apiURL": "https://data.finlex.fi/document-finder-backend"
-    },
-    "temporalMapConfig": {
-        "sliderDuration": {
-            "halfSpeed": 1200,
-            "normalSpeed": 600,
-            "doubleSpeed": 300
-        }
     }
 }
