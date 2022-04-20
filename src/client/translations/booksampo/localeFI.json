@@ -208,6 +208,14 @@
           "label": "Teema",
           "description": "Teoksen teema"
         },
+        "originalLanguage": {
+          "label": "Alkukieli",
+          "description": "Teoksen alkukieli"
+        },
+        "award": {
+          "label": "Palkinnot",
+          "description": "Teoksen saamat mahdolliset palkinnot"
+        },
         "work": {
           "label": "",
           "description": ""

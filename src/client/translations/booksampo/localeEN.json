@@ -328,11 +328,19 @@
         },
         "genre": {
           "label": "Genre",
-          "description": "Genre of the novel"
+          "description": "Genre of the novel."
         },
         "theme": {
           "label": "Theme",
-          "description": "Theme of the novel"
+          "description": "Theme of the novel."
+        },
+        "originalLanguage": {
+          "label": "Original language",
+          "description": "The language the novel was originally written in."
+        },
+        "award": {
+          "label": "Awards",
+          "description": "The awards the novel has been awarded"
         },
         "language": {
           "label": "Language",
