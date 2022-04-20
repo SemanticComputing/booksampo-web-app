@@ -1,13 +1,13 @@
 {
   "languageLabel": "English",
   "html": {
-    "title": "Sampo-UI – A framework for building user interfaces for semantic portals",
-    "description": "The Sampo-UI framework makes it possible to create highly customizable, user-friendly, and responsive user interfaces using current state-of-the-art JavaScript libraries and data from SPARQL endpoints."
+    "title": "Booksampo",
+    "description": ""
   },
   "appTitle": {
-    "short": "Sampo-UI",
-    "mobile": "S-UI",
-    "long": "&nbsp; &nbsp; Sampo-UI &nbsp; &nbsp;",
+    "short": "Booksampo",
+    "mobile": "Booksampo",
+    "long": "&nbsp; &nbsp; Booksampo &nbsp; &nbsp;",
     "subheading": "\"Here to forge for us the Sampo, Hammer us the lid in colors\""
   },
   "appDescription1": "Sampo is a web service for searching and studying place names. The search results can be viewed as a table, on maps, and as statistical distributions. Historical and current background maps are provided.",
@@ -323,8 +323,16 @@
           "textFacetInputPlaceholder": "Search..."
         },
         "author": {
-          "label": "Possible author",
-          "description": "The author(s) associated with the Work. Because of the structure of entries in the Schoenberg Database, the authors shown as being associated with a Work may actually be associated with other Works in the same manuscript instead."
+          "label": "Author",
+          "description": "The author(s) associated with the novel."
+        },
+        "genre": {
+          "label": "Genre",
+          "description": "Genre of the novel"
+        },
+        "theme": {
+          "label": "Theme",
+          "description": "Theme of the novel"
         },
         "language": {
           "label": "Language",

@@ -9,6 +9,7 @@
     "baseURI": "http://www.yso.fi/onto/kaunokki",
     "URITemplate": "<BASE_URI>#<LOCAL_ID>",
     "facetClass": "kaunokki:romaani",
+    "langTag": "fi",
     "frontPageImage": "main_page/works-452x262.jpg",
     "searchMode": "faceted-search",
     "defaultActiveFacets": [
@@ -64,7 +65,8 @@
             "makeLink": true,
             "externalLink": false,
             "sortValues": true,
-            "numberedList": false
+            "numberedList": false,
+            "minWidth": 200
         },
         {
             "id": "author",
@@ -72,7 +74,24 @@
             "makeLink": true,
             "externalLink": false,
             "sortValues": true,
-            "numberedList": false
+            "numberedList": false,
+            "minWidth": 100
+        },
+        {
+            "id": "genre",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false   
+        },
+        {
+            "id": "theme",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false   
         }
     ],
     "facets": {
@@ -92,6 +111,32 @@
             "sortButton": true,
             "sortBy": "instanceCount",
             "sortByPredicate": "kaunokki:tekija/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "genre": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "hideUnknownValue": true,
+            "filterType": "uriFilter",
+            "predicate": "kaunokki:genre",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "kaunokki:genre/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "theme": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "hideUnknownValue": true,
+            "filterType": "uriFilter",
+            "predicate": "kaunokki:teema",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "kaunokki:teema/skos:prefLabel",
             "sortDirection": "desc"
         }
     }

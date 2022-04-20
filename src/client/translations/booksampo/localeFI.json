@@ -1,13 +1,13 @@
 {
   "languageLabel": "Suomi",
   "html": {
-    "title": "Sampo-UI – A framework for building user interfaces for semantic portals",
+    "title": "Kirjasampo",
     "description": ""
   },
   "appTitle": {
-    "short": "Sampo-UI",
-    "mobile": "S-UI",
-    "long": "&nbsp; &nbsp; Sampo-UI &nbsp; &nbsp;",
+    "short": "Kirjasampo",
+    "mobile": "Kirjasampo",
+    "long": "&nbsp; &nbsp; Kirjasampo &nbsp; &nbsp;",
     "subheading": "\"Here to forge for us the Sampo, Hammer us the lid in colors\""
   },
   "appDescription1": "Sampo is a web service for searching and studying place names. The search results can be viewed as a table, on maps, and as statistical distributions. Historical and current background maps are provided.",
@@ -16,7 +16,7 @@
   "mainPageImageLicence": "Images used under license from Shutterstock.com",
   "backendErrorText": "One of the backend services is not available at the moment. Please try again later.",
   "infoHeader": {
-    "toggleInstructions": "Click to show or hide instructions"
+    "toggleInstructions": "Paina näyttääksesi tai piilottaaksesi ohjeet"
   },
   "topBar": {
     "feedback": "palaute",
@@ -26,32 +26,32 @@
       "blogUrl": "https://seco.cs.aalto.fi/tools/sampo-ui/",
       "aboutThePortal": "Tietoa portaalista"
     },
-    "searchBarPlaceHolder": "Search all content",
-    "searchBarPlaceHolderShort": "Search",
+    "searchBarPlaceHolder": "Hae kaikesta sisällöstä",
+    "searchBarPlaceHolderShort": "Hae",
     "instructions": "ohjeet"
   },
   "facetBar": {
-    "results": "Results",
-    "filters": "Filters",
-    "activeFilters": "Active filters:",
-    "removeAllFilters": "Remove all",
-    "narrowDownBy": "Narrow down by",
-    "filterOptions": "Filter options",
-    "filterByName": "Filter by name",
+    "results": "Tulokset",
+    "filters": "Suodattimet",
+    "activeFilters": "Aktiiviset suodattimet:",
+    "removeAllFilters": "Poista kaikki",
+    "narrowDownBy": "Rajaa",
+    "filterOptions": "Suodatinasetukset",
+    "filterByName": "Suodata nimen perusteella",
     "filterByBoundingBox": "Filter by bounding box",
     "selectionOptions": "Selection options",
     "selectAlsoSubconcepts": "Automatically select all subconcepts",
     "doNotSelectSubconcepts": "Do not select subconcepts",
-    "sortingOptions": "Sorting options",
-    "sortAlphabetically": "Sort alphabetically",
+    "sortingOptions": "Järjestysasetukset",
+    "sortAlphabetically": "Järjestä aakkosjärjestykseen",
     "sortByNumberOfSearchResults": "Sort by number of search results",
     "useDisjunction": "Use logical OR between selections",
     "useConjuction": "Use logical AND between selections",
-    "minYear": "Min year",
-    "maxYear": "Max year",
+    "minYear": "Min vuosi",
+    "maxYear": "Max vuosi",
     "min": "Min",
     "max": "Max",
-    "facetSearchFieldPlaceholder": "Search...",
+    "facetSearchFieldPlaceholder": "Hae...",
     "applyFacetSelection": "apply",
     "pieChart": {
       "tooltip": "Pie chart"
@@ -96,7 +96,7 @@
     "recommendations": "recommendations"
   },
   "table": {
-    "rowsPerPage": "Rows per page",
+    "rowsPerPage": "Rivejä per sivu",
     "of": "of"
   },
   "lineChart": {
@@ -199,6 +199,14 @@
         "author": {
           "label": "Tekijä",
           "description": "Teoksen tekijä"
+        },
+        "genre": {
+          "label": "Kirjallisuudenlaji",
+          "description": "Teoksen kirjallisuudenlaji"
+        },
+        "theme": {
+          "label": "Teema",
+          "description": "Teoksen teema"
         },
         "work": {
           "label": "",
