@@ -183,17 +183,11 @@
             "sortValues": false,
             "numberedList": false,
             "disableSort": true,
-            "minWidth": 150
+            "minWidth": 150,
+            "onlyOnInstancePage": true
         }
     ],
     "facets": {
-        "prefLabel": {
-            "containerClass": "one",
-            "facetType": "text",
-            "filterType": "textFilter",
-            "sortByPredicate": "skos:prefLabel",
-            "textQueryProperty": "skos:prefLabel"
-        },
         "author": {
             "containerClass": "ten",
             "facetType": "list",
