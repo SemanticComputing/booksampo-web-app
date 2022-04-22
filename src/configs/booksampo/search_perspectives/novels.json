@@ -96,27 +96,39 @@
         {
             "id": "genre",
             "valueType": "object",
-            "makeLink": true,
+            "makeLink": false,
             "externalLink": false,
             "sortValues": true,
-            "numberedList": false   
+            "numberedList": false,
+            "minWidth": 150
         },
         {
             "id": "theme",
             "valueType": "object",
-            "makeLink": true,
+            "makeLink": false,
             "externalLink": false,
             "sortValues": true,
-            "numberedList": false   
+            "numberedList": false,
+            "minWidth": 150
+        },
+        {
+            "id": "keyword",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 150 
         },
         {
             "id": "originalLanguage",
             "valueType": "object",
             "makeLink": true,
             "externalLink": false,
-            "sortValues": true,
+            "sortValues": false,
             "numberedList": false,
-            "disableSort": true  
+            "disableSort": true,
+            "minWidth": 100
         },
         {
             "id": "award",
@@ -124,7 +136,54 @@
             "makeLink": true,
             "externalLink": false,
             "sortValues": true,
-            "numberedList": false   
+            "numberedList": false,
+            "minWidth": 200
+        },
+        {
+            "id": "mainCharacter",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 100
+        },
+        {
+            "id": "setting",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 150
+        },
+        {
+            "id": "concretePlace",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 100
+        },
+        {
+            "id": "timeOfStory",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 100
+        },
+        {
+            "id": "isbn",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "disableSort": true,
+            "minWidth": 150
         }
     ],
     "facets": {
@@ -172,6 +231,19 @@
             "sortByPredicate": "kaunokki:teema/skos:prefLabel",
             "sortDirection": "desc"
         },
+        "keyword": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "hideUnknownValue": true,
+            "filterType": "uriFilter",
+            "predicate": "kaunokki:asiasana",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "kaunokki:asiasana/skos:prefLabel",
+            "sortDirection": "desc"
+        },
         "originalLanguage": {
             "containerClass": "ten",
             "facetType": "list",
@@ -195,6 +267,58 @@
             "sortButton": true,
             "sortBy": "instanceCount",
             "sortByPredicate": "kaunokki:onPalkinto/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "mainCharacter": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "hideUnknownValue": true,
+            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_. FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabelFI_ . FILTER(LANG(?prefLabelFI_) = 'fi') } OPTIONAL { ?id skos:prefLabel ?prefLabelGEN_ } BIND(COALESCE(COALESCE(COALESCE(STR(?prefLabel_), STR(?prefLabelFI_)), STR(?prefLabelGEN_)), STR(?id)) AS ?prefLabel)",
+            "filterType": "uriFilter",
+            "predicate": "kaunokki:paahenkilo",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "kaunokki:paahenkilo/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "setting": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "hideUnknownValue": true,
+            "filterType": "uriFilter",
+            "predicate": "kaunokki:paikka",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "kaunokki:paikka/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "concretePlace": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_ . FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabelGEN_ . } BIND(COALESCE(COALESCE(?prefLabel_, ?prefLabelGEN_), ?id) as ?prefLabel)",
+            "hideUnknownValue": true,
+            "filterType": "uriFilter",
+            "predicate": "kaunokki:worldPlace",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "kaunokki:worldPlace/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "timeOfStory": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_ . FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabelGEN_ . } BIND(COALESCE(COALESCE(?prefLabel_, ?prefLabelGEN_), ?id) as ?prefLabel)",
+            "hideUnknownValue": true,
+            "filterType": "uriFilter",
+            "predicate": "kaunokki:hasTimeOfStory",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "kaunokki:hasTimeOfStory/skos:prefLabel",
             "sortDirection": "desc"
         }
     }

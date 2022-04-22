@@ -333,6 +333,10 @@
                         "description": "String specifying the type of the facet. If no type is specified, list type is used by default.",
                         "enum": ["text", "list", "hierarchical", "timespan", "integer"]
                     },
+                    "labelPattern": {
+                        "type": "string",
+                        "description": "String specifying a custom pattern that is used for getting the facet labels."
+                    },
                     "facetLabelFilter": {
                         "type": "string",
                         "description": "String specifying a filter to be applied to the facet labels."
@@ -370,6 +374,10 @@
                     "sortByPredicate": {
                         "type": "string",
                         "description": "String specifying the predicate used for getting the values that the sorting is based on"
+                    },
+                    "sortByPattern": {
+                        "type": "string",
+                        "description": "String specifying a custom pattern that is used for sorting the facet labels."
                     },
                     "sortDirection": {
                         "type": "string",

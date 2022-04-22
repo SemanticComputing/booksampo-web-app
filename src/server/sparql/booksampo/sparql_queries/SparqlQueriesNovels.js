@@ -29,14 +29,29 @@ export const novelProperties = `
     UNION
     {
       ?id kaunokki:genre ?genre__id .
-      ?genre__id skos:prefLabel ?genre__prefLabel . 
-      FILTER(LANG(?genre__prefLabel) = "<LANG>")
+      OPTIONAL { 
+        ?genre__id skos:prefLabel ?genre__prefLabel_ .
+        FILTER(LANG(?genre__prefLabel_) = "<LANG>")
+      }
+      BIND(COALESCE(?genre__prefLabel_, ?genre__id) as ?genre__prefLabel) 
     }
     UNION
     {
       ?id kaunokki:teema ?theme__id .
-      ?theme__id skos:prefLabel ?theme__prefLabel .
-      FILTER(LANG(?theme__prefLabel) = "<LANG>")
+      OPTIONAL { 
+        ?theme__id skos:prefLabel ?theme__prefLabel_ .
+        FILTER(LANG(?theme__prefLabel_) = "<LANG>")
+      }
+      BIND(COALESCE(?theme__prefLabel_, ?theme__id) as ?theme__prefLabel) 
+    }
+    UNION
+    {
+      ?id kaunokki:asiasana ?keyword__id .
+      OPTIONAL { 
+        ?keyword__id skos:prefLabel ?keyword__prefLabel_ .
+        FILTER(LANG(?keyword__prefLabel_) = "<LANG>")
+      }
+      BIND(COALESCE(?keyword__prefLabel_, ?keyword__id) as ?keyword__prefLabel) 
     }
     UNION
     {
@@ -51,5 +66,47 @@ export const novelProperties = `
         FILTER(LANG(?award__prefLabel_) = "<LANG>")
       }
       BIND(COALESCE(?award__prefLabel_, ?award__id) as ?award__prefLabel) 
+    }
+    UNION
+    {
+      ?id kaunokki:paahenkilo ?mainCharacter__id .
+      ?mainCharacter__id skos:prefLabel ?mainCharacter__prefLabel .
+    }
+    UNION
+    {
+      ?id kaunokki:paikka ?setting__id .
+      OPTIONAL { 
+        ?setting__id skos:prefLabel ?setting__prefLabel_ .
+        FILTER(LANG(?setting__prefLabel_) = "<LANG>")
+      }
+      BIND(COALESCE(?setting__prefLabel_, ?setting__id) as ?setting__prefLabel)
+    }
+    UNION
+    {
+      ?id kaunokki:worldPlace ?concretePlace__id .
+      OPTIONAL { 
+        ?concretePlace__id skos:prefLabel ?concretePlace__prefLabel_ .
+        FILTER(LANG(?concretePlace__prefLabel_) = "<LANG>")
+      }
+      OPTIONAL {
+        ?concretePlace__id skos:prefLabel ?concretePlace__prefLabelGEN_ .
+      }
+      BIND(COALESCE(COALESCE(?concretePlace__prefLabel_, ?concretePlace__prefLabelGEN_), ?concretePlace__id) as ?concretePlace__prefLabel)
+    }
+    UNION
+    {
+      ?id kaunokki:hasTimeOfStory ?timeOfStory__id .
+      OPTIONAL { 
+        ?timeOfStory__id skos:prefLabel ?timeOfStory__prefLabel_ .
+        FILTER(LANG(?timeOfStory__prefLabel_) = "<LANG>")
+      }
+      OPTIONAL {
+        ?timeOfStory__id skos:prefLabel ?timeOfStory__prefLabelGEN_ .
+      }
+      BIND(COALESCE(COALESCE(?timeOfStory__prefLabel_, ?timeOfStory__prefLabelGEN_), ?timeOfStory__id) as ?timeOfStory__prefLabel)
+    }
+    UNION
+    {
+      ?id sch:isbn ?isbn__id, ?isbn__prefLabel .
     }
 `

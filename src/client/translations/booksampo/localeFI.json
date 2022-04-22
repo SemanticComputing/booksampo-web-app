@@ -193,44 +193,52 @@
         },
         "prefLabel": {
           "label": "Nimi",
-          "description": "Teoksen nimi",
+          "description": "Teoksen nimi.",
           "textFacetInputPlaceholder": ""
         },
         "author": {
           "label": "Tekijä",
-          "description": "Teoksen tekijä"
+          "description": "Teoksen tekijä."
         },
         "genre": {
           "label": "Kirjallisuudenlaji",
-          "description": "Teoksen kirjallisuudenlaji"
+          "description": "Teoksen kirjallisuudenlaji."
         },
         "theme": {
           "label": "Teema",
-          "description": "Teoksen teema"
+          "description": "Teoksen teema."
+        },
+        "keyword": {
+          "label": "Asiasana",
+          "description": "Teoksen asiasana(t)."
         },
         "originalLanguage": {
           "label": "Alkukieli",
-          "description": "Teoksen alkukieli"
+          "description": "Teoksen alkukieli."
         },
         "award": {
           "label": "Palkinnot",
-          "description": "Teoksen saamat mahdolliset palkinnot"
+          "description": "Teoksen saamat mahdolliset palkinnot."
         },
-        "work": {
-          "label": "",
-          "description": ""
+        "mainCharacter": {
+          "label": "Päähenkilö",
+          "description": "Teoksen päähenkilö(t)."
         },
-        "expression": {
-          "label": "",
-          "description": ""
+        "setting": {
+          "label": "Tapahtumapaikka",
+          "description": "Teoksen tapahtumapaikka."
         },
-        "productionPlace": {
-          "label": "",
-          "description": ""
+        "concretePlace": {
+          "label": "Konkreettinen tapahtumapaikka",
+          "description": "Teoksen konkreettinen tapahtumapaikka."
         },
-        "productionTimespan": {
-          "label": "",
-          "description": ""
+        "timeOfStory": {
+          "label": "Tapahtuma-aika",
+          "description": "Teoksen tapahtuma-aika."
+        },
+        "isbn": {
+          "label": "ISBN",
+          "description": "Teoksen ISBN(:t)."
         },
         "note": {
           "label": "",

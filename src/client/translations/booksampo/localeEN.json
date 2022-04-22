@@ -221,6 +221,10 @@
           "label": "Theme",
           "description": "Theme of the novel."
         },
+        "keyword": {
+          "label": "Keywords",
+          "description": "Keyword(s) of the novel."
+        },
         "originalLanguage": {
           "label": "Original language",
           "description": "The language the novel was originally written in."
@@ -229,21 +233,25 @@
           "label": "Awards",
           "description": "The awards the novel has been awarded."
         },
-        "language": {
-          "label": "Language",
-          "description": "The language in which a Work is written in the manuscript (i.e., an “Expression” of a Work). One manuscript may contain multiple languages."
+        "mainCharacter": {
+          "label": "Main character",
+          "description": "The main character(s) of the novel."
         },
-        "expression": {
-          "label": "Expression",
-          "description": "The expression(s) of the Work."
+        "setting": {
+          "label": "Setting",
+          "description": "The setting the novel takes place in."
         },
-        "manuscript": {
-          "label": "Manuscript",
-          "description": "The specific manuscript(s) in which the Work can be found."
+        "concretePlace": {
+          "label": "Concerete place",
+          "description": "The concrete place the novel takes place in."
         },
-        "productionTimespan": {
-          "label": "Manuscript production date",
-          "description": "The date(s) when the manuscript(s) in which the Work can be found were written. Multiple production dates may appear for a single manuscript, when there are discrepancies between the contributing data source or when the precise date is uncertain."
+        "timeOfStory": {
+          "label": "Time of story",
+          "description": "The time of the story taking place."
+        },
+        "isbn": {
+          "label": "ISBN",
+          "description": "The ISBN(s) of the novel."
         },
         "collection": {
           "label": "Collection",
