@@ -1,0 +1,392 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "perspective-schema.json",
+    "type": "object",
+    "title": "Perspective config schema",
+    "description": "A schema describing the perspective configuration files.",
+    "properties": {
+        "id": {
+            "type": "string",
+            "description": "String specifying the perspective id."
+        },
+        "endpoint": {
+            "type": "object",
+            "description": "Object representing the used endpoint's relevant information.",
+            "properties": {
+                "url": {
+                    "type": "string",
+                    "description": "Endpoint URL as string."
+                },
+                "useAuth": {
+                    "type": "boolean",
+                    "description": "Boolean determining whether authentication is used when querying the endpoint."
+                },
+                "prefixesFile": {
+                    "type": "string",
+                    "description": "The file name of the file containing the prefixes used in SPARQL queries."
+                }
+            },
+            "required": [
+                "url",
+                "useAuth",
+                "prefixesFile"
+            ]
+        },
+        "sparqlQueriesFile": {
+            "type": "string",
+            "description": "The file name of the file containing the SPARQL queries as a string."
+        },
+        "baseURIs": {
+            "type": "object",
+            "description": "Object containing different base URIs as properties.",
+            "properties": {
+                "baseURIproperty": {
+                    "type": "object",
+                    "description": "Base URI property that defines the base URI and the URI template based on that.",
+                    "properties": {
+                        "baseURI": {
+                            "type": "string",
+                            "description": "Base URI as string."
+                        },
+                        "URITemplate": {
+                            "type": "string",
+                            "description": "URI template consisting of the base URI and local ID."
+                        }
+                    },
+                    "required": [
+                        "baseURI",
+                        "URITemplate"
+                    ]
+                }
+            }
+        },
+        "facetClass": {
+            "type": "string",
+            "description": "The URI of the class that is used as the basis for the different facet searches."
+        },
+        "langTag": {
+            "type": "string",
+            "description": "The language code determining which language labels are used."
+        },
+        "frontPageImage": {
+            "type": "string",
+            "description": "File path and name of the image shown on the front page."
+        },
+        "searchMode": {
+            "type": "string",
+            "description": "String specifying the search mode.",
+            "enum": ["federated-search", "faceted-search", "full-text-search"]
+        },
+        "defaultActiveFacets": {
+            "type": "array",
+            "items": [
+                {
+                    "type": "string",
+                    "description": "String specifying the names of the default active facets."
+                }
+            ]
+        },
+        "defaultTab": {
+            "type": "string",
+            "description": "String specifying the default tab.",
+            "enum": ["table"]
+        },
+        "defaultInstancePageTab": {
+            "type": "string",
+            "description": "String specifying the default instance page tab.",
+            "enum": ["table"]
+        },
+        "resultClasses": {
+            "type": "object",
+            "properties": {
+                "knowledgeGraphMetadata": {
+                    "type": "object",
+                    "properties": {
+                        "sparqlQuery": {
+                            "type": "string",
+                            "description": "String specifying the type of SPARQL query.",
+                            "enum": ["knowledgeGraphMetadataQuery"]
+                        },
+                        "resultMapper": {
+                            "type": "string",
+                            "description": "String specifying how results are mapped.",
+                            "enum": ["makeObjectList", "mapPlaces", "mapLineChart", "mapMultipleLineChart"]
+                        }
+                    }
+                }
+            },
+            "additionalProperties": {
+                "type": "object",
+                "description": "The object describing the perspective itself that should be renamed to the perspective name.",
+                "properties": {
+                    "paginatedResultsConfig": {
+                        "type": "object",
+                        "description": "Object representing a config used for paginated results.",
+                        "properties": {
+                            "tabID": {
+                                "type": "integer",
+                                "description": "Integer specifying the id for the tab."
+                            },
+                            "component": {
+                                "type": "string",
+                                "description": "String specifying the component used for visualizing the paginated results.",
+                                "enum": ["ResultTable", "ReactVirtualizedList", "InstancePageTable", "LeafletMap", "Deck", "ApexCharts", "ApexChartsDouble", "Network", "VideoPage", "BarChartRace", "TemporalMap", "WordCloud", "Export", "ExportCSV"]
+                            },
+                            "tabPath": {
+                                "type": "string",
+                                "description": "String specifying the relative path of the tab from the search path."
+                            },
+                            "tabIcon": {
+                                "type": "string",
+                                "description": "String specifying what icon should be used on the tab.",
+                                "enum": ["CalendarViewDay", "CloudDownload", "PieChart", "LocationOn", "TripOrigin", "BubbleChart", "AddLocation", "Redo", "ShowChart"]
+                            },
+                            "propertiesQueryBlock": {
+                                "type": "string",
+                                "description": "The name of the relevant query exported in the SPARQL queries file."
+                            },
+                            "pagesize": {
+                                "type": "integer",
+                                "description": "The number of results to be included per page."
+                            },
+                            "sortBy": {
+                                "type": ["string", "null"],
+                                "description": "String specifying whether the results should be sorted alphabetically (sorting by prefLabel) or by number of search results (sorting by instanceCount).",
+                                "enum": ["prefLabel", "instanceCount", null]
+                            },
+                            "sortDirection": {
+                                "type": ["string", "null"],
+                                "description": "String specifying whether the sorting is ascending or descending.",
+                                "enum": ["asc", "desc", null]
+                            }
+                        },
+                        "required": [
+                            "tabID",
+                            "tabPath",
+                            "tabIcon"
+                        ]
+                    },
+                    "instanceConfig": {
+                        "type": "object",
+                        "properties": {
+                            "propertiesQueryBlock": {
+                                "type": "string",
+                                "description": "The name of the relevant query exported in the SPARQL queries file."
+                            },
+                            "createPopUpContent": {
+                                "type": "string"
+                            },
+                            "relatedInstances": {
+                                "type": "string"
+                            }
+                        },
+                        "additionalProperties": {
+                            "type": "object",
+                            "description": "Object for an instance page that should be named to reflect what the tab does (e.g. 'instancePageTable' or 'instancePageExport).",
+                            "properties": {
+                                "tabID": {
+                                    "type": "integer",
+                                    "description": "Integer specifying the id for the page."
+                                },
+                                "component": {
+                                    "type": "string",
+                                    "description": "String specifying the component used for visualizing the instance page table.",
+                                    "enum": ["ResultTable", "ReactVirtualizedList", "InstancePageTable", "LeafletMap", "Deck", "ApexCharts", "ApexChartsDouble", "Network", "VideoPage", "BarChartRace", "TemporalMap", "WordCloud", "Export", "ExportCSV"]
+                                },
+                                "tabPath": {
+                                    "type": "string",
+                                    "description": "String specifying the relative path of the tab from the search path."
+                                },
+                                "tabIcon": {
+                                    "type": "string",
+                                    "description": "String specifying what icon should be used on the tab.",
+                                    "enum": ["CalendarViewDay", "CloudDownload", "PieChart", "LocationOn", "TripOrigin", "BubbleChart", "AddLocation", "Redo", "ShowChart"]
+                                }
+                            }
+                        },
+                        "minProperties": 1
+                    },
+                    "tabID": {
+                        "type": "integer",
+                        "description": "Integer specifying the tab id."
+                    },
+                    "component": {
+                        "type": "string",
+                        "description": "String specifying the component used for visualizing the data.",
+                        "enum": ["ResultTable", "ReactVirtualizedList", "InstancePageTable", "LeafletMap", "Deck", "ApexCharts", "ApexChartsDouble", "Network", "VideoPage", "BarChartRace", "TemporalMap", "WordCloud", "Export", "ExportCSV"]
+                    },
+                    "tabPath": {
+                        "type": "string",
+                        "description": "String specifying the relative path of the tab from the search path."
+                    },
+                    "tabIcon": {
+                        "type": "string",
+                        "description": "String specifying what icon should be used on the tab.",
+                        "enum": ["CalendarViewDay", "CloudDownload", "PieChart", "LocationOn", "TripOrigin", "BubbleChart", "AddLocation", "Redo", "ShowChart"]
+                    },
+                    "resultClass": {
+                        "type": "string",
+                        "description": "String specifying the result class."
+                    },
+                    "facetClass": {
+                        "type": "string",
+                        "description": "String specifying the facet class."
+                    },
+                    "sparqlQuery": {
+                        "type": "string",
+                        "description": "String specifying the type of SPARQL query.",
+                        "enum": ["knowledgeGraphMetadataQuery", "manuscriptInstancePageNetworkLinksQuery", "productionPlacesQuery", "lastKnownLocationsQuery", "migrationsQuery", "productionsByDecadeQuery", "eventsByDecadeQuery", "manuscriptFacetResultsNetworkLinksQuery", "migrationsDialogQuery", "productionsByDecadeAndCountryQuery", "eventPlacesQuery"]
+                    },
+                    "resultMapper": {
+                        "type": "string",
+                        "description": "String specifying how results are mapped.",
+                        "enum": ["makeObjectList", "mapPlaces", "mapLineChart", "mapMultipleLineChart"]
+                    },
+                    "propertiesQueryBlock": {
+                        "type": "string",
+                        "description": "The name of the relevant query exported in the SPARQL queries file."
+                    }
+                },
+                "anyOf": [
+                    {
+                        "required": ["paginatedResultsConfig"]
+                    },
+                    {
+                        "required": ["tabID", "tabPath", "tabIcon"]
+                    },
+                    {
+                        "required": ["sparqlQuery"]
+                    },
+                    {
+                        "required": ["propertiesQueryBlock"]
+                    }
+                ]
+            }
+        },
+        "properties": {
+            "type": "array",
+            "items": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string",
+                            "description": "The id of the property."
+                        },
+                        "valueType": {
+                            "type": "string",
+                            "description": "String specifying the type of the property values.",
+                            "enum": ["object", "string"]
+                        },
+                        "makeLink": {
+                            "type": "boolean",
+                            "description": "Boolean indicating whether the values of the property should be made into links."
+                        },
+                        "externalLink": {
+                            "type": "boolean",
+                            "description": "Boolean indicating whether the links are external."
+                        },
+                        "sortValues": {
+                            "type": "boolean",
+                            "description": "Boolean indicating whether the values should be sorted."
+                        },
+                        "numberedList": {
+                            "type": "boolean",
+                            "description": "Boolean indicating whether the values should be rendered as a numbered list."
+                        },
+                        "onlyOnInstancePage": {
+                            "type": "boolean",
+                            "description": "Boolean indicating whether the column should only be shown on instance page or also on results page."
+                        },
+                        "minWidth": {
+                            "type": "integer",
+                            "description": "Integer specifying what the minimum width of the column for this property is."
+                        },
+                        "disableSort": {
+                            "type": "boolean",
+                            "description": "Boolean value indicating whether the sort is disabled or not."
+                        }
+                    },
+                    "required": [
+                        "id",
+                        "valueType",
+                        "makeLink",
+                        "externalLink",
+                        "sortValues",
+                        "numberedList"
+                    ]
+                }
+            ]
+        },
+        "facets": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "object",
+                "description": "An object representing a facet property. The name of this object should be the name of the facet.",
+                "properties": {
+                    "containerClass": {
+                        "type": "string",
+                        "description": "String specifying a number (e.g. 'four', 'ten') of items the container class should show when opened."
+                    },
+                    "facetType": {
+                        "type": "string",
+                        "description": "String specifying the type of the facet. If no type is specified, list type is used by default.",
+                        "enum": ["text", "list", "hierarchical", "timespan", "integer"]
+                    },
+                    "facetLabelFilter": {
+                        "type": "string",
+                        "description": "String specifying a filter to be applied to the facet labels."
+                    },
+                    "facetLabelPredicate": {
+                        "type": "string",
+                        "description": "String specifying a predicate used for getting the facet labels. If not specified, the default label predicate skos:prefLabel is used."
+                    },
+                    "hideUnknownValue": {
+                        "type": "boolean",
+                        "description": "Boolean value that determines whether an 'Unknown' label should be shown in the facet for items that do not have any value(s) for the facet."
+                    },
+                    "filterType": {
+                        "type": "string",
+                        "description": "String specifying the type of the filter used.",
+                        "enum": ["uriFilter", "textFilter", "timespanFilter", "dateNoTimespanFilter", "integerFilter", "spatialFilter", "integerFilterRange", "datasetSelector", "clientFSLiteral"]
+                    },
+                    "predicate": {
+                        "type": "string",
+                        "description": "String specifying the predicate for getting the facet values."
+                    },
+                    "searchField": {
+                        "type": "boolean",
+                        "description": "Boolean specifying whether a search field is shown for the facet values."
+                    },
+                    "sortButton": {
+                        "type": "boolean",
+                        "description": "Boolean specifying whether a sorting options are shown for the facet."
+                    },
+                    "sortBy": {
+                        "type": "string",
+                        "description": "String specifying whether the results should be sorted alphabetically (sorting by prefLabel) or by number of search results (sorting by instanceCount).",
+                        "enum": ["prefLabel", "instanceCount"]
+                    },
+                    "sortByPredicate": {
+                        "type": "string",
+                        "description": "String specifying the predicate used for getting the values that the sorting is based on"
+                    },
+                    "sortDirection": {
+                        "type": "string",
+                        "description": "String specifying whether the sorting is ascending or descending",
+                        "enum": ["asc", "desc"]
+                    },
+                    "textQueryProperty": {
+                        "type": "string",
+                        "description": "String specifying the property that can be text queried."
+                    }
+                }
+            }
+        }
+    },
+    "required": [
+        "id",
+        "sparqlQueriesFile",
+        "searchMode"
+    ]
+}

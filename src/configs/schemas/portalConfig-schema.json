@@ -1,0 +1,526 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "portalConfig-schema.json",
+    "type": "object",
+    "title": "Portal config schema",
+    "description": "A schema describing the portal configuration file.",
+    "properties": {
+        "portalID": {
+            "type": "string",
+            "description": "String specifying the id for the portal."
+        },
+        "rootUrl": {
+            "type": "string"
+        },
+        "perspectives": {
+            "type": "object",
+            "properties": {
+                "searchPerspectives": {
+                    "type": "array",
+                    "description": "Array containing the perspective ids of those perspectives that can be searched.",
+                    "items": [
+                        {
+                            "type": "string",
+                            "description": "String specifying the perspective id."
+                        }
+                    ]
+                },
+                "onlyInstancePages": {
+                    "type": "array",
+                    "description": "Array containing the perspective ids of those perspectives that only have instance pages.",
+                    "items": [
+                        {
+                            "type": "string",
+                            "description": "String specifying the perspective id."
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "searchPerspectives",
+                "onlyInstancePages"
+            ]
+        },
+        "localeConfig": {
+            "type": "object",
+            "properties": {
+                "defaultLocale": {
+                    "type": "string",
+                    "description": "String specifying the language code of the default locale."
+                },
+                "readTranslationsFromGoogleSheets": {
+                    "type": "boolean",
+                    "description": "Boolean indicating whether or not translations should be read from Google Sheets or not."
+                },
+                "availableLocales": {
+                    "type": "array",
+                    "description": "An array containing the required language data for the available locales.",
+                    "items": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string",
+                                    "description": "String specifying the language code of the language."
+                                },
+                                "label": {
+                                    "type": "string",
+                                    "description": "String specifying the label for the language."
+                                },
+                                "filename": {
+                                    "type": "string",
+                                    "description": "String specifying the file name where the locale translations are stored."
+                                }
+                            },
+                            "required": [
+                                "id",
+                                "label",
+                                "filename"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "defaultLocale",
+                "readTranslationsFromGoogleSheets",
+                "availableLocales"
+            ]
+        },
+        "sitemapConfig": {
+            "type": "object",
+            "description": "An object containing sitemap configurations.",
+            "properties": {
+                "baseUrl": {
+                    "type": "string",
+                    "description": "String specifying the base URL of the portal."
+                },
+                "langPrimary": {
+                    "type": "string",
+                    "description": "String specifying the language code of the primary language used."
+                },
+                "langSecondary": {
+                    "type": "string",
+                    "description": "String specifying the language code of the secondary language used."
+                },
+                "outputDir": {
+                    "type": "string",
+                    "description": "String specifying the directory where the sitemap is outputted."
+                },
+                "sitemapUrl": {
+                    "type": "string",
+                    "description": "String specifying the URL for the sitemap."
+                },
+                "sitemapInstancePageQuery": {
+                    "type": "string",
+                    "enum": ["sitemapInstancePageQuery"]
+                }
+            },
+            "required": [
+                "baseUrl",
+                "langPrimary",
+                "langSecondary",
+                "outputDir",
+                "sitemapUrl",
+                "sitemapInstancePageQuery"
+            ]
+        },
+        "knowledgeGraphMetadataConfig": {
+            "type": "object",
+            "properties": {
+                "showTable": {
+                    "type": "boolean",
+                    "description": "Boolean indicating whether a table should be shown."
+                },
+                "perspective": {
+                    "type": "string",
+                    "description": "String specifying the perspective for the knowledge graph metadata."
+                }
+            },
+            "required": [
+                "showTable",
+                "perspective"
+            ]
+        },
+        "layoutConfig": {
+            "type": "object",
+            "properties": {
+                "colorPalette": {
+                    "type": "object",
+                    "description": "An object representing the information about the site color palette.",
+                    "properties": {
+                        "primary": {
+                            "type": "object",
+                            "description": "An object representing the primary colors of the color palette.",
+                            "properties": {
+                                "main": {
+                                    "type": "string",
+                                    "description": "String specifying the hex color code for the main primary color."
+                                }
+                            },
+                            "required": [
+                                "main"
+                            ]
+                        },
+                        "secondary": {
+                            "type": "object",
+                            "description": "An object representing the secondary colors of the color palette.",
+                            "properties": {
+                                "main": {
+                                    "type": "string",
+                                    "description": "String specifying the hex color code for the main secondary color."
+                                }
+                            },
+                            "required": [
+                                "main"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "primary",
+                        "secondary"
+                    ]
+                },
+                "hundredPercentHeightBreakPoint": {
+                    "type": "integer",
+                    "description": "Integer specifying the breakpoint for hundred percent height."
+                },
+                "reducedHeightBreakpoint": {
+                    "type": "integer",
+                    "description": "Integer specifying the breakpoint for reduced height."
+                },
+                "tabHeight": {
+                    "type": "integer",
+                    "description": "Integer specifying tab height."
+                },
+                "paginationToolbarHeight": {
+                    "type": "integer",
+                    "description": "Integer specifying the pagination toolbar height."
+                },
+                "tableFontSize": {
+                    "type": "string",
+                    "description": "String specifying the font size or the table."
+                },
+                "topBar": {
+                    "type": "object",
+                    "description": "An object representing the top navigation bar of the site.",
+                    "properties": {
+                        "logoImage": {
+                            "type": "string",
+                            "description": "String specifying the image path of the logo image."
+                        },
+                        "logoTextTransform": {
+                            "type": "string",
+                            "description": "String specifying the transformation done to the logo text.",
+                            "enum": ["none", "capitalize", "uppercase", "lowercase", "full-width", "full-size-kana"]
+                        },
+                        "hideLogoTextOnMobile": {
+                            "type": "boolean",
+                            "description": "Boolean indicating whether the logo text should be hidden on mobile."
+                        },
+                        "showLanguageButton": {
+                            "type": "boolean",
+                            "description": "Boolean indicating whether the language button should be shown."
+                        },
+                        "showSearchField": {
+                            "type": "boolean",
+                            "description": "Boolean indicating whether the search field should be shown in the top navigation bar."
+                        },
+                        "feedbackLink": {
+                            "type": "string",
+                            "description": "String specifying the URL of the feedback page."
+                        },
+                        "externalInstructions": {
+                            "type": "boolean",
+                            "description": "Boolean indicating whether the instructions page is external."
+                        },
+                        "externalAboutPage": {
+                            "type": "boolean",
+                            "description": "Boolean indicating whether the about page is external."
+                        },
+                        "reducedHeight": {
+                            "type": "integer",
+                            "description": "Integer specifying the height of the topbar when it is in reduced height."
+                        },
+                        "defaultHeight": {
+                            "type": "integer",
+                            "description": "Integer specifying the height of the topbar."
+                        },
+                        "mobileMenuBreakpoint": {
+                            "type": "integer",
+                            "description": "Integer specifying the breakpoint for the mobile menu."
+                        },
+                        "infoDropdown": {
+                            "type": "array",
+                            "description": "An object representing the information shown in the info dropdown in the top navigation bar.",
+                            "items": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string",
+                                            "description": "String specifying the id for this dropdown item."
+                                        },
+                                        "externalLink": {
+                                            "type": "boolean",
+                                            "description": "Boolean indicating whether the current link is external."
+                                        },
+                                        "translatedUrl": {
+                                            "type": "string",
+                                            "description": "String specifying the property name used in locale translations to refer to this item's URL."
+                                        },
+                                        "translatedText": {
+                                            "type": "string",
+                                            "description": "String specifying the property name used in locale translations to refer to this item's text."
+                                        },
+                                        "internalLink": {
+                                            "type": "string",
+                                            "description": "String specifying the internal page path."
+                                        }
+                                    },
+                                    "required": [
+                                        "id",
+                                        "translatedText"
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "required": [
+                        "logoImage",
+                        "logoTextTransform",
+                        "hideLogoTextOnMobile",
+                        "showLanguageButton",
+                        "feedbackLink",
+                        "externalInstructions",
+                        "externalAboutPage",
+                        "reducedHeight",
+                        "defaultHeight",
+                        "mobileMenuBreakpoint",
+                        "infoDropdown"
+                    ]
+                },
+                "mainPage": {
+                    "type": "object",
+                    "properties": {
+                        "bannerImage": {
+                            "type": "string",
+                            "description": "String specifying the image path to the main page banner image."
+                        },
+                        "bannerBackround": {
+                            "type": "string",
+                            "description": "String specifying the CSS value for the banner background."
+                        },
+                        "bannerMobileHeight": {
+                            "type": "integer",
+                            "description": "Integer specifying the height of the main page banner on mobile."
+                        },
+                        "bannerReducedHeight": {
+                            "type": "integer",
+                            "description": "Integer specifying the height of the main page banner when it is reduced in its height."
+                        },
+                        "bannerDefaultHeight": {
+                            "type": "integer",
+                            "description": "Integer specifying the height of the main page banner."
+                        },
+                        "wrapSubheading": {
+                            "type": "boolean",
+                            "description": "Boolean indicating whether the subheading on the main page should wrap."
+                        }
+                    },
+                    "required": [
+                        "bannerImage",
+                        "bannerBackround",
+                        "bannerMobileHeight",
+                        "bannerReducedHeight",
+                        "bannerDefaultHeight",
+                        "wrapSubheading"
+                    ]
+                },
+                "infoHeader": {
+                    "type": "object",
+                    "description": "An object representing the info header on the site.",
+                    "properties": {
+                        "default": {
+                            "type": "object",
+                            "description": "An object representing the info header's properties when it is in its default state.",
+                            "properties": {
+                                "height": {
+                                    "type": "integer",
+                                    "description": "Integer specifying the height of the info header when it is not expanded."
+                                },
+                                "expandedContentHeight": {
+                                    "type": "integer",
+                                    "description": "Integer specifying the height of the info header when expanded."
+                                },
+                                "headingVariant": {
+                                    "type": "string",
+                                    "description": "String specifying the heading variant used.",
+                                    "enum": ["h1", "h2", "h3", "h4", "h5", "h6"]
+                                },
+                                "infoIconFontSize": {
+                                    "type": "integer",
+                                    "description": "Integer specifying the font size for the info icon."
+                                }
+                            },
+                            "required": [
+                                "height",
+                                "expandedContentHeight",
+                                "headingVariant",
+                                "infoIconFontSize"
+                            ]
+                        },
+                        "reducedHeight": {
+                            "type": "object",
+                            "description": "An object representing the info header's properties when it is reduced in height.",
+                            "properties": {
+                                "height": {
+                                    "type": "integer",
+                                    "description": "Integer specifying the height of the info header when it is not expanded."
+                                },
+                                "expandedContentHeight": {
+                                    "type": "integer",
+                                    "description": "Integer specifying the height of the info header when expanded."
+                                },
+                                "headingVariant": {
+                                    "type": "string",
+                                    "description": "String specifying the heading variant used.",
+                                    "enum": ["h1", "h2", "h3", "h4", "h5", "h6"]
+                                },
+                                "infoIconFontSize": {
+                                    "type": "integer",
+                                    "description": "Integer specifying the font size for the info icon."
+                                }
+                            },
+                            "required": [
+                                "height",
+                                "expandedContentHeight",
+                                "headingVariant",
+                                "infoIconFontSize"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "default",
+                        "reducedHeight"
+                    ]
+                },
+                "footer": {
+                    "type": "object",
+                    "description": "An object representing the height information of the footer.",
+                    "properties": {
+                        "reducedHeight": {
+                            "type": "integer",
+                            "description": "Integer specifying the height of the footer when it is in its reduced height."
+                        },
+                        "defaultHeight": {
+                            "type": "integer",
+                            "description": "Integer specifying the height of the footer when it is in its default height."
+                        }
+                    },
+                    "required": [
+                        "reducedHeight",
+                        "defaultHeight"
+                    ]
+                }
+            },
+            "required": [
+                "colorPalette",
+                "hundredPercentHeightBreakPoint",
+                "reducedHeightBreakpoint",
+                "tabHeight",
+                "paginationToolbarHeight",
+                "tableFontSize",
+                "topBar",
+                "mainPage",
+                "infoHeader",
+                "footer"
+            ]
+        },
+        "mapboxConfig": {
+            "type": "object",
+            "properties": {
+                "mapboxStyle": {
+                    "type": "string",
+                    "description": "String specifying the wanted style for the mapbox.",
+                    "enum": ["streets-v11", "outdoors-v11", "light-v10", "dark-v10", "satellite-v9", "satellite-streets-v11", "navigation-day-v1", "navigation-night-v1"]
+                }
+            },
+            "required": [
+                "mapboxStyle"
+            ]
+        },
+        "yasguiConfig": {
+            "type": "object",
+            "description": "An object representing the YASGUI configuration.",
+            "properties": {
+                "yasguiBaseURL": {
+                    "type": "string",
+                    "description": "String specifying the base URL for YASGUI."
+                },
+                "yasguiParams": {
+                    "type": "object",
+                    "properties": {
+                        "contentTypeConstruct": {
+                            "type": "string",
+                            "description": "String specifying the content type for CONSTRUCT (e.g. 'text/turtle')."
+                        },
+                        "contentTypeSelect": {
+                            "type": "string",
+                            "description": "String specifying the content type for SELECT (e.g. 'application/sparql-results+json')."
+                        },
+                        "endpoint": {
+                            "type": "string",
+                            "description": "String specifying the endpoint to be used in YASGUI."
+                        },
+                        "requestMethod": {
+                            "type": "string",
+                            "description": "Specifies the request method used.",
+                            "enum": ["POST"]
+                        },
+                        "tabTitle": {
+                            "type": "string",
+                            "description": "String specifying the tab title to be used for the opened tab in YASGUI editor."
+                        }
+                    },
+                    "required": [
+                        "contentTypeConstruct",
+                        "contentTypeSelect",
+                        "endpoint",
+                        "requestMethod",
+                        "tabTitle"
+                    ]
+                }
+            },
+            "required": [
+                "yasguiBaseURL",
+                "yasguiParams"
+            ]
+        },
+        "documentFinderConfig": {
+            "type": "object",
+            "description": "An object representing the information for document finder configuration.",
+            "properties": {
+                "apiURL": {
+                    "type": "string",
+                    "description": "String specifying the API URL for the document finder."
+                }
+            },
+            "required": [
+                "apiURL"
+            ]
+        }
+    },
+    "required": [
+        "portalID",
+        "rootUrl",
+        "perspectives",
+        "localeConfig",
+        "sitemapConfig",
+        "knowledgeGraphMetadataConfig",
+        "layoutConfig",
+        "mapboxConfig",
+        "yasguiConfig",
+        "documentFinderConfig"
+    ]
+}
