@@ -5,7 +5,7 @@ export const novelProperties = `
       ?id skos:prefLabel ?prefLabel__id .
       BIND(?prefLabel__id AS ?prefLabel__prefLabel)
       BIND(?id as ?uri__id)
-      BIND(?id as ?uri__dataProviderUrl)
+      BIND(CONCAT("https://saha.kirjastot.fi/saha/project/resource.shtml?uri=", ENCODE_FOR_URI(STR(?id)), "&model=kirjasampo") as ?uri__dataProviderUrl)
       BIND(?id as ?uri__prefLabel)
     }
     UNION

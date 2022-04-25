@@ -76,8 +76,9 @@
     }
   },
   "tabs": {
-    "table": "table",
-    "map": "map",
+    "table": "taulukko",
+    "pie_chart": "ympyräkaavio/pylväsdiagrammi",
+    "map": "kartta",
     "production_places": "production places",
     "production_places_heatmap": "production heatmap",
     "last_known_locations": "last known locations",
@@ -98,6 +99,18 @@
   "table": {
     "rowsPerPage": "Rivejä per sivu",
     "of": "of"
+  },
+  "apexCharts": {
+    "by": "by",
+    "property": "X-akseli:",
+    "numberOfNovels": "Romaanien lukumäärä",
+    "chartType": "Kaaviotyyppi:",
+    "pie": "ympyräkaavio",
+    "bar": "pylväsdiagrammi",
+    "resultClasses": {
+      "novelsByGenre": "kirjallisuudenlaji",
+      "novelsByOriginalLanguage": "alkukieli"
+    }
   },
   "lineChart": {
     "productionCount": "Production",
@@ -183,7 +196,7 @@
       "shortDescription": "Romaanien kuvaus",
       "longDescription": "",
       "instancePage": {
-        "label": "",
+        "label": "Romaani",
         "description": ""
       },
       "properties": {
