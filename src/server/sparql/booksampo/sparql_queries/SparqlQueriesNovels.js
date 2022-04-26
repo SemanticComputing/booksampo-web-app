@@ -163,9 +163,18 @@ export const novelsPlacesQuery = `
   (COUNT(DISTINCT ?novels) as ?instanceCount)
   WHERE {
     <FILTER>
-    ?novels kaunokki:worldPlace ?id .
+    ?novels kaunokki:worldPlace ?id ;
+          a <FACET_CLASS> .	
     ?id wgs84:lat ?lat ;
         wgs84:long ?long .
+    FILTER NOT EXISTS {
+      ?id wgs84:lat ?lat, ?lat2 .
+      FILTER(?lat != ?lat2) 
+    }
+    FILTER NOT EXISTS {
+      ?id wgs84:long ?long, ?long2 .
+      FILTER(?long != ?long2) 
+    }
   }
   GROUP BY ?id ?lat ?long
 `
