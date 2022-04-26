@@ -63,6 +63,79 @@
                     }
                 }
             }
+        },
+        "novelsPlaces": {
+            "tabID": 1,
+            "tabPath": "map",
+            "tabIcon": "AddLocation",
+            "component": "LeafletMap",
+            "showInstanceCountInClusters": false,
+            "showExternalLayers": false,
+            "customMapControl": true,
+            "sparqlQuery": "novelsPlacesQuery",
+            "facetClass": "novels",
+            "filterTarget": "novels",
+            "resultMapper": "mapPlaces",
+            "instanceConfig": {
+                "propertiesQueryBlock": "placePropertiesInfoWindow",
+                "relatedInstances": "novelsTakingPlaceAt",
+                "createPopUpContent": "createPopUpContentBookSampo"
+            }
+        },
+        "novelsByProperty": {
+            "tabID": 2,
+            "component": "ApexCharts",
+            "doNotRenderOnMount": true,
+            "tabPath": "pie_chart",
+            "tabIcon": "PieChart",
+            "facetClass": "novels",
+            "dropdownForResultClasses": true,
+            "defaultResultClass": "novelsByOriginalLanguage",
+            "resultClasses": {
+                "novelsByGenre": {
+                    "sparqlQuery": "novelsByGenreQuery",
+                    "filterTarget": "novel",
+                    "resultMapper": "mapPieChart",
+                    "sliceVisibilityThreshold": null,
+                    "dropdownForChartTypes": "true",
+                    "chartTypes": [
+                        {
+                            "id": "pie",
+                            "createChartData": "createApexPieChartData"
+                        },
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        }
+                    ]
+                },
+                "novelsByOriginalLanguage": {
+                    "sparqlQuery": "novelsByOriginalLanguageQuery",
+                    "filterTarget": "novel",
+                    "resultMapper": "mapPieChart",
+                    "sliceVisibilityThreshold": null,
+                    "dropdownForChartTypes": "true",
+                    "chartTypes": [
+                        {
+                            "id": "pie",
+                            "createChartData": "createApexPieChartData"
+                        },
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "maps": {
+        "novelsPlaces": {
+            "center": [
+                22.43,
+                10.37
+            ],
+            "zoom": 2
         }
     },
     "properties": [

@@ -256,6 +256,31 @@ export const createPopUpContentFindSampo = ({ data }) => {
   return container
 }
 
+export const createPopUpContentBookSampo = ({ data, resultClass }) => {
+  if (Array.isArray(data.prefLabel)) {
+    data.prefLabel = data.prefLabel[0]
+  }
+  const container = document.createElement('div')
+  const h3 = document.createElement('h3')
+  if (has(data.prefLabel, 'dataProviderUrl')) {
+    const link = document.createElement('a')
+    link.addEventListener('click', () => history.push(data.prefLabel.dataProviderUrl))
+    link.textContent = data.prefLabel.prefLabel
+    link.style.cssText = 'cursor: pointer; text-decoration: underline'
+    h3.appendChild(link)
+  } else {
+    h3.textContent = data.prefLabel.prefLabel
+  }
+  container.appendChild(h3)
+  if (resultClass === 'novelsPlaces') {
+    const p = document.createElement('p')
+    p.textContent = intl.get('perspectives.novels.map.popup.label')
+    container.appendChild(p)
+    container.appendChild(createInstanceListing(data.related))
+  }
+  return container
+}
+
 const createPopUpElement = ({ label, value }) => {
   const p = document.createElement('p')
   const b = document.createElement('b')

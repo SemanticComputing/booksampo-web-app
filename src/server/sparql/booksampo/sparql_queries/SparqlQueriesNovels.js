@@ -127,3 +127,72 @@ export const novelProperties = `
       BIND(?bookDescription__id AS ?bookDescription__prefLabel)
     }
 `
+
+export const placePropertiesInfoWindow = `
+    OPTIONAL {
+      ?id skos:prefLabel ?prefLabelId .
+    }
+    OPTIONAL {
+      ?id rdfs:label ?labelId .
+    }
+    BIND(COALESCE(?prefLabelId, ?labelId, ?id) as ?prefLabel__id)
+    BIND(?prefLabel__id AS ?prefLabel__prefLabel)
+    #BIND(CONCAT("/places/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
+`
+
+export const novelsTakingPlaceAt = `
+    OPTIONAL {
+      <FILTER>
+      ?related__id kaunokki:worldPlace ?id .
+      ?related__id skos:prefLabel ?related__prefLabel .
+      OPTIONAL {
+        ?related__id skos:prefLabel [] .
+        BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?related__id), "^.*\\\\/(.+)", "$1")) AS ?related__dataProviderUrl)
+        FILTER(!CONTAINS(STR(?related__id), "kaunokki#"))
+      }
+      OPTIONAL {
+        ?related__id skos:prefLabel [] .
+        BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?related__id), "^.*#(.+)", "$1")) AS ?related__dataProviderUrl)
+        FILTER(CONTAINS(STR(?related__id), "kaunokki#"))
+      }
+    }
+`
+
+export const novelsPlacesQuery = `
+  SELECT ?id ?lat ?long
+  (COUNT(DISTINCT ?novels) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    ?novels kaunokki:worldPlace ?id .
+    ?id wgs84:lat ?lat ;
+        wgs84:long ?long .
+  }
+  GROUP BY ?id ?lat ?long
+`
+
+export const novelsByGenreQuery = `
+  SELECT ?category ?prefLabel (COUNT(DISTINCT ?novel) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    ?novel a kaunokki:romaani .
+    ?novel kaunokki:genre ?category .
+    OPTIONAL { 
+      ?category skos:prefLabel ?prefLabel_ .
+      FILTER(LANG(?prefLabel_) = "<LANG>")
+    }
+    BIND(COALESCE(?prefLabel_, ?category) as ?prefLabel)
+  }
+  GROUP BY ?category ?prefLabel
+  ORDER BY DESC(?instanceCount)
+`
+
+export const novelsByOriginalLanguageQuery = `
+  SELECT ?category ?prefLabel (COUNT(DISTINCT ?novel) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    ?novel a kaunokki:romaani .
+    ?novel kaunokki:alkukieli ?category, ?prefLabel .
+  }
+  GROUP BY ?category ?prefLabel
+  ORDER BY DESC(?instanceCount)
+`
