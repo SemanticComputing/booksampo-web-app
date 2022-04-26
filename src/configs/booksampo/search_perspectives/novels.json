@@ -96,7 +96,7 @@
                     "sparqlQuery": "novelsByGenreQuery",
                     "filterTarget": "novel",
                     "resultMapper": "mapPieChart",
-                    "sliceVisibilityThreshold": null,
+                    "sliceVisibilityThreshold": 0.01,
                     "dropdownForChartTypes": "true",
                     "chartTypes": [
                         {
@@ -113,7 +113,7 @@
                     "sparqlQuery": "novelsByOriginalLanguageQuery",
                     "filterTarget": "novel",
                     "resultMapper": "mapPieChart",
-                    "sliceVisibilityThreshold": null,
+                    "sliceVisibilityThreshold": 0.001,
                     "dropdownForChartTypes": "true",
                     "chartTypes": [
                         {

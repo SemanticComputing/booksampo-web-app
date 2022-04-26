@@ -130,12 +130,20 @@ export const novelProperties = `
 
 export const placePropertiesInfoWindow = `
     OPTIONAL {
-      ?id skos:prefLabel ?prefLabelId .
+      ?id skos:prefLabel ?prefLabelFI .
+      FILTER(LANG(?prefLabelFI) = 'fi')
     }
     OPTIONAL {
-      ?id rdfs:label ?labelId .
+      ?id skos:prefLabel ?prefLabelGEN .
     }
-    BIND(COALESCE(?prefLabelId, ?labelId, ?id) as ?prefLabel__id)
+    OPTIONAL {
+      ?id rdfs:label ?labelFI .
+      FILTER(LANG(?labelFI) = 'fi')
+    }
+    OPTIONAL {
+      ?id rdfs:label ?labelGEN .
+    }
+    BIND(COALESCE(?prefLabelFI, ?labelFI, ?prefLabelGEN, ?labelGEN, ?id) as ?prefLabel__id)
     BIND(?prefLabel__id AS ?prefLabel__prefLabel)
     #BIND(CONCAT("/places/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
 `
