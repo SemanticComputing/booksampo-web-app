@@ -74,6 +74,18 @@ export const novelProperties = `
     }
     UNION
     {
+      ?id kaunokki:toimija ?character__id .
+      OPTIONAL { 
+        ?character__id skos:prefLabel ?character__prefLabel_ .
+        FILTER(LANG(?character__prefLabel_) = "<LANG>")
+      }
+      OPTIONAL {
+        ?character__id skos:prefLabel ?character__prefLabelGEN_ .
+      }
+      BIND(COALESCE(?character__prefLabel_, ?character__prefLabelGEN_, ?character__id) as ?character__prefLabel)
+    }
+    UNION
+    {
       ?id kaunokki:paikka ?setting__id .
       OPTIONAL { 
         ?setting__id skos:prefLabel ?setting__prefLabel_ .
@@ -91,7 +103,7 @@ export const novelProperties = `
       OPTIONAL {
         ?concretePlace__id skos:prefLabel ?concretePlace__prefLabelGEN_ .
       }
-      BIND(COALESCE(COALESCE(?concretePlace__prefLabel_, ?concretePlace__prefLabelGEN_), ?concretePlace__id) as ?concretePlace__prefLabel)
+      BIND(COALESCE(?concretePlace__prefLabel_, ?concretePlace__prefLabelGEN_, ?concretePlace__id) as ?concretePlace__prefLabel)
     }
     UNION
     {
@@ -103,10 +115,15 @@ export const novelProperties = `
       OPTIONAL {
         ?timeOfStory__id skos:prefLabel ?timeOfStory__prefLabelGEN_ .
       }
-      BIND(COALESCE(COALESCE(?timeOfStory__prefLabel_, ?timeOfStory__prefLabelGEN_), ?timeOfStory__id) as ?timeOfStory__prefLabel)
+      BIND(COALESCE(?timeOfStory__prefLabel_, ?timeOfStory__prefLabelGEN_, ?timeOfStory__id) as ?timeOfStory__prefLabel)
     }
     UNION
     {
       ?id sch:isbn ?isbn__id, ?isbn__prefLabel .
+    }
+    UNION
+    {
+      ?id dce:description ?bookDescription__id .
+      BIND(?bookDescription__id AS ?bookDescription__prefLabel)
     }
 `

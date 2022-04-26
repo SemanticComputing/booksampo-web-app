@@ -199,6 +199,11 @@
         "label": "Romaani",
         "description": ""
       },
+      "map": {
+        "popup": {
+          "label": "Tänne sijoittuvat romaanit:"
+        }
+      },
       "properties": {
         "uri": {
           "label": "URI",
@@ -237,6 +242,10 @@
           "label": "Päähenkilö",
           "description": "Teoksen päähenkilö(t)."
         },
+        "character": {
+          "label": "Toimija",
+          "description": "Teoksen toimija(t)."
+        },
         "setting": {
           "label": "Tapahtumapaikka",
           "description": "Teoksen tapahtumapaikka."
@@ -253,77 +262,9 @@
           "label": "ISBN",
           "description": "Teoksen ISBN(:t)."
         },
-        "note": {
-          "label": "",
-          "description": ""
-        },
-        "language": {
-          "label": "",
-          "description": ""
-        },
-        "event": {
-          "label": "",
-          "description": ""
-        },
-        "owner": {
-          "label": "",
-          "description": ""
-        },
-        "collection": {
-          "label": "",
-          "description": ""
-        },
-        "transferOfCustodyPlace": {
-          "label": "",
-          "description": ""
-        },
-        "transferOfCustodyTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "lastKnownLocation": {
-          "label": "",
-          "description": ""
-        },
-        "material": {
-          "label": "",
-          "description": ""
-        },
-        "height": {
-          "label": "",
-          "description": ""
-        },
-        "width": {
-          "label": "",
-          "description": ""
-        },
-        "folios": {
-          "label": "",
-          "description": ""
-        },
-        "lines": {
-          "label": "",
-          "description": ""
-        },
-        "columns": {
-          "label": "",
-          "description": ""
-        },
-        "miniatures": {
-          "label": "",
-          "description": ""
-        },
-        "decoratedInitials": {
-          "label": "",
-          "description": ""
-        },
-        "historiatedInitials": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
+        "bookDescription": {
+          "label": "Kuvaus",
+          "description:": "Teoksen kuvaus."
         }
       }
     },

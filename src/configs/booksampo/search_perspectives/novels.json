@@ -149,6 +149,15 @@
             "minWidth": 100
         },
         {
+            "id": "character",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 100
+        },
+        {
             "id": "setting",
             "valueType": "object",
             "makeLink": false,
@@ -183,7 +192,16 @@
             "sortValues": false,
             "numberedList": false,
             "disableSort": true,
-            "minWidth": 150,
+            "onlyOnInstancePage": true
+        },
+        {
+            "id": "bookDescription",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "disableSort": true,
             "onlyOnInstancePage": true
         }
     ],
@@ -203,7 +221,7 @@
             "containerClass": "ten",
             "facetType": "list",
             "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
-            "hideUnknownValue": true,
+            "hideUnknownValue": false,
             "filterType": "uriFilter",
             "predicate": "kaunokki:genre",
             "searchField": true,
@@ -216,7 +234,7 @@
             "containerClass": "ten",
             "facetType": "list",
             "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
-            "hideUnknownValue": true,
+            "hideUnknownValue": false,
             "filterType": "uriFilter",
             "predicate": "kaunokki:teema",
             "searchField": true,
@@ -274,6 +292,19 @@
             "sortButton": true,
             "sortBy": "instanceCount",
             "sortByPredicate": "kaunokki:paahenkilo/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "character": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "hideUnknownValue": true,
+            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_. FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabelFI_ . FILTER(LANG(?prefLabelFI_) = 'fi') } OPTIONAL { ?id skos:prefLabel ?prefLabelGEN_ } BIND(COALESCE(COALESCE(COALESCE(STR(?prefLabel_), STR(?prefLabelFI_)), STR(?prefLabelGEN_)), STR(?id)) AS ?prefLabel)",
+            "filterType": "uriFilter",
+            "predicate": "kaunokki:toimija",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "kaunokki:toimija/skos:prefLabel",
             "sortDirection": "desc"
         },
         "setting": {

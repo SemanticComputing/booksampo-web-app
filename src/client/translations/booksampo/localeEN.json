@@ -212,6 +212,11 @@
         "label": "Novel",
         "description": ""
       },
+      "map": {
+        "popup": {
+          "label": "Novels taking place here:"
+        }
+      },
       "properties": {
         "uri": {
           "label": "URI",
@@ -250,6 +255,10 @@
           "label": "Main character",
           "description": "The main character(s) of the novel."
         },
+        "character": {
+          "label": "Character",
+          "description": "The character(s) of the novel."
+        },
         "setting": {
           "label": "Setting",
           "description": "The setting the novel takes place in."
@@ -266,13 +275,9 @@
           "label": "ISBN",
           "description": "The ISBN(s) of the novel."
         },
-        "collection": {
-          "label": "Collection",
-          "description": "The specific collection(s) of manuscripts in which a Work can be found."
-        },
-        "source": {
-          "label": "Source",
-          "description": "The source database(s) (Schoenberg, Bibale, and Bodleian) that the Work occurs in. Click on the result table link to view the original record on the source’s website."
+        "bookDescription": {
+          "label": "Description",
+          "description:": "The description of the novel."
         }
       }
     },
