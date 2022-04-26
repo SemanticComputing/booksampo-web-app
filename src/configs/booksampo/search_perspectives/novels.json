@@ -43,7 +43,9 @@
                 "propertiesQueryBlock": "novelProperties",
                 "pagesize": 10,
                 "sortBy": null,
-                "sortDirection": null
+                "sortDirection": null,
+                "paginatedResultsAlwaysExpandRows": true,
+                "paginatedResultsRowContentMaxHeight": 160
             },
             "instanceConfig": {
                 "propertiesQueryBlock": "novelProperties",
@@ -140,6 +142,16 @@
     },
     "properties": [
         {
+            "id": "image",
+            "valueType": "image",
+            "previewImageHeight": 150,
+            "makeLink": true,
+            "externalLink": true,
+            "sortValues": true,
+            "numberedList": false,
+            "hideHeader": true
+        },
+        {
             "id": "uri",
             "valueType": "object",
             "makeLink": true,
@@ -219,7 +231,7 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 100
+            "minWidth": 150
         },
         {
             "id": "character",
@@ -228,7 +240,7 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 100
+            "minWidth": 200
         },
         {
             "id": "setting",

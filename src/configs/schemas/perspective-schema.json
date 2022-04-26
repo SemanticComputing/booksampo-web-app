@@ -158,6 +158,14 @@
                                 "type": ["string", "null"],
                                 "description": "String specifying whether the sorting is ascending or descending.",
                                 "enum": ["asc", "desc", null]
+                            },
+                            "paginatedResultsAlwaysExpandRows": {
+                                "type": "boolean",
+                                "description": "Boolean specifying whether the rows should have their content always expanded by default or not."
+                            },
+                            "paginatedResultsRowContentMaxHeight": {
+                                "type": "integer",
+                                "description": "Integer specifying the maximum height for a row's contents."
                             }
                         },
                         "required": [
@@ -276,7 +284,7 @@
                         "valueType": {
                             "type": "string",
                             "description": "String specifying the type of the property values.",
-                            "enum": ["object", "string"]
+                            "enum": ["object", "string", "image"]
                         },
                         "makeLink": {
                             "type": "boolean",
@@ -305,6 +313,10 @@
                         "disableSort": {
                             "type": "boolean",
                             "description": "Boolean value indicating whether the sort is disabled or not."
+                        },
+                        "hideHeader": {
+                            "type": "boolean",
+                            "description": "Boolean value indicating whether the header should be hidden or not."
                         }
                     },
                     "required": [

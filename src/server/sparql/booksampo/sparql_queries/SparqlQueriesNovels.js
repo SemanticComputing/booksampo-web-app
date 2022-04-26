@@ -126,6 +126,14 @@ export const novelProperties = `
       ?id dce:description ?bookDescription__id .
       BIND(?bookDescription__id AS ?bookDescription__prefLabel)
     }
+    UNION 
+    {
+      ?id kaunokki:manifests_in/kaunokki:kansikuva ?image__id .
+      ?image__id ks-annotaatio:tiedostoUrl ?image__url .
+      OPTIONAL {
+        ?image__id skos:prefLabel ?image__description .
+      }
+    }
 `
 
 export const placePropertiesInfoWindow = `
