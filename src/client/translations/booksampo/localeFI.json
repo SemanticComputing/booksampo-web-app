@@ -78,7 +78,7 @@
   "tabs": {
     "table": "taulukko",
     "pie_chart": "ympyräkaavio/pylväsdiagrammi",
-    "map": "kartta",
+    "map": "konkreettiset tapahtumapaikat kartalla",
     "production_places": "production places",
     "production_places_heatmap": "production heatmap",
     "last_known_locations": "last known locations",
