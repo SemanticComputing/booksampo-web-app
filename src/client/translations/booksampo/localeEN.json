@@ -290,6 +290,10 @@
         "publicationYear": {
           "label": "Publication year",
           "description": "The year the novel was published."
+        },
+        "kirjasampoURL": {
+          "label": "Link to Kirjasampo page",
+          "description": "The link to the Kirjasampo page of this novel."
         }
       }
     },

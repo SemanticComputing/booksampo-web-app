@@ -314,6 +314,15 @@
             "externalLink": false,
             "sortValues": false,
             "numberedList": false
+        },
+        {
+            "id": "kirjasampoURL",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": true,
+            "sortValues": false,
+            "numberedList": false,
+            "onlyOnInstancePage": true
         }
     ],
     "facets": {

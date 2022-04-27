@@ -277,6 +277,10 @@
         "publicationYear": {
           "label": "Julkaisuvuosi",
           "description": "Teoksen julkaisuvuosi"
+        },
+        "kirjasampoURL": {
+          "label": "Linkki Kirjasampo-sivulle",
+          "description": "Linkki teoksen Kirjasampo-sivulle."
         }
       }
     },

@@ -155,6 +155,24 @@ export const novelProperties = `
         ?publicationYear__id yso-time:latestEnd ?publicationYear__end_ .
       }
     }
+    UNION
+    {
+      BIND(CONCAT("https://www.kirjasampo.fi/fi/kulsa/saha3%253A", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?kirjasampoURL__dataProviderUrl)
+      BIND(?kirjasampoURL__dataProviderUrl AS ?kirjasampoURL__prefLabel)
+      FILTER(!CONTAINS(STR(?id), "kaunokki#") && CONTAINS(STR(?id), "saha3/") && !(CONTAINS(STR(?id), "btj.fi/") || CONTAINS(STR(?id), "data.kirjasampo.fi/")))
+    }
+    UNION
+    {
+      BIND(CONCAT("https://www.kirjasampo.fi/fi/kulsa/kauno%253A", REPLACE(STR(?id), "^.*#(.+)", "$1")) AS ?kirjasampoURL__dataProviderUrl)
+      BIND(?kirjasampoURL__dataProviderUrl AS ?kirjasampoURL__prefLabel)
+      FILTER(CONTAINS(STR(?id), "kaunokki#") && !CONTAINS(STR(?id), "saha3/") && !(CONTAINS(STR(?id), "btj.fi/") || CONTAINS(STR(?id), "data.kirjasampo.fi/")))
+    }
+    UNION
+    {
+      BIND(CONCAT("https://www.kirjasampo.fi/fi/kulsa/", ENCODE_FOR_URI(ENCODE_FOR_URI(STR(?id)))) AS ?kirjasampoURL__dataProviderUrl)
+      BIND(?kirjasampoURL__dataProviderUrl AS ?kirjasampoURL__prefLabel)
+      FILTER(!CONTAINS(STR(?id), "kaunokki#") && !CONTAINS(STR(?id), "saha3/") && (CONTAINS(STR(?id), "btj.fi/") || CONTAINS(STR(?id), "data.kirjasampo.fi/")))
+    }
 `
 
 export const placePropertiesInfoWindow = `
