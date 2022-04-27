@@ -205,6 +205,10 @@
         }
       },
       "properties": {
+        "image": {
+          "label": "Kansikuva",
+          "description": "Teoksen kansikuva."
+        },
         "uri": {
           "label": "URI",
           "description": "Yksilöivä tunniste"

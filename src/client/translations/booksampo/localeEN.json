@@ -218,6 +218,10 @@
         }
       },
       "properties": {
+        "image": {
+          "label": "Cover",
+          "description": "The cover of the novel."
+        },
         "uri": {
           "label": "URI",
           "description": "Uniform Resource Identifier"
