@@ -44,7 +44,7 @@
     "doNotSelectSubconcepts": "Do not select subconcepts",
     "sortingOptions": "Järjestysasetukset",
     "sortAlphabetically": "Järjestä aakkosjärjestykseen",
-    "sortByNumberOfSearchResults": "Sort by number of search results",
+    "sortByNumberOfSearchResults": "Järjestä hakutulosten määrän mukaan",
     "useDisjunction": "Use logical OR between selections",
     "useConjuction": "Use logical AND between selections",
     "minYear": "Min vuosi",
@@ -265,6 +265,18 @@
         "bookDescription": {
           "label": "Kuvaus",
           "description:": "Teoksen kuvaus."
+        },
+        "pageCount": {
+          "label": "Sivumäärä",
+          "description": "Teoksen sivumäärä."
+        },
+        "publisher": {
+          "label": "Kustantaja",
+          "description": "Teoksen kustantaja."
+        },
+        "publicationYear": {
+          "label": "Julkaisuvuosi",
+          "description": "Teoksen julkaisuvuosi"
         }
       }
     },

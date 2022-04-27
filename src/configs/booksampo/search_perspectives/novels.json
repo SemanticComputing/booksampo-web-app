@@ -288,6 +288,32 @@
             "numberedList": false,
             "disableSort": true,
             "onlyOnInstancePage": true
+        },
+        {
+            "id": "pageCount",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "disableSort": true
+        },
+        {
+            "id": "publisher",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "minWidth": 150
+        },
+        {
+            "id": "publicationYear",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false
         }
     ],
     "facets": {
@@ -428,7 +454,29 @@
             "searchField": true,
             "sortButton": true,
             "sortBy": "instanceCount",
-            "sortByPredicate": "kaunokki:hasTimeOfStory/skos:prefLabel",
+            "sortByPredicate": "kaunokki:hasTimeOfStory/yso-time:earliestStart",
+            "sortDirection": "desc"
+        },
+        "publisher": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "kaunokki:manifests_in/kaunokki:hasPublisher",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "kaunokki:manifests_in/kaunokki:hasPublisher/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "publicationYear": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "kaunokki:manifests_in/kaunokki:ilmestymisvuosi",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "kaunokki:manifests_in/kaunokki:ilmestymisvuosi/skos:prefLabel",
             "sortDirection": "desc"
         }
     }

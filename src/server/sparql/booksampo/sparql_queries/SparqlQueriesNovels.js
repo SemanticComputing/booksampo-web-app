@@ -134,6 +134,27 @@ export const novelProperties = `
         ?image__id skos:prefLabel ?image__description .
       }
     }
+    UNION
+    {
+      ?id kaunokki:manifests_in/kaunokki:sivuLkm ?pageCount__id .
+      BIND(?pageCount__id as ?pageCount__prefLabel)
+    }
+    UNION
+    {
+      ?id kaunokki:manifests_in/kaunokki:hasPublisher ?publisher__id .
+      ?publisher__id skos:prefLabel ?publisher__prefLabel .
+    }
+    UNION
+    {
+      ?id kaunokki:manifests_in/kaunokki:ilmestymisvuosi ?publicationYear__id .
+      ?publicationYear__id skos:prefLabel ?publicationYear__prefLabel .
+      OPTIONAL { 
+        ?publicationYear__id yso-time:earliestStart ?publicationYear__start_ .
+      }
+      OPTIONAL { 
+        ?publicationYear__id yso-time:latestEnd ?publicationYear__end_ .
+      }
+    }
 `
 
 export const placePropertiesInfoWindow = `

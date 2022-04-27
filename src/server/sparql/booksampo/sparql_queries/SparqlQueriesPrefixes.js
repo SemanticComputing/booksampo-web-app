@@ -25,4 +25,5 @@ export const prefixes = `
   PREFIX semparls: <http://ldf.fi/schema/semparl/>
   PREFIX kaunokki: <http://www.yso.fi/onto/kaunokki#>
   PREFIX ks-annotaatio: <http://kulttuurisampo.fi/annotaatio#>
+  PREFIX yso-time: <http://www.yso.fi/onto/time-schema#>
 `

@@ -278,6 +278,18 @@
         "bookDescription": {
           "label": "Description",
           "description:": "The description of the novel."
+        },
+        "pageCount": {
+          "label": "Page count",
+          "description": "The page count of the novel."
+        },
+        "publisher": {
+          "label": "Publisher",
+          "description": "The publisher of the novel."
+        },
+        "publicationYear": {
+          "label": "Publication year",
+          "description": "The year the novel was published."
         }
       }
     },
