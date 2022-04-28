@@ -329,90 +329,35 @@
         "award": {
           "label": "Palkinnot",
           "description": "Teoksen saamat mahdolliset palkinnot"
-        },
-        "language": {
-          "label": "",
-          "description": ""
-        },
-        "expression": {
-          "label": "",
-          "description": ""
-        },
-        "manuscript": {
-          "label": "",
-          "description": ""
-        },
-        "productionTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "collection": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
         }
       }
     },
-    "perspective3": {
-      "label": "",
+    "people": {
+      "label": "Henkilöt",
       "facetResultsType": "",
-      "shortDescription": "",
+      "shortDescription": "Henkilöiden kuvaus",
       "longDescription": "",
       "instancePage": {
-        "label": "",
+        "label": "Henkilö",
         "description": ""
       },
       "properties": {
+        "image": {
+          "label": "Kuva",
+          "description": "Henkilön kuva."
+        },
         "uri": {
-          "label": "",
-          "description": ""
+          "label": "URI",
+          "description": "Yksilöivä tunniste"
         },
-        "type": {
-          "label": "",
-          "description": ""
+        "prefLabel": {
+          "label": "Nimi",
+          "description": "Henkilön nimi.",
+          "textFacetInputPlaceholder": ""
         },
-        "language": {
-          "label": "",
-          "description": ""
-        },
-        "manuscript": {
-          "label": "",
-          "description": ""
-        },
-        "eventTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "place": {
-          "label": "",
-          "description": ""
-        },
-        "placeType": {
-          "label": "",
-          "description": ""
-        },
-        "note": {
-          "label": "",
-          "description": ""
-        },
-        "surrender": {
-          "label": "",
-          "description": ""
-        },
-        "receiver": {
-          "label": "",
-          "description": ""
-        },
-        "observedOwner": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
+        "occupation": {
+          "label": "Ammatti",
+          "description": "Henkilön ammatti."
         }
       }
     },

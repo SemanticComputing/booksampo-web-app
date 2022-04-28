@@ -339,154 +339,35 @@
         "award": {
           "label": "Awards",
           "description": "The awards the nonfiction book has been awarded."
-        },
-        "work": {
-          "label": "Work",
-          "description": "The intellectual content (works) contained in the manuscript."
-        },
-        "expression": {
-          "label": "Expression",
-          "description": "The linguistic versions of the works contained in the manuscript."
-        },
-        "productionPlace": {
-          "label": "Production place",
-          "description": "The location where the manuscript was written. Multiple production places may appear for a single manuscript due to the following reasons: 1) there are discrepancies in the contributing data source, 2) there are discrepancies between several contributing data sources, 3) the precise date is uncertain, 4) the production indeed took place on several occasions (e.g. for composite manuscripts)."
-        },
-        "productionTimespan": {
-          "label": "Production date",
-          "description": "The date when the manuscript was written. Multiple production dates may appear for a single manuscript due to the following reasons: 1) there are discrepancies in the contributing data source, 2) there are discrepancies between several contributing data sources, 3) the precise date is uncertain, 4) the production indeed took place on several occasions (e.g. for composite manuscripts)."
-        },
-        "note": {
-          "label": "Note",
-          "description": "Other info such as distinguishing characteristics, notes on the physical structure of the manuscript, script types, note glosses, physical relationships among various texts and/or parts of a miscellany, such as multiple types of page layout."
-        },
-        "language": {
-          "label": "Language",
-          "description": "The language(s) in which the manuscript was written."
-        },
-        "event": {
-          "label": "Event",
-          "description": "Events related to the manuscript."
-        },
-        "owner": {
-          "label": "Owner",
-          "description": "Former or current owners (individual or institutional)."
-        },
-        "collection": {
-          "label": "Collection",
-          "description": "The collection(s) that the manuscript has been part of at some point in time."
-        },
-        "transferOfCustodyPlace": {
-          "label": "Transfer of Custody Place",
-          "description": "The locations of “Transfer of Custody” events related to the manuscript."
-        },
-        "transferOfCustodyTimespan": {
-          "label": "Transfer of Custody Date",
-          "description": "The dates of “Transfer of Custody” events related to the manuscript."
-        },
-        "lastKnownLocation": {
-          "label": "Last known location",
-          "description": "Last known location"
-        },
-        "material": {
-          "label": "Material",
-          "description": "The physical material on which the text is written."
-        },
-        "height": {
-          "label": "Height",
-          "description": "The height of the manuscript in millimeters."
-        },
-        "width": {
-          "label": "Width",
-          "description": "The width of the manuscript in millimeters."
-        },
-        "folios": {
-          "label": "Folios",
-          "description": "The number of folios (leaves)."
-        },
-        "lines": {
-          "label": "Lines",
-          "description": "The number of lines in a text block. Left blank if the number of lines occurring throughout the manuscript is too irregular to be a useful descriptor for searching."
-        },
-        "columns": {
-          "label": "Columns",
-          "description": "The number of columns. Left blank if the number of columns occurring throughout the manuscript is too irregular to be a useful descriptor for searching."
-        },
-        "miniatures": {
-          "label": "Miniatures",
-          "description": "The number of miniatures."
-        },
-        "decoratedInitials": {
-          "label": "Decorated initials",
-          "description": "The number of decorated initials."
-        },
-        "historiatedInitials": {
-          "label": "Historiated initials",
-          "description": "The number of historiated initials."
-        },
-        "source": {
-          "label": "Source",
-          "description": "The source dataset(s) (Bibale, Bodleian, or SDBM) contributing the information on the manuscript. If two or more source datasets include the same manuscript and this has been manually verified, the information from the source datasets have been merged into one manuscript (table row). Click on the links to view the original record on the source’s website."
         }
       }
     },
-    "perspective3": {
-      "label": "Perspective 3",
-      "facetResultsType": "events",
-      "shortDescription": "Perspective 3 description",
-      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Use this perspective to access data related to events associated with the histories of manuscripts and manuscript collections over the centuries. See <a href=\"/instructions\">instructions</a> for using the filters. The result view can be selected using the tabs: </p> <ul class=\"MuiTypography-root MuiTypography-body1\"> <li> <strong>TABLE</STRONG> view includes all events in the MMM data. </li> <li> <strong>MAP</STRONG> view visualizes the events that have location information on a map. </li> <li> <strong>EXPORT</strong> the SPARQL query used to generate the result table view into YASGUI query editor. </li> </ul>",
+    "people": {
+      "label": "People",
+      "facetResultsType": "people",
+      "shortDescription": "People description",
+      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Use this perspective to access data related to people associated with literature. See <a href=\"/instructions\">instructions</a> for using the filters. The result view can be selected using the tabs: </p> <ul class=\"MuiTypography-root MuiTypography-body1\"> <li> <strong>TABLE</STRONG> view includes all events in the MMM data. </li> <li> <strong>MAP</STRONG> view visualizes the events that have location information on a map. </li> <li> <strong>EXPORT</strong> the SPARQL query used to generate the result table view into YASGUI query editor. </li> </ul>",
       "instancePage": {
-        "label": "Event",
-        "description": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Events refer to various activities related to Manuscripts and Actors. Event types include Production, Transfer of Custody, and Activity events. Production events refer to the production of the physical manuscript. Transfer of Custody events indicate a change of ownership that involved a transaction of some kind, usually through an auction house or bookseller. The generic Activity event type covers all other types of events. </p>"
+        "label": "Person",
+        "description": ""
       },
       "properties": {
+        "image": {
+          "label": "Image",
+          "description": "The image of the person."
+        },
         "uri": {
           "label": "URI",
           "description": "Uniform Resource Identifier"
         },
-        "type": {
-          "label": "Type",
-          "description": "Distinguish between “Transfer of Custody”, “Production”, and other types of “Activity” events."
+        "prefLabel": {
+          "label": "Name",
+          "description": "The name of the person.",
+          "textFacetInputPlaceholder": ""
         },
-        "language": {
-          "label": "Language",
-          "description": "The language in which a Work is written in the manuscript (i.e., an “Expression” of a Work). One manuscript may contain multiple languages."
-        },
-        "manuscript": {
-          "label": "Manuscript / Collection",
-          "description": "The manuscript or manuscript collection associated with the event."
-        },
-        "eventTimespan": {
-          "label": "Date",
-          "description": "The date or time period associated with the event."
-        },
-        "place": {
-          "label": "Place",
-          "description": "The specific place(s) associated with the event."
-        },
-        "placeType": {
-          "label": "Place type",
-          "description": "The type of the specific place(s) associated with the event."
-        },
-        "note": {
-          "label": "Note",
-          "description": "Note"
-        },
-        "surrender": {
-          "label": "Custody surrendered by",
-          "description": "Custody surrendered by"
-        },
-        "receiver": {
-          "label": "Custody received by",
-          "description": "Custody received by"
-        },
-        "observedOwner": {
-          "label": "Observed owner",
-          "description": "Observed owner"
-        },
-        "source": {
-          "label": "Source",
-          "description": "The source database (Schoenberg, Bibale, and Bodleian) that provided the information about the event."
+        "occupation": {
+          "label": "Occupation",
+          "description": "The occupation of the person."
         }
       }
     },
