@@ -11,14 +11,7 @@ export const novelProperties = `
     UNION
     {
       ?id skos:prefLabel ?prefLabel__id .
-      BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
-      FILTER(!CONTAINS(STR(?id), "kaunokki#"))
-    }
-    UNION
-    {
-      ?id skos:prefLabel ?prefLabel__id .
-      BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*#(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
-      FILTER(CONTAINS(STR(?id), "kaunokki#"))
+      BIND(CONCAT("/${perspectiveID}/page/", ENCODE_FOR_URI(STR(?id))) AS ?prefLabel__dataProviderUrl)
     }
     UNION
     {
@@ -238,13 +231,24 @@ export const novelsByGenreQuery = `
   SELECT ?category ?prefLabel (COUNT(DISTINCT ?novel) as ?instanceCount)
   WHERE {
     <FILTER>
-    ?novel a kaunokki:romaani .
-    ?novel kaunokki:genre ?category .
-    OPTIONAL { 
-      ?category skos:prefLabel ?prefLabel_ .
-      FILTER(LANG(?prefLabel_) = "<LANG>")
+    {
+      ?novel a kaunokki:romaani .
+      ?novel kaunokki:genre ?category .
+      OPTIONAL { 
+        ?category skos:prefLabel ?prefLabel_ .
+        FILTER(LANG(?prefLabel_) = "<LANG>")
+      }
+      BIND(COALESCE(?prefLabel_, ?category) as ?prefLabel)
     }
-    BIND(COALESCE(?prefLabel_, ?category) as ?prefLabel)
+    UNION
+    {
+      ?novel a kaunokki:romaani .
+      FILTER NOT EXISTS {
+        ?novel kaunokki:genre [] .
+      }
+      BIND("Unknown" as ?category)
+      BIND("Unknown" as ?prefLabel)
+    }
   }
   GROUP BY ?category ?prefLabel
   ORDER BY DESC(?instanceCount)
@@ -254,8 +258,19 @@ export const novelsByOriginalLanguageQuery = `
   SELECT ?category ?prefLabel (COUNT(DISTINCT ?novel) as ?instanceCount)
   WHERE {
     <FILTER>
-    ?novel a kaunokki:romaani .
-    ?novel kaunokki:alkukieli ?category, ?prefLabel .
+    {
+      ?novel a kaunokki:romaani .
+      ?novel kaunokki:alkukieli ?category, ?prefLabel .
+    }
+    UNION
+    {
+      ?novel a kaunokki:romaani .
+      FILTER NOT EXISTS {
+        ?novel kaunokki:alkukieli [] .
+      }
+      BIND("Unknown" as ?category)
+      BIND("Unknown" as ?prefLabel)
+    }
   }
   GROUP BY ?category ?prefLabel
   ORDER BY DESC(?instanceCount)
@@ -265,13 +280,24 @@ export const novelsByThemeQuery = `
   SELECT ?category ?prefLabel (COUNT(DISTINCT ?novel) as ?instanceCount)
   WHERE {
     <FILTER>
-    ?novel a kaunokki:romaani .
-    ?novel kaunokki:teema ?category. 
-    OPTIONAL { 
-      ?category skos:prefLabel ?prefLabel_ .
-      FILTER(LANG(?prefLabel_) = "<LANG>")
+    {
+      ?novel a kaunokki:romaani .
+      ?novel kaunokki:teema ?category. 
+      OPTIONAL { 
+        ?category skos:prefLabel ?prefLabel_ .
+        FILTER(LANG(?prefLabel_) = "<LANG>")
+      }
+      BIND(COALESCE(?prefLabel_, ?category) as ?prefLabel)
     }
-    BIND(COALESCE(?prefLabel_, ?category) as ?prefLabel)
+    UNION
+    {
+      ?novel a kaunokki:romaani .
+      FILTER NOT EXISTS {
+        ?novel kaunokki:teema [] .
+      }
+      BIND("Unknown" as ?category)
+      BIND("Unknown" as ?prefLabel)
+    }
   }
   GROUP BY ?category ?prefLabel
   ORDER BY DESC(?instanceCount)
@@ -281,9 +307,20 @@ export const novelsByPublisherQuery = `
   SELECT ?category ?prefLabel (COUNT(DISTINCT ?novel) as ?instanceCount)
   WHERE {
     <FILTER>
-    ?novel a kaunokki:romaani .
-    ?novel kaunokki:manifests_in/kaunokki:hasPublisher ?category .
-    ?category skos:prefLabel ?prefLabel .
+    {
+      ?novel a kaunokki:romaani .
+      ?novel kaunokki:manifests_in/kaunokki:hasPublisher ?category .
+      ?category skos:prefLabel ?prefLabel .
+    }
+    UNION
+    {
+      ?novel a kaunokki:romaani .
+      FILTER NOT EXISTS {
+        ?novel kaunokki:manifests_in/kaunokki:hasPublisher [] .
+      }
+      BIND("Unknown" as ?category)
+      BIND("Unknown" as ?prefLabel)
+    }
   }
   GROUP BY ?category ?prefLabel
   ORDER BY DESC(?instanceCount)
@@ -293,13 +330,24 @@ export const novelsByCharacterQuery = `
   SELECT ?category ?prefLabel (COUNT(DISTINCT ?novel) as ?instanceCount)
   WHERE {
     <FILTER>
-    ?novel a kaunokki:romaani .
-    ?novel kaunokki:toimija ?category .
-    OPTIONAL { 
-      ?category skos:prefLabel ?prefLabel_ .
-      FILTER(LANG(?prefLabel_) = "<LANG>")
+    {
+      ?novel a kaunokki:romaani .
+      ?novel kaunokki:toimija ?category .
+      OPTIONAL { 
+        ?category skos:prefLabel ?prefLabel_ .
+        FILTER(LANG(?prefLabel_) = "<LANG>")
+      }
+      BIND(COALESCE(?prefLabel_, ?category) as ?prefLabel)
     }
-    BIND(COALESCE(?prefLabel_, ?category) as ?prefLabel)
+    UNION
+    {
+      ?novel a kaunokki:romaani .
+      FILTER NOT EXISTS {
+        ?novel kaunokki:toimija [] .
+      }
+      BIND("Unknown" as ?category)
+      BIND("Unknown" as ?prefLabel)
+    }
   }
   GROUP BY ?category ?prefLabel
   ORDER BY DESC(?instanceCount)

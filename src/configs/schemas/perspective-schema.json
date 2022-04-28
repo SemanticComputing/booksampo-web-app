@@ -186,6 +186,10 @@
                             },
                             "relatedInstances": {
                                 "type": "string"
+                            },
+                            "localIDAsURI": {
+                                "type": "boolean",
+                                "description": "Boolean indicating whether encoded IDs should be used as URIs instead of using URIs based on base URIs and local IDs."
                             }
                         },
                         "additionalProperties": {

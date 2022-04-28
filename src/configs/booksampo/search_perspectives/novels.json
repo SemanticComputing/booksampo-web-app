@@ -6,24 +6,6 @@
         "prefixesFile": "SparqlQueriesPrefixes.js"
     },
     "sparqlQueriesFile": "SparqlQueriesNovels.js",
-    "baseURIs": {
-        "ateos_": {
-            "baseURI": "http://www.yso.fi/onto/kaunokki",
-            "URITemplate": "<BASE_URI>#<LOCAL_ID>"
-        },
-        "abstractWork_": {
-            "baseURI": "http://data.kirjasampo.fi",
-            "URITemplate": "<BASE_URI>/<LOCAL_ID>"
-        },
-        "at_": {
-            "baseURI": "http://www.btj.fi",
-            "URITemplate": "<BASE_URI>/<LOCAL_ID>"
-        },
-        "noLocalIDPrefix": {
-            "baseURI": "http://seco.tkk.fi/saha3",
-            "URITemplate": "<BASE_URI>/<LOCAL_ID>"
-        }
-    },
     "facetClass": "kaunokki:romaani",
     "langTag": "fi",
     "frontPageImage": "main_page/works-452x262.jpg",
@@ -63,7 +45,8 @@
                         "tabIcon": "CloudDownload",
                         "pageType": "instancePage"
                     }
-                }
+                },
+                "localIDAsURI": true
             }
         },
         "novelsPlaces": {
@@ -431,7 +414,6 @@
             "containerClass": "ten",
             "facetType": "list",
             "facetLabelPredicate": "<http://ldf.fi/nonexistentURI>",
-            "hideUnknownValue": true,
             "filterType": "uriFilter",
             "predicate": "kaunokki:alkukieli",
             "searchField": true,
