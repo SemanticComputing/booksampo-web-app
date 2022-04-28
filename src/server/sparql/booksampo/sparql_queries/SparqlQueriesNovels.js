@@ -17,7 +17,7 @@ export const novelProperties = `
     {
       ?id kaunokki:tekija ?author__id .
       ?author__id skos:prefLabel ?author__prefLabel .
-      BIND(CONCAT("/authors/page/", REPLACE(STR(?author__id), "^.*\\\\/(.+)", "$1")) AS ?author__dataProviderUrl)
+      BIND(CONCAT("/people/page/", ENCODE_FOR_URI(STR(?author__id)), "/table") AS ?author__dataProviderUrl)
     }
     UNION
     {

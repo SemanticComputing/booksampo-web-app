@@ -385,6 +385,10 @@
           "label": "Active years",
           "description": "The years in which the person has or is believed to have actively produced content."
         },
+        "hasLivedIn": {
+          "label": "Residence",
+          "description": "The place(s) where this person lives or has lived in before."
+        },
         "timeOfBirth": {
           "label": "Time of birth",
           "description": "The time of birth of the person."
@@ -400,6 +404,26 @@
         "placeOfDeath": {
           "label": "Place of death",
           "description": "The place of death of the person."
+        },
+        "keyword": {
+          "label": "Keyword",
+          "description": "Keywords relating to the person."
+        },
+        "award": {
+          "label": "Awards",
+          "description": "Awards the person has been granted."
+        },
+        "positionOfTrust": {
+          "label": "Positions of trust",
+          "description": "Positions of trust the person holds or held."
+        },
+        "biography": {
+          "label": "Biographical information",
+          "description": "Biographical information of the person."
+        },
+        "samePersonAs": {
+          "label": "Same person as",
+          "description": "The other names used by this person."
         }
       }
     },

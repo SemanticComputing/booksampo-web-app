@@ -77,7 +77,7 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 200
+            "minWidth": 150
         },
         {
             "id": "occupation",
@@ -95,7 +95,7 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 150
+            "minWidth": 100
         },
         {
             "id": "language",
@@ -117,6 +117,15 @@
         },
         {
             "id": "activeYears",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 150
+        },
+        {
+            "id": "hasLivedIn",
             "valueType": "object",
             "makeLink": false,
             "externalLink": false,
@@ -161,6 +170,55 @@
             "sortValues": true,
             "numberedList": false,
             "minWidth": 150
+        },
+        {
+            "id": "keyword",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 200
+        },
+        {
+            "id": "award",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 250
+        },
+        {
+            "id": "positionOfTrust",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 150,
+            "onlyOnInstancePage": true
+        },
+        {
+            "id": "biography",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 150,
+            "onlyOnInstancePage": true
+        },
+        {
+            "id": "samePersonAs",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "disableSort": true,
+            "minWidth": 150,
+            "onlyOnInstancePage": true
         }
     ],
     "facets": {
@@ -224,6 +282,18 @@
             "sortByPredicate": "kaunokki:hasWritten/skos:prefLabel",
             "sortDirection": "desc"
         },
+        "hasLivedIn": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "filterType": "uriFilter",
+            "predicate": "kaunokki:hasLivedIn",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "kaunokki:hasLivedIn/skos:prefLabel",
+            "sortDirection": "desc"
+        },
         "placeOfBirth": {
             "containerClass": "ten",
             "facetType": "list",
@@ -246,6 +316,30 @@
             "sortButton": true,
             "sortBy": "instanceCount",
             "sortByPredicate": "kaunokki:placeOfDeath/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "keyword": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "filterType": "uriFilter",
+            "predicate": "kaunokki:asiasana",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "kaunokki:asiasana/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "award": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "filterType": "uriFilter",
+            "predicate": "kaunokki:hasAward",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "kaunokki:hasAward/skos:prefLabel",
             "sortDirection": "desc"
         }
     }

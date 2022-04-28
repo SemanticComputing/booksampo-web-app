@@ -67,6 +67,15 @@ export const personProperties = `
     }
     UNION
     {
+      ?id kaunokki:hasLivedIn ?hasLivedIn__id .
+      OPTIONAL { 
+        ?hasLivedIn__id skos:prefLabel ?hasLivedIn__prefLabel_ .
+        FILTER(LANG(?hasLivedIn__prefLabel_) = "<LANG>")
+      }
+      BIND(COALESCE(?hasLivedIn__prefLabel_, ?hasLivedIn__id) as ?hasLivedIn__prefLabel)
+    }
+    UNION
+    {
       ?id kaunokki:timeOfBirth ?timeOfBirth__id .
       ?timeOfBirth__id skos:prefLabel ?timeOfBirth__prefLabel .
     }
@@ -92,5 +101,42 @@ export const personProperties = `
         FILTER(LANG(?placeOfDeath__prefLabel_) = "<LANG>")
       }
       BIND(COALESCE(?placeOfDeath__prefLabel_, ?placeOfDeath__id) as ?placeOfDeath__prefLabel)
+    }
+    UNION
+    {
+      ?id kaunokki:asiasana ?keyword__id .
+      OPTIONAL { 
+        ?keyword__id skos:prefLabel ?keyword__prefLabel_ .
+        FILTER(LANG(?keyword__prefLabel_) = "<LANG>")
+      }
+      BIND(COALESCE(?keyword__prefLabel_, ?keyword__id) as ?keyword__prefLabel)
+    }
+    UNION
+    {
+      ?id kaunokki:hasAward ?award__id .
+      OPTIONAL { 
+        ?award__id skos:prefLabel ?award__prefLabel_ .
+        FILTER(LANG(?award__prefLabel_) = "<LANG>")
+      }
+      BIND(COALESCE(?award__prefLabel_, ?award__id) as ?award__prefLabel)
+    }
+    UNION
+    {
+      ?id kaunokki:hasPositionOftrust ?positionOfTrust__id .
+      OPTIONAL { 
+        ?positionOfTrust__id skos:prefLabel ?positionOfTrust__prefLabel_ .
+        FILTER(LANG(?positionOfTrust__prefLabel_) = "<LANG>")
+      }
+      BIND(COALESCE(?positionOfTrust__prefLabel_, ?positionOfTrust__id) as ?positionOfTrust__prefLabel)
+    }
+    UNION
+    {
+      ?id kaunokki:hasBiographicalInformation ?biography__id .
+      BIND(?biography__id as ?biography__prefLabel)
+    }
+    UNION {
+      ?id kaunokki:sameAs ?samePersonAs__id .
+      ?samePersonAs__id skos:prefLabel ?samePersonAs__prefLabel .
+      BIND(CONCAT("/${perspectiveID}/page/", ENCODE_FOR_URI(STR(?samePersonAs__id)), "/table") AS ?samePersonAs__dataProviderUrl)
     }
 `

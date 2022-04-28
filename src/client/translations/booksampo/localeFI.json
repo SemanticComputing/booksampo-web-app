@@ -375,6 +375,10 @@
           "label": "Aktiivinen vuosina",
           "description": "Vuodet, jolloin henkilö on tiettävästi tuottanut aktiivisesti tuotantoa."
         },
+        "hasLivedIn": {
+          "label": "Asuinpaikka",
+          "description": "Paikka, jossa henkilö asuu tai on asunut."
+        },
         "timeOfBirth": {
           "label": "Synnyinaika",
           "description": "Henkilön synnyinaika."
@@ -390,6 +394,26 @@
         "placeOfDeath": {
           "label": "Kuolinpaikka",
           "description": "Henkilön kuolinpaikka."
+        },
+        "keyword": {
+          "label": "Asiasana",
+          "description": "Henkilöön liittyvät asiasanat."
+        },
+        "award": {
+          "label": "Palkinnot",
+          "description": "Henkilön saamat palkinnot."
+        },
+        "positionOfTrust": {
+          "label": "Luottamustehtävät",
+          "description": "Henkilön luottamustehtävät."
+        },
+        "biography": {
+          "label": "Elämänkertatietoa",
+          "description": "Henkilön elämänkertatietoa."
+        },
+        "samePersonAs": {
+          "label": "Sama henkilö kuin",
+          "description": "Henkilön muut käyttämät nimet tai taitelijanimet."
         }
       }
     },
