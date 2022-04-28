@@ -370,6 +370,26 @@
         "nationality": {
           "label": "Kansallisuus",
           "description": "Henkilön kansallisuus."
+        },
+        "activeYears": {
+          "label": "Aktiivinen vuosina",
+          "description": "Vuodet, jolloin henkilö on tiettävästi tuottanut aktiivisesti tuotantoa."
+        },
+        "timeOfBirth": {
+          "label": "Synnyinaika",
+          "description": "Henkilön synnyinaika."
+        },
+        "placeOfBirth": {
+          "label": "Synnyinpaikka",
+          "description": "Henkilön synnyinpaikka."
+        },
+        "timeOfDeath": {
+          "label": "Kuolinaika",
+          "description": "Henkilön kuolinaika."
+        },
+        "placeOfDeath": {
+          "label": "Kuolinpaikka",
+          "description": "Henkilön kuolinpaikka."
         }
       }
     },

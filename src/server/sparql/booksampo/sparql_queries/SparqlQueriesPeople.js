@@ -11,7 +11,7 @@ export const personProperties = `
     UNION
     {
       ?id skos:prefLabel ?prefLabel__id .
-      BIND(CONCAT("/${perspectiveID}/page/", ENCODE_FOR_URI(STR(?id))) AS ?prefLabel__dataProviderUrl)
+      BIND(CONCAT("/${perspectiveID}/page/", ENCODE_FOR_URI(STR(?id)), "/table") AS ?prefLabel__dataProviderUrl)
     }
     UNION 
     {
@@ -52,5 +52,45 @@ export const personProperties = `
         FILTER(LANG(?nationality__prefLabel_) = "<LANG>")
       }
       BIND(COALESCE(?nationality__prefLabel_, ?nationality__id) as ?nationality__prefLabel)
+    }
+    UNION
+    {
+      ?id kaunokki:hasWritten ?activeYears__id .
+      OPTIONAL { 
+        ?activeYears__id skos:prefLabel ?activeYears__prefLabel_ .
+        FILTER(LANG(?activeYears__prefLabel_) = "<LANG>")
+      }
+      OPTIONAL {
+        ?activeYears__id skos:prefLabel ?activeYears__prefLabelGEN_ .
+      }
+      BIND(COALESCE(?activeYears__prefLabel_, ?activeYears__prefLabelGEN_, ?activeYears__id) as ?activeYears__prefLabel)
+    }
+    UNION
+    {
+      ?id kaunokki:timeOfBirth ?timeOfBirth__id .
+      ?timeOfBirth__id skos:prefLabel ?timeOfBirth__prefLabel .
+    }
+    UNION
+    {
+      ?id kaunokki:placeOfBirth ?placeOfBirth__id .
+      OPTIONAL { 
+        ?placeOfBirth__id skos:prefLabel ?placeOfBirth__prefLabel_ .
+        FILTER(LANG(?placeOfBirth__prefLabel_) = "<LANG>")
+      }
+      BIND(COALESCE(?placeOfBirth__prefLabel_, ?placeOfBirth__id) as ?placeOfBirth__prefLabel)
+    }
+    UNION
+    {
+      ?id kaunokki:timeOfDeath ?timeOfDeath__id .
+      ?timeOfDeath__id skos:prefLabel ?timeOfDeath__prefLabel .
+    }
+    UNION
+    {
+      ?id kaunokki:placeOfDeath ?placeOfDeath__id .
+      OPTIONAL { 
+        ?placeOfDeath__id skos:prefLabel ?placeOfDeath__prefLabel_ .
+        FILTER(LANG(?placeOfDeath__prefLabel_) = "<LANG>")
+      }
+      BIND(COALESCE(?placeOfDeath__prefLabel_, ?placeOfDeath__id) as ?placeOfDeath__prefLabel)
     }
 `

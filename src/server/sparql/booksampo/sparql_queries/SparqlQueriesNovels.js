@@ -11,7 +11,7 @@ export const novelProperties = `
     UNION
     {
       ?id skos:prefLabel ?prefLabel__id .
-      BIND(CONCAT("/${perspectiveID}/page/", ENCODE_FOR_URI(STR(?id))) AS ?prefLabel__dataProviderUrl)
+      BIND(CONCAT("/${perspectiveID}/page/", ENCODE_FOR_URI(STR(?id)), "/table") AS ?prefLabel__dataProviderUrl)
     }
     UNION
     {

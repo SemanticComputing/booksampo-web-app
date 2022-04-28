@@ -380,6 +380,26 @@
         "nationality": {
           "label": "Nationality",
           "description": "The nationality of the person."
+        },
+        "activeYears": {
+          "label": "Active years",
+          "description": "The years in which the person has or is believed to have actively produced content."
+        },
+        "timeOfBirth": {
+          "label": "Time of birth",
+          "description": "The time of birth of the person."
+        },
+        "placeOfBirth": {
+          "label": "Time of birth",
+          "description": "The place of birth of the person."
+        },
+        "timeOfDeath": {
+          "label": "Time of death",
+          "description": "The time of death of the person."
+        },
+        "placeOfDeath": {
+          "label": "Place of death",
+          "description": "The place of death of the person."
         }
       }
     },

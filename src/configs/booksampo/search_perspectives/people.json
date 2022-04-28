@@ -114,6 +114,53 @@
             "sortValues": true,
             "numberedList": false,
             "minWidth": 150
+        },
+        {
+            "id": "activeYears",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 150
+        },
+        {
+            "id": "timeOfBirth",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "disableSort": true,
+            "minWidth": 150
+        },
+        {
+            "id": "placeOfBirth",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 150
+        },
+        {
+            "id": "timeOfDeath",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "disableSort": true,
+            "minWidth": 150
+        },
+        {
+            "id": "placeOfDeath",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 150
         }
     ],
     "facets": {
@@ -163,6 +210,42 @@
             "sortButton": true,
             "sortBy": "instanceCount",
             "sortByPredicate": "kaunokki:kansallisuus/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "activeYears": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "filterType": "uriFilter",
+            "predicate": "kaunokki:hasWritten",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "kaunokki:hasWritten/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "placeOfBirth": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "filterType": "uriFilter",
+            "predicate": "kaunokki:placeOfBirth",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "kaunokki:placeOfBirth/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "placeOfDeath": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "filterType": "uriFilter",
+            "predicate": "kaunokki:placeOfDeath",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "kaunokki:placeOfDeath/skos:prefLabel",
             "sortDirection": "desc"
         }
     }
