@@ -109,7 +109,10 @@
     "bar": "pylväsdiagrammi",
     "resultClasses": {
       "novelsByGenre": "kirjallisuudenlaji",
-      "novelsByOriginalLanguage": "alkukieli"
+      "novelsByOriginalLanguage": "alkukieli",
+      "novelsByTheme": "teema",
+      "novelsByPublisher": "kustantaja",
+      "novelsByCharacter": "toimija"
     }
   },
   "lineChart": {
@@ -272,15 +275,15 @@
         },
         "pageCount": {
           "label": "Sivumäärä",
-          "description": "Teoksen sivumäärä."
+          "description": "Teoksen julkaisujen sivumäärä(t)."
         },
         "publisher": {
           "label": "Kustantaja",
-          "description": "Teoksen kustantaja."
+          "description": "Teoksen julkaisujen kustantaja(t)."
         },
         "publicationYear": {
           "label": "Julkaisuvuosi",
-          "description": "Teoksen julkaisuvuosi"
+          "description": "Teoksen julkaisuvuosi tai -vuodet."
         },
         "kirjasampoURL": {
           "label": "Linkki Kirjasampo-sivulle",

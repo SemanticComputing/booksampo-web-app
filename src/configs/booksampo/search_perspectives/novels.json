@@ -127,6 +127,57 @@
                             "createChartData": "createApexBarChartData"
                         }
                     ]
+                },
+                "novelsByTheme": {
+                    "sparqlQuery": "novelsByThemeQuery",
+                    "filterTarget": "novel",
+                    "resultMapper": "mapPieChart",
+                    "sliceVisibilityThreshold": 0.005,
+                    "dropdownForChartTypes": "true",
+                    "chartTypes": [
+                        {
+                            "id": "pie",
+                            "createChartData": "createApexPieChartData"
+                        },
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        }
+                    ]
+                },
+                "novelsByPublisher": {
+                    "sparqlQuery": "novelsByPublisherQuery",
+                    "filterTarget": "novel",
+                    "resultMapper": "mapPieChart",
+                    "sliceVisibilityThreshold": 0.01,
+                    "dropdownForChartTypes": "true",
+                    "chartTypes": [
+                        {
+                            "id": "pie",
+                            "createChartData": "createApexPieChartData"
+                        },
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        }
+                    ]
+                },
+                "novelsByCharacter": {
+                    "sparqlQuery": "novelsByCharacterQuery",
+                    "filterTarget": "novel",
+                    "resultMapper": "mapPieChart",
+                    "sliceVisibilityThreshold": 0.005,
+                    "dropdownForChartTypes": "true",
+                    "chartTypes": [
+                        {
+                            "id": "pie",
+                            "createChartData": "createApexPieChartData"
+                        },
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        }
+                    ]
                 }
             }
         }
@@ -185,7 +236,7 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 150
+            "minWidth": 200
         },
         {
             "id": "theme",
@@ -194,7 +245,7 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 150
+            "minWidth": 200
         },
         {
             "id": "keyword",
@@ -305,7 +356,7 @@
             "externalLink": false,
             "sortValues": false,
             "numberedList": false,
-            "minWidth": 150
+            "minWidth": 200
         },
         {
             "id": "publicationYear",
@@ -404,7 +455,6 @@
         "mainCharacter": {
             "containerClass": "ten",
             "facetType": "list",
-            "hideUnknownValue": true,
             "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_. FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabelFI_ . FILTER(LANG(?prefLabelFI_) = 'fi') } OPTIONAL { ?id skos:prefLabel ?prefLabelGEN_ } BIND(COALESCE(COALESCE(COALESCE(STR(?prefLabel_), STR(?prefLabelFI_)), STR(?prefLabelGEN_)), STR(?id)) AS ?prefLabel)",
             "filterType": "uriFilter",
             "predicate": "kaunokki:paahenkilo",
@@ -417,7 +467,6 @@
         "character": {
             "containerClass": "ten",
             "facetType": "list",
-            "hideUnknownValue": true,
             "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_. FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabelFI_ . FILTER(LANG(?prefLabelFI_) = 'fi') } OPTIONAL { ?id skos:prefLabel ?prefLabelGEN_ } BIND(COALESCE(COALESCE(COALESCE(STR(?prefLabel_), STR(?prefLabelFI_)), STR(?prefLabelGEN_)), STR(?id)) AS ?prefLabel)",
             "filterType": "uriFilter",
             "predicate": "kaunokki:toimija",
@@ -465,6 +514,13 @@
             "sortBy": "instanceCount",
             "sortByPredicate": "kaunokki:hasTimeOfStory/yso-time:earliestStart",
             "sortDirection": "desc"
+        },
+        "pageCount": {
+            "containerClass": "five",
+            "facetType": "integer",
+            "filterType": "integerFilterRange",
+            "predicate": "kaunokki:manifests_in/kaunokki:sivuLkm",
+            "sortByPredicate": "kaunokki:manifests_in/kaunokki:sivuLkm"
         },
         "publisher": {
             "containerClass": "ten",

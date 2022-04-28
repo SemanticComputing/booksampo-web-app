@@ -285,15 +285,15 @@
         },
         "pageCount": {
           "label": "Page count",
-          "description": "The page count of the novel."
+          "description": "The page count of the novel's publications."
         },
         "publisher": {
           "label": "Publisher",
-          "description": "The publisher of the novel."
+          "description": "The publisher(s) of the novel's publications."
         },
         "publicationYear": {
           "label": "Publication year",
-          "description": "The year the novel was published."
+          "description": "The year(s) the novel was published."
         },
         "kirjasampoURL": {
           "label": "Link to Kirjasampo page",

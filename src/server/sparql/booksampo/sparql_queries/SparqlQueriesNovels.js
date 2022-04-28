@@ -260,3 +260,47 @@ export const novelsByOriginalLanguageQuery = `
   GROUP BY ?category ?prefLabel
   ORDER BY DESC(?instanceCount)
 `
+
+export const novelsByThemeQuery = `
+  SELECT ?category ?prefLabel (COUNT(DISTINCT ?novel) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    ?novel a kaunokki:romaani .
+    ?novel kaunokki:teema ?category. 
+    OPTIONAL { 
+      ?category skos:prefLabel ?prefLabel_ .
+      FILTER(LANG(?prefLabel_) = "<LANG>")
+    }
+    BIND(COALESCE(?prefLabel_, ?category) as ?prefLabel)
+  }
+  GROUP BY ?category ?prefLabel
+  ORDER BY DESC(?instanceCount)
+`
+
+export const novelsByPublisherQuery = `
+  SELECT ?category ?prefLabel (COUNT(DISTINCT ?novel) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    ?novel a kaunokki:romaani .
+    ?novel kaunokki:manifests_in/kaunokki:hasPublisher ?category .
+    ?category skos:prefLabel ?prefLabel .
+  }
+  GROUP BY ?category ?prefLabel
+  ORDER BY DESC(?instanceCount)
+`
+
+export const novelsByCharacterQuery = `
+  SELECT ?category ?prefLabel (COUNT(DISTINCT ?novel) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    ?novel a kaunokki:romaani .
+    ?novel kaunokki:toimija ?category .
+    OPTIONAL { 
+      ?category skos:prefLabel ?prefLabel_ .
+      FILTER(LANG(?prefLabel_) = "<LANG>")
+    }
+    BIND(COALESCE(?prefLabel_, ?category) as ?prefLabel)
+  }
+  GROUP BY ?category ?prefLabel
+  ORDER BY DESC(?instanceCount)
+`
