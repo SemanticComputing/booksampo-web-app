@@ -82,7 +82,34 @@
         {
             "id": "occupation",
             "valueType": "object",
-            "makeLink": true,
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 150
+        },
+        {
+            "id": "gender",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 150
+        },
+        {
+            "id": "language",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 150
+        },
+        {
+            "id": "nationality",
+            "valueType": "object",
+            "makeLink": false,
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
@@ -100,6 +127,42 @@
             "sortButton": true,
             "sortBy": "instanceCount",
             "sortByPredicate": "kaunokki:occupation/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "gender": {
+            "containerClass": "four",
+            "facetType": "list",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "filterType": "uriFilter",
+            "predicate": "foaf:gender",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "foaf:gender/skos:prefLabel",
+            "sortDirection": "desc",
+            "pieChartButton": true
+        },
+        "language": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "facetLabelPredicate": "<http://ldf.fi/nonexistentURI>",
+            "filterType": "uriFilter",
+            "predicate": "kaunokki:aidinkieli",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortDirection": "desc"
+        },
+        "nationality": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "filterType": "uriFilter",
+            "predicate": "kaunokki:kansallisuus",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "kaunokki:kansallisuus/skos:prefLabel",
             "sortDirection": "desc"
         }
     }

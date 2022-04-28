@@ -358,6 +358,18 @@
         "occupation": {
           "label": "Ammatti",
           "description": "Henkilön ammatti."
+        },
+        "gender": {
+          "label": "Sukupuoli",
+          "description": "Henkilön sukupuoli."
+        },
+        "language": {
+          "label": "Kielitaito",
+          "description": "Henkilön käyttämät kielet."
+        },
+        "nationality": {
+          "label": "Kansallisuus",
+          "description": "Henkilön kansallisuus."
         }
       }
     },

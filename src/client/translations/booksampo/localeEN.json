@@ -368,6 +368,18 @@
         "occupation": {
           "label": "Occupation",
           "description": "The occupation of the person."
+        },
+        "gender": {
+          "label": "Gender",
+          "description": "The gender of the person."
+        },
+        "language": {
+          "label": "Language ability",
+          "description": "The languages the person uses/used."
+        },
+        "nationality": {
+          "label": "Nationality",
+          "description": "The nationality of the person."
         }
       }
     },

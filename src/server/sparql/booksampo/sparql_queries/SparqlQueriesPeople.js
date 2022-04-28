@@ -30,4 +30,27 @@ export const personProperties = `
       }
       BIND(COALESCE(?occupation__prefLabel_, ?occupation__id) as ?occupation__prefLabel)
     }
+    UNION
+    {
+      ?id foaf:gender ?gender__id .
+      OPTIONAL { 
+        ?gender__id skos:prefLabel ?gender__prefLabel_ .
+        FILTER(LANG(?gender__prefLabel_) = "<LANG>")
+      }
+      BIND(COALESCE(?gender__prefLabel_, ?gender__id) as ?gender__prefLabel)
+    }
+    UNION
+    {
+      ?id kaunokki:aidinkieli ?language__id .
+      BIND(?language__id as ?language__prefLabel)
+    }
+    UNION
+    {
+      ?id kaunokki:kansallisuus ?nationality__id .
+      OPTIONAL { 
+        ?nationality__id skos:prefLabel ?nationality__prefLabel_ .
+        FILTER(LANG(?nationality__prefLabel_) = "<LANG>")
+      }
+      BIND(COALESCE(?nationality__prefLabel_, ?nationality__id) as ?nationality__prefLabel)
+    }
 `

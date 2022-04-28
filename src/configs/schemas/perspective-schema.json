@@ -321,6 +321,10 @@
                         "hideHeader": {
                             "type": "boolean",
                             "description": "Boolean value indicating whether the header should be hidden or not."
+                        },
+                        "pieChartButton": {
+                            "type": "boolean",
+                            "description": "Boolean value indicating whether a pie chart should be able to be opened from the facet showcasing the data."
                         }
                     },
                     "required": [
