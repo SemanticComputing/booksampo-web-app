@@ -193,16 +193,7 @@ export const novelsTakingPlaceAt = `
       <FILTER>
       ?related__id kaunokki:worldPlace ?id .
       ?related__id skos:prefLabel ?related__prefLabel .
-      OPTIONAL {
-        ?related__id skos:prefLabel [] .
-        BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?related__id), "^.*\\\\/(.+)", "$1")) AS ?related__dataProviderUrl)
-        FILTER(!CONTAINS(STR(?related__id), "kaunokki#"))
-      }
-      OPTIONAL {
-        ?related__id skos:prefLabel [] .
-        BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?related__id), "^.*#(.+)", "$1")) AS ?related__dataProviderUrl)
-        FILTER(CONTAINS(STR(?related__id), "kaunokki#"))
-      }
+      BIND(CONCAT("/${perspectiveID}/page/", ENCODE_FOR_URI(STR(?related__id)), "/table") AS ?related__dataProviderUrl)
     }
 `
 

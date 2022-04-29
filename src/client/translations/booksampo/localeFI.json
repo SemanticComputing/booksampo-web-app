@@ -112,7 +112,10 @@
       "novelsByOriginalLanguage": "alkukieli",
       "novelsByTheme": "teema",
       "novelsByPublisher": "kustantaja",
-      "novelsByCharacter": "toimija"
+      "novelsByCharacter": "toimija",
+      "peopleByGender": "sukupuoli",
+      "peopleByOccupation": "ammatti",
+      "peopleByNationality": "kansallisuus"
     }
   },
   "lineChart": {
