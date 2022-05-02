@@ -343,3 +343,70 @@ export const novelsByCharacterQuery = `
   GROUP BY ?category ?prefLabel
   ORDER BY DESC(?instanceCount)
 `
+
+export const novelPublicationsQuery = `
+  SELECT ?id ?uri__id ?uri__prefLabel ?uri__dataProviderUrl ?prefLabel__id 
+  ?object__id ?object__prefLabel 
+  ?object__prefLabel__id ?object__prefLabel__prefLabel
+  ?object__image__id ?object__image__url ?object__image__description 
+  ?object__publisher__id ?object__publisher__prefLabel 
+  ?object__publicationYear__id ?object__publicationYear__prefLabel 
+  ?object__pageCount__id ?object__pageCount__prefLabel
+  ?object__language__id ?object__language__prefLabel
+  ?object__firstVersion__id ?object__firstVersion__prefLabel
+  ?object__otherAuthor__id ?object__otherAuthor__prefLabel
+  WHERE {
+    <FILTER>
+    BIND(<ID> as ?id)
+    BIND(?id as ?uri__id)
+    BIND(?id as ?uri__prefLabel)
+    BIND(?id as ?uri__dataProviderUrl)
+    ?id skos:prefLabel ?prefLabel__id .
+    BIND(?prefLabel__id as ?prefLabel__prefLabel)
+    ?id kaunokki:manifests_in ?object__id .
+
+    {
+      ?object__id skos:prefLabel ?object__prefLabel__id .
+      BIND(?object__prefLabel__id as ?object__prefLabel__prefLabel)
+    }
+    UNION
+    {
+      ?object__id kaunokki:kansikuva ?object__image__id .
+      ?object__image__id ks-annotaatio:tiedostoUrl ?object__image__url .
+      OPTIONAL {
+        ?object__image__id skos:prefLabel ?object__image__description .
+      }
+    }
+    UNION
+    {
+      ?object__id kaunokki:hasPublisher ?object__publisher__id .
+      ?object__publisher__id skos:prefLabel ?object__publisher__prefLabel .
+    }
+    UNION
+    {
+      ?object__id kaunokki:ilmestymisvuosi ?object__publicationYear__id .
+      ?object__publicationYear__id skos:prefLabel ?object__publicationYear__prefLabel .
+    }
+    UNION
+    {
+      ?object__id kaunokki:sivuLkm ?object__pageCount__id .
+      BIND(?object__pageCount__id as ?object__pageCount__prefLabel)
+    }
+    UNION
+    {
+      ?object__id kaunokki:kieli ?object__language__id .
+      BIND(?object__language__id as ?object__language__prefLabel)
+    }
+    UNION
+    {
+      ?object__id kaunokki:onEnsimmainenVersio ?object__firstVersion__id .
+      ?object__firstVersion__id skos:prefLabel ?object__firstVersion__prefLabel .
+      FILTER(LANG(?object__firstVersion__prefLabel) = "<LANG>")
+    }
+    UNION
+    {
+      ?object__id kaunokki:toimittaja ?object__otherAuthor__id .
+      ?object__otherAuthor__id skos:prefLabel ?object__otherAuthor__prefLabel .
+    }
+  }
+`

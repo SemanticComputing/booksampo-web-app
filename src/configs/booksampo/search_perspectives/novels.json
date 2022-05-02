@@ -38,8 +38,91 @@
                         "tabPath": "table",
                         "tabIcon": "CalendarViewDay"
                     },
-                    "instancePageExport": {
+                    "novelInstancePagePublications": {
                         "tabID": 1,
+                        "component": "InstancePageTableList",
+                        "fetchResultsWhenMounted": true,
+                        "tabPath": "publications",
+                        "tabIcon": "CalendarViewDay",
+                        "sparqlQuery": "novelPublicationsQuery",
+                        "filterTarget": "novel",
+                        "properties": [
+                            {
+                                "id": "image",
+                                "valueType": "image",
+                                "previewImageHeight": 150,
+                                "makeLink": true,
+                                "externalLink": true,
+                                "sortValues": true,
+                                "numberedList": false
+                            },
+                            {
+                                "id": "prefLabel",
+                                "valueType": "object",
+                                "makeLink": true,
+                                "externalLink": false,
+                                "sortValues": true,
+                                "numberedList": false,
+                                "minWidth": 200
+                            },
+                            {
+                                "id": "publisher",
+                                "valueType": "object",
+                                "makeLink": false,
+                                "externalLink": false,
+                                "sortValues": false,
+                                "numberedList": true,
+                                "expandedOnInstancePage": true
+                            },
+                            {
+                                "id": "publicationYear",
+                                "valueType": "object",
+                                "makeLink": false,
+                                "externalLink": false,
+                                "sortValues": false,
+                                "numberedList": false
+                            },
+                            {
+                                "id": "pageCount",
+                                "valueType": "object",
+                                "makeLink": false,
+                                "externalLink": false,
+                                "sortValues": false,
+                                "numberedList": false,
+                                "disableSort": true
+                            },
+                            {
+                                "id": "language",
+                                "valueType": "object",
+                                "makeLink": false,
+                                "externalLink": false,
+                                "sortValues": false,
+                                "numberedList": false,
+                                "disableSort": true
+                            },
+                            {
+                                "id": "firstVersion",
+                                "valueType": "object",
+                                "makeLink": false,
+                                "externalLink": false,
+                                "sortValues": false,
+                                "numberedList": false,
+                                "disableSort": true
+                            },
+                            {
+                                "id": "otherAuthor",
+                                "valueType": "object",
+                                "makeLink": false,
+                                "externalLink": false,
+                                "sortValues": false,
+                                "numberedList": false,
+                                "disableSort": true,
+                                "expandedOnInstancePage": true
+                            }
+                        ]
+                    },
+                    "instancePageExport": {
+                        "tabID": 2,
                         "component": "Export",
                         "tabPath": "export",
                         "tabIcon": "CloudDownload",

@@ -77,6 +77,7 @@
   },
   "tabs": {
     "table": "taulukko",
+    "publications": "julkaisut",
     "pie_chart": "ympyräkaavio/pylväsdiagrammi",
     "map": "konkreettiset tapahtumapaikat kartalla",
     "production_places": "production places",
@@ -205,6 +206,12 @@
         "label": "Romaani",
         "description": ""
       },
+      "novelInstancePagePublications": {
+        "label": "Julkaisut",
+        "item": {
+          "label": "Julkaisu"
+        }
+      },
       "map": {
         "popup": {
           "label": "Tänne sijoittuvat romaanit:"
@@ -291,6 +298,18 @@
         "kirjasampoURL": {
           "label": "Linkki Kirjasampo-sivulle",
           "description": "Linkki teoksen Kirjasampo-sivulle."
+        },
+        "language": {
+          "label": "Kieli",
+          "description": "Julkaisun kieli."
+        },
+        "firstVersion": {
+          "label": "Ensimmäinen versio",
+          "description": "Kuvaa, onko julkaisu teoksen ensimmäinen versio."
+        },
+        "otherAuthor": {
+          "label": "Muut tekijät",
+          "description": "Muut tekijät, jotka osallistuivat julkaisun tekoon."
         }
       }
     },
@@ -417,6 +436,10 @@
         "samePersonAs": {
           "label": "Sama henkilö kuin",
           "description": "Henkilön muut käyttämät nimet tai taitelijanimet."
+        },
+        "novel": {
+          "label": "Romaanit",
+          "description": "Henkilön kirjoittamat romaanit."
         }
       }
     },

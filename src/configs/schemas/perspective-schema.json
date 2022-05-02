@@ -246,8 +246,7 @@
                     },
                     "sparqlQuery": {
                         "type": "string",
-                        "description": "String specifying the type of SPARQL query.",
-                        "enum": ["knowledgeGraphMetadataQuery", "manuscriptInstancePageNetworkLinksQuery", "productionPlacesQuery", "lastKnownLocationsQuery", "migrationsQuery", "productionsByDecadeQuery", "eventsByDecadeQuery", "manuscriptFacetResultsNetworkLinksQuery", "migrationsDialogQuery", "productionsByDecadeAndCountryQuery", "eventPlacesQuery"]
+                        "description": "String specifying the SPARQL query."
                     },
                     "resultMapper": {
                         "type": "string",
