@@ -134,10 +134,18 @@ export const personProperties = `
       ?id kaunokki:hasBiographicalInformation ?biography__id .
       BIND(?biography__id as ?biography__prefLabel)
     }
-    UNION {
+    UNION
+    {
       ?id kaunokki:sameAs ?samePersonAs__id .
       ?samePersonAs__id skos:prefLabel ?samePersonAs__prefLabel .
       BIND(CONCAT("/${perspectiveID}/page/", ENCODE_FOR_URI(STR(?samePersonAs__id)), "/table") AS ?samePersonAs__dataProviderUrl)
+    }
+    UNION
+    {
+      ?id ^kaunokki:tekija ?novel__id .
+      ?novel__id a kaunokki:romaani .
+      ?novel__id skos:prefLabel ?novel__prefLabel .
+      BIND(CONCAT("/novels/page/", ENCODE_FOR_URI(STR(?novel__id)), "/table") AS ?novel__dataProviderUrl)
     }
 `
 

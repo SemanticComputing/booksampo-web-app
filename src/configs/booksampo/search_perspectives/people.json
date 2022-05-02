@@ -282,6 +282,16 @@
             "disableSort": true,
             "minWidth": 150,
             "onlyOnInstancePage": true
+        },
+        {
+            "id": "novel",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
         }
     ],
     "facets": {
