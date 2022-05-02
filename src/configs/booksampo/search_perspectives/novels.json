@@ -150,8 +150,19 @@
                 "createPopUpContent": "createPopUpContentBookSampo"
             }
         },
-        "novelsByProperty": {
+        "novelsPlacesHeatmap": {
             "tabID": 2,
+            "tabPath": "heatmap",
+            "tabIcon": "AddLocation",
+            "component": "Deck",
+            "layerType": "heatmapLayer",
+            "sparqlQuery": "novelsPlacesQuery",
+            "facetClass": "novels",
+            "filterTarget": "novels",
+            "resultMapper": "mapPlaces"
+        },
+        "novelsByProperty": {
+            "tabID": 3,
             "component": "ApexCharts",
             "doNotRenderOnMount": true,
             "tabPath": "pie_chart",
@@ -250,6 +261,13 @@
     },
     "maps": {
         "novelsPlaces": {
+            "center": [
+                22.43,
+                10.37
+            ],
+            "zoom": 2
+        },
+        "novelsPlacesHeatmap": {
             "center": [
                 22.43,
                 10.37
