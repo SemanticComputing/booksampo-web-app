@@ -114,6 +114,7 @@
       "novelsByTheme": "teema",
       "novelsByPublisher": "kustantaja",
       "novelsByCharacter": "toimija",
+      "novelsByAuthorGender": "tekijän sukupuoli",
       "peopleByGender": "sukupuoli",
       "peopleByOccupation": "ammatti",
       "peopleByNationality": "kansallisuus"

@@ -114,6 +114,7 @@
       "novelsByTheme": "theme",
       "novelsByPublisher": "publisher",
       "novelsByCharacter": "character",
+      "novelsByAuthorGender": "author's gender",
       "peopleByGender": "gender",
       "peopleByOccupation": "occupation",
       "peopleByNationality": "nationality"

@@ -344,6 +344,35 @@ export const novelsByCharacterQuery = `
   ORDER BY DESC(?instanceCount)
 `
 
+export const novelsByAuthorGenderQuery = `
+  SELECT ?category ?prefLabel (COUNT(DISTINCT ?novel) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    {
+      ?novel a kaunokki:romaani .
+      ?novel kaunokki:tekija ?author .
+      ?author foaf:gender ?category .
+      OPTIONAL { 
+        ?category skos:prefLabel ?prefLabel_ .
+        FILTER(LANG(?prefLabel_) = "<LANG>")
+      }
+      BIND(COALESCE(?prefLabel_, ?category) as ?prefLabel)
+    }
+    UNION
+    {
+      ?novel a kaunokki:romaani .
+      FILTER NOT EXISTS {
+        ?novel kaunokki:tekija ?author .
+        ?author foaf:gender [] .
+      }
+      BIND("Unknown" as ?category)
+      BIND("Unknown" as ?prefLabel)
+    }
+  }
+  GROUP BY ?category ?prefLabel
+  ORDER BY DESC(?instanceCount)
+`
+
 export const novelPublicationsQuery = `
   SELECT ?id ?uri__id ?uri__prefLabel ?uri__dataProviderUrl ?prefLabel__id 
   ?object__id ?object__prefLabel 

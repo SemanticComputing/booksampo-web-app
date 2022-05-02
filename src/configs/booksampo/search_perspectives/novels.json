@@ -255,6 +255,23 @@
                             "createChartData": "createApexBarChartData"
                         }
                     ]
+                },
+                "novelsByAuthorGender": {
+                    "sparqlQuery": "novelsByAuthorGenderQuery",
+                    "filterTarget": "novel",
+                    "resultMapper": "mapPieChart",
+                    "sliceVisibilityThreshold": 0.01,
+                    "dropdownForChartTypes": "true",
+                    "chartTypes": [
+                        {
+                            "id": "pie",
+                            "createChartData": "createApexPieChartData"
+                        },
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        }
+                    ]
                 }
             }
         }
