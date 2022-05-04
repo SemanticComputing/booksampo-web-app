@@ -1,8 +1,8 @@
 {
     "id": "people",
     "endpoint": {
-        "url": "https://saha.kirjastot.fi/kirjasampo/sparql",
-        "useAuth": false,
+        "url": "https://ldf.fi/booksampo-2022/sparql",
+        "useAuth": true,
         "prefixesFile": "SparqlQueriesPrefixes.js"
     },
     "sparqlQueriesFile": "SparqlQueriesPeople.js",
@@ -64,7 +64,7 @@
                     "filterTarget": "person",
                     "resultMapper": "mapPieChart",
                     "sliceVisibilityThreshold": 0.01,
-                    "dropdownForChartTypes": "true",
+                    "dropdownForChartTypes": true,
                     "chartTypes": [
                         {
                             "id": "pie",
@@ -81,7 +81,7 @@
                     "filterTarget": "person",
                     "resultMapper": "mapPieChart",
                     "sliceVisibilityThreshold": 0.01,
-                    "dropdownForChartTypes": "true",
+                    "dropdownForChartTypes": true,
                     "chartTypes": [
                         {
                             "id": "pie",
@@ -98,7 +98,7 @@
                     "filterTarget": "person",
                     "resultMapper": "mapPieChart",
                     "sliceVisibilityThreshold": 0.01,
-                    "dropdownForChartTypes": "true",
+                    "dropdownForChartTypes": true,
                     "chartTypes": [
                         {
                             "id": "pie",

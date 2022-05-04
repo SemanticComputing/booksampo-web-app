@@ -1,19 +1,12 @@
 const perspectiveID = 'novels'
 
 export const novelProperties = `
-    {
-      ?id skos:prefLabel ?prefLabel__id .
-      BIND(?prefLabel__id AS ?prefLabel__prefLabel)
-      BIND(?id as ?uri__id)
-      BIND(CONCAT("https://saha.kirjastot.fi/saha/project/resource.shtml?uri=", ENCODE_FOR_URI(STR(?id)), "&model=kirjasampo") as ?uri__dataProviderUrl)
-      BIND(?id as ?uri__prefLabel)
-    }
-    UNION
-    {
-      ?id skos:prefLabel ?prefLabel__id .
-      BIND(CONCAT("/${perspectiveID}/page/", ENCODE_FOR_URI(STR(?id)), "/table") AS ?prefLabel__dataProviderUrl)
-    }
-    UNION
+    ?id skos:prefLabel ?prefLabel__id .
+    BIND(?prefLabel__id AS ?prefLabel__prefLabel)
+    BIND(?id as ?uri__id)
+    BIND(?id as ?uri__prefLabel)
+    BIND(CONCAT("/${perspectiveID}/page/", ENCODE_FOR_URI(STR(?id)), "/table") AS ?prefLabel__dataProviderUrl)
+    BIND(CONCAT("https://saha.kirjastot.fi/saha/project/resource.shtml?uri=", ENCODE_FOR_URI(STR(?id)), "&model=kirjasampo") as ?uri__dataProviderUrl)
     {
       ?id kaunokki:tekija ?author__id .
       ?author__id skos:prefLabel ?author__prefLabel .
@@ -150,18 +143,21 @@ export const novelProperties = `
     }
     UNION
     {
+      ?id skos:prefLabel [] .
       BIND(CONCAT("https://www.kirjasampo.fi/fi/kulsa/saha3%253A", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?kirjasampoURL__dataProviderUrl)
       BIND(?kirjasampoURL__dataProviderUrl AS ?kirjasampoURL__prefLabel)
       FILTER(!CONTAINS(STR(?id), "kaunokki#") && CONTAINS(STR(?id), "saha3/") && !(CONTAINS(STR(?id), "btj.fi/") || CONTAINS(STR(?id), "data.kirjasampo.fi/")))
     }
     UNION
     {
+      ?id skos:prefLabel [] .
       BIND(CONCAT("https://www.kirjasampo.fi/fi/kulsa/kauno%253A", REPLACE(STR(?id), "^.*#(.+)", "$1")) AS ?kirjasampoURL__dataProviderUrl)
       BIND(?kirjasampoURL__dataProviderUrl AS ?kirjasampoURL__prefLabel)
       FILTER(CONTAINS(STR(?id), "kaunokki#") && !CONTAINS(STR(?id), "saha3/") && !(CONTAINS(STR(?id), "btj.fi/") || CONTAINS(STR(?id), "data.kirjasampo.fi/")))
     }
     UNION
     {
+      ?id skos:prefLabel [] .
       BIND(CONCAT("https://www.kirjasampo.fi/fi/kulsa/", ENCODE_FOR_URI(ENCODE_FOR_URI(STR(?id)))) AS ?kirjasampoURL__dataProviderUrl)
       BIND(?kirjasampoURL__dataProviderUrl AS ?kirjasampoURL__prefLabel)
       FILTER(!CONTAINS(STR(?id), "kaunokki#") && !CONTAINS(STR(?id), "saha3/") && (CONTAINS(STR(?id), "btj.fi/") || CONTAINS(STR(?id), "data.kirjasampo.fi/")))
@@ -203,7 +199,7 @@ export const novelsPlacesQuery = `
   WHERE {
     <FILTER>
     ?novels kaunokki:worldPlace ?id ;
-          a <FACET_CLASS> .	
+          a <FACET_CLASS> .
     ?id wgs84:lat ?lat ;
         wgs84:long ?long .
     FILTER NOT EXISTS {
