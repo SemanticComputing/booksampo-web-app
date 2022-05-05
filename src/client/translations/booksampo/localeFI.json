@@ -38,17 +38,17 @@
     "narrowDownBy": "Rajaa",
     "filterOptions": "Suodatinasetukset",
     "filterByName": "Suodata nimen perusteella",
-    "filterByBoundingBox": "Filter by bounding box",
-    "selectionOptions": "Selection options",
-    "selectAlsoSubconcepts": "Automatically select all subconcepts",
-    "doNotSelectSubconcepts": "Do not select subconcepts",
+    "filterByBoundingBox": "Suodata rajaavalla suorakaiteella",
+    "selectionOptions": "Valinta-asetukset",
+    "selectAlsoSubconcepts": "Valitse kaikki alakäsitteet automaattisesti",
+    "doNotSelectSubconcepts": "Älä valitse alakäsitteitä",
     "sortingOptions": "Järjestysasetukset",
     "sortAlphabetically": "Järjestä aakkosjärjestykseen",
     "sortByNumberOfSearchResults": "Järjestä hakutulosten määrän mukaan",
-    "useDisjunction": "Use logical OR between selections",
-    "useConjuction": "Use logical AND between selections",
-    "minYear": "Min vuosi",
-    "maxYear": "Max vuosi",
+    "useDisjunction": "Käytä loogista OR-konnektiivia valintojen välillä",
+    "useConjuction": "Käytä loogista AND-konnektiivia valintojen välillä",
+    "minYear": "Minimivuosi",
+    "maxYear": "Maksimivuosi",
     "min": "Min",
     "max": "Max",
     "facetSearchFieldPlaceholder": "Hae...",
@@ -79,6 +79,8 @@
     "table": "taulukko",
     "publications": "julkaisut",
     "pie_chart": "ympyräkaavio/pylväsdiagrammi",
+    "activity_chart": "aktiivisuus vuosikymmenittäin",
+    "genre_chart": "kirjallisuudenlajit vuosikymmenittäin",
     "map": "konkreettiset tapahtumapaikat kartalla",
     "production_places": "production places",
     "production_places_heatmap": "production heatmap",
@@ -118,7 +120,9 @@
       "novelsByAuthorGender": "tekijän sukupuoli",
       "peopleByGender": "sukupuoli",
       "peopleByOccupation": "ammatti",
-      "peopleByNationality": "kansallisuus"
+      "peopleByNationality": "kansallisuus",
+      "novelsByDecade": "teosten määrä per vuosikymmen",
+      "novelGenresByDecade": "teosten genre per vuosikymmen"
     }
   },
   "lineChart": {
@@ -129,9 +133,9 @@
     "receivedCount": "Received",
     "allCount": "All"
   },
-  "exportToYasgui": "open the result table query in yasgui sparql editor",
-  "openInLinkedDataBrowser": "open in linked data browser",
-  "resultsAsCSV": "download the search results as a CSV table",
+  "exportToYasgui": "avaa tulostaulukkohaku Yasgui SPARQL -editorissa",
+  "openInLinkedDataBrowser": "avaa linkitetyn datan selaimessa",
+  "resultsAsCSV": "lataa hakutulokset CSV-taulukkona",
   "facets": {
     "dateFacet": {
       "invalidDate": "Epäkelpo päivämäärä.",
@@ -146,7 +150,7 @@
       "inputLabel": "Etsi nimellä"
     },
     "sliderFacet": {
-      "invalidStartOrEnd": "Min value must be smaller than max value. The smallest value can be {min} and the largest value can be {max}."
+      "invalidStartOrEnd": "Minimiarvon pitää olla pienempi kuin maksimiarvon. Pienin mahdollinen arvo on {min} ja suurin mahdollinen arvo on {max}."
     }
   },
   "leafletMap": {
@@ -201,7 +205,7 @@
   "perspectives": {
     "novels": {
       "label": "Romaanit",
-      "facetResultsType": "",
+      "facetResultsType": "romaani(a)",
       "shortDescription": "Romaanien kuvaus",
       "longDescription": "",
       "instancePage": {
@@ -315,16 +319,26 @@
         }
       }
     },
-    "nonfiction": {
+    "nonfictionBooks": {
       "label": "Tietokirjat",
-      "facetResultsType": "",
+      "facetResultsType": "tietokirja(a)",
       "shortDescription": "Tietokirjojen kuvaus",
       "longDescription": "",
       "instancePage": {
-        "label": "",
+        "label": "Tietokirja",
         "description": ""
       },
+      "nonfictionBookInstancePagePublications": {
+        "label": "Julkaisut",
+        "item": {
+          "label": "Julkaisu"
+        }
+      },
       "properties": {
+        "image": {
+          "label": "Kansikuva",
+          "description": "Teoksen kansikuva."
+        },
         "uri": {
           "label": "URI",
           "description": "Yksilöivä tunniste"
@@ -346,19 +360,79 @@
           "label": "Teema",
           "description": "Teoksen teema"
         },
+        "keyword": {
+          "label": "Asiasana",
+          "description": "Teoksen asiasana(t)."
+        },
         "originalLanguage": {
           "label": "Alkukieli",
-          "description": "Teoksen alkukieli"
+          "description": "Teoksen alkukieli."
         },
         "award": {
           "label": "Palkinnot",
-          "description": "Teoksen saamat mahdolliset palkinnot"
+          "description": "Teoksen saamat mahdolliset palkinnot."
+        },
+        "mainCharacter": {
+          "label": "Päähenkilö",
+          "description": "Teoksen päähenkilö(t)."
+        },
+        "character": {
+          "label": "Toimija",
+          "description": "Teoksen toimija(t)."
+        },
+        "setting": {
+          "label": "Tapahtumapaikka",
+          "description": "Teoksen tapahtumapaikka."
+        },
+        "concretePlace": {
+          "label": "Konkreettinen tapahtumapaikka",
+          "description": "Teoksen konkreettinen tapahtumapaikka."
+        },
+        "timeOfStory": {
+          "label": "Tapahtuma-aika",
+          "description": "Teoksen tapahtuma-aika."
+        },
+        "isbn": {
+          "label": "ISBN",
+          "description": "Teoksen ISBN(:t)."
+        },
+        "bookDescription": {
+          "label": "Kuvaus",
+          "description:": "Teoksen kuvaus."
+        },
+        "pageCount": {
+          "label": "Sivumäärä",
+          "description": "Teoksen julkaisujen sivumäärä(t)."
+        },
+        "publisher": {
+          "label": "Kustantaja",
+          "description": "Teoksen julkaisujen kustantaja(t)."
+        },
+        "publicationYear": {
+          "label": "Julkaisuvuosi",
+          "description": "Teoksen julkaisuvuosi tai -vuodet."
+        },
+        "language": {
+          "label": "Kieli",
+          "description": "Julkaisun kieli."
+        },
+        "firstVersion": {
+          "label": "Ensimmäinen versio",
+          "description": "Kuvaa, onko julkaisu teoksen ensimmäinen versio."
+        },
+        "otherAuthor": {
+          "label": "Muut tekijät",
+          "description": "Muut tekijät, jotka osallistuivat julkaisun tekoon."
+        },
+        "yklClass": {
+          "label": "YKL-luokka",
+          "description": "Teoksen YKL-luokka."
         }
       }
     },
     "people": {
       "label": "Henkilöt",
-      "facetResultsType": "",
+      "facetResultsType": "henkilö(ä)",
       "shortDescription": "Henkilöiden kuvaus",
       "longDescription": "",
       "instancePage": {
@@ -445,789 +519,40 @@
         }
       }
     },
-    "manuscripts": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
+    "covers": {
+      "label": "Kansikuvat",
+      "facetResultsType": "kansikuva(a)",
+      "shortDescription": "Kansikuvien kuvaus",
       "longDescription": "",
       "instancePage": {
-        "label": "",
+        "label": "Kansikuva",
         "description": ""
       },
       "properties": {
-        "uri": {
-          "label": "",
-          "description": ""
-        },
-        "prefLabel": {
-          "label": "",
-          "description": ""
-        },
-        "author": {
-          "label": "",
-          "description": ""
-        },
-        "work": {
-          "label": "",
-          "description": ""
-        },
-        "expression": {
-          "label": "",
-          "description": ""
-        },
-        "productionPlace": {
-          "label": "",
-          "description": ""
-        },
-        "productionTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "note": {
-          "label": "",
-          "description": ""
-        },
-        "language": {
-          "label": "",
-          "description": ""
-        },
-        "event": {
-          "label": "",
-          "description": ""
-        },
-        "owner": {
-          "label": "",
-          "description": ""
-        },
-        "collection": {
-          "label": "",
-          "description": ""
-        },
-        "transferOfCustodyPlace": {
-          "label": "",
-          "description": ""
-        },
-        "transferOfCustodyTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "lastKnownLocation": {
-          "label": "",
-          "description": ""
-        },
-        "material": {
-          "label": "",
-          "description": ""
-        },
-        "height": {
-          "label": "",
-          "description": ""
-        },
-        "width": {
-          "label": "",
-          "description": ""
-        },
-        "folios": {
-          "label": "",
-          "description": ""
-        },
-        "lines": {
-          "label": "",
-          "description": ""
-        },
-        "columns": {
-          "label": "",
-          "description": ""
-        },
-        "miniatures": {
-          "label": "",
-          "description": ""
-        },
-        "decoratedInitials": {
-          "label": "",
-          "description": ""
-        },
-        "historiatedInitials": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
-        }
-      }
-    },
-    "works": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
-      "instancePage": {
-        "label": "",
-        "description": ""
-      },
-      "properties": {
-        "uri": {
-          "label": "",
-          "description": ""
-        },
-        "prefLabel": {
-          "label": "",
-          "description": ""
-        },
-        "author": {
-          "label": "",
-          "description": ""
-        },
-        "language": {
-          "label": "",
-          "description": ""
-        },
-        "expression": {
-          "label": "",
-          "description": ""
-        },
-        "manuscript": {
-          "label": "",
-          "description": ""
-        },
-        "productionTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "collection": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
-        }
-      }
-    },
-    "events": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
-      "instancePage": {
-        "label": "",
-        "description": ""
-      },
-      "properties": {
-        "uri": {
-          "label": "",
-          "description": ""
-        },
-        "type": {
-          "label": "",
-          "description": ""
-        },
-        "language": {
-          "label": "",
-          "description": ""
-        },
-        "manuscript": {
-          "label": "",
-          "description": ""
-        },
-        "eventTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "place": {
-          "label": "",
-          "description": ""
-        },
-        "note": {
-          "label": "",
-          "description": ""
-        },
-        "surrender": {
-          "label": "",
-          "description": ""
-        },
-        "receiver": {
-          "label": "",
-          "description": ""
-        },
-        "observedOwner": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
-        }
-      }
-    },
-    "actors": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
-      "instancePage": {
-        "label": "",
-        "description": ""
-      },
-      "properties": {
-        "uri": {
-          "label": "",
-          "description": ""
-        },
-        "prefLabel": {
-          "label": "",
-          "description": ""
-        },
-        "type": {
-          "label": "",
-          "description": ""
-        },
-        "birthDateTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "deathDateTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "place": {
-          "label": "",
-          "description": ""
-        },
-        "work": {
-          "label": "",
-          "description": ""
-        },
-        "manuscript": {
-          "label": "",
-          "description": ""
-        },
-        "role": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
-        }
-      }
-    },
-    "places": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
-      "instancePage": {
-        "label": "",
-        "description": ""
-      },
-      "properties": {
-        "uri": {
-          "label": "",
-          "description": ""
-        },
-        "prefLabel": {
-          "label": "",
-          "description": ""
-        },
-        "placeType": {
-          "label": "",
-          "description": ""
-        },
-        "area": {
-          "label": "",
-          "description": ""
-        },
-        "manuscriptProduced": {
-          "label": "",
-          "description": ""
-        },
-        "manuscriptTransferred": {
-          "label": "",
-          "description": ""
-        },
-        "manuscriptObserved": {
-          "label": "",
-          "description": ""
-        },
-        "actor": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
-        }
-      }
-    },
-    "collections": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
-      "instancePage": {
-        "label": "",
-        "description": ""
-      },
-      "properties": {
-        "uri": {
-          "label": "",
-          "description": ""
-        },
-        "prefLabel": {
-          "label": "",
-          "description": ""
-        },
-        "manuscript": {
-          "label": "",
-          "description": ""
-        },
-        "owner": {
-          "label": "",
-          "description": ""
-        },
-        "place": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
-        }
-      }
-    },
-    "expressions": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
-      "instancePage": {
-        "label": "",
-        "description": ""
-      },
-      "properties": {
-        "uri": {
-          "label": "",
-          "description": ""
-        },
-        "prefLabel": {
-          "label": "",
-          "description": ""
-        },
-        "manuscript": {
-          "label": "",
-          "description": ""
-        },
-        "language": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
-        }
-      }
-    },
-    "finds": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
-      "instancePage": {
-        "label": "",
-        "description": ""
-      },
-      "properties": {
-        "uri": {
-          "label": "",
-          "description": ""
-        },
-        "findName": {
-          "label": "",
-          "description": ""
-        },
-        "specification": {
-          "label": "",
-          "description": ""
-        },
-        "prefLabel": {
-          "label": "",
-          "description": ""
-        },
-        "type": {
-          "label": "",
-          "description": ""
-        },
-        "subCategory": {
-          "label": "",
-          "description": ""
-        },
-        "objectSubCategory": {
-          "label": "",
-          "description": ""
-        },
-        "material": {
-          "label": "",
-          "description": ""
-        },
-        "materialLiteral": {
-          "label": "",
-          "description": ""
-        },
-        "period": {
-          "label": "",
-          "description": ""
-        },
-        "periodObject": {
-          "label": "",
-          "description": ""
-        },
-        "startYear": {
-          "label": "",
-          "description": ""
-        },
-        "endYear": {
-          "label": "",
-          "description": ""
-        },
-        "municipality": {
-          "label": "",
-          "description": ""
-        },
         "image": {
-          "label": "",
-          "description": ""
-        }
-      }
-    },
-    "emloActors": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
-      "instancePage": {
-        "label": "",
-        "description": ""
-      },
-      "properties": {
+          "label": "Kansikuva",
+          "description": "Kansikuva."
+        },
         "uri": {
-          "label": "",
-          "description": ""
+          "label": "URI",
+          "description": "Yksilöivä tunniste"
         },
         "prefLabel": {
-          "label": "",
-          "description": ""
+          "label": "Nimi",
+          "description": "Kansikuvan nimi.",
+          "textFacetInputPlaceholder": ""
         },
-        "author": {
-          "label": "",
-          "description": ""
+        "keyword": {
+          "label": "Asiasana",
+          "description": "Kansikuvan asiasana(t)."
         },
-        "gender": {
-          "label": "",
-          "description": ""
+        "work": {
+          "label": "Teos",
+          "description": "Teos, jolle kansi on tehty."
         },
-        "type": {
-          "label": "",
-          "description": ""
-        },
-        "birthDateTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "deathDateTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "altLabel": {
-          "label": "",
-          "description": ""
-        },
-        "related": {
-          "label": "",
-          "description": ""
-        },
-        "event": {
-          "label": "",
-          "description": ""
-        },
-        "owner": {
-          "label": "",
-          "description": ""
-        },
-        "rel": {
-          "label": "",
-          "description": ""
-        },
-        "cor": {
-          "label": "",
-          "description": ""
-        },
-        "transferOfCustodyTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "knownLocation": {
-          "label": "",
-          "description": ""
-        },
-        "material": {
-          "label": "",
-          "description": ""
-        },
-        "height": {
-          "label": "",
-          "description": ""
-        },
-        "width": {
-          "label": "",
-          "description": ""
-        },
-        "folios": {
-          "label": "",
-          "description": ""
-        },
-        "lines": {
-          "label": "",
-          "description": ""
-        },
-        "columns": {
-          "label": "",
-          "description": ""
-        },
-        "miniatures": {
-          "label": "",
-          "description": ""
-        },
-        "decoratedInitials": {
-          "label": "",
-          "description": ""
-        },
-        "historiatedInitials": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
-        }
-      }
-    },
-    "emloLetters": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
-      "instancePage": {
-        "label": "",
-        "description": ""
-      },
-      "properties": {
-        "uri": {
-          "label": "",
-          "description": ""
-        },
-        "prefLabel": {
-          "label": "",
-          "description": ""
-        },
-        "language": {
-          "label": "",
-          "description": ""
-        },
-        "subject": {
-          "label": "",
-          "description": ""
-        },
-        "datasource": {
-          "label": "",
-          "description": ""
-        },
-        "excipit": {
-          "label": "",
-          "description": ""
-        },
-        "description": {
-          "label": "",
-          "description": ""
-        },
-        "manuscript": {
-          "label": "",
-          "description": ""
-        },
-        "productionTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "collection": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
-        },
-        "target": {
-          "label": "",
-          "description": ""
-        },
-        "from": {
-          "label": "",
-          "description": ""
-        },
-        "to": {
-          "label": "",
-          "description": ""
-        }
-      }
-    },
-    "emloPlaces": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
-      "instancePage": {
-        "label": "",
-        "description": ""
-      },
-      "properties": {
-        "uri": {
-          "label": "",
-          "description": ""
-        },
-        "type": {
-          "label": "",
-          "description": ""
-        },
-        "prefLabel": {
-          "label": "",
-          "description": ""
-        },
-        "country": {
-          "label": "",
-          "description": ""
-        },
-        "broader": {
-          "label": "",
-          "description": ""
-        },
-        "narrower": {
-          "label": "",
-          "description": ""
-        },
-        "place": {
-          "label": "",
-          "description": ""
-        },
-        "placeType": {
-          "label": "",
-          "description": ""
-        },
-        "note": {
-          "label": "",
-          "description": ""
-        },
-        "surrender": {
-          "label": "",
-          "description": ""
-        },
-        "receiver": {
-          "label": "",
-          "description": ""
-        },
-        "observedOwner": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
-        }
-      }
-    },
-    "hellerau": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
-      "properties": {
-        "uri": {
-          "label": "",
-          "description": ""
-        },
-        "prefLabel": {
-          "label": "",
-          "description": ""
-        },
-        "home1930": {
-          "label": "",
-          "description": ""
-        },
-        "home1937": {
-          "label": "",
-          "description": ""
-        }
-      }
-    },
-    "clientFSPlaces": {
-      "label": "",
-      "shortDescription": "",
-      "datasets": {
-        "kotus": {
-          "label": "",
-          "aboutLink": ""
-        },
-        "pnr": {
-          "label": "",
-          "aboutLink": ""
-        },
-        "warsa_karelian_places": {
-          "label": "",
-          "aboutLink": ""
-        },
-        "tgn": {
-          "label": "",
-          "aboutLink": ""
-        }
-      },
-      "facetResultsType": "",
-      "inputPlaceHolder": "",
-      "searchByArea": "",
-      "searchByAreaTitle": "",
-      "searchByAreaCancel": "",
-      "searchByAreaSearch": "",
-      "properties": {
-        "datasetSelector": {
-          "label": "",
-          "description": ""
-        },
-        "prefLabel": {
-          "label": "",
-          "description": ""
-        },
-        "broaderTypeLabel": {
-          "label": "",
-          "description": ""
-        },
-        "broaderAreaLabel": {
-          "label": "",
-          "description": ""
-        },
-        "modifier": {
-          "label": "",
-          "description": ""
-        },
-        "basicElement": {
-          "label": "",
-          "description": ""
-        },
-        "collectionYear": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
+        "workType": {
+          "label": "Teoksten tyyppi",
+          "description": "Teoksen tyyppi (esim. romaani, novelli, ...)"
         }
       }
     }

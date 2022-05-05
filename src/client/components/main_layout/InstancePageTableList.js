@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import intl from 'react-intl-universal'
 import InstancePageTable from './InstancePageTable'

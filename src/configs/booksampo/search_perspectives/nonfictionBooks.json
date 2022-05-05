@@ -1,0 +1,497 @@
+{
+    "id": "nonfictionBooks",
+    "endpoint": {
+        "url": "https://ldf.fi/booksampo-2022/sparql",
+        "useAuth": true,
+        "prefixesFile": "SparqlQueriesPrefixes.js"
+    },
+    "sparqlQueriesFile": "SparqlQueriesNonfictionBooks.js",
+    "facetClass": "<http://www.seco.tkk.fi/applications/saha#Instance_ID1237984819752>",
+    "langTag": "fi",
+    "frontPageImage": "main_page/works-452x262.jpg",
+    "searchMode": "faceted-search",
+    "defaultActiveFacets": [
+        "prefLabel"
+    ],
+    "defaultTab": "table",
+    "defaultInstancePageTab": "table",
+    "resultClasses": {
+        "nonfictionBooks": {
+            "paginatedResultsConfig": {
+                "tabID": 0,
+                "component": "ResultTable",
+                "tabPath": "table",
+                "tabIcon": "CalendarViewDay",
+                "propertiesQueryBlock": "nonfictionBookProperties",
+                "pagesize": 10,
+                "sortBy": null,
+                "sortDirection": null,
+                "paginatedResultsAlwaysExpandRows": true,
+                "paginatedResultsRowContentMaxHeight": 160
+            },
+            "instanceConfig": {
+                "propertiesQueryBlock": "nonfictionBookProperties",
+                "instancePageResultClasses": {
+                    "instancePageTable": {
+                        "tabID": 0,
+                        "component": "InstancePageTable",
+                        "tabPath": "table",
+                        "tabIcon": "CalendarViewDay"
+                    },
+                    "nonfictionBookInstancePagePublications": {
+                        "tabID": 1,
+                        "component": "InstancePageTableList",
+                        "fetchResultsWhenMounted": true,
+                        "tabPath": "publications",
+                        "tabIcon": "CalendarViewDay",
+                        "sparqlQuery": "nonfictionBookPublicationsQuery",
+                        "filterTarget": "nonfictionBook",
+                        "properties": [
+                            {
+                                "id": "image",
+                                "valueType": "image",
+                                "previewImageHeight": 150,
+                                "makeLink": true,
+                                "externalLink": true,
+                                "sortValues": true,
+                                "numberedList": false
+                            },
+                            {
+                                "id": "prefLabel",
+                                "valueType": "object",
+                                "makeLink": true,
+                                "externalLink": false,
+                                "sortValues": true,
+                                "numberedList": false,
+                                "minWidth": 200
+                            },
+                            {
+                                "id": "publisher",
+                                "valueType": "object",
+                                "makeLink": false,
+                                "externalLink": false,
+                                "sortValues": false,
+                                "numberedList": true,
+                                "expandedOnInstancePage": true
+                            },
+                            {
+                                "id": "publicationYear",
+                                "valueType": "object",
+                                "makeLink": false,
+                                "externalLink": false,
+                                "sortValues": false,
+                                "numberedList": false
+                            },
+                            {
+                                "id": "pageCount",
+                                "valueType": "object",
+                                "makeLink": false,
+                                "externalLink": false,
+                                "sortValues": false,
+                                "numberedList": false,
+                                "disableSort": true
+                            },
+                            {
+                                "id": "language",
+                                "valueType": "object",
+                                "makeLink": false,
+                                "externalLink": false,
+                                "sortValues": false,
+                                "numberedList": false,
+                                "disableSort": true
+                            },
+                            {
+                                "id": "firstVersion",
+                                "valueType": "object",
+                                "makeLink": false,
+                                "externalLink": false,
+                                "sortValues": false,
+                                "numberedList": false,
+                                "disableSort": true
+                            },
+                            {
+                                "id": "otherAuthor",
+                                "valueType": "object",
+                                "makeLink": false,
+                                "externalLink": false,
+                                "sortValues": false,
+                                "numberedList": false,
+                                "disableSort": true,
+                                "expandedOnInstancePage": true
+                            }
+                        ]
+                    },
+                    "instancePageExport": {
+                        "tabID": 2,
+                        "component": "Export",
+                        "tabPath": "export",
+                        "tabIcon": "CloudDownload",
+                        "pageType": "instancePage"
+                    }
+                },
+                "localIDAsURI": true
+            }
+        }
+    },
+    "properties": [
+        {
+            "id": "image",
+            "valueType": "image",
+            "previewImageHeight": 150,
+            "makeLink": true,
+            "externalLink": true,
+            "sortValues": true,
+            "numberedList": false,
+            "hideHeader": true
+        },
+        {
+            "id": "uri",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": true,
+            "sortValues": true,
+            "numberedList": false,
+            "onlyOnInstancePage": true
+        },
+        {
+            "id": "prefLabel",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 200
+        },
+        {
+            "id": "author",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 100
+        },
+        {
+            "id": "genre",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 200
+        },
+        {
+            "id": "theme",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 200
+        },
+        {
+            "id": "keyword",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 150 
+        },
+        {
+            "id": "originalLanguage",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "disableSort": true,
+            "minWidth": 100
+        },
+        {
+            "id": "award",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 200
+        },
+        {
+            "id": "mainCharacter",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 150
+        },
+        {
+            "id": "character",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 200
+        },
+        {
+            "id": "setting",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 150
+        },
+        {
+            "id": "concretePlace",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 100
+        },
+        {
+            "id": "timeOfStory",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 100
+        },
+        {
+            "id": "isbn",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "disableSort": true,
+            "onlyOnInstancePage": true
+        },
+        {
+            "id": "bookDescription",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "disableSort": true,
+            "onlyOnInstancePage": true
+        },
+        {
+            "id": "pageCount",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "disableSort": true
+        },
+        {
+            "id": "publisher",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "minWidth": 200
+        },
+        {
+            "id": "publicationYear",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false
+        },
+        {
+            "id": "yklClass",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "disableSort": true,
+            "onlyOnInstancePage": true
+        }
+    ],
+    "facets": {
+        "prefLabel": {
+            "containerClass": "one",
+            "facetType": "text",
+            "filterType": "textFilter",
+            "sortByPredicate": "skos:prefLabel",
+            "textQueryProperty": "skos:prefLabel"
+        },
+        "author": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "kaunokki:tekija",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "kaunokki:tekija/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "genre": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "hideUnknownValue": false,
+            "filterType": "uriFilter",
+            "predicate": "kaunokki:genre",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "kaunokki:genre/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "theme": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "hideUnknownValue": false,
+            "filterType": "uriFilter",
+            "predicate": "kaunokki:teema",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "kaunokki:teema/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "keyword": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "hideUnknownValue": true,
+            "filterType": "uriFilter",
+            "predicate": "kaunokki:asiasana",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "kaunokki:asiasana/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "originalLanguage": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "facetLabelPredicate": "<http://ldf.fi/nonexistentURI>",
+            "filterType": "uriFilter",
+            "predicate": "kaunokki:alkukieli",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortDirection": "desc"
+        },
+        "award": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "hideUnknownValue": true,
+            "filterType": "uriFilter",
+            "predicate": "kaunokki:onPalkinto",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "kaunokki:onPalkinto/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "mainCharacter": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_. FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabelFI_ . FILTER(LANG(?prefLabelFI_) = 'fi') } OPTIONAL { ?id skos:prefLabel ?prefLabelGEN_ } BIND(COALESCE(COALESCE(COALESCE(STR(?prefLabel_), STR(?prefLabelFI_)), STR(?prefLabelGEN_)), STR(?id)) AS ?prefLabel)",
+            "filterType": "uriFilter",
+            "predicate": "kaunokki:paahenkilo",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "kaunokki:paahenkilo/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "character": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_. FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabelFI_ . FILTER(LANG(?prefLabelFI_) = 'fi') } OPTIONAL { ?id skos:prefLabel ?prefLabelGEN_ } BIND(COALESCE(COALESCE(COALESCE(STR(?prefLabel_), STR(?prefLabelFI_)), STR(?prefLabelGEN_)), STR(?id)) AS ?prefLabel)",
+            "filterType": "uriFilter",
+            "predicate": "kaunokki:toimija",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "kaunokki:toimija/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "setting": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "hideUnknownValue": true,
+            "filterType": "uriFilter",
+            "predicate": "kaunokki:paikka",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "kaunokki:paikka/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "concretePlace": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_ . FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabelGEN_ . } BIND(COALESCE(COALESCE(?prefLabel_, ?prefLabelGEN_), ?id) as ?prefLabel)",
+            "hideUnknownValue": true,
+            "filterType": "uriFilter",
+            "predicate": "kaunokki:worldPlace",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "kaunokki:worldPlace/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "timeOfStory": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_ . FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabelGEN_ . } BIND(COALESCE(COALESCE(?prefLabel_, ?prefLabelGEN_), ?id) as ?prefLabel)",
+            "hideUnknownValue": true,
+            "filterType": "uriFilter",
+            "predicate": "kaunokki:hasTimeOfStory",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "kaunokki:hasTimeOfStory/yso-time:earliestStart",
+            "sortDirection": "desc"
+        },
+        "pageCount": {
+            "containerClass": "five",
+            "facetType": "integer",
+            "filterType": "integerFilterRange",
+            "predicate": "kaunokki:manifests_in/kaunokki:sivuLkm",
+            "sortByPredicate": "kaunokki:manifests_in/kaunokki:sivuLkm"
+        },
+        "publisher": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "kaunokki:manifests_in/kaunokki:hasPublisher",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "kaunokki:manifests_in/kaunokki:hasPublisher/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "publicationYear": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "kaunokki:manifests_in/kaunokki:ilmestymisvuosi",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "kaunokki:manifests_in/kaunokki:ilmestymisvuosi/skos:prefLabel",
+            "sortDirection": "desc"
+        }
+    }
+}
