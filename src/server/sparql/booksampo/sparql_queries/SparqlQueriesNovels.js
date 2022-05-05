@@ -6,7 +6,7 @@ export const novelProperties = `
     BIND(?id as ?uri__id)
     BIND(?id as ?uri__prefLabel)
     BIND(CONCAT("/${perspectiveID}/page/", ENCODE_FOR_URI(STR(?id)), "/table") AS ?prefLabel__dataProviderUrl)
-    BIND(CONCAT("https://saha.kirjastot.fi/saha/project/resource.shtml?uri=", ENCODE_FOR_URI(STR(?id)), "&model=kirjasampo") as ?uri__dataProviderUrl)
+    BIND(CONCAT("https://demo.seco.tkk.fi/saha/project/resource.shtml?uri=", ENCODE_FOR_URI(STR(?id)), "&model=booksampo-2022") as ?uri__dataProviderUrl)
     {
       ?id kaunokki:tekija ?author__id .
       ?author__id skos:prefLabel ?author__prefLabel .
