@@ -8,7 +8,7 @@
     "sparqlQueriesFile": "SparqlQueriesNonfictionBooks.js",
     "facetClass": "<http://www.seco.tkk.fi/applications/saha#Instance_ID1237984819752>",
     "langTag": "fi",
-    "frontPageImage": "main_page/works-452x262.jpg",
+    "frontPageImage": "main_page/places-452x262.jpg",
     "searchMode": "faceted-search",
     "defaultActiveFacets": [
         "prefLabel"

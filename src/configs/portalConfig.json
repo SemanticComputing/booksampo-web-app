@@ -6,7 +6,8 @@
             "novels",
             "nonfictionBooks",
             "people",
-            "covers"
+            "covers",
+            "publications"
         ],
         "onlyInstancePages": [
         ]

@@ -207,8 +207,8 @@
     "novels": {
       "label": "Romaanit",
       "facetResultsType": "romaani(a)",
-      "shortDescription": "Romaanien kuvaus",
-      "longDescription": "",
+      "shortDescription": "Näkymä, jossa voi hakea romaaneja.",
+      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">Näkymä, jossa voi hakea romaaneja. Erinäiset julkaisut löytyvät romaanin omalta sivulta tai vaihtoehtoisesti myös 'Julkaisut'-näkymästä.</p>",
       "instancePage": {
         "label": "Romaani",
         "description": ""
@@ -323,8 +323,8 @@
     "nonfictionBooks": {
       "label": "Tietokirjat",
       "facetResultsType": "tietokirja(a)",
-      "shortDescription": "Tietokirjojen kuvaus",
-      "longDescription": "",
+      "shortDescription": "Näkymä, jossa voi hakea tietokirjoja.",
+      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">Näkymä, jossa voi hakea tietokirjoja. Erinäiset julkaisut löytyvät tietokirjan omalta sivulta tai vaihtoehtoisesti myös 'Julkaisut'-näkymästä.</p>",
       "instancePage": {
         "label": "Tietokirja",
         "description": ""
@@ -434,8 +434,8 @@
     "people": {
       "label": "Henkilöt",
       "facetResultsType": "henkilö(ä)",
-      "shortDescription": "Henkilöiden kuvaus",
-      "longDescription": "",
+      "shortDescription": "Näkymä, jossa voi hakea kirjallisuuteen liittyviä henkilöitä.",
+      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">Näkymä, jossa voi hakea kirjallisuuteen liittyviä henkilöitä. Näihin henkilöihin kuuluvat niin esimerkiksi kirjailijat kuin myös kääntäjät ja kuvittajat.</p>",
       "instancePage": {
         "label": "Henkilö",
         "description": ""
@@ -531,8 +531,8 @@
     "covers": {
       "label": "Kansikuvat",
       "facetResultsType": "kansikuva(a)",
-      "shortDescription": "Kansikuvien kuvaus",
-      "longDescription": "",
+      "shortDescription": "Näkymä, jossa voi hakea teosten kansikuvia.",
+      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">Näkymä, jossa voi hakea teosten kansikuvia.</p>",
       "instancePage": {
         "label": "Kansikuva",
         "description": ""
@@ -560,7 +560,64 @@
           "description": "Teos, jolle kansi on tehty."
         },
         "workType": {
-          "label": "Teoksten tyyppi",
+          "label": "Teoksen tyyppi",
+          "description": "Teoksen tyyppi (esim. romaani, novelli, ...)"
+        }
+      }
+    },
+    "publications": {
+      "label": "Julkaisut",
+      "facetResultsType": "julkaisu(a)",
+      "shortDescription": "Näkymä, jossa voi hakea teosten julkaisujen tietoja.",
+      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">Näkymä, jossa voi hakea teosten julkaisujen tietoja. Eri julkaisuja ovat esimerkiksi eri kielillä julkaistavat painokset.</p>",
+      "instancePage": {
+        "label": "Julkaisu",
+        "description": ""
+      },
+      "properties": {
+        "image": {
+          "label": "Kansikuva",
+          "description": "Julkaisun kansikuva."
+        },
+        "uri": {
+          "label": "URI",
+          "description": "Yksilöivä tunniste"
+        },
+        "prefLabel": {
+          "label": "Nimi",
+          "description": "Julkaisun nimi",
+          "textFacetInputPlaceholder": ""
+        },
+        "pageCount": {
+          "label": "Sivumäärä",
+          "description": "Julkaisun sivumäärä."
+        },
+        "publisher": {
+          "label": "Kustantaja",
+          "description": "Julkaisun kustantaja(t)."
+        },
+        "publicationYear": {
+          "label": "Julkaisuvuosi",
+          "description": "Julkaisun julkaisuvuosi."
+        },
+        "language": {
+          "label": "Kieli",
+          "description": "Julkaisun kieli."
+        },
+        "firstVersion": {
+          "label": "Ensimmäinen versio",
+          "description": "Kuvaa, onko julkaisu teoksen ensimmäinen versio."
+        },
+        "otherAuthor": {
+          "label": "Muut tekijät",
+          "description": "Muut tekijät, jotka osallistuivat julkaisun tekoon."
+        },
+        "work": {
+          "label": "Teos",
+          "description": "Teos, jolle julkaisu on julkaistu."
+        },
+        "workType": {
+          "label": "Teoksen tyyppi",
           "description": "Teoksen tyyppi (esim. romaani, novelli, ...)"
         }
       }
