@@ -147,6 +147,24 @@ export const personProperties = `
       ?novel__id skos:prefLabel ?novel__prefLabel .
       BIND(CONCAT("/novels/page/", ENCODE_FOR_URI(STR(?novel__id)), "/table") AS ?novel__dataProviderUrl)
     }
+    UNION
+    {
+      ?id ^kaunokki:tekija ?nonfictionBook__id .
+      ?nonfictionBook__id a <http://www.seco.tkk.fi/applications/saha#Instance_ID1237984819752> .
+      ?nonfictionBook__id skos:prefLabel ?nonfictionBook__prefLabel .
+      BIND(CONCAT("/nonfictionBooks/page/", ENCODE_FOR_URI(STR(?nonfictionBook__id)), "/table") AS ?nonfictionBook__dataProviderUrl)
+    }
+    UNION
+    {
+      ?id ^kaunokki:tekija ?otherWork__id .
+      FILTER NOT EXISTS {
+        ?otherWork__id a kaunokki:romaani .
+      }
+      FILTER NOT EXISTS {
+        ?otherWork__id a <http://www.seco.tkk.fi/applications/saha#Instance_ID1237984819752> .
+      }
+      ?otherWork__id skos:prefLabel ?otherWork__prefLabel .
+    }
 `
 
 export const peopleByGenderQuery = `
@@ -228,4 +246,153 @@ export const peopleByNationalityQuery = `
   }
   GROUP BY ?category ?prefLabel
   ORDER BY DESC(?instanceCount)
+`
+
+export const workGenresQuery = `
+  SELECT ?category ?prefLabel (COUNT(DISTINCT ?work) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    {
+      BIND(<ID> as ?person)
+      ?person a foaf:Person .
+      ?person ^kaunokki:tekija ?work .
+      ?work kaunokki:genre ?category .
+      OPTIONAL {
+        ?category skos:prefLabel ?prefLabel_ .
+        FILTER(LANG(?prefLabel_) = 'fi')
+      }
+      BIND(COALESCE(?prefLabel_, ?category) as ?prefLabel)
+    }
+    UNION
+    {
+      BIND(<ID> as ?person)
+      ?person a foaf:Person .
+      ?person ^kaunokki:tekija ?work .
+      FILTER NOT EXISTS {
+  		  ?work kaunokki:genre [] .
+      }
+      BIND("Unknown" as ?category)
+      BIND("Unknown" as ?prefLabel)
+    }
+  }
+  GROUP BY ?category ?prefLabel
+  ORDER BY DESC(?instanceCount)
+`
+
+export const worksByDecadeQuery = `
+  SELECT ?category ?prefLabel (COUNT(DISTINCT ?work) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    {
+      BIND(<ID> as ?person)
+      ?person a foaf:Person .
+      ?person ^kaunokki:tekija ?work .
+      ?work kaunokki:manifests_in ?p_work .
+      ?p_work kaunokki:onEnsimmainenVersio kaunokki:true .
+      ?p_work kaunokki:ilmestymisvuosi ?year .
+      OPTIONAL {
+        {
+          ?year skos:prefLabel ?label .
+          FILTER(LANG(?label) != 'fi' && LANG(?label) != 'sv' && LANG(?label) != 'en')
+          FILTER(regex(?label, "\\\\.") && !regex(?label, "-"))
+          BIND(CONCAT(REPLACE(?label, "^.*[\\\\.](.*)\\\\d.*$", "$1"), "0") AS ?prefLabel_)
+        }
+        UNION {
+          ?year skos:prefLabel ?label .
+          FILTER(LANG(?label) != 'fi' && LANG(?label) != 'sv' && LANG(?label) != 'en')
+          FILTER(!regex(?label, "\\\\.") && regex(?label, "-"))
+          BIND(CONCAT(REPLACE(?label, "(^.*).[-].*.$", "$1"), "0") AS ?prefLabel_)
+        }
+        UNION {
+          ?year skos:prefLabel ?label .
+          FILTER(LANG(?label) != 'fi' && LANG(?label) != 'sv' && LANG(?label) != 'en')
+          FILTER(!regex(?label, "\\\\.") && !regex(?label, "-"))
+          BIND(CONCAT(REPLACE(?label, "(.*)\\\\d.*$", "$1"), "0") AS ?prefLabel_)
+        }
+      }
+      BIND(COALESCE(?prefLabel_, ?year) as ?prefLabel)
+      BIND(?prefLabel as ?category)
+    }
+    UNION
+    {
+      BIND(<ID> as ?person)
+  	  ?person a foaf:Person .
+  	  ?person ^kaunokki:tekija ?work .
+  	  ?work kaunokki:manifests_in ?p_work .
+  	  ?p_work kaunokki:onEnsimmainenVersio kaunokki:true .  
+      FILTER NOT EXISTS {
+  		  ?p_work kaunokki:ilmestymisvuosi [] .
+      }
+      BIND("Unknown" as ?category)
+      BIND("Unknown" as ?prefLabel)
+    }
+    
+  }
+  GROUP BY ?category ?prefLabel
+  ORDER BY ASC(?prefLabel)
+`
+
+export const novelGenresByDecadeQuery = `
+  SELECT DISTINCT ?category ?prefLabel (COUNT(DISTINCT ?novel) as ?instanceCount) ?secondaryCategory ?secondaryCategoryPrefLabel (COUNT(?secondaryCategory) as ?secondaryInstanceCount)
+  WHERE {
+    <FILTER>
+    {
+      BIND(<ID> as ?person)
+      ?person a foaf:Person .
+      ?person ^kaunokki:tekija ?novel .
+      ?novel kaunokki:manifests_in ?pnovel .
+      ?pnovel kaunokki:onEnsimmainenVersio kaunokki:true .
+      ?pnovel kaunokki:ilmestymisvuosi ?year .
+      OPTIONAL {
+        {
+          ?year skos:prefLabel ?label .
+          FILTER(LANG(?label) != 'fi' && LANG(?label) != 'sv' && LANG(?label) != 'en')
+          FILTER(regex(?label, "\\\\.") && !regex(?label, "-"))
+          BIND(CONCAT(REPLACE(?label, "^.*[\\\\.](.*)\\\\d.*$", "$1"), "0") AS ?prefLabel_)
+        }
+        UNION {
+          ?year skos:prefLabel ?label .
+          FILTER(LANG(?label) != 'fi' && LANG(?label) != 'sv' && LANG(?label) != 'en')
+          FILTER(!regex(?label, "\\\\.") && regex(?label, "-"))
+          BIND(CONCAT(REPLACE(?label, "(^.*).[-].*.$", "$1"), "0") AS ?prefLabel_)
+        }
+        UNION {
+          ?year skos:prefLabel ?label .
+          FILTER(LANG(?label) != 'fi' && LANG(?label) != 'sv' && LANG(?label) != 'en')
+          FILTER(!regex(?label, "\\\\.") && !regex(?label, "-"))
+          BIND(CONCAT(REPLACE(?label, "(.*)\\\\d.*$", "$1"), "0") AS ?prefLabel_)
+        }
+      }
+      BIND(COALESCE(?prefLabel_, ?year) as ?prefLabel)
+      BIND(?prefLabel as ?category)
+      ?novel kaunokki:genre ?secondaryCategory .
+      OPTIONAL {
+        ?secondaryCategory skos:prefLabel ?secondaryCategoryPrefLabel_ .
+        FILTER(LANG(?secondaryCategoryPrefLabel_) = 'fi')
+      }
+      BIND(COALESCE(?secondaryCategoryPrefLabel_, ?secondaryCategory) as ?secondaryCategoryPrefLabel)
+    }
+    UNION 
+    {
+      BIND(<ID> as ?person)
+      ?person a foaf:Person .
+      ?person ^kaunokki:tekija ?novel .
+      ?novel kaunokki:manifests_in ?pnovel .
+      ?pnovel kaunokki:onEnsimmainenVersio kaunokki:true .
+      FILTER NOT EXISTS {
+  		  ?pnovel kaunokki:ilmestymisvuosi [] .
+      }
+      BIND("Unknown" as ?category)
+      BIND("Unknown" as ?prefLabel)
+      ?novel kaunokki:genre ?secondaryCategory .
+      OPTIONAL {
+        ?secondaryCategory skos:prefLabel ?secondaryCategoryPrefLabel_ .
+        FILTER(LANG(?secondaryCategoryPrefLabel_) = 'fi')
+      }
+      BIND(COALESCE(?secondaryCategoryPrefLabel_, ?secondaryCategory) as ?secondaryCategoryPrefLabel)
+    }
+
+  }
+  GROUP BY ?category ?prefLabel ?secondaryCategory ?secondaryCategoryPrefLabel
+  ORDER BY ASC(?prefLabel)
 `

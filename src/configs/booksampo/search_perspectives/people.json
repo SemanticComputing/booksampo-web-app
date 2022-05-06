@@ -38,8 +38,74 @@
                         "tabPath": "table",
                         "tabIcon": "CalendarViewDay"
                     },
-                    "instancePageExport": {
+                    "instacePageGenres": {
                         "tabID": 1,
+                        "component": "ApexCharts",
+                        "doNotRenderOnMount": true,
+                        "tabPath": "genre_chart",
+                        "tabIcon": "PieChart",
+                        "facetClass": "people",
+                        "sparqlQuery": "workGenresQuery",
+                        "resultMapper": "mapPieChart",
+                        "filterTarget": "work",
+                        "pageType": "instancePage",
+                        "sliceVisibilityThreshold": 0.01,
+                        "dropdownForResultClasses": false,
+                        "dropdownForChartTypes": true,
+                        "resultMapperConfig": {
+                            "fillEmptyValues": false
+                        },
+                        "chartTypes": [
+                            {
+                                "id": "pie",
+                                "createChartData": "createApexPieChartData"
+                            },
+                            {
+                                "id": "bar",
+                                "createChartData": "createApexBarChartData"
+                            }
+                        ]
+                    },
+                    "instacePageWorks": {
+                        "tabID": 2,
+                        "component": "ApexCharts",
+                        "doNotRenderOnMount": true,
+                        "tabPath": "activity_chart",
+                        "tabIcon": "ShowChart",
+                        "facetClass": "people",
+                        "sparqlQuery": "worksByDecadeQuery",
+                        "resultMapper": "mapPieChart",
+                        "filterTarget": "work",
+                        "createChartData": "createApexBarChartData",
+                        "pageType": "instancePage",
+                        "sliceVisibilityThreshold": -1,
+                        "dropdownForResultClasses": false,
+                        "resultMapperConfig": {
+                            "fillEmptyValues": true,
+                            "emptyValueInterval": 10
+                        }
+                    },
+                    "instacePageGenresByDecade": {
+                        "tabID": 3,
+                        "component": "ApexCharts",
+                        "doNotRenderOnMount": true,
+                        "tabPath": "genre_decade_chart",
+                        "tabIcon": "PieChart",
+                        "facetClass": "people",
+                        "sparqlQuery": "novelGenresByDecadeQuery",
+                        "filterTarget": "novel",
+                        "resultMapper": "mapStackedColumnChart",
+                        "sliceVisibilityThreshold": 0.03,
+                        "createChartData": "createStackedColumnChartData",
+                        "pageType": "instancePage",
+                        "dropdownForResultClasses": false,
+                        "resultMapperConfig": {
+                            "fillEmptyValues": true,
+                            "emptyValueInterval": 10
+                        }
+                    },
+                    "instancePageExport": {
+                        "tabID": 4,
                         "component": "Export",
                         "tabPath": "export",
                         "tabIcon": "CloudDownload",
@@ -65,6 +131,9 @@
                     "resultMapper": "mapPieChart",
                     "sliceVisibilityThreshold": 0.01,
                     "dropdownForChartTypes": true,
+                    "resultMapperConfig": {
+                        "fillEmptyValues": false
+                    },
                     "chartTypes": [
                         {
                             "id": "pie",
@@ -82,6 +151,9 @@
                     "resultMapper": "mapPieChart",
                     "sliceVisibilityThreshold": 0.01,
                     "dropdownForChartTypes": true,
+                    "resultMapperConfig": {
+                        "fillEmptyValues": false
+                    },
                     "chartTypes": [
                         {
                             "id": "pie",
@@ -99,6 +171,9 @@
                     "resultMapper": "mapPieChart",
                     "sliceVisibilityThreshold": 0.01,
                     "dropdownForChartTypes": true,
+                    "resultMapperConfig": {
+                        "fillEmptyValues": false
+                    },
                     "chartTypes": [
                         {
                             "id": "pie",
@@ -285,6 +360,26 @@
         },
         {
             "id": "novel",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "nonfictionBook",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "otherWork",
             "valueType": "object",
             "makeLink": true,
             "externalLink": false,

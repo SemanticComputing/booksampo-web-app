@@ -594,3 +594,169 @@ const preprocessTimelineData = rawData => {
   }
   rawData[0].data.sort((a, b) => a.x.localeCompare(b.x))
 }
+
+export const createStackedColumnChartData = ({
+  resultClass,
+  facetClass,
+  perspectiveState,
+  results,
+  chartTypeObj,
+  resultClassConfig,
+  screenSize
+}) => {
+  const {
+    title,
+    xaxisTitle,
+    yaxisTitle
+  } = resultClassConfig
+  const colors = []
+  const data = []
+
+  let processedResults = { categories: [], secondaryCategoryCounts: [] }
+
+  if (results && results.length > 0) {
+    processedResults = preprocessStackedColumnChartData(results)
+  }
+  const instanceCounts = processedResults.secondaryCategoryCounts.map(i => i.instanceCount.reduce((sum, current) => sum + current, 0))
+  const arraySum = instanceCounts.reduce((sum, current) => sum + current, 0)
+  const otherCounts = new Array(processedResults.categories.length).fill(0)
+  const { sliceVisibilityThreshold = defaultSliceVisibilityThreshold } = resultClassConfig
+
+  processedResults.secondaryCategoryCounts.forEach(item => {
+    const sum = item.instanceCount.reduce((sum, current) => sum + current, 0)
+    const sliceFraction = sum / arraySum
+    if (sliceFraction <= sliceVisibilityThreshold) {
+      for (let i = 0; i < item.instanceCount.length; i++) {
+        otherCounts[i] = otherCounts[i] + item.instanceCount[i]
+      }
+    } else {
+      data.push({ name: item.prefLabel, data: item.instanceCount })
+    }
+  })
+  const otherSum = otherCounts.reduce((sum, current) => sum + current, 0)
+  if (otherSum > 0) {
+    data.push({ name: intl.get('apexCharts.other') || 'Other', data: otherCounts })
+  }
+
+  const stackedColumnChartOptionsWithData = {
+    ...stackedColumnChartOptions,
+    colors: [
+      '#008FFB', '#00E396', '#FEB019', '#FF4560', '#775DD0',
+      '#3F51B5', '#546E7A', '#D4526E', '#8D5B4C', '#F86624',
+      '#D7263D', '#1B998B', '#2E294E', '#F46036', '#E2C044'
+    ],
+    series: data,
+    title: {
+      text: title
+    },
+    xaxis: {
+      categories: processedResults.categories,
+      title: {
+        text: xaxisTitle
+      }
+    },
+    yaxis: {
+      title: {
+        text: yaxisTitle
+      }
+    },
+    dataLabels: {
+      offsetY: -20,
+      style: {
+        fontWeight: 400,
+        colors
+      }
+    }
+  }
+  return stackedColumnChartOptionsWithData
+}
+
+const stackedColumnChartOptions = {
+  chart: {
+    type: 'bar',
+    height: 350,
+    fontFamily: 'Roboto',
+    stacked: true,
+    stackType: '100%'
+  },
+  responsive: [{
+    breakpoint: 480,
+    options: {
+      legend: {
+        position: 'bottom',
+        offsetX: -10,
+        offsetY: 0
+      }
+    }
+  }],
+  legend: {
+    position: 'right',
+    offsetX: 0,
+    offsetY: 50
+  },
+  fill: {
+    opacity: 1
+  }
+}
+
+const preprocessStackedColumnChartData = rawData => {
+  const categories = []
+  const secondaryCategories = []
+  const secondaryCategoryPerCategory = {}
+  const itemsPerCategory = {}
+  rawData.sort((a, b) => parseInt(a.prefLabel) - parseInt(b.prefLabel))
+  rawData.forEach((obj, index) => {
+    const category = obj.prefLabel
+    if (!categories.includes(category)) {
+      categories.push(category)
+    }
+    if (!(secondaryCategories.includes(obj.secondaryCategoryPrefLabel))) {
+      secondaryCategories.push(obj.secondaryCategoryPrefLabel)
+    }
+    if (!(obj.prefLabel in itemsPerCategory)) {
+      itemsPerCategory[obj.prefLabel] = obj.instanceCount
+    }
+    if (!(obj.prefLabel in secondaryCategoryPerCategory)) {
+      secondaryCategoryPerCategory[obj.prefLabel] = {
+        [obj.secondaryCategoryPrefLabel]: obj.secondaryInstanceCount
+      }
+    } else {
+      secondaryCategoryPerCategory[obj.prefLabel][obj.secondaryCategoryPrefLabel] = obj.secondaryInstanceCount
+    }
+  })
+
+  const secondaryCategoriesPerCategories = []
+
+  for (let d = 0; d < categories.length; d++) {
+    const currentCategory = categories[d]
+    const categorySecondaryCategoryCount = {}
+
+    for (let g = 0; g < secondaryCategories.length; g++) {
+      const currentSecondaryCategory = secondaryCategories[g]
+      if (currentSecondaryCategory in secondaryCategoryPerCategory[currentCategory]) {
+        categorySecondaryCategoryCount[secondaryCategories[g]] = secondaryCategoryPerCategory[currentCategory][currentSecondaryCategory]
+      } else {
+        categorySecondaryCategoryCount[secondaryCategories[g]] = 0
+      }
+    }
+
+    secondaryCategoriesPerCategories.push(categorySecondaryCategoryCount)
+  }
+
+  const secondaryCategoryCounts = []
+
+  for (let g = 0; g < secondaryCategories.length; g++) {
+    const secondaryCategoryInstanceName = secondaryCategories[g]
+    const countInCategories = []
+    for (let a = 0; a < secondaryCategoriesPerCategories.length; a++) {
+      if (secondaryCategories[g] in secondaryCategoriesPerCategories[a]) {
+        countInCategories.push(secondaryCategoriesPerCategories[a][secondaryCategories[g]])
+      } else {
+        countInCategories.push(0)
+      }
+    }
+    secondaryCategoryCounts.push({ prefLabel: secondaryCategoryInstanceName, instanceCount: countInCategories })
+  }
+
+  return { categories, secondaryCategoryCounts }
+}

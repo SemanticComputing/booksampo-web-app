@@ -225,12 +225,70 @@ export const mapMultipleLineChart = ({ sparqlBindings, config }) => {
   return res
 }
 
-export const mapPieChart = sparqlBindings => {
-  const results = sparqlBindings.map(b => {
-    return {
-      category: b.category.value,
-      prefLabel: b.prefLabel.value,
-      instanceCount: parseInt(b.instanceCount.value)
+export const mapPieChart = ({ sparqlBindings, config }) => {
+  const results = []
+  const interval = (config && config.emptyValueInterval) ? config.emptyValueInterval : 1
+  const sparqlBindingsLength = sparqlBindings.length
+  sparqlBindings.forEach((b, index, bindings) => {
+    const currentCategory = b.category.value
+    const currentLabel = b.prefLabel.value
+    const currentValue = parseInt(b.instanceCount.value)
+    results.push({
+      category: currentCategory,
+      prefLabel: currentLabel,
+      instanceCount: currentValue
+    })
+    if (config && config.fillEmptyValues && index + 1 < sparqlBindingsLength) {
+      let categoryIter = parseInt(currentLabel)
+      const nextNonZeroCategory = parseInt(bindings[index + 1].category.value)
+      // add zeros until we reach the next category with a non zero value
+      while (categoryIter < nextNonZeroCategory - interval) {
+        categoryIter += interval
+        results.push({
+          category: categoryIter.toString(),
+          prefLabel: categoryIter.toString(),
+          instanceCount: 0
+        })
+      }
+    }
+  })
+  return results
+}
+
+export const mapStackedColumnChart = ({ sparqlBindings, config }) => {
+  const results = []
+  const interval = (config && config.emptyValueInterval) ? config.emptyValueInterval : 1
+  const sparqlBindingsLength = sparqlBindings.length
+  sparqlBindings.forEach((b, index, bindings) => {
+    const currentCategory = b.category.value
+    const currentLabel = b.prefLabel.value
+    const currentValue = parseInt(b.instanceCount.value)
+    const currentSecondaryCategory = b.secondaryCategory.value
+    const currentSecondaryLabel = b.secondaryCategoryPrefLabel.value
+    const currentSecondaryValue = parseInt(b.secondaryInstanceCount.value)
+    results.push({
+      category: currentCategory,
+      prefLabel: currentLabel,
+      instanceCount: currentValue,
+      secondaryCategory: currentSecondaryCategory,
+      secondaryCategoryPrefLabel: currentSecondaryLabel,
+      secondaryInstanceCount: currentSecondaryValue
+    })
+    if (config && config.fillEmptyValues && index + 1 < sparqlBindingsLength) {
+      let categoryIter = parseInt(currentLabel)
+      const nextNonZeroCategory = parseInt(bindings[index + 1].category.value)
+      // add zeros until we reach the next category with a non zero value
+      while (categoryIter < nextNonZeroCategory - interval) {
+        categoryIter += interval
+        results.push({
+          category: categoryIter.toString(),
+          prefLabel: categoryIter.toString(),
+          instanceCount: 0,
+          secondaryCategory: currentSecondaryCategory,
+          secondaryCategoryPrefLabel: currentSecondaryLabel,
+          secondaryInstanceCount: 0
+        })
+      }
     }
   })
   return results

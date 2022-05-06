@@ -79,8 +79,9 @@
     "table": "table",
     "publications": "publications",
     "pie_chart": "pie/bar chart",
+    "genre_chart": "genres",
     "activity_chart": "activity by decade",
-    "genre_chart": "genres by decade",
+    "genre_decade_chart": "genres by decade",
     "map": "concrete places on a map",
     "production_places": "production places",
     "production_places_heatmap": "production heatmap",
@@ -529,6 +530,14 @@
         "novel": {
           "label": "Novels",
           "description": "Novels written by this person."
+        },
+        "nonfictionBooks": {
+          "label": "Nonfiction books",
+          "description": "Nonfiction books written by this person."
+        },
+        "otherWork": {
+          "label": "Other works",
+          "description": "Other works written by this person."
         }
       }
     },

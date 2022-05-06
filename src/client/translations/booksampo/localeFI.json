@@ -79,8 +79,9 @@
     "table": "taulukko",
     "publications": "julkaisut",
     "pie_chart": "ympyräkaavio/pylväsdiagrammi",
+    "genre_chart": "kirjallisuudenlajit",
     "activity_chart": "aktiivisuus vuosikymmenittäin",
-    "genre_chart": "kirjallisuudenlajit vuosikymmenittäin",
+    "genre_decade_chart": "kirjallisuudenlajit vuosikymmenittäin",
     "map": "konkreettiset tapahtumapaikat kartalla",
     "production_places": "production places",
     "production_places_heatmap": "production heatmap",
@@ -516,6 +517,14 @@
         "novel": {
           "label": "Romaanit",
           "description": "Henkilön kirjoittamat romaanit."
+        },
+        "nonfictionBook": {
+          "label": "Tietokirjat",
+          "description": "Henkilön kirjoittamat tietokirjat."
+        },
+        "otherWork": {
+          "label": "Muut teokset",
+          "description": "Henkilön kirjoittamat muut teokset."
         }
       }
     },

@@ -179,6 +179,9 @@
                     "resultMapper": "mapPieChart",
                     "sliceVisibilityThreshold": 0.01,
                     "dropdownForChartTypes": true,
+                    "resultMapperConfig": {
+                        "fillEmptyValues": false
+                    },
                     "chartTypes": [
                         {
                             "id": "pie",
@@ -196,6 +199,9 @@
                     "resultMapper": "mapPieChart",
                     "sliceVisibilityThreshold": 0.001,
                     "dropdownForChartTypes": true,
+                    "resultMapperConfig": {
+                        "fillEmptyValues": false
+                    },
                     "chartTypes": [
                         {
                             "id": "pie",
@@ -213,6 +219,9 @@
                     "resultMapper": "mapPieChart",
                     "sliceVisibilityThreshold": 0.005,
                     "dropdownForChartTypes": true,
+                    "resultMapperConfig": {
+                        "fillEmptyValues": false
+                    },
                     "chartTypes": [
                         {
                             "id": "pie",
@@ -230,6 +239,9 @@
                     "resultMapper": "mapPieChart",
                     "sliceVisibilityThreshold": 0.01,
                     "dropdownForChartTypes": true,
+                    "resultMapperConfig": {
+                        "fillEmptyValues": false
+                    },
                     "chartTypes": [
                         {
                             "id": "pie",
@@ -247,6 +259,9 @@
                     "resultMapper": "mapPieChart",
                     "sliceVisibilityThreshold": 0.005,
                     "dropdownForChartTypes": true,
+                    "resultMapperConfig": {
+                        "fillEmptyValues": false
+                    },
                     "chartTypes": [
                         {
                             "id": "pie",
@@ -264,6 +279,9 @@
                     "resultMapper": "mapPieChart",
                     "sliceVisibilityThreshold": 0.01,
                     "dropdownForChartTypes": true,
+                    "resultMapperConfig": {
+                        "fillEmptyValues": false
+                    },
                     "chartTypes": [
                         {
                             "id": "pie",
