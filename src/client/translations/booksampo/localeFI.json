@@ -83,6 +83,7 @@
     "activity_chart": "aktiivisuus vuosikymmenittäin",
     "genre_decade_chart": "kirjallisuudenlajit vuosikymmenittäin",
     "map": "konkreettiset tapahtumapaikat kartalla",
+    "publications_by_decade_and_genre": "julkaisujen genret vuosikymmenittäin",
     "production_places": "production places",
     "production_places_heatmap": "production heatmap",
     "last_known_locations": "last known locations",

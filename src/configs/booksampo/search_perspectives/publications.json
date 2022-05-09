@@ -48,6 +48,26 @@
                 },
                 "localIDAsURI": true
             }
+        },
+        "publicationsByDecadeAndGenre": {
+            "tabID": 1,
+            "tabIcon": "CalendarViewDay",
+            "tabPath": "publications_by_decade_and_genre",
+            "component": "BarChartRace",
+            "stepBegin": 1700,
+            "stepEnd": 2020,
+            "stepIncrement": 10,
+            "stepDuration": 3000,
+            "sparqlQuery": "publicationsByDecadeAndGenreQuery",
+            "facetClass": "publications",
+            "filterTarget": "publication",
+            "resultMapper": "makeObjectList",
+            "postprocess": {
+                "func": "toBarChartRaceFormat",
+                "config": {
+                    "step": 10
+                }
+            }
         }
     },
     "properties": [

@@ -143,7 +143,7 @@ class BarChartRace extends React.Component {
         this.yAxis.data.push({ category: id, prefLabel })
       }
       setTimeout(() => {
-        this.yAxis.zoomToIndexes(0, this.yAxis.dataItems.length - 1)
+        this.yAxis.zoomToIndexes(0, 10)
       }, 100)
     }
 
