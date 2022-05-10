@@ -421,7 +421,7 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 150
+            "minWidth": 200
         },
         {
             "id": "concretePlace",
@@ -430,7 +430,7 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 100
+            "minWidth": 150
         },
         {
             "id": "timeOfStory",
@@ -439,7 +439,7 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 100
+            "minWidth": 150
         },
         {
             "id": "isbn",
@@ -468,7 +468,8 @@
             "externalLink": false,
             "sortValues": false,
             "numberedList": false,
-            "disableSort": true
+            "disableSort": true,
+            "minWidth": 100
         },
         {
             "id": "publisher",
@@ -485,7 +486,8 @@
             "makeLink": false,
             "externalLink": false,
             "sortValues": false,
-            "numberedList": false
+            "numberedList": false,
+            "minWidth": 150
         },
         {
             "id": "kirjasampoURL",
