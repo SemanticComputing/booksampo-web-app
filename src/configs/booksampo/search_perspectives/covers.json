@@ -48,6 +48,38 @@
                 },
                 "localIDAsURI": true
             }
+        },
+        "coversByProperty": {
+            "tabID": 1,
+            "component": "ApexCharts",
+            "doNotRenderOnMount": true,
+            "tabPath": "pie_chart",
+            "tabIcon": "PieChart",
+            "facetClass": "covers",
+            "dropdownForResultClasses": true,
+            "defaultResultClass": "coversByKeyword",
+            "resultClasses": {
+                "coversByKeyword": {
+                    "sparqlQuery": "coversByKeywordQuery",
+                    "filterTarget": "cover",
+                    "resultMapper": "mapPieChart",
+                    "sliceVisibilityThreshold": 0.01,
+                    "dropdownForChartTypes": true,
+                    "resultMapperConfig": {
+                        "fillEmptyValues": false
+                    },
+                    "chartTypes": [
+                        {
+                            "id": "pie",
+                            "createChartData": "createApexPieChartData"
+                        },
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        }
+                    ]
+                }
+            }
         }
     },
     "properties": [

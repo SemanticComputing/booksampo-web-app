@@ -124,7 +124,8 @@
       "peopleByOccupation": "occupation",
       "peopleByNationality": "nationality",
       "novelsByDecade": "novels per decade",
-      "novelGenresByDecade": "novel genre per decade"
+      "novelGenresByDecade": "novel genre per decade",
+      "coversByKeyword": "keyword"
     }
   },
   "lineChart": {
@@ -468,6 +469,10 @@
           "description": "The name of the person.",
           "textFacetInputPlaceholder": ""
         },
+        "otherName": {
+          "label": "Other names",
+          "description": "The other names of the person."
+        },
         "occupation": {
           "label": "Occupation",
           "description": "The occupation of the person."
@@ -621,6 +626,14 @@
         "firstVersion": {
           "label": "First version",
           "description": "Indicates whether the publication is the first publication of the work."
+        },
+        "translator": {
+          "label": "Translator",
+          "description": "The translator of the publication."
+        },
+        "illustrator": {
+          "label": "Illustrator",
+          "description": "The illustrator of the publication."
         },
         "otherAuthor": {
           "label": "Other authors",

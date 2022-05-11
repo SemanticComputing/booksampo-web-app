@@ -53,3 +53,30 @@ export const coverProperties = `
     BIND(COALESCE(?workType__prefLabel_, ?workType__id) as ?workType__prefLabel)
   }
 `
+
+export const coversByKeywordQuery = `
+  SELECT ?category ?prefLabel (COUNT(DISTINCT ?cover) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    {
+      ?cover a kaunokki:kansi .
+      ?cover kaunokki:asiasana ?category .
+      OPTIONAL { 
+        ?category skos:prefLabel ?prefLabel_ .
+        FILTER(LANG(?prefLabel_) = "<LANG>")
+      }
+      BIND(COALESCE(?prefLabel_, ?category) as ?prefLabel)
+    }
+    UNION
+    {
+      ?cover a kaunokki:kansi .
+      FILTER NOT EXISTS {
+        ?cover kaunokki:asiasana [] .
+      }
+      BIND("Unknown" as ?category)
+      BIND("Unknown" as ?prefLabel)
+    }
+  }
+  GROUP BY ?category ?prefLabel
+  ORDER BY DESC(?instanceCount)
+`

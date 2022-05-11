@@ -124,7 +124,8 @@
       "peopleByOccupation": "ammatti",
       "peopleByNationality": "kansallisuus",
       "novelsByDecade": "teosten määrä per vuosikymmen",
-      "novelGenresByDecade": "teosten genre per vuosikymmen"
+      "novelGenresByDecade": "teosten genre per vuosikymmen",
+      "coversByKeyword": "asiasana"
     }
   },
   "lineChart": {
@@ -455,6 +456,10 @@
           "description": "Henkilön nimi.",
           "textFacetInputPlaceholder": ""
         },
+        "otherName": {
+          "label": "Muut nimet",
+          "description": "Henkilön muut nimet."
+        },
         "occupation": {
           "label": "Ammatti",
           "description": "Henkilön ammatti."
@@ -608,6 +613,14 @@
         "firstVersion": {
           "label": "Ensimmäinen versio",
           "description": "Kuvaa, onko julkaisu teoksen ensimmäinen versio."
+        },
+        "translator": {
+          "label": "Kääntäjä",
+          "description": "Julkaisun kääntäjä."
+        },
+        "illustrator": {
+          "label": "Kuvittaja",
+          "description": "Julkaisun kuvittaja."
         },
         "otherAuthor": {
           "label": "Muut tekijät",
