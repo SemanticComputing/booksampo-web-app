@@ -106,7 +106,8 @@
             "externalLink": false,
             "sortValues": false,
             "numberedList": false,
-            "disableSort": true
+            "disableSort": true,
+            "minWidth": 100
         },
         {
             "id": "publisher",
@@ -123,7 +124,8 @@
             "makeLink": false,
             "externalLink": false,
             "sortValues": false,
-            "numberedList": false
+            "numberedList": false,
+            "minWidth": 150
         },
         {
             "id": "language",
@@ -145,9 +147,29 @@
             "disableSort": true
         },
         {
+            "id": "translator",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "disableSort": true,
+            "minWidth": 200
+        },
+        {
+            "id": "illustrator",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "disableSort": true,
+            "minWidth": 200
+        },
+        {
             "id": "otherAuthor",
             "valueType": "object",
-            "makeLink": false,
+            "makeLink": true,
             "externalLink": false,
             "sortValues": false,
             "numberedList": false,
@@ -233,6 +255,28 @@
             "sortButton": true,
             "sortBy": "instanceCount",
             "sortByPredicate": "kaunokki:onEnsimmainenVersio/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "translator": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "kaunokki:kaantaja",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "kaunokki:kaantaja/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "illustrator": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "kaunokki:kuvittaja",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "kaunokki:kuvittaja/skos:prefLabel",
             "sortDirection": "desc"
         },
         "otherAuthor": {

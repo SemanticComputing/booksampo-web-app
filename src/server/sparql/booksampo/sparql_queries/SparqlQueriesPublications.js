@@ -48,8 +48,21 @@ export const publicationProperties = `
   }
   UNION
   {
+    ?id kaunokki:kaantaja ?translator__id .
+    ?translator__id skos:prefLabel ?translator__prefLabel .
+    BIND(CONCAT("/people/page/", ENCODE_FOR_URI(STR(?translator__id)), "/table") AS ?translator__dataProviderUrl)
+  }
+  UNION
+  {
+    ?id kaunokki:kuvittaja ?illustrator__id .
+    ?illustrator__id skos:prefLabel ?illustrator__prefLabel .
+    BIND(CONCAT("/people/page/", ENCODE_FOR_URI(STR(?illustrator__id)), "/table") AS ?illustrator__dataProviderUrl)
+  }
+  UNION
+  {
     ?id kaunokki:toimittaja ?otherAuthor__id .
     ?otherAuthor__id skos:prefLabel ?otherAuthor__prefLabel .
+    BIND(CONCAT("/people/page/", ENCODE_FOR_URI(STR(?otherAuthor__id)), "/table") AS ?otherAuthor__dataProviderUrl)
   }
   UNION
   {
