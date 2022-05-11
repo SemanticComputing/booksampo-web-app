@@ -23,6 +23,11 @@ export const personProperties = `
     }
     UNION
     {
+      ?id <http://seco.tkk.fi/saha3/kirjasampo/kirjailijanMuuNimi> ?otherName__id .
+      BIND(?otherName__id as ?otherName__prefLabel)
+    }
+    UNION
+    {
       ?id kaunokki:occupation ?occupation__id .
       OPTIONAL { 
         ?occupation__id skos:prefLabel ?occupation__prefLabel_ .

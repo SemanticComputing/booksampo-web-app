@@ -218,6 +218,17 @@
             "minWidth": 150
         },
         {
+            "id": "otherName",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true,
+            "minWidth": 150
+        },
+        {
             "id": "occupation",
             "valueType": "object",
             "makeLink": false,
