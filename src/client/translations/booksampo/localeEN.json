@@ -194,15 +194,15 @@
   "deckGlMap": {
     "arcColouring": "Arc colouring:",
     "showMoreInformation": "Click to show more information.",
-    "placesMsMigrations": {
+    "peopleMigrations": {
       "legendTitle": "Arc colouring",
-      "legendFrom": "Manuscript production place",
-      "legendTo": "Last known location",
-      "from": "Production place:",
-      "to": "Last known location:",
-      "count": "Manuscript count",
-      "listHeadingSingleInstance": "Manuscript:",
-      "listHeadingMultipleInstances": "Manuscripts:"
+      "legendFrom": "Person birth place",
+      "legendTo": "Person death place",
+      "from": "Birth place:",
+      "to": "Death place:",
+      "count": "Person count",
+      "listHeadingSingleInstance": "Person:",
+      "listHeadingMultipleInstances": "People:"
     }
   },
   "perspectives": {
@@ -646,6 +646,43 @@
         "workType": {
           "label": "Work type",
           "description": "The type of the work (e.g. novel, short story, ...)"
+        }
+      }
+    },
+    "places": {
+      "label": "Places",
+      "facetResultsType": "place(s)",
+      "shortDescription": "Places description",
+      "longDescription": "",
+      "instancePage": {
+        "label": "Place",
+        "description": ""
+      },
+      "properties": {
+        "uri": {
+          "label": "URI",
+          "description": "Uniform Resource Identifier"
+        },
+        "prefLabel": {
+          "label": "Name",
+          "description": "The name of the place.",
+          "textFacetInputPlaceholder": ""
+        },
+        "personBorn": {
+          "label": "People born here",
+          "description": "People who were born in this place."
+        },
+        "personDead": {
+          "label": "People who died here",
+          "description": "People who died in this place."
+        },
+        "personLivedIn": {
+          "label": "People who have lived here",
+          "description": "People who either currently live at this place or have lived in this place in the past."
+        },
+        "novel": {
+          "label": "Novel(s) taking place here",
+          "description": "Novel(s) taking place at this place."
         }
       }
     }

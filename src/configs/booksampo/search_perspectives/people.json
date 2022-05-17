@@ -186,6 +186,41 @@
                     ]
                 }
             }
+        },
+        "peopleMigrations": {
+            "tabID": 2,
+            "component": "Deck",
+            "tabPath": "migrations",
+            "tabIcon": "Redo",
+            "sparqlQuery": "peopleMigrationsQuery",
+            "facetClass": "people",
+            "filterTarget": "person",
+            "layerType": "arcLayer",
+            "arcWidthVariable": "instanceCountScaled",
+            "instanceVariable": "person",
+            "showTooltips": true,
+            "postprocess": {
+                "func": "linearScale",
+                "config": {
+                    "variable": "instanceCount",
+                    "minAllowed": 3,
+                    "maxAllowed": 30
+                }
+            }
+        },
+        "peopleMigrationsDialog": {
+            "sparqlQuery": "peopleMigrationsDialogQuery",
+            "filterTarget": "id",
+            "resultMapper": "makeObjectList"
+        }
+    },
+    "maps": {
+        "peopleMigrations": {
+            "center": [
+                22.43,
+                10.37
+            ],
+            "zoom": 2
         }
     },
     "properties": [
@@ -276,7 +311,7 @@
         {
             "id": "hasLivedIn",
             "valueType": "object",
-            "makeLink": false,
+            "makeLink": true,
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
@@ -295,7 +330,7 @@
         {
             "id": "placeOfBirth",
             "valueType": "object",
-            "makeLink": false,
+            "makeLink": true,
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
@@ -314,7 +349,7 @@
         {
             "id": "placeOfDeath",
             "valueType": "object",
-            "makeLink": false,
+            "makeLink": true,
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,

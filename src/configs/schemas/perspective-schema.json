@@ -139,7 +139,7 @@
                             "tabIcon": {
                                 "type": "string",
                                 "description": "String specifying what icon should be used on the tab.",
-                                "enum": ["CalendarViewDay", "CloudDownload", "PieChart", "LocationOn", "TripOrigin", "BubbleChart", "AddLocation", "Redo", "ShowChart"]
+                                "enum": ["CalendarViewDay", "CloudDownload", "PieChart", "LocationOn", "TripOrigin", "BubbleChart", "AddLocation", "Redo", "ShowChart", "CalendarToday", "Star", "FormatAlignJustify", "ClearAll", "OndemandVideo", "KeyboardVoice", "Autorenew", "Add", "PlayArrow", "MailOutline", "TrendingDown", "Tune", "ArrowForward", "Subject"]
                             },
                             "propertiesQueryBlock": {
                                 "type": "string",

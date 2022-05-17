@@ -90,6 +90,7 @@ export const novelProperties = `
         ?concretePlace__id skos:prefLabel ?concretePlace__prefLabelGEN_ .
       }
       BIND(COALESCE(?concretePlace__prefLabel_, ?concretePlace__prefLabelGEN_, ?concretePlace__id) as ?concretePlace__prefLabel)
+      BIND(CONCAT("/places/page/", ENCODE_FOR_URI(STR(?concretePlace__id)), "/table") AS ?concretePlace__dataProviderUrl)
     }
     UNION
     {

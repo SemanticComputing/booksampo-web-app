@@ -78,6 +78,7 @@ export const personProperties = `
         FILTER(LANG(?hasLivedIn__prefLabel_) = "<LANG>")
       }
       BIND(COALESCE(?hasLivedIn__prefLabel_, ?hasLivedIn__id) as ?hasLivedIn__prefLabel)
+      BIND(CONCAT("/places/page/", ENCODE_FOR_URI(STR(?hasLivedIn__id)), "/table") AS ?hasLivedIn__dataProviderUrl)
     }
     UNION
     {
@@ -92,6 +93,7 @@ export const personProperties = `
         FILTER(LANG(?placeOfBirth__prefLabel_) = "<LANG>")
       }
       BIND(COALESCE(?placeOfBirth__prefLabel_, ?placeOfBirth__id) as ?placeOfBirth__prefLabel)
+      BIND(CONCAT("/places/page/", ENCODE_FOR_URI(STR(?placeOfBirth__id)), "/table") AS ?placeOfBirth__dataProviderUrl)
     }
     UNION
     {
@@ -106,6 +108,7 @@ export const personProperties = `
         FILTER(LANG(?placeOfDeath__prefLabel_) = "<LANG>")
       }
       BIND(COALESCE(?placeOfDeath__prefLabel_, ?placeOfDeath__id) as ?placeOfDeath__prefLabel)
+      BIND(CONCAT("/places/page/", ENCODE_FOR_URI(STR(?placeOfDeath__id)), "/table") AS ?placeOfDeath__dataProviderUrl)
     }
     UNION
     {
@@ -400,4 +403,59 @@ export const novelGenresByDecadeQuery = `
   }
   GROUP BY ?category ?prefLabel ?secondaryCategory ?secondaryCategoryPrefLabel
   ORDER BY ASC(?prefLabel)
+`
+
+export const peopleMigrationsQuery = `
+  SELECT DISTINCT ?id 
+  ?from__id ?from__prefLabel ?from__lat ?from__long ?from__dataProviderUrl
+  ?to__id ?to__prefLabel ?to__lat ?to__long ?to__dataProviderUrl
+  (COUNT(DISTINCT ?person) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    ?person kaunokki:placeOfBirth ?from__id ;
+            kaunokki:placeOfDeath  ?to__id ;
+            a foaf:Person .   
+    ?from__id skos:prefLabel ?from__prefLabel ; 
+              wgs84:lat ?from__lat ;
+              wgs84:long ?from__long .
+    FILTER(LANG(?from__prefLabel) = 'fi')
+    FILTER NOT EXISTS {
+      ?from__id wgs84:lat ?lat, ?lat2 .
+      FILTER(?lat != ?lat2) 
+    }
+    FILTER NOT EXISTS {
+      ?from__id wgs84:long ?long, ?long2 .
+      FILTER(?long != ?long2) 
+    }
+    BIND(CONCAT("/places/page/", ENCODE_FOR_URI(STR(?from__id)), "/table") AS ?from__dataProviderUrl)
+    ?to__id skos:prefLabel ?to__prefLabel ;
+            wgs84:lat ?to__lat ;
+            wgs84:long ?to__long .
+    FILTER(LANG(?to__prefLabel) = 'fi')
+    FILTER NOT EXISTS {
+      ?to__id wgs84:lat ?lat, ?lat2 .
+      FILTER(?lat != ?lat2) 
+    }
+    FILTER NOT EXISTS {
+      ?to__id wgs84:long ?long, ?long2 .
+      FILTER(?long != ?long2) 
+    }
+    BIND(CONCAT("/places/page/", ENCODE_FOR_URI(STR(?to__id)), "/table") AS ?to__dataProviderUrl)
+    BIND(IRI(CONCAT(STR(?from__id), "-", REPLACE(STR(?to__id), "^.*\\\\/(.+)", "$1") )) as ?id)
+    FILTER(?from__id != ?to__id)
+  }
+  GROUP BY ?id 
+  ?from__id ?from__prefLabel ?from__lat ?from__long ?from__dataProviderUrl
+  ?to__id ?to__prefLabel ?to__lat ?to__long ?to__dataProviderUrl
+  ORDER BY desc(?instanceCount)
+`
+
+export const peopleMigrationsDialogQuery = `
+  SELECT * {
+    <FILTER>
+    ?id kaunokki:placeOfBirth <FROM_ID> ;
+        kaunokki:placeOfDeath <TO_ID> ;
+        skos:prefLabel ?prefLabel .
+    BIND(CONCAT("/${perspectiveID}/page/", ENCODE_FOR_URI(STR(?id)), "/table") AS ?dataProviderUrl)
+  }
 `

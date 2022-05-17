@@ -87,7 +87,7 @@
     "production_places": "production places",
     "production_places_heatmap": "production heatmap",
     "last_known_locations": "last known locations",
-    "migrations": "migrations",
+    "migrations": "migraatio",
     "network": "network",
     "export": "export",
     "production_dates": "production dates",
@@ -192,17 +192,17 @@
     "repetition": "<h6 class=\"MuiTypography-root MuiTypography-h6\"> Repetition of data </h6> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> The same or similar data may appear within a single data field multiple times. This repetition occurs due to the merging of multiple records from different datasets to create the MMM record. </p>"
   },
   "deckGlMap": {
-    "arcColouring": "Arc colouring:",
-    "showMoreInformation": "Click to show more information.",
-    "placesMsMigrations": {
-      "legendTitle": "Arc colouring",
-      "legendFrom": "Manuscript production place",
-      "legendTo": "Last known location",
-      "from": "Production place:",
-      "to": "Last known location:",
-      "count": "Manuscript count",
-      "listHeadingSingleInstance": "Manuscript:",
-      "listHeadingMultipleInstances": "Manuscripts:"
+    "arcColouring": "Kaarien väritys:",
+    "showMoreInformation": "Paina nähdäksesi lisää tietoa.",
+    "peopleMigrations": {
+      "legendTitle": "Kaarien väritys",
+      "legendFrom": "Henkilön synnyinpaikka",
+      "legendTo": "Henkilön kuolinpaikka",
+      "from": "Synnyinpaikka:",
+      "to": "Kuolinpaikka:",
+      "count": "Henkilöiden määrä",
+      "listHeadingSingleInstance": "Henkilö:",
+      "listHeadingMultipleInstances": "Henkilöt:"
     }
   },
   "perspectives": {
@@ -633,6 +633,43 @@
         "workType": {
           "label": "Teoksen tyyppi",
           "description": "Teoksen tyyppi (esim. romaani, novelli, ...)"
+        }
+      }
+    },
+    "places": {
+      "label": "Paikat",
+      "facetResultsType": "paikka(a)",
+      "shortDescription": "Näkymä, jossa voi hakea paikkojen tietoja.",
+      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">Näkymä, jossa voi hakea paikkojen tietoja.</p>",
+      "instancePage": {
+        "label": "Paikka",
+        "description": ""
+      },
+      "properties": {
+        "uri": {
+          "label": "URI",
+          "description": "Yksilöivä tunniste"
+        },
+        "prefLabel": {
+          "label": "Nimi",
+          "description": "Paikan nimi",
+          "textFacetInputPlaceholder": ""
+        },
+        "personBorn": {
+          "label": "Täällä syntyneet",
+          "description": "Henkilöt, jotka ovat syntyneet tässä paikassa."
+        },
+        "personDead": {
+          "label": "Täällä kuolleet",
+          "description": "Henkilöt, jotka ovat kuolleet tässä paikassa."
+        },
+        "personLivedIn": {
+          "label": "Täällä asuneet",
+          "description": "Henkilöt, jotka ovat asuneet tai asuvat tässä paikassa."
+        },
+        "novel": {
+          "label": "Tänne sijoittuvat romaani(t)",
+          "description": "Romaanit, jotka sijoittuvat tähän paikkaan."
         }
       }
     }

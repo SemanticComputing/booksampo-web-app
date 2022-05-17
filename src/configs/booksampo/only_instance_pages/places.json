@@ -1,0 +1,93 @@
+{
+  "id": "places",
+  "endpoint": {
+    "url": "https://ldf.fi/booksampo-2022/sparql",
+    "useAuth": true,
+    "prefixesFile": "SparqlQueriesPrefixes.js"
+  },
+  "sparqlQueriesFile": "SparqlQueriesPlaces.js",
+  "langTag": "fi",
+  "resultClasses": {
+    "places": {
+      "instanceConfig": {
+        "propertiesQueryBlock": "placePropertiesInstancePage",
+        "instancePageResultClasses": {
+          "instancePageTable": {
+            "tabID": 0,
+            "component": "InstancePageTable",
+            "tabPath": "table",
+            "tabIcon": "CalendarViewDay"
+          },
+          "instancePageExport": {
+            "tabID": 1,
+            "component": "Export",
+            "tabPath": "export",
+            "tabIcon": "CloudDownload",
+            "pageType": "instancePage"
+          }
+        },
+        "localIDAsURI": true
+      }
+    }
+  },
+  "properties": [
+    {
+      "id": "uri",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": true,
+      "sortValues": true,
+      "numberedList": false,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "prefLabel",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 170
+    },
+    {
+      "id": "personBorn",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 250,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "personDead",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 250,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "personLivedIn",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 250,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "novel",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 250,
+      "onlyOnInstancePage": true
+    }
+  ]
+}
