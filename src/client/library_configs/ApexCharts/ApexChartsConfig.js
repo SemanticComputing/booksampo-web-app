@@ -674,7 +674,7 @@ export const createStackedColumnChartData = ({
 const stackedColumnChartOptions = {
   chart: {
     type: 'bar',
-    height: 350,
+    height: '100%',
     fontFamily: 'Roboto',
     stacked: true,
     stackType: '100%'
