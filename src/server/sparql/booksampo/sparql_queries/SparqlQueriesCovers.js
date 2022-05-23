@@ -80,3 +80,32 @@ export const coversByKeywordQuery = `
   GROUP BY ?category ?prefLabel
   ORDER BY DESC(?instanceCount)
 `
+
+export const coversByWorkTypeQuery = `
+  SELECT ?category ?prefLabel (COUNT(DISTINCT ?cover) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    {
+      ?cover a kaunokki:kansi .
+      ?cover ^kaunokki:kansikuva ?physical_work .
+      ?physical_work ^kaunokki:manifests_in ?work .
+      ?work a ?category .
+      OPTIONAL { 
+        ?category skos:prefLabel ?prefLabel_ .
+        FILTER(LANG(?prefLabel_) = "<LANG>")
+      }
+      BIND(COALESCE(?prefLabel_, ?category) as ?prefLabel)
+    }
+    UNION
+    {
+      ?cover a kaunokki:kansi .
+      FILTER NOT EXISTS {
+        ?cover ^kaunokki:kansikuva [] .
+      }
+      BIND("Unknown" as ?category)
+      BIND("Unknown" as ?prefLabel)
+    }
+  }
+  GROUP BY ?category ?prefLabel
+  ORDER BY DESC(?instanceCount)
+`

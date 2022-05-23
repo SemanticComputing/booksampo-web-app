@@ -95,6 +95,7 @@
     "map_clusters": "clustered map",
     "map_markers": "map",
     "heatmap": "tapahtumapaikkojen lämpökartta",
+    "people_heatmap": "asuinpaikkojen lämpökartta",
     "statistics": "statistics",
     "emloLetterNetwork": "Network of letters",
     "emloSentReceived": "Sent and received letters",
@@ -123,9 +124,11 @@
       "peopleByGender": "sukupuoli",
       "peopleByOccupation": "ammatti",
       "peopleByNationality": "kansallisuus",
+      "peopleByGenreWritten": "kirjoitettu genre",
       "novelsByDecade": "teosten määrä per vuosikymmen",
       "novelGenresByDecade": "teosten genre per vuosikymmen",
-      "coversByKeyword": "asiasana"
+      "coversByKeyword": "asiasana",
+      "coversByWorkType": "teoksen tyyppi"
     }
   },
   "lineChart": {

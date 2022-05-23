@@ -184,6 +184,26 @@
                             "createChartData": "createApexBarChartData"
                         }
                     ]
+                },
+                "peopleByGenreWritten": {
+                    "sparqlQuery": "peopleByGenreWrittenQuery",
+                    "filterTarget": "person",
+                    "resultMapper": "mapPieChart",
+                    "sliceVisibilityThreshold": 0.01,
+                    "dropdownForChartTypes": true,
+                    "resultMapperConfig": {
+                        "fillEmptyValues": false
+                    },
+                    "chartTypes": [
+                        {
+                            "id": "pie",
+                            "createChartData": "createApexPieChartData"
+                        },
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        }
+                    ]
                 }
             }
         },
@@ -212,10 +232,31 @@
             "sparqlQuery": "peopleMigrationsDialogQuery",
             "filterTarget": "id",
             "resultMapper": "makeObjectList"
+        },
+        "peopleResidencesHeatmap": {
+            "tabID": 3,
+            "tabPath": "people_heatmap",
+            "tabIcon": "AddLocation",
+            "component": "Deck",
+            "layerType": "heatmapLayer",
+            "sparqlQuery": "peopleResidencesQuery",
+            "facetClass": "people",
+            "filterTarget": "people",
+            "resultMapper": "mapPlaces",
+            "heatmapRadiusPixels": 50,
+            "heatmapThreshold": 0.05,
+            "heatmapIntensity": 1
         }
     },
     "maps": {
         "peopleMigrations": {
+            "center": [
+                22.43,
+                10.37
+            ],
+            "zoom": 2
+        },
+        "peopleResidencesHeatmap": {
             "center": [
                 22.43,
                 10.37

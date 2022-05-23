@@ -88,13 +88,11 @@
         },
         "defaultTab": {
             "type": "string",
-            "description": "String specifying the default tab.",
-            "enum": ["table"]
+            "description": "String specifying the default tab."
         },
         "defaultInstancePageTab": {
             "type": "string",
-            "description": "String specifying the default instance page tab.",
-            "enum": ["table"]
+            "description": "String specifying the default instance page tab."
         },
         "resultClasses": {
             "type": "object",

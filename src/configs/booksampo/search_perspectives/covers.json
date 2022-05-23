@@ -78,6 +78,26 @@
                             "createChartData": "createApexBarChartData"
                         }
                     ]
+                },
+                "coversByWorkType": {
+                    "sparqlQuery": "coversByWorkTypeQuery",
+                    "filterTarget": "cover",
+                    "resultMapper": "mapPieChart",
+                    "sliceVisibilityThreshold": 0.01,
+                    "dropdownForChartTypes": true,
+                    "resultMapperConfig": {
+                        "fillEmptyValues": false
+                    },
+                    "chartTypes": [
+                        {
+                            "id": "pie",
+                            "createChartData": "createApexPieChartData"
+                        },
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        }
+                    ]
                 }
             }
         }

@@ -256,6 +256,35 @@ export const peopleByNationalityQuery = `
   ORDER BY DESC(?instanceCount)
 `
 
+export const peopleByGenreWrittenQuery = `
+  SELECT ?category ?prefLabel (COUNT(DISTINCT ?person) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    {
+      ?person a foaf:Person .
+      ?person ^kaunokki:tekija ?work .
+      ?work kaunokki:genre ?category .
+      OPTIONAL { 
+        ?category skos:prefLabel ?prefLabel_ .
+        FILTER(LANG(?prefLabel_) = "<LANG>")
+      }
+      BIND(COALESCE(?prefLabel_, ?category) as ?prefLabel)
+    }
+    UNION
+    {
+      ?person a foaf:Person .
+      ?person ^kaunokki:tekija ?work .
+      FILTER NOT EXISTS {
+        ?work kaunokki:genre [] .
+      }
+      BIND("Unknown" as ?category)
+      BIND("Unknown" as ?prefLabel)
+    }
+  }
+  GROUP BY ?category ?prefLabel
+  ORDER BY DESC(?instanceCount)
+`
+
 export const workGenresQuery = `
   SELECT ?category ?prefLabel (COUNT(DISTINCT ?work) as ?instanceCount)
   WHERE {
@@ -458,4 +487,25 @@ export const peopleMigrationsDialogQuery = `
         skos:prefLabel ?prefLabel .
     BIND(CONCAT("/${perspectiveID}/page/", ENCODE_FOR_URI(STR(?id)), "/table") AS ?dataProviderUrl)
   }
+`
+
+export const peopleResidencesQuery = `
+  SELECT ?id ?lat ?long
+  (COUNT(DISTINCT ?people) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    ?people kaunokki:hasLivedIn ?id ;
+          a <FACET_CLASS> .
+    ?id wgs84:lat ?lat ;
+        wgs84:long ?long .
+    FILTER NOT EXISTS {
+      ?id wgs84:lat ?lat, ?lat2 .
+      FILTER(?lat != ?lat2) 
+    }
+    FILTER NOT EXISTS {
+      ?id wgs84:long ?long, ?long2 .
+      FILTER(?long != ?long2) 
+    }
+  }
+  GROUP BY ?id ?lat ?long
 `

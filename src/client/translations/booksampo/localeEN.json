@@ -95,6 +95,7 @@
     "map_clusters": "clustered map",
     "map_markers": "map",
     "heatmap": "concrete places heatmap",
+    "people_heatmap": "residences heatmap",
     "statistics": "statistics",
     "emloLetterNetwork": "Network of letters",
     "emloSentReceived": "Sent and received letters",
@@ -123,9 +124,11 @@
       "peopleByGender": "gender",
       "peopleByOccupation": "occupation",
       "peopleByNationality": "nationality",
+      "peopleByGenreWritten": "genre written",
       "novelsByDecade": "novels per decade",
       "novelGenresByDecade": "novel genre per decade",
-      "coversByKeyword": "keyword"
+      "coversByKeyword": "keyword",
+      "coversByWorkType": "work type"
     }
   },
   "lineChart": {
