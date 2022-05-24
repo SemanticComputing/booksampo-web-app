@@ -587,9 +587,11 @@
         },
         "award": {
             "containerClass": "ten",
-            "facetType": "list",
+            "facetType": "hierarchical",
             "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "hideUnknownValue": true,
             "filterType": "uriFilter",
+            "parentProperty": "kaunokki:palkintosarja",
             "predicate": "kaunokki:hasAward",
             "searchField": true,
             "sortButton": true,
