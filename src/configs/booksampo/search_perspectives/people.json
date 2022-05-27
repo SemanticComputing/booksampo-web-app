@@ -103,13 +103,6 @@
                             "fillEmptyValues": true,
                             "emptyValueInterval": 10
                         }
-                    },
-                    "instancePageExport": {
-                        "tabID": 4,
-                        "component": "Export",
-                        "tabPath": "export",
-                        "tabIcon": "CloudDownload",
-                        "pageType": "instancePage"
                     }
                 },
                 "localIDAsURI": true

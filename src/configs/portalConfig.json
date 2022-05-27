@@ -115,7 +115,7 @@
         "yasguiParams": {
             "contentTypeConstruct": "text/turtle",
             "contentTypeSelect": "application/sparql-results+json",
-            "endpoint": "https://saha.kirjastot.fi/kirjasampo/sparql",
+            "endpoint": "https://ldf.fi/booksampo-2022/sparql",
             "requestMethod": "POST",
             "tabTitle": "Exported query"
         }

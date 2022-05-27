@@ -120,13 +120,6 @@
                                 "expandedOnInstancePage": true
                             }
                         ]
-                    },
-                    "instancePageExport": {
-                        "tabID": 2,
-                        "component": "Export",
-                        "tabPath": "export",
-                        "tabIcon": "CloudDownload",
-                        "pageType": "instancePage"
                     }
                 },
                 "localIDAsURI": true

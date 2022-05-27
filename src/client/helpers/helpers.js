@@ -196,7 +196,7 @@ export const getLocalIDFromAppLocation = ({ location, perspectiveConfig }) => {
 export const createURIfromLocalID = ({ localID, baseURI, URITemplate, localIDAsURI }) => {
   let uri = ''
   if (localIDAsURI) {
-    uri = decodeURIComponent(localID)
+    uri = decodeURIComponent(localID).replace(',', '%2C')
   } else {
     uri = URITemplate
     uri = uri.replaceAll('<BASE_URI>', baseURI)
