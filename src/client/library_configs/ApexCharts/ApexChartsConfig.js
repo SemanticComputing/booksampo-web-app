@@ -241,6 +241,257 @@ export const createTopTimelineChartData2 = ({
   return apexChartOptionsWithData
 }
 
+export const createZoomableTimeSeriesData = ({
+  resultClass,
+  facetClass,
+  perspectiveState,
+  results,
+  resultClassConfig,
+  screenSize
+}) => {
+  const {
+    xaxisType,
+    xaxisTickAmount,
+    xaxisLabels,
+    seriesTitle,
+    xaxisTitle,
+    yaxisTitle,
+    stroke,
+    fill,
+    tooltip
+  } = resultClassConfig
+  const customizedCategoryLabels = resultClassConfig.resultMapperConfig && resultClassConfig.resultMapperConfig.customizedCategoryLabels
+  const apexChartOptionsWithData = {
+    chart: {
+      type: 'area',
+      stacked: false,
+      height: '100%',
+      fontFamily: 'Roboto',
+      zoom: {
+        type: 'x',
+        enabled: true,
+        autoScaleYaxis: true
+      },
+      toolbar: {
+        autoSelected: 'zoom'
+      },
+      events: {
+        beforeZoom: (chartContext, opts) => {
+          chartContext.w.config.xaxis.range = undefined
+        }
+      }
+    },
+    dataLabels: {
+      enabled: false
+    },
+    markers: {
+      size: 0
+    },
+    series: [
+      {
+        name: seriesTitle,
+        data: results.seriesData
+      }
+    ],
+    title: {
+      text: intl.get(`apexCharts.resultClasses.${resultClass}`)
+    },
+    colors: [
+      '#008FFB', '#00E396', '#FEB019', '#FF4560', '#775DD0',
+      '#3F51B5', '#546E7A', '#D4526E', '#8D5B4C', '#F86624',
+      '#D7263D', '#1B998B', '#2E294E', '#F46036', '#E2C044'
+    ],
+    fill: {
+      type: 'gradient',
+      gradient: {
+        shadeIntensity: 1,
+        inverseColors: false,
+        opacityFrom: 0.5,
+        opacityTo: 0,
+        stops: [0, 90, 100]
+      }
+    },
+    xaxis: {
+      ...(xaxisType) && { type: xaxisType }, // default is 'category'
+      ...(xaxisTickAmount) && { tickAmount: xaxisTickAmount },
+      ...(xaxisLabels) && { labels: xaxisLabels },
+      ...(customizedCategoryLabels) && { overwriteCategories: results.categeryLabels },
+      categories: results.categoriesData,
+      title: {
+        text: intl.get(`apexCharts.${xaxisTitle}`)
+      },
+      range: 200
+    },
+    yaxis: {
+      title: {
+        text: intl.get(`apexCharts.${yaxisTitle}`)
+      }
+    },
+    ...(stroke) && { stroke },
+    ...(fill) && { fill },
+    ...(tooltip) && { tooltip }
+  }
+  return apexChartOptionsWithData
+}
+
+export const createZoomableMultipleLineTimeSeriesData = ({
+  resultClass,
+  facetClass,
+  perspectiveState,
+  results,
+  resultClassConfig,
+  screenSize
+}) => {
+  const {
+    xaxisType,
+    xaxisTickAmount,
+    xaxisLabels,
+    xaxisTitle,
+    yaxisTitle,
+    stroke,
+    fill,
+    tooltip
+  } = resultClassConfig
+
+  const data = []
+
+  let processedResults = { categories: [], secondaryCategoryCounts: [] }
+
+  if (results && results.length > 0) {
+    processedResults = preprocessZoomableMultipleLineTimeSeriesData(results)
+  }
+
+  processedResults.secondaryCategoryCounts.forEach((item, idx) => {
+    data.push({ name: item.prefLabel, data: item.instanceCount })
+  })
+
+  const customizedCategoryLabels = resultClassConfig.resultMapperConfig && resultClassConfig.resultMapperConfig.customizedCategoryLabels
+  const apexChartOptionsWithData = {
+    chart: {
+      type: 'area',
+      stacked: false,
+      height: '100%',
+      fontFamily: 'Roboto',
+      zoom: {
+        type: 'x',
+        enabled: true,
+        autoScaleYaxis: true
+      },
+      toolbar: {
+        autoSelected: 'zoom'
+      },
+      events: {
+        beforeZoom: (chartContext, opts) => {
+          chartContext.w.config.xaxis.range = undefined
+        }
+      }
+    },
+    dataLabels: {
+      enabled: false
+    },
+    markers: {
+      size: 0
+    },
+    colors: [
+      '#008FFB', '#00E396', '#FEB019', '#FF4560', '#775DD0',
+      '#3F51B5', '#546E7A', '#D4526E', '#8D5B4C', '#F86624',
+      '#D7263D', '#1B998B', '#2E294E', '#F46036', '#E2C044'
+    ],
+    series: data,
+    title: {
+      text: intl.get(`apexCharts.resultClasses.${resultClass}`)
+    },
+    fill: {
+      type: 'gradient',
+      gradient: {
+        shadeIntensity: 1,
+        inverseColors: false,
+        opacityFrom: 0.5,
+        opacityTo: 0,
+        stops: [0, 90, 100]
+      }
+    },
+    xaxis: {
+      ...(xaxisType) && { type: xaxisType }, // default is 'category'
+      ...(xaxisTickAmount) && { tickAmount: xaxisTickAmount },
+      ...(xaxisLabels) && { labels: xaxisLabels },
+      ...(customizedCategoryLabels) && { overwriteCategories: results.categeryLabels },
+      categories: processedResults.categories,
+      title: {
+        text: intl.get(`apexCharts.${xaxisTitle}`)
+      },
+      range: 100
+    },
+    yaxis: {
+      title: {
+        text: intl.get(`apexCharts.${yaxisTitle}`)
+      }
+    },
+    ...(stroke) && { stroke },
+    ...(fill) && { fill },
+    ...(tooltip) && { tooltip }
+  }
+  return apexChartOptionsWithData
+}
+
+const preprocessZoomableMultipleLineTimeSeriesData = rawData => {
+  const categories = []
+  const secondaryCategories = []
+  const secondaryCategoryPerCategory = {}
+  rawData.sort((a, b) => parseInt(a.prefLabel) - parseInt(b.prefLabel))
+  rawData.forEach((obj, index) => {
+    const category = obj.category
+    if (!categories.includes(category)) {
+      categories.push(category)
+    }
+    if (!(secondaryCategories.includes(obj.secondaryCategoryPrefLabel))) {
+      secondaryCategories.push(obj.secondaryCategoryPrefLabel)
+    }
+    if (!(obj.category in secondaryCategoryPerCategory)) {
+      secondaryCategoryPerCategory[obj.category] = {
+        [obj.secondaryCategoryPrefLabel]: obj.secondaryInstanceCount
+      }
+    } else {
+      secondaryCategoryPerCategory[obj.category][obj.secondaryCategoryPrefLabel] = obj.secondaryInstanceCount
+    }
+  })
+
+  const secondaryCategoriesPerCategories = []
+
+  for (let d = 0; d < categories.length; d++) {
+    const currentCategory = categories[d]
+    const categorySecondaryCategoryCount = {}
+
+    for (let g = 0; g < secondaryCategories.length; g++) {
+      const currentSecondaryCategory = secondaryCategories[g]
+      if (currentSecondaryCategory in secondaryCategoryPerCategory[currentCategory]) {
+        categorySecondaryCategoryCount[secondaryCategories[g]] = secondaryCategoryPerCategory[currentCategory][currentSecondaryCategory]
+      } else {
+        categorySecondaryCategoryCount[secondaryCategories[g]] = 0
+      }
+    }
+
+    secondaryCategoriesPerCategories.push(categorySecondaryCategoryCount)
+  }
+
+  const secondaryCategoryCounts = []
+
+  for (let g = 0; g < secondaryCategories.length; g++) {
+    const secondaryCategoryInstanceName = secondaryCategories[g]
+    const countInCategories = []
+    for (let a = 0; a < secondaryCategoriesPerCategories.length; a++) {
+      if (secondaryCategories[g] in secondaryCategoriesPerCategories[a]) {
+        countInCategories.push(secondaryCategoriesPerCategories[a][secondaryCategories[g]])
+      } else {
+        countInCategories.push(0)
+      }
+    }
+    secondaryCategoryCounts.push({ prefLabel: secondaryCategoryInstanceName, instanceCount: countInCategories })
+  }
+
+  return { categories, secondaryCategoryCounts }
+}
+
 export const createApexPieChartData = ({
   resultClass,
   facetClass,

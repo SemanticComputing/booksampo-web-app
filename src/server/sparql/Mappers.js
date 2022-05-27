@@ -225,6 +225,39 @@ export const mapMultipleLineChart = ({ sparqlBindings, config }) => {
   return res
 }
 
+export const mapZoomableMultipleLineTimeSeries = ({ sparqlBindings, config }) => {
+  const results = []
+  const interval = (config && config.emptyValueInterval) ? config.emptyValueInterval : 1
+  const sparqlBindingsLength = sparqlBindings.length
+  sparqlBindings.forEach((b, index, bindings) => {
+    const currentCategory = b.category.value
+    const currentSecondaryCategory = b.secondaryCategory.value
+    const currentSecondaryLabel = b.secondaryPrefLabel.value
+    const currentSecondaryValue = parseInt(b.secondaryCount.value)
+    results.push({
+      category: currentCategory,
+      secondaryCategory: currentSecondaryCategory,
+      secondaryCategoryPrefLabel: currentSecondaryLabel,
+      secondaryInstanceCount: currentSecondaryValue
+    })
+    if (config && config.fillEmptyValues && index + 1 < sparqlBindingsLength) {
+      let categoryIter = parseInt(currentCategory)
+      const nextNonZeroCategory = parseInt(bindings[index + 1].category.value)
+      // add zeros until we reach the next category with a non zero value
+      while (categoryIter < nextNonZeroCategory - interval) {
+        categoryIter += interval
+        results.push({
+          category: categoryIter.toString(),
+          secondaryCategory: currentSecondaryCategory,
+          secondaryCategoryPrefLabel: currentSecondaryLabel,
+          secondaryInstanceCount: 0
+        })
+      }
+    }
+  })
+  return results
+}
+
 export const mapPieChart = ({ sparqlBindings, config }) => {
   const results = []
   const interval = (config && config.emptyValueInterval) ? config.emptyValueInterval : 1

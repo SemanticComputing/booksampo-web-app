@@ -84,6 +84,9 @@
     "genre_decade_chart": "kirjallisuudenlajit vuosikymmenittäin",
     "map": "tapahtumapaikat kartalla",
     "publications_by_decade_and_genre": "julkaisujen genret vuosikymmenittäin",
+    "publication_years": "vuosittaiset julkaisut",
+    "publication_genre_years": "vuosittaiset genret",
+    "themes_and_keywords": "vuosittaiset teemat ja asiasanat",
     "production_places": "production places",
     "production_places_heatmap": "production heatmap",
     "last_known_locations": "last known locations",
@@ -114,6 +117,9 @@
     "chartType": "Kaaviotyyppi:",
     "pie": "ympyräkaavio",
     "bar": "pylväsdiagrammi",
+    "other": "muu",
+    "count": "lukumäärä",
+    "year": "vuosi",
     "resultClasses": {
       "novelsByGenre": "kirjallisuudenlaji",
       "novelsByOriginalLanguage": "alkukieli",
@@ -128,7 +134,11 @@
       "novelsByDecade": "teosten määrä per vuosikymmen",
       "novelGenresByDecade": "teosten genre per vuosikymmen",
       "coversByKeyword": "asiasana",
-      "coversByWorkType": "teoksen tyyppi"
+      "coversByWorkType": "teoksen tyyppi",
+      "publicationsByYearLineChart": "Vuosittaiset julkaisut",
+      "publicationGenresByYearLineChart": "Top 10 kirjallisuudenlajien lukumäärät vuosittain",
+      "themeTimespanLineChart": "Top 10 teemojen lukumäärät vuosittain",
+      "keywordTimespanLineChart": "Top 10 asiasanojen lukumäärät vuosittain"
     }
   },
   "lineChart": {

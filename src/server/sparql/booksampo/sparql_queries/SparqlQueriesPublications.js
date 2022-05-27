@@ -151,3 +151,155 @@ export const publicationsByDecadeAndGenreQuery = `
   GROUP BY ?id ?dataItem__id ?dataItem__prefLabel
   ORDER BY ?id
 `
+
+export const publicationsByYearLineChartQuery = `
+  SELECT ?category (COUNT(?publication) as ?count) WHERE {
+    <FILTER>
+    ?abstract_work kaunokki:manifests_in ?publication .
+    ?publication kaunokki:onEnsimmainenVersio kaunokki:true .
+    ?publication kaunokki:ilmestymisvuosi ?year .
+    OPTIONAL {
+        ?year skos:prefLabel ?label .
+        FILTER(LANG(?label) != 'fi' && LANG(?label) != 'sv' && LANG(?label) != 'en')
+    }
+    OPTIONAL {
+        ?year skos:prefLabel ?label_FI .
+        FILTER(LANG(?label_FI) = 'fi')
+    }
+    BIND(COALESCE(xsd:integer(?label), xsd:integer(?label_FI), xsd:integer(?year)) as ?category)
+    FILTER(BOUND(?category))
+  }
+  GROUP BY ?category
+  ORDER BY ?category
+`
+
+export const genresByYearTimeSeriesQuery = `
+  SELECT ?category ?secondaryCategory ?secondaryPrefLabel (COUNT(?publication) as ?secondaryCount) WHERE {
+    <FILTER>
+    {
+      SELECT ?genre_id ?genre_label (COUNT(?genre_id) as ?genre_count) WHERE {
+        ?abstract_work kaunokki:manifests_in ?publication .
+        ?publication kaunokki:onEnsimmainenVersio kaunokki:true .
+        ?publication kaunokki:ilmestymisvuosi ?year .
+        ?abstract_work kaunokki:genre ?genre_id .
+        OPTIONAL { 
+          ?genre_id skos:prefLabel ?genre_label_ .
+          FILTER(LANG(?genre_label_) = "fi")
+        }
+        BIND(COALESCE(?genre_label_, ?genre_id) as ?genre_label)
+      }
+      GROUP BY ?genre_id ?genre_label
+      ORDER BY DESC(?genre_count)
+      LIMIT 10
+    }
+    
+    ?abstract_work kaunokki:manifests_in ?publication ;
+                  kaunokki:genre ?genre_id .
+    ?publication kaunokki:onEnsimmainenVersio kaunokki:true .
+    ?publication kaunokki:ilmestymisvuosi ?year .
+    OPTIONAL {
+      ?year skos:prefLabel ?label .
+      FILTER(LANG(?label) != 'fi' && LANG(?label) != 'sv' && LANG(?label) != 'en')
+    }
+    OPTIONAL {
+      ?year skos:prefLabel ?label_FI .
+      FILTER(LANG(?label_FI) = 'fi')
+    }
+    BIND(?genre_id as ?secondaryCategory)
+    BIND(COALESCE(xsd:integer(?label), xsd:integer(?label_FI), xsd:integer(?year)) as ?category)
+    BIND(?genre_label as ?secondaryPrefLabel)
+    FILTER(BOUND(?category))
+  }
+  GROUP BY ?category ?secondaryCategory ?secondaryPrefLabel
+  ORDER BY ?category
+`
+
+export const themesByYearTimeSeriesQuery = `
+  SELECT ?category ?secondaryCategory ?secondaryPrefLabel (COUNT(?publication) as ?secondaryCount) WHERE {
+    <FILTER>
+    {
+      SELECT ?theme_id ?theme_label (COUNT(?theme_id) as ?theme_count) WHERE {
+        ?abstract_work kaunokki:manifests_in ?publication .
+        ?publication kaunokki:onEnsimmainenVersio kaunokki:true .
+        ?publication kaunokki:ilmestymisvuosi ?year .
+        ?abstract_work kaunokki:teema ?theme_id .
+        OPTIONAL { 
+          ?theme_id skos:prefLabel ?theme_label_ .
+          FILTER(LANG(?theme_label_) = "fi")
+        }
+        OPTIONAL {
+          ?theme_id skos:prefLabel ?theme_label_SV .
+          FILTER(LANG(?theme_label_SV) = "sv")
+        }
+        BIND(COALESCE(?theme_label_, ?theme_label_SV, ?theme_id) as ?theme_label)
+      }
+      GROUP BY ?theme_id ?theme_label
+      ORDER BY DESC(?theme_count)
+      LIMIT 10
+    }
+    
+    ?abstract_work kaunokki:manifests_in ?publication ;
+                  kaunokki:teema ?theme_id .
+    ?publication kaunokki:onEnsimmainenVersio kaunokki:true .
+    ?publication kaunokki:ilmestymisvuosi ?year .
+    OPTIONAL {
+      ?year skos:prefLabel ?label .
+      FILTER(LANG(?label) != 'fi' && LANG(?label) != 'sv' && LANG(?label) != 'en')
+    }
+    OPTIONAL {
+      ?year skos:prefLabel ?label_FI .
+      FILTER(LANG(?label_FI) = 'fi')
+    }
+    BIND(?theme_id as ?secondaryCategory)
+    BIND(COALESCE(xsd:integer(?label), xsd:integer(?label_FI), xsd:integer(?year)) as ?category)
+    BIND(?theme_label as ?secondaryPrefLabel)
+    FILTER(BOUND(?category))
+  }
+  GROUP BY ?category ?secondaryCategory ?secondaryPrefLabel
+  ORDER BY ?category
+`
+
+export const keywordsByYearTimeSeriesQuery = `
+  SELECT ?category ?secondaryCategory ?secondaryPrefLabel (COUNT(?publication) as ?secondaryCount) WHERE {
+    <FILTER>
+    {
+      SELECT ?keyword_id ?keyword_label (COUNT(?keyword_id) as ?keyword_count) WHERE {
+        ?abstract_work kaunokki:manifests_in ?publication .
+        ?publication kaunokki:onEnsimmainenVersio kaunokki:true .
+        ?publication kaunokki:ilmestymisvuosi ?year .
+        ?abstract_work kaunokki:asiasana ?keyword_id .
+        OPTIONAL { 
+          ?keyword_id skos:prefLabel ?keyword_label_ .
+          FILTER(LANG(?keyword_label_) = "fi")
+        }
+        OPTIONAL {
+          ?keyword_id skos:prefLabel ?keyword_label_SV .
+          FILTER(LANG(?keyword_label_SV) = "sv")
+        }
+        BIND(COALESCE(?keyword_label_, ?keyword_label_SV, ?keyword_id) as ?keyword_label)
+      }
+      GROUP BY ?keyword_id ?keyword_label
+      ORDER BY DESC(?keyword_count)
+      LIMIT 10
+    }
+    
+    ?abstract_work kaunokki:manifests_in ?publication ;
+                  kaunokki:asiasana ?keyword_id .
+    ?publication kaunokki:onEnsimmainenVersio kaunokki:true .
+    ?publication kaunokki:ilmestymisvuosi ?year .
+    OPTIONAL {
+      ?year skos:prefLabel ?label .
+      FILTER(LANG(?label) != 'fi' && LANG(?label) != 'sv' && LANG(?label) != 'en')
+    }
+    OPTIONAL {
+      ?year skos:prefLabel ?label_FI .
+      FILTER(LANG(?label_FI) = 'fi')
+    }
+    BIND(?keyword_id as ?secondaryCategory)
+    BIND(COALESCE(xsd:integer(?label), xsd:integer(?label_FI), xsd:integer(?year)) as ?category)
+    BIND(?keyword_label as ?secondaryPrefLabel)
+    FILTER(BOUND(?category))
+  }
+  GROUP BY ?category ?secondaryCategory ?secondaryPrefLabel
+  ORDER BY ?category
+`

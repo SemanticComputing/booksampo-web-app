@@ -61,6 +61,98 @@
                     "step": 10
                 }
             }
+        },
+        "publicationsByYearLineChart": {
+            "tabID": 2,
+            "component": "ApexCharts",
+            "tabPath": "publication_years",
+            "tabIcon": "ShowChart",
+            "sparqlQuery": "publicationsByYearLineChartQuery",
+            "facetClass": "publications",
+            "filterTarget": "publication",
+            "resultMapper": "mapLineChart",
+            "resultMapperConfig": {
+                "fillEmptyValues": true
+            },
+            "createChartData": "createZoomableTimeSeriesData",
+            "xaxisTitle": "year",
+            "xaxisType": "category",
+            "xaxisTickAmount": 30,
+            "yaxisTitle": "count",
+            "seriesTitle": "Count",
+            "stroke": {
+                "width": 2
+            }
+        },
+        "publicationGenresByYearLineChart": {
+            "tabID": 3,
+            "component": "ApexCharts",
+            "tabPath": "publication_genre_years",
+            "tabIcon": "ShowChart",
+            "sparqlQuery": "genresByYearTimeSeriesQuery",
+            "facetClass": "publications",
+            "filterTarget": "publication",
+            "resultMapper": "mapZoomableMultipleLineTimeSeries",
+            "resultMapperConfig": {
+                "fillEmptyValues": true
+            },
+            "createChartData": "createZoomableMultipleLineTimeSeriesData",
+            "xaxisTitle": "year",
+            "xaxisType": "category",
+            "xaxisTickAmount": 30,
+            "yaxisTitle": "count",
+            "seriesTitle": "Count",
+            "stroke": {
+                "width": 2
+            }
+        },
+        "themeAndKeywordTimespanLineChart": {
+            "tabID": 4,
+            "component": "ApexChartsDouble",
+            "tabPath": "themes_and_keywords",
+            "tabIcon": "ShowChart",
+            "upperResultClass": "themeTimespanLineChart",
+            "lowerResultClass": "keywordTimespanLineChart",
+            "resultClasses": {
+                "themeTimespanLineChart": {
+                    "height": "50%",
+                    "sparqlQuery": "themesByYearTimeSeriesQuery",
+                    "facetClass": "publications",
+                    "filterTarget": "publication",
+                    "resultMapper": "mapZoomableMultipleLineTimeSeries",
+                    "resultMapperConfig": {
+                        "fillEmptyValues": true
+                    },
+                    "createChartData": "createZoomableMultipleLineTimeSeriesData",
+                    "xaxisTitle": "year",
+                    "xaxisType": "category",
+                    "xaxisTickAmount": 30,
+                    "yaxisTitle": "count",
+                    "seriesTitle": "Count",
+                    "stroke": {
+                        "width": 2
+                    }
+                },
+                "keywordTimespanLineChart": {
+                    "height": "50%",
+                    "sparqlQuery": "keywordsByYearTimeSeriesQuery",
+                    "facetClass": "publications",
+                    "filterTarget": "publication",
+                    "resultMapper": "mapZoomableMultipleLineTimeSeries",
+                    "resultMapperConfig": {
+                        "fillEmptyValues": true
+                    },
+                    "createChartData": "createZoomableMultipleLineTimeSeriesData",
+                    "xaxisTitle": "year",
+                    "xaxisType": "category",
+                    "xaxisTickAmount": 30,
+                    "yaxisTitle": "count",
+                    "seriesTitle": "Count",
+                    "stroke": {
+                        "width": 2
+                    }
+                }
+            }
         }
     },
     "properties": [

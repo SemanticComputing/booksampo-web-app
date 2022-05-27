@@ -84,6 +84,9 @@
     "genre_decade_chart": "genres by decade",
     "map": "concrete places on a map",
     "publications_by_decade_and_genre": "publication genres per decades",
+    "publication_years": "publications by year",
+    "publication_genre_years": "genres by year",
+    "themes_and_keywords": "themes and keywords by year",
     "production_places": "production places",
     "production_places_heatmap": "production heatmap",
     "last_known_locations": "last known locations",
@@ -114,6 +117,9 @@
     "chartType": "Chart type:",
     "pie": "pie chart",
     "bar": "bar chart",
+    "other": "other",
+    "count": "count",
+    "year": "year",
     "resultClasses": {
       "novelsByGenre": "genre",
       "novelsByOriginalLanguage": "original language",
@@ -128,7 +134,11 @@
       "novelsByDecade": "novels per decade",
       "novelGenresByDecade": "novel genre per decade",
       "coversByKeyword": "keyword",
-      "coversByWorkType": "work type"
+      "coversByWorkType": "work type",
+      "publicationsByYearLineChart": "Publications by year",
+      "publicationGenresByYearLineChart": "Top 10 publication genres by year",
+      "themeTimespanLineChart": "Top 10 publication themes by year",
+      "keywordTimespanLineChart": "Top 10 publication keywords by year"
     }
   },
   "lineChart": {
