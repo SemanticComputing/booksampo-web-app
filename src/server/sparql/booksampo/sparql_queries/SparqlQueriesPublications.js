@@ -303,3 +303,44 @@ export const keywordsByYearTimeSeriesQuery = `
   GROUP BY ?category ?secondaryCategory ?secondaryPrefLabel
   ORDER BY ?category
 `
+
+export const concretePlacesByYearTimeSeriesQuery = `
+  SELECT ?category ?secondaryCategory ?secondaryPrefLabel (COUNT(?publication) as ?secondaryCount) WHERE {
+    <FILTER>
+    {
+      SELECT ?place_id ?place_label (COUNT(?place_id) as ?place_count) WHERE {
+        ?abstract_work kaunokki:manifests_in ?publication .
+        ?publication kaunokki:onEnsimmainenVersio kaunokki:true .
+        ?publication kaunokki:ilmestymisvuosi ?year .
+        ?abstract_work kaunokki:worldPlace ?place_id .
+        OPTIONAL { 
+          ?place_id skos:prefLabel ?place_label_ .
+          FILTER(LANG(?place_label_) = "fi")
+        }
+        BIND(COALESCE(?place_label_, ?place_id) as ?place_label)
+      }
+      GROUP BY ?place_id ?place_label
+      ORDER BY DESC(?place_count)
+      LIMIT 10
+    }
+    
+    ?abstract_work kaunokki:manifests_in ?publication ;
+                  kaunokki:worldPlace ?place_id .
+    ?publication kaunokki:onEnsimmainenVersio kaunokki:true .
+    ?publication kaunokki:ilmestymisvuosi ?year .
+    OPTIONAL {
+      ?year skos:prefLabel ?label .
+      FILTER(LANG(?label) != 'fi' && LANG(?label) != 'sv' && LANG(?label) != 'en')
+    }
+    OPTIONAL {
+      ?year skos:prefLabel ?label_FI .
+      FILTER(LANG(?label_FI) = 'fi')
+    }
+    BIND(?place_id as ?secondaryCategory)
+    BIND(COALESCE(xsd:integer(?label), xsd:integer(?label_FI), xsd:integer(?year)) as ?category)
+    BIND(?place_label as ?secondaryPrefLabel)
+    FILTER(BOUND(?category))
+  }
+  GROUP BY ?category ?secondaryCategory ?secondaryPrefLabel
+  ORDER BY ?category
+`

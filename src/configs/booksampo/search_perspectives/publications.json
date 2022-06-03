@@ -153,6 +153,28 @@
                     }
                 }
             }
+        },
+        "concretePlacesByYearLineChart": {
+            "tabID": 5,
+            "component": "ApexCharts",
+            "tabPath": "concrete_place_years",
+            "tabIcon": "ShowChart",
+            "sparqlQuery": "concretePlacesByYearTimeSeriesQuery",
+            "facetClass": "publications",
+            "filterTarget": "publication",
+            "resultMapper": "mapZoomableMultipleLineTimeSeries",
+            "resultMapperConfig": {
+                "fillEmptyValues": true
+            },
+            "createChartData": "createZoomableMultipleLineTimeSeriesData",
+            "xaxisTitle": "year",
+            "xaxisType": "category",
+            "xaxisTickAmount": 30,
+            "yaxisTitle": "count",
+            "seriesTitle": "Count",
+            "stroke": {
+                "width": 2
+            }
         }
     },
     "properties": [

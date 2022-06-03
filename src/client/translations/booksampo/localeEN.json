@@ -87,6 +87,7 @@
     "publication_years": "publications by year",
     "publication_genre_years": "genres by year",
     "themes_and_keywords": "themes and keywords by year",
+    "concrete_place_years": "concrete places by year",
     "production_places": "production places",
     "production_places_heatmap": "production heatmap",
     "last_known_locations": "last known locations",
@@ -138,7 +139,8 @@
       "publicationsByYearLineChart": "Publications by year",
       "publicationGenresByYearLineChart": "Top 10 publication genres by year",
       "themeTimespanLineChart": "Top 10 publication themes by year",
-      "keywordTimespanLineChart": "Top 10 publication keywords by year"
+      "keywordTimespanLineChart": "Top 10 publication keywords by year",
+      "concretePlacesByYearLineChart": "Top 10 concrete places by year"
     }
   },
   "lineChart": {

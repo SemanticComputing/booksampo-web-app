@@ -15,7 +15,7 @@ export const personProperties = `
     }
     UNION 
     {
-      ?id <http://seco.tkk.fi/saha3/kirjasampo/kirjailijanKuva> ?image__id .
+      ?id saha-ks:kirjailijanKuva ?image__id .
       ?image__id ks-annotaatio:tiedostoUrl ?image__url .
       OPTIONAL {
         ?image__id skos:prefLabel ?image__description .
@@ -23,7 +23,7 @@ export const personProperties = `
     }
     UNION
     {
-      ?id <http://seco.tkk.fi/saha3/kirjasampo/kirjailijanMuuNimi> ?otherName__id .
+      ?id saha-ks:kirjailijanMuuNimi ?otherName__id .
       BIND(?otherName__id as ?otherName__prefLabel)
     }
     UNION
