@@ -156,7 +156,7 @@ export const nonfictionBookProperties = `
 export const nonfictionBookPublicationsQuery = `
   SELECT ?id ?uri__id ?uri__prefLabel ?uri__dataProviderUrl ?prefLabel__id 
   ?object__id ?object__prefLabel 
-  ?object__prefLabel__id ?object__prefLabel__prefLabel
+  ?object__prefLabel__id ?object__prefLabel__prefLabel ?object__prefLabel__dataProviderUrl
   ?object__image__id ?object__image__url ?object__image__description 
   ?object__publisher__id ?object__publisher__prefLabel 
   ?object__publicationYear__id ?object__publicationYear__prefLabel 
@@ -177,6 +177,7 @@ export const nonfictionBookPublicationsQuery = `
     {
       ?object__id skos:prefLabel ?object__prefLabel__id .
       BIND(?object__prefLabel__id as ?object__prefLabel__prefLabel)
+      BIND(CONCAT("/publications/page/", ENCODE_FOR_URI(STR(?object__id)), "/table") AS ?object__prefLabel__dataProviderUrl)
     }
     UNION
     {
