@@ -26,6 +26,21 @@ export const mapPlaces = sparqlBindings => {
   return results
 }
 
+export const mapPlacesObjects = sparqlBindings => {
+  const results = sparqlBindings.map(b => {
+    return {
+      place: b.place.value,
+      lat: b.lat.value,
+      long: b.long.value,
+      id: b.id.value,
+      prefLabel: b.prefLabel.value,
+      dataProviderUrl: b.dataProviderUrl.value,
+      ...(Object.prototype.hasOwnProperty.call(b, 'image') && { image: b.image.value })
+    }
+  })
+  return results
+}
+
 export const mapCoordinates = sparqlBindings => {
   const results = sparqlBindings.map(b => {
     return {

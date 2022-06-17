@@ -88,6 +88,8 @@
     "publication_genre_years": "genres by year",
     "themes_and_keywords": "themes and keywords by year",
     "concrete_place_years": "concrete places by year",
+    "place_of_birth_chart": "places of birth of people who died here",
+    "place_of_death_chart": "places of death of people who were born here",
     "production_places": "production places",
     "production_places_heatmap": "production heatmap",
     "last_known_locations": "last known locations",

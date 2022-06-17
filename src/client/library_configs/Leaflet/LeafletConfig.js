@@ -281,6 +281,30 @@ export const createPopUpContentBookSampo = ({ data, resultClass }) => {
   return container
 }
 
+export const createPopUpContentBookSampoSingle = ({ data }) => {
+  const container = document.createElement('div')
+
+  if (has(data, 'image')) {
+    let { image } = data
+    if (Array.isArray(image)) {
+      image = image[0]
+    }
+    const imageElement = document.createElement('img')
+    imageElement.className = 'leaflet-popup-content-image'
+    imageElement.setAttribute('src', image)
+    container.appendChild(imageElement)
+  }
+  const heading = document.createElement('h3')
+  const headingLink = document.createElement('a')
+  headingLink.style.cssText = 'cursor: pointer; text-decoration: underline'
+  headingLink.textContent = data.prefLabel
+  headingLink.addEventListener('click', () => history.push(data.dataProviderUrl))
+  heading.appendChild(headingLink)
+  container.appendChild(heading)
+
+  return container
+}
+
 const createPopUpElement = ({ label, value }) => {
   const p = document.createElement('p')
   const b = document.createElement('b')

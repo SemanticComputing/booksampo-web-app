@@ -509,3 +509,30 @@ export const peopleResidencesQuery = `
   }
   GROUP BY ?id ?lat ?long
 `
+
+export const novelsPlacesQuery = `
+  SELECT ?place ?lat ?long ?id (SAMPLE(?title) as ?prefLabel) ?dataProviderUrl (SAMPLE(?image__url) as ?image)
+  WHERE {
+    VALUES ?author { <ID> }
+    ?author ^kaunokki:tekija ?id .
+    ?id kaunokki:worldPlace ?place ;
+          a kaunokki:romaani .
+    ?place wgs84:lat ?lat ;
+        wgs84:long ?long .
+    FILTER NOT EXISTS {
+      ?place wgs84:lat ?lat, ?lat2 .
+      FILTER(?lat != ?lat2) 
+    }
+    FILTER NOT EXISTS {
+      ?place wgs84:long ?long, ?long2 .
+      FILTER(?long != ?long2) 
+    }
+    ?id skos:prefLabel ?title .
+    BIND(CONCAT("/novels/page/", ENCODE_FOR_URI(STR(?id)), "/table") AS ?dataProviderUrl)
+    OPTIONAL {
+      ?id kaunokki:manifests_in/kaunokki:kansikuva ?image__id .
+      ?image__id ks-annotaatio:tiedostoUrl ?image__url .
+    }
+  }
+  GROUP BY ?place ?lat ?long ?id ?prefLabel ?dataProviderUrl ?image
+`

@@ -103,6 +103,23 @@
                             "fillEmptyValues": true,
                             "emptyValueInterval": 10
                         }
+                    },
+                    "novelsPlaces": {
+                        "tabID": 4,
+                        "tabPath": "map",
+                        "tabIcon": "AddLocation",
+                        "component": "LeafletMap",
+                        "pageType": "instancePage",
+                        "showInstanceCountInClusters": false,
+                        "showExternalLayers": false,
+                        "customMapControl": true,
+                        "sparqlQuery": "novelsPlacesQuery",
+                        "facetClass": "novels",
+                        "filterTarget": "novels",
+                        "resultMapper": "mapPlacesObjects",
+                        "instanceConfig": {
+                            "createPopUpContent": "createPopUpContentBookSampoSingle"
+                        }
                     }
                 },
                 "localIDAsURI": true
@@ -250,6 +267,13 @@
             "zoom": 2
         },
         "peopleResidencesHeatmap": {
+            "center": [
+                22.43,
+                10.37
+            ],
+            "zoom": 2
+        },
+        "novelsPlaces": {
             "center": [
                 22.43,
                 10.37

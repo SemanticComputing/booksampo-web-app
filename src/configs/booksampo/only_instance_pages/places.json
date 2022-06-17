@@ -17,6 +17,62 @@
             "component": "InstancePageTable",
             "tabPath": "table",
             "tabIcon": "CalendarViewDay"
+          },
+          "instacePageBirthPlaces": {
+            "tabID": 1,
+            "component": "ApexCharts",
+            "doNotRenderOnMount": true,
+            "tabPath": "place_of_birth_chart",
+            "tabIcon": "PieChart",
+            "facetClass": "people",
+            "sparqlQuery": "birthplacesQuery",
+            "resultMapper": "mapPieChart",
+            "filterTarget": "person",
+            "pageType": "instancePage",
+            "sliceVisibilityThreshold": 0.005,
+            "dropdownForResultClasses": false,
+            "dropdownForChartTypes": true,
+            "resultMapperConfig": {
+                "fillEmptyValues": false
+            },
+            "chartTypes": [
+                {
+                    "id": "pie",
+                    "createChartData": "createApexPieChartData"
+                },
+                {
+                    "id": "bar",
+                    "createChartData": "createApexBarChartData"
+                }
+            ]
+          },
+          "instacePageDeathPlaces": {
+            "tabID": 2,
+            "component": "ApexCharts",
+            "doNotRenderOnMount": true,
+            "tabPath": "place_of_death_chart",
+            "tabIcon": "PieChart",
+            "facetClass": "people",
+            "sparqlQuery": "deathplacesQuery",
+            "resultMapper": "mapPieChart",
+            "filterTarget": "person",
+            "pageType": "instancePage",
+            "sliceVisibilityThreshold": 0.005,
+            "dropdownForResultClasses": false,
+            "dropdownForChartTypes": true,
+            "resultMapperConfig": {
+                "fillEmptyValues": false
+            },
+            "chartTypes": [
+                {
+                    "id": "pie",
+                    "createChartData": "createApexPieChartData"
+                },
+                {
+                    "id": "bar",
+                    "createChartData": "createApexBarChartData"
+                }
+            ]
           }
         },
         "localIDAsURI": true

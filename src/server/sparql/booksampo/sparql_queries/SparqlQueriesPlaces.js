@@ -29,3 +29,88 @@ export const placePropertiesInstancePage = `
     BIND(CONCAT("/novels/page/", ENCODE_FOR_URI(STR(?novel__id)), "/table") AS ?novel__dataProviderUrl)
   }
 `
+
+export const birthplacesQuery = `
+  SELECT ?category ?prefLabel (COUNT(DISTINCT ?person) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    {
+      BIND(<ID> as ?place)
+      ?person a foaf:Person .
+      ?person kaunokki:placeOfDeath ?place .
+      ?person kaunokki:placeOfBirth ?category .
+      OPTIONAL {
+        ?category skos:prefLabel ?prefLabelFI .
+        FILTER(LANG(?prefLabelFI) = 'fi')
+      }
+      OPTIONAL {
+        ?category skos:prefLabel ?prefLabelEN .
+        FILTER(LANG(?prefLabelEN) = 'en')
+      }
+      OPTIONAL {
+        ?category skos:prefLabel ?prefLabelSV .
+        FILTER(LANG(?prefLabelSV) = 'sv')
+      }
+      OPTIONAL {
+        ?category skos:prefLabel ?prefLabelGEN .
+      }
+      BIND(COALESCE(?prefLabelFI, ?prefLabelEN, ?prefLabelSV, ?prefLabelGEN, ?category) as ?prefLabel)
+    }
+    UNION
+    {
+      BIND(<ID> as ?place)
+      ?person a foaf:Person .
+      ?person kaunokki:placeOfDeath ?place .
+      FILTER NOT EXISTS {
+  		  ?person kaunokki:placeOfBirth [] .
+      }
+      BIND("Unknown" as ?category)
+      BIND("Unknown" as ?prefLabel)
+    }
+  }
+  GROUP BY ?category ?prefLabel
+  ORDER BY DESC(?instanceCount)
+`
+
+export const deathplacesQuery = `
+  SELECT ?category ?prefLabel (COUNT(DISTINCT ?person) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    {
+      BIND(<ID> as ?place)
+      ?person a foaf:Person .
+      ?person kaunokki:placeOfBirth ?place .
+      ?person kaunokki:placeOfDeath ?category .
+      OPTIONAL {
+        ?category skos:prefLabel ?prefLabelFI .
+        FILTER(LANG(?prefLabelFI) = 'fi')
+      }
+      OPTIONAL {
+        ?category skos:prefLabel ?prefLabelEN .
+        FILTER(LANG(?prefLabelEN) = 'en')
+      }
+      OPTIONAL {
+        ?category skos:prefLabel ?prefLabelSV .
+        FILTER(LANG(?prefLabelSV) = 'sv')
+      }
+      OPTIONAL {
+        ?category skos:prefLabel ?prefLabelGEN
+      }
+      BIND(COALESCE(?prefLabelFI, ?prefLabelEN, ?prefLabelSV, ?prefLabelGEN, ?category) as ?prefLabel)
+    }
+    UNION
+    {
+      BIND(<ID> as ?place)
+      ?person a foaf:Person .
+      ?person kaunokki:placeOfBirth ?place .
+      ?person kaunokki:timeOfDeath [] .
+      FILTER NOT EXISTS {
+  		  ?person kaunokki:placeOfDeath [] .
+      }
+      BIND("Unknown" as ?category)
+      BIND("Unknown" as ?prefLabel)
+    }
+  }
+  GROUP BY ?category ?prefLabel
+  ORDER BY DESC(?instanceCount)
+`

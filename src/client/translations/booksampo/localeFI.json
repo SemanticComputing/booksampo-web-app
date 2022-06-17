@@ -88,6 +88,8 @@
     "publication_genre_years": "vuosittaiset genret",
     "themes_and_keywords": "vuosittaiset teemat ja asiasanat",
     "concrete_place_years": "vuosittaiset tapahtumapaikat",
+    "place_of_birth_chart": "täällä kuolleiden syntymäpaikat",
+    "place_of_death_chart": "täällä syntyneiden kuolinpaikat",
     "production_places": "production places",
     "production_places_heatmap": "production heatmap",
     "last_known_locations": "last known locations",
