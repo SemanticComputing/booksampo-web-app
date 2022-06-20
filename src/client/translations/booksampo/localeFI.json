@@ -88,6 +88,7 @@
     "publication_genre_years": "vuosittaiset genret",
     "themes_and_keywords": "vuosittaiset teemat ja asiasanat",
     "concrete_place_years": "vuosittaiset tapahtumapaikat",
+    "length_years": "vuosittaiset sivumäärät",
     "place_of_birth_chart": "täällä kuolleiden syntymäpaikat",
     "place_of_death_chart": "täällä syntyneiden kuolinpaikat",
     "production_places": "production places",
@@ -123,6 +124,7 @@
     "other": "muu",
     "count": "lukumäärä",
     "year": "vuosi",
+    "average": "keskiarvo",
     "resultClasses": {
       "novelsByGenre": "kirjallisuudenlaji",
       "novelsByOriginalLanguage": "alkukieli",
@@ -142,7 +144,8 @@
       "publicationGenresByYearLineChart": "Top 10 kirjallisuudenlajien lukumäärät vuosittain",
       "themeTimespanLineChart": "Top 10 teemojen lukumäärät vuosittain",
       "keywordTimespanLineChart": "Top 10 asiasanojen lukumäärät vuosittain",
-      "concretePlacesByYearLineChart": "Top 10 tapahtumapaikkojen lukumäärät vuosittain"
+      "concretePlacesByYearLineChart": "Top 10 tapahtumapaikkojen lukumäärät vuosittain",
+      "publicationLengthsByYearLineChart": "Sivujen keskimääräiset lukumäärät vuosittain"
     }
   },
   "lineChart": {

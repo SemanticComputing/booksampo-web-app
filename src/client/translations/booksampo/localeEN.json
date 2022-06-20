@@ -88,6 +88,7 @@
     "publication_genre_years": "genres by year",
     "themes_and_keywords": "themes and keywords by year",
     "concrete_place_years": "concrete places by year",
+    "length_years": "page count by year",
     "place_of_birth_chart": "places of birth of people who died here",
     "place_of_death_chart": "places of death of people who were born here",
     "production_places": "production places",
@@ -123,6 +124,7 @@
     "other": "other",
     "count": "count",
     "year": "year",
+    "average": "average",
     "resultClasses": {
       "novelsByGenre": "genre",
       "novelsByOriginalLanguage": "original language",
@@ -142,7 +144,8 @@
       "publicationGenresByYearLineChart": "Top 10 publication genres by year",
       "themeTimespanLineChart": "Top 10 publication themes by year",
       "keywordTimespanLineChart": "Top 10 publication keywords by year",
-      "concretePlacesByYearLineChart": "Top 10 concrete places by year"
+      "concretePlacesByYearLineChart": "Top 10 concrete places by year",
+      "publicationLengthsByYearLineChart": "Average page counts by year"
     }
   },
   "lineChart": {

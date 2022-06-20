@@ -175,6 +175,28 @@
             "stroke": {
                 "width": 2
             }
+        },
+        "publicationLengthsByYearLineChart": {
+            "tabID": 6,
+            "component": "ApexCharts",
+            "tabPath": "length_years",
+            "tabIcon": "ShowChart",
+            "sparqlQuery": "publicationLengthsByYearLineChartQuery",
+            "facetClass": "publications",
+            "filterTarget": "publication",
+            "resultMapper": "mapLineChart",
+            "resultMapperConfig": {
+                "fillEmptyValues": true
+            },
+            "createChartData": "createZoomableTimeSeriesData",
+            "xaxisTitle": "year",
+            "xaxisType": "category",
+            "xaxisTickAmount": 30,
+            "yaxisTitle": "average",
+            "seriesTitle": "Average",
+            "stroke": {
+                "width": 2
+            }
         }
     },
     "properties": [

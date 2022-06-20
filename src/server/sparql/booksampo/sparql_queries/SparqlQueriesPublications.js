@@ -348,3 +348,26 @@ export const concretePlacesByYearTimeSeriesQuery = `
   GROUP BY ?category ?secondaryCategory ?secondaryPrefLabel
   ORDER BY ?category
 `
+export const publicationLengthsByYearLineChartQuery = `
+  SELECT ?category (AVG(?pageCount) as ?count) WHERE {
+    <FILTER>
+    ?abstract_work kaunokki:manifests_in ?publication .
+    ?publication kaunokki:onEnsimmainenVersio kaunokki:true .
+    ?publication kaunokki:ilmestymisvuosi ?year .
+    ?publication kaunokki:sivuLkm ?pages .
+    BIND(xsd:integer(?pages) as ?pageCount)
+    FILTER(BOUND(?pageCount))
+    OPTIONAL {
+        ?year skos:prefLabel ?label .
+        FILTER(LANG(?label) != 'fi' && LANG(?label) != 'sv' && LANG(?label) != 'en')
+    }
+    OPTIONAL {
+        ?year skos:prefLabel ?label_FI .
+        FILTER(LANG(?label_FI) = 'fi')
+    }
+    BIND(COALESCE(xsd:integer(?label), xsd:integer(?label_FI), xsd:integer(?year)) as ?category)
+    FILTER(BOUND(?category))
+  }
+  GROUP BY ?category
+  ORDER BY ?category
+`
