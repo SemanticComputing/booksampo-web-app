@@ -178,6 +178,7 @@ export const genresByYearTimeSeriesQuery = `
     <FILTER>
     {
       SELECT ?genre_id ?genre_label (COUNT(?genre_id) as ?genre_count) WHERE {
+        <FILTER>
         ?abstract_work kaunokki:manifests_in ?publication .
         ?publication kaunokki:onEnsimmainenVersio kaunokki:true .
         ?publication kaunokki:ilmestymisvuosi ?year .
@@ -219,6 +220,7 @@ export const themesByYearTimeSeriesQuery = `
     <FILTER>
     {
       SELECT ?theme_id ?theme_label (COUNT(?theme_id) as ?theme_count) WHERE {
+        <FILTER>
         ?abstract_work kaunokki:manifests_in ?publication .
         ?publication kaunokki:onEnsimmainenVersio kaunokki:true .
         ?publication kaunokki:ilmestymisvuosi ?year .
@@ -264,6 +266,7 @@ export const keywordsByYearTimeSeriesQuery = `
     <FILTER>
     {
       SELECT ?keyword_id ?keyword_label (COUNT(?keyword_id) as ?keyword_count) WHERE {
+        <FILTER>
         ?abstract_work kaunokki:manifests_in ?publication .
         ?publication kaunokki:onEnsimmainenVersio kaunokki:true .
         ?publication kaunokki:ilmestymisvuosi ?year .
@@ -309,6 +312,7 @@ export const concretePlacesByYearTimeSeriesQuery = `
     <FILTER>
     {
       SELECT ?place_id ?place_label (COUNT(?place_id) as ?place_count) WHERE {
+        <FILTER>
         ?abstract_work kaunokki:manifests_in ?publication .
         ?publication kaunokki:onEnsimmainenVersio kaunokki:true .
         ?publication kaunokki:ilmestymisvuosi ?year .
