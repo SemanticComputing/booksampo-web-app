@@ -140,6 +140,8 @@
       "novelGenresByDecade": "novel genre per decade",
       "coversByKeyword": "keyword",
       "coversByWorkType": "work type",
+      "coversByWorkGenre": "work genre",
+      "coversByWorkTheme": "work theme",
       "publicationsByYearLineChart": "Publications by year",
       "publicationGenresByYearLineChart": "Top 10 publication genres by year",
       "themeTimespanLineChart": "Top 10 publication themes by year",
@@ -336,6 +338,10 @@
         "publicationYear": {
           "label": "Publication year",
           "description": "The year(s) the novel was published."
+        },
+        "collection": {
+          "label": "Part of collection",
+          "description": "The collection(s) the novel is a part of."
         },
         "kirjasampoURL": {
           "label": "Link to Kirjasampo page",
@@ -594,6 +600,10 @@
           "label": "Keyword",
           "description": "Keywords relating to the cover."
         },
+        "illustrator": {
+          "label": "Illustrator",
+          "description": "The illustrator(s) of the cover."
+        },
         "work": {
           "label": "Work",
           "description": "The work the cover has been made for."
@@ -601,6 +611,18 @@
         "workType": {
           "label": "Work type",
           "description": "The type of the work (e.g. novel, short story, ...)"
+        },
+        "workGenre": {
+          "label": "Work genre",
+          "description": "The genre(s) of the work"
+        },
+        "workTheme": {
+          "label": "Work theme",
+          "description": "The theme(s) of the work"
+        },
+        "workKeyword": {
+          "label": "Work keyword",
+          "description": "The keyword(s) of the work"
         }
       }
     },

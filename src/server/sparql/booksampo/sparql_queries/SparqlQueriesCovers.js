@@ -25,6 +25,12 @@ export const coverProperties = `
   }
   UNION
   {
+    ?id kaunokki:kuvittaja ?illustrator__id .
+    ?illustrator__id skos:prefLabel ?illustrator__prefLabel .
+    BIND(CONCAT("/people/page/", ENCODE_FOR_URI(STR(?illustrator__id)), "/table") AS ?illustrator__dataProviderUrl)
+  }
+  UNION
+  {
     ?id ^kaunokki:kansikuva ?physical_work .
     ?physical_work ^kaunokki:manifests_in ?work__id .
     OPTIONAL { 
@@ -51,6 +57,39 @@ export const coverProperties = `
       FILTER(LANG(?workType__prefLabel_) = "<LANG>")
     }
     BIND(COALESCE(?workType__prefLabel_, ?workType__id) as ?workType__prefLabel)
+  }
+  UNION
+  {
+    ?id ^kaunokki:kansikuva ?physical_work .
+    ?physical_work ^kaunokki:manifests_in ?work__id .
+    ?work__id kaunokki:genre ?workGenre__id .
+    OPTIONAL { 
+      ?workGenre__id skos:prefLabel ?workGenre__prefLabel_ .
+      FILTER(LANG(?workGenre__prefLabel_) = "<LANG>")
+    }
+    BIND(COALESCE(?workGenre__prefLabel_, ?workGenre__id) as ?workGenre__prefLabel)
+  }
+  UNION
+  {
+    ?id ^kaunokki:kansikuva ?physical_work .
+    ?physical_work ^kaunokki:manifests_in ?work__id .
+    ?work__id kaunokki:teema ?workTheme__id .
+    OPTIONAL { 
+      ?workTheme__id skos:prefLabel ?workTheme__prefLabel_ .
+      FILTER(LANG(?workTheme__prefLabel_) = "<LANG>")
+    }
+    BIND(COALESCE(?workTheme__prefLabel_, ?workTheme__id) as ?workTheme__prefLabel)
+  }
+  UNION
+  {
+    ?id ^kaunokki:kansikuva ?physical_work .
+    ?physical_work ^kaunokki:manifests_in ?work__id .
+    ?work__id kaunokki:asiasana ?workKeyword__id .
+    OPTIONAL { 
+      ?workKeyword__id skos:prefLabel ?workKeyword__prefLabel_ .
+      FILTER(LANG(?workKeyword__prefLabel_) = "<LANG>")
+    }
+    BIND(COALESCE(?workKeyword__prefLabel_, ?workKeyword__id) as ?workKeyword__prefLabel)
   }
 `
 
@@ -101,6 +140,84 @@ export const coversByWorkTypeQuery = `
       ?cover a kaunokki:kansi .
       FILTER NOT EXISTS {
         ?cover ^kaunokki:kansikuva [] .
+      }
+      BIND("Unknown" as ?category)
+      BIND("Unknown" as ?prefLabel)
+    }
+  }
+  GROUP BY ?category ?prefLabel
+  ORDER BY DESC(?instanceCount)
+`
+
+export const coversByWorkGenreQuery = `
+  SELECT ?category ?prefLabel (COUNT(DISTINCT ?cover) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    {
+      ?cover a kaunokki:kansi .
+      ?cover ^kaunokki:kansikuva ?physical_work .
+      ?physical_work ^kaunokki:manifests_in ?work .
+      ?work kaunokki:genre ?category .
+      OPTIONAL { 
+        ?category skos:prefLabel ?prefLabel_ .
+        FILTER(LANG(?prefLabel_) = "<LANG>")
+      }
+      BIND(COALESCE(?prefLabel_, ?category) as ?prefLabel)
+    }
+    UNION
+    {
+      {
+        ?cover a kaunokki:kansi .
+        FILTER NOT EXISTS {
+          ?cover ^kaunokki:kansikuva [] .
+        }
+      }
+      UNION
+      {
+        ?cover a kaunokki:kansi .
+        ?cover ^kaunokki:kansikuva ?physical_work .
+        FILTER NOT EXISTS {
+          ?physical_work ^kaunokki:manifests_in/kaunokki:genre [] .
+        }
+      }
+      BIND("Unknown" as ?category)
+      BIND("Unknown" as ?prefLabel)
+    }
+  }
+  GROUP BY ?category ?prefLabel
+  ORDER BY DESC(?instanceCount)
+`
+
+export const coversByWorkThemeQuery = `
+  SELECT ?category ?prefLabel (COUNT(DISTINCT ?cover) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    {
+      ?cover a kaunokki:kansi .
+      ?cover ^kaunokki:kansikuva ?physical_work .
+      ?physical_work ^kaunokki:manifests_in ?work .
+      ?work kaunokki:teema ?category .
+      OPTIONAL { 
+        ?category skos:prefLabel ?prefLabel_ .
+        FILTER(LANG(?prefLabel_) = "<LANG>")
+      }
+      BIND(COALESCE(?prefLabel_, ?category) as ?prefLabel)
+    }
+    UNION
+    {
+      {
+        ?cover a kaunokki:kansi .
+        FILTER NOT EXISTS {
+          ?cover ^kaunokki:kansikuva [] .
+        }
+      }
+      UNION
+      {
+        ?cover a kaunokki:kansi .
+        ?cover ^kaunokki:kansikuva ?physical_work .
+        FILTER NOT EXISTS {
+          ?physical_work ^kaunokki:manifests_in/kaunokki:teema [] .
+        }
       }
       BIND("Unknown" as ?category)
       BIND("Unknown" as ?prefLabel)

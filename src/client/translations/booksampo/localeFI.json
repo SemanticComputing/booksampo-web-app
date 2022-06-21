@@ -140,6 +140,8 @@
       "novelGenresByDecade": "teosten genre per vuosikymmen",
       "coversByKeyword": "asiasana",
       "coversByWorkType": "teoksen tyyppi",
+      "coversByWorkGenre": "teoksen kirjallisuudenlaji",
+      "coversByWorkTheme": "teoksen teema",
       "publicationsByYearLineChart": "Vuosittaiset julkaisut",
       "publicationGenresByYearLineChart": "Top 10 kirjallisuudenlajien lukumäärät vuosittain",
       "themeTimespanLineChart": "Top 10 teemojen lukumäärät vuosittain",
@@ -323,6 +325,10 @@
         "publicationYear": {
           "label": "Julkaisuvuosi",
           "description": "Teoksen julkaisuvuosi tai -vuodet."
+        },
+        "collection": {
+          "label": "Osana kokoelmaa",
+          "description": "Kokoelma(t), jossa teos on osana."
         },
         "kirjasampoURL": {
           "label": "Linkki Kirjasampo-sivulle",
@@ -581,6 +587,10 @@
           "label": "Asiasana",
           "description": "Kansikuvan asiasana(t)."
         },
+        "illustrator": {
+          "label": "Kuvittaja",
+          "description": "Kansikuvan kuvittaja(t)."
+        },
         "work": {
           "label": "Teos",
           "description": "Teos, jolle kansi on tehty."
@@ -588,6 +598,18 @@
         "workType": {
           "label": "Teoksen tyyppi",
           "description": "Teoksen tyyppi (esim. romaani, novelli, ...)"
+        },
+        "workGenre": {
+          "label": "Teoksen kirjallisuudenlaji",
+          "description": "Teoksen kirjallisuudenlaji(t)"
+        },
+        "workTheme": {
+          "label": "Teoksen teema",
+          "description": "Teoksen teema(t)"
+        },
+        "workKeyword": {
+          "label": "Teoksen asiasana",
+          "description": "Teoksen asiasana(t)"
         }
       }
     },
