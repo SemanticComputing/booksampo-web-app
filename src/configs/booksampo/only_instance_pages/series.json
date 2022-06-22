@@ -1,0 +1,95 @@
+{
+  "id": "series",
+  "endpoint": {
+    "url": "https://ldf.fi/booksampo-2022/sparql",
+    "useAuth": true,
+    "prefixesFile": "SparqlQueriesPrefixes.js"
+  },
+  "sparqlQueriesFile": "SparqlQueriesSeries.js",
+  "langTag": "fi",
+  "resultClasses": {
+    "series": {
+      "instanceConfig": {
+        "propertiesQueryBlock": "seriesPropertiesInstancePage",
+        "instancePageResultClasses": {
+          "instancePageTable": {
+            "tabID": 0,
+            "component": "InstancePageTable",
+            "tabPath": "table",
+            "tabIcon": "CalendarViewDay"
+          }
+        },
+        "localIDAsURI": true
+      }
+    }
+  },
+  "properties": [
+    {
+      "id": "uri",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": true,
+      "sortValues": true,
+      "numberedList": false,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "prefLabel",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 170,
+      "expandedOnInstancePage": true
+    },
+    {
+      "id": "description",
+      "valueType": "object",
+      "makeLink": false,
+      "externalLink": false,
+      "sortValues": false,
+      "numberedList": false,
+      "disableSort": true,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "keyword",
+      "valueType": "object",
+      "makeLink": false,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 150 
+    },
+    {
+      "id": "part",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 250,
+      "onlyOnInstancePage": true,
+      "expandedOnInstancePage": true
+    },
+    {
+      "id": "series",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 150 
+    },
+    {
+      "id": "subseries",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 150 
+    }
+  ]
+}

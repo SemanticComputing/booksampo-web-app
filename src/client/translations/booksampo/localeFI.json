@@ -306,6 +306,10 @@
           "label": "Tapahtuma-aika",
           "description": "Teoksen tapahtuma-aika."
         },
+        "exactTimeOfStory": {
+          "label": "Tarkka aika",
+          "description": "Teoksen tarkka tapahtuma-aika."
+        },
         "isbn": {
           "label": "ISBN",
           "description": "Teoksen ISBN(:t)."
@@ -420,6 +424,10 @@
         "timeOfStory": {
           "label": "Tapahtuma-aika",
           "description": "Teoksen tapahtuma-aika."
+        },
+        "exactTimeOfStory": {
+          "label": "Tarkka aika",
+          "description": "Teoksen tarkka tapahtuma-aika."
         },
         "isbn": {
           "label": "ISBN",
@@ -672,9 +680,21 @@
           "label": "Teos",
           "description": "Teos, jolle julkaisu on julkaistu."
         },
+        "workPart": {
+          "label": "Osa teosta",
+          "description": "Teos, josta osa on julkaistu julkaisussa."
+        },
         "workType": {
           "label": "Teoksen tyyppi",
           "description": "Teoksen tyyppi (esim. romaani, novelli, ...)"
+        },
+        "part": {
+          "label": "Kokoelman osat",
+          "description": "Osat, joista julkaisu koostuu, mikäli se on kokoomateoksen julkaisu."
+        },
+        "series": {
+          "label": "Sarja",
+          "description": "Sarja, johon julkaisu kuuluu."
         }
       }
     },
@@ -712,6 +732,47 @@
         "novel": {
           "label": "Tänne sijoittuvat romaani(t)",
           "description": "Romaanit, jotka sijoittuvat tähän paikkaan."
+        }
+      }
+    },
+    "series": {
+      "label": "Sarjat",
+      "facetResultsType": "sarja(a)",
+      "shortDescription": "Näkymä, jossa voi hakea sarjojen tietoja.",
+      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">Näkymä, jossa voi hakea sarjojen tietoja.</p>",
+      "instancePage": {
+        "label": "Sarja",
+        "description": ""
+      },
+      "properties": {
+        "uri": {
+          "label": "URI",
+          "description": "Yksilöivä tunniste"
+        },
+        "prefLabel": {
+          "label": "Nimi",
+          "description": "Sarjan nimi",
+          "textFacetInputPlaceholder": ""
+        },
+        "description": {
+          "label": "Kuvaus",
+          "description": "Sarjan kuvaus."
+        },
+        "keyword": {
+          "label": "Asiasana",
+          "description": "Sarjan asiasana(t)."
+        },
+        "part": {
+          "label": "Osa",
+          "description": "Sarjan osa(t)."
+        },
+        "series": {
+          "label": "Sarja",
+          "description": "Sarja, jonka osa sarja on."
+        },
+        "subseries": {
+          "label": "Alasarja",
+          "description": "Sarjan alasarja(t)."
         }
       }
     }

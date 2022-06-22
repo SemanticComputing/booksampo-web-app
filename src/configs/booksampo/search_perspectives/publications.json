@@ -317,11 +317,41 @@
             "minWidth": 200
         },
         {
+            "id": "workPart",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": false,
+            "disableSort": true,
+            "numberedList": false,
+            "minWidth": 200
+        },
+        {
             "id": "workType",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 150
+        },
+        {
+            "id": "part",
             "valueType": "object",
             "makeLink": true,
             "externalLink": false,
             "sortValues": true,
+            "disableSort": true,
+            "numberedList": false,
+            "minWidth": 150
+        },
+        {
+            "id": "series",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": false,
+            "disableSort": true,
             "numberedList": false,
             "minWidth": 150
         }
@@ -429,6 +459,17 @@
             "sortButton": true,
             "sortBy": "instanceCount",
             "sortByPredicate": "^kaunokki:manifests_in/rdf:type/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "series": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "kaunokki:sarjassa",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "kaunokki:sarjassa/skos:prefLabel",
             "sortDirection": "desc"
         }
     }

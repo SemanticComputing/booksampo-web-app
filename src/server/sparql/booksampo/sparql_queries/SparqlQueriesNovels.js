@@ -94,7 +94,7 @@ export const novelProperties = `
     }
     UNION
     {
-      ?id kaunokki:hasTimeOfStory ?timeOfStory__id .
+      ?id kaunokki:tapahtumaaika ?timeOfStory__id .
       OPTIONAL { 
         ?timeOfStory__id skos:prefLabel ?timeOfStory__prefLabel_ .
         FILTER(LANG(?timeOfStory__prefLabel_) = "<LANG>")
@@ -103,6 +103,18 @@ export const novelProperties = `
         ?timeOfStory__id skos:prefLabel ?timeOfStory__prefLabelGEN_ .
       }
       BIND(COALESCE(?timeOfStory__prefLabel_, ?timeOfStory__prefLabelGEN_, ?timeOfStory__id) as ?timeOfStory__prefLabel)
+    }
+    UNION
+    {
+      ?id kaunokki:hasTimeOfStory ?exactTimeOfStory__id .
+      OPTIONAL { 
+        ?exactTimeOfStory__id skos:prefLabel ?exactTimeOfStory__prefLabel_ .
+        FILTER(LANG(?exactTimeOfStory__prefLabel_) = "<LANG>")
+      }
+      OPTIONAL {
+        ?exactTimeOfStory__id skos:prefLabel ?exactTimeOfStory__prefLabelGEN_ .
+      }
+      BIND(COALESCE(?exactTimeOfStory__prefLabel_, ?exactTimeOfStory__prefLabelGEN_, ?exactTimeOfStory__id) as ?exactTimeOfStory__prefLabel)
     }
     UNION
     {
@@ -141,6 +153,12 @@ export const novelProperties = `
       OPTIONAL { 
         ?publicationYear__id yso-time:latestEnd ?publicationYear__end_ .
       }
+    }
+    UNION
+    {
+      ?id kaunokki:manifests_in_part/kaunokki:partOfCollectiveWorks ?collection__id .
+      ?collection__id skos:prefLabel ?collection__prefLabel .
+      BIND(CONCAT("/publications/page/", ENCODE_FOR_URI(STR(?collection__id)), "/table") AS ?collection__dataProviderUrl)
     }
     UNION
     {

@@ -94,7 +94,7 @@ export const nonfictionBookProperties = `
   }
   UNION
   {
-    ?id kaunokki:hasTimeOfStory ?timeOfStory__id .
+    ?id kaunokki:tapahtumaaika ?timeOfStory__id .
     OPTIONAL { 
       ?timeOfStory__id skos:prefLabel ?timeOfStory__prefLabel_ .
       FILTER(LANG(?timeOfStory__prefLabel_) = "<LANG>")
@@ -103,6 +103,18 @@ export const nonfictionBookProperties = `
       ?timeOfStory__id skos:prefLabel ?timeOfStory__prefLabelGEN_ .
     }
     BIND(COALESCE(?timeOfStory__prefLabel_, ?timeOfStory__prefLabelGEN_, ?timeOfStory__id) as ?timeOfStory__prefLabel)
+  }
+  UNION
+  {
+    ?id kaunokki:hasTimeOfStory ?exactTimeOfStory__id .
+    OPTIONAL { 
+      ?exactTimeOfStory__id skos:prefLabel ?exactTimeOfStory__prefLabel_ .
+      FILTER(LANG(?exactTimeOfStory__prefLabel_) = "<LANG>")
+    }
+    OPTIONAL {
+      ?exactTimeOfStory__id skos:prefLabel ?exactTimeOfStory__prefLabelGEN_ .
+    }
+    BIND(COALESCE(?exactTimeOfStory__prefLabel_, ?exactTimeOfStory__prefLabelGEN_, ?exactTimeOfStory__id) as ?exactTimeOfStory__prefLabel)
   }
   UNION
   {

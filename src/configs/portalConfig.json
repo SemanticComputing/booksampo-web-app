@@ -10,7 +10,8 @@
             "publications"
         ],
         "onlyInstancePages": [
-            "places"
+            "places",
+            "series"
         ]
     },
     "localeConfig": {

@@ -435,6 +435,15 @@
             "minWidth": 150
         },
         {
+            "id": "exactTimeOfStory",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 150
+        },
+        {
             "id": "isbn",
             "valueType": "object",
             "makeLink": false,
@@ -477,6 +486,15 @@
             "id": "publicationYear",
             "valueType": "object",
             "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "minWidth": 150
+        },
+        {
+            "id": "collection",
+            "valueType": "object",
+            "makeLink": true,
             "externalLink": false,
             "sortValues": false,
             "numberedList": false,
@@ -631,6 +649,19 @@
             "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_ . FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabelGEN_ . } BIND(COALESCE(COALESCE(?prefLabel_, ?prefLabelGEN_), ?id) as ?prefLabel)",
             "hideUnknownValue": true,
             "filterType": "uriFilter",
+            "predicate": "kaunokki:tapahtumaaika",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "kaunokki:tapahtumaaika/yso-time:earliestStart",
+            "sortDirection": "desc"
+        },
+        "exactTimeOfStory": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_ . FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabelGEN_ . } BIND(COALESCE(COALESCE(?prefLabel_, ?prefLabelGEN_), ?id) as ?prefLabel)",
+            "hideUnknownValue": true,
+            "filterType": "uriFilter",
             "predicate": "kaunokki:hasTimeOfStory",
             "searchField": true,
             "sortButton": true,
@@ -665,6 +696,17 @@
             "sortButton": true,
             "sortBy": "instanceCount",
             "sortByPredicate": "kaunokki:manifests_in/kaunokki:ilmestymisvuosi/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "collection": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "kaunokki:manifests_in_part/kaunokki:partOfCollectiveWorks",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "kaunokki:manifests_in_part/kaunokki:partOfCollectiveWorks/skos:prefLabel",
             "sortDirection": "desc"
         }
     }

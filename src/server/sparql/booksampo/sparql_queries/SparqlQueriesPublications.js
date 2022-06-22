@@ -83,13 +83,42 @@ export const publicationProperties = `
   }
   UNION
   {
-    ?id ^kaunokki:manifests_in ?work__id .
-    ?work__id a ?workType__id .
+    ?id ^kaunokki:manifests_in_part ?workPart__id .
+    OPTIONAL { 
+      ?workPart__id skos:prefLabel ?workPart__prefLabel_ .
+    }
+    BIND(COALESCE(?workPart__prefLabel_, ?workPart__id) as ?workPart__prefLabel)
+    OPTIONAL {
+      ?workPart__id a kaunokki:romaani .
+      BIND(CONCAT("/novels/page/", ENCODE_FOR_URI(STR(?workPart__id)), "/table") AS ?workPart__dataProviderUrl_novel)
+    }
+    OPTIONAL {
+      ?workPart__id a <http://www.seco.tkk.fi/applications/saha#Instance_ID1237984819752> .
+      BIND(CONCAT("/nonfictionBooks/page/", ENCODE_FOR_URI(STR(?workPart__id)), "/table") AS ?workPart__dataProviderUrl_nonfiction)
+    }
+    BIND(COALESCE(?workPart__dataProviderUrl_novel, ?workPart__dataProviderUrl_nonfiction) as ?workPart__dataProviderUrl)
+  }
+  UNION
+  {
+    ?id ^kaunokki:manifests_in|^kaunokki:manifests_in_part ?abstract_work .
+    ?abstract_work a ?workType__id .
     OPTIONAL { 
       ?workType__id skos:prefLabel ?workType__prefLabel_ .
       FILTER(LANG(?workType__prefLabel_) = "<LANG>")
     }
     BIND(COALESCE(?workType__prefLabel_, ?workType__id) as ?workType__prefLabel)
+  }
+  UNION
+  {
+    ?id ^kaunokki:partOfCollectiveWorks ?part__id .
+    ?part__id skos:prefLabel ?part__prefLabel .
+    BIND(CONCAT("/publications/page/", ENCODE_FOR_URI(STR(?part__id)), "/table") AS ?part__dataProviderUrl)
+  }
+  UNION
+  {
+    ?id kaunokki:sarjassa ?series__id .
+    ?series__id skos:prefLabel ?series__prefLabel .
+    BIND(CONCAT("/series/page/", ENCODE_FOR_URI(STR(?series__id)), "/table") AS ?series__dataProviderUrl)
   }
 `
 

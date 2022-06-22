@@ -319,6 +319,10 @@
           "label": "Time of story",
           "description": "The time of the story taking place."
         },
+        "exactTimeOfStory": {
+          "label": "Exact time of story",
+          "description": "The exact time of the story taking place."
+        },
         "isbn": {
           "label": "ISBN",
           "description": "The ISBN(s) of the novel."
@@ -433,6 +437,10 @@
         "timeOfStory": {
           "label": "Time of story",
           "description": "The time of the story taking place in the nonfiction book."
+        },
+        "exactTimeOfStory": {
+          "label": "Exact time of story",
+          "description": "The exact time of the story taking place in the nonfiction book."
         },
         "isbn": {
           "label": "ISBN",
@@ -685,9 +693,21 @@
           "label": "Work",
           "description": "The work published."
         },
+        "workPart": {
+          "label": "Part of a work",
+          "description": "The work of which a part of is published in the publication."
+        },
         "workType": {
           "label": "Work type",
           "description": "The type of the work (e.g. novel, short story, ...)"
+        },
+        "part": {
+          "label": "Parts of the collection",
+          "description": "The parts of which the publication consists of it it's a collection."
+        },
+        "series": {
+          "label": "Series",
+          "description": "Series of which the publication is part of."
         }
       }
     },
@@ -725,6 +745,47 @@
         "novel": {
           "label": "Novel(s) taking place here",
           "description": "Novel(s) taking place at this place."
+        }
+      }
+    },
+    "series": {
+      "label": "Series",
+      "facetResultsType": "series",
+      "shortDescription": "Series description",
+      "longDescription": "",
+      "instancePage": {
+        "label": "Series",
+        "description": ""
+      },
+      "properties": {
+        "uri": {
+          "label": "URI",
+          "description": "Uniform Resource Identifier"
+        },
+        "prefLabel": {
+          "label": "Name",
+          "description": "The name of the place.",
+          "textFacetInputPlaceholder": ""
+        },
+        "description": {
+          "label": "Description",
+          "description": "The description of the series."
+        },
+        "keyword": {
+          "label": "Keyword",
+          "description": "The keyword(s) of the series."
+        },
+        "part": {
+          "label": "Part",
+          "description": "The part(s) of the series."
+        },
+        "series": {
+          "label": "Series",
+          "description": "The series of which the series is a part of."
+        },
+        "subseries": {
+          "label": "Subseries",
+          "description": "The subseries of the series."
         }
       }
     }
