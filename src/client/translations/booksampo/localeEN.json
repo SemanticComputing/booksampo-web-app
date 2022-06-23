@@ -347,6 +347,10 @@
           "label": "Part of collection",
           "description": "The collection(s) the novel is a part of."
         },
+        "review": {
+          "label": "Review",
+          "description": "The review of the novel."
+        },
         "kirjasampoURL": {
           "label": "Link to Kirjasampo page",
           "description": "The link to the Kirjasampo page of this novel."
@@ -786,6 +790,39 @@
         "subseries": {
           "label": "Subseries",
           "description": "The subseries of the series."
+        }
+      }
+    },
+    "reviews": {
+      "label": "Reviews",
+      "facetResultsType": "review(s)",
+      "shortDescription": "Reviews description",
+      "longDescription": "",
+      "instancePage": {
+        "label": "Review",
+        "description": ""
+      },
+      "properties": {
+        "uri": {
+          "label": "URI",
+          "description": "Uniform Resource Identifier"
+        },
+        "prefLabel": {
+          "label": "Name",
+          "description": "The name of the place.",
+          "textFacetInputPlaceholder": ""
+        },
+        "author": {
+          "label": "Reviewer",
+          "description": "The reviewer of the work."
+        },
+        "published": {
+          "label": "Published",
+          "description": "The time when this review was published."
+        },
+        "review": {
+          "label": "Review",
+          "description": "The review contents."
         }
       }
     }

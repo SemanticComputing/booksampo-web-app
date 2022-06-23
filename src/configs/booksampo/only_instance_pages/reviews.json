@@ -1,17 +1,17 @@
 {
-  "id": "series",
+  "id": "reviews",
   "endpoint": {
     "url": "https://ldf.fi/booksampo-2022/sparql",
     "useAuth": true,
     "prefixesFile": "SparqlQueriesPrefixes.js"
   },
-  "sparqlQueriesFile": "SparqlQueriesSeries.js",
-  "facetClass": "kaunokki:sarja",
+  "sparqlQueriesFile": "SparqlQueriesReviews.js",
+  "facetClass": "kaunokki:review",
   "langTag": "fi",
   "resultClasses": {
-    "series": {
+    "reviews": {
       "instanceConfig": {
-        "propertiesQueryBlock": "seriesPropertiesInstancePage",
+        "propertiesQueryBlock": "reviewPropertiesInstancePage",
         "instancePageResultClasses": {
           "instancePageTable": {
             "tabID": 0,
@@ -45,52 +45,33 @@
       "expandedOnInstancePage": true
     },
     {
-      "id": "description",
+      "id": "author",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 170
+    },
+    {
+      "id": "published",
+      "valueType": "object",
+      "makeLink": false,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 170
+    },
+    {
+      "id": "review",
       "valueType": "object",
       "makeLink": false,
       "externalLink": false,
       "sortValues": false,
       "numberedList": false,
       "disableSort": true,
-      "onlyOnInstancePage": true
-    },
-    {
-      "id": "keyword",
-      "valueType": "object",
-      "makeLink": false,
-      "externalLink": false,
-      "sortValues": true,
-      "numberedList": false,
-      "minWidth": 150 
-    },
-    {
-      "id": "part",
-      "valueType": "object",
-      "makeLink": true,
-      "externalLink": false,
-      "sortValues": true,
-      "numberedList": false,
-      "minWidth": 250,
       "onlyOnInstancePage": true,
       "expandedOnInstancePage": true
-    },
-    {
-      "id": "series",
-      "valueType": "object",
-      "makeLink": true,
-      "externalLink": false,
-      "sortValues": true,
-      "numberedList": false,
-      "minWidth": 150 
-    },
-    {
-      "id": "subseries",
-      "valueType": "object",
-      "makeLink": true,
-      "externalLink": false,
-      "sortValues": true,
-      "numberedList": false,
-      "minWidth": 150 
     }
   ]
 }

@@ -334,6 +334,10 @@
           "label": "Osana kokoelmaa",
           "description": "Kokoelma(t), jossa teos on osana."
         },
+        "review": {
+          "label": "Arvostelu",
+          "description": "Teoksen arvostelu."
+        },
         "kirjasampoURL": {
           "label": "Linkki Kirjasampo-sivulle",
           "description": "Linkki teoksen Kirjasampo-sivulle."
@@ -773,6 +777,39 @@
         "subseries": {
           "label": "Alasarja",
           "description": "Sarjan alasarja(t)."
+        }
+      }
+    },
+    "reviews": {
+      "label": "Arvostelut",
+      "facetResultsType": "arvostelu(a)",
+      "shortDescription": "Näkymä, jossa voi hakea arvostelujen tietoja.",
+      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">Näkymä, jossa voi hakea arvostelujen tietoja.</p>",
+      "instancePage": {
+        "label": "Arvostelu",
+        "description": ""
+      },
+      "properties": {
+        "uri": {
+          "label": "URI",
+          "description": "Yksilöivä tunniste"
+        },
+        "prefLabel": {
+          "label": "Nimi",
+          "description": "Sarjan nimi",
+          "textFacetInputPlaceholder": ""
+        },
+        "author": {
+          "label": "Arvostelija",
+          "description": "Arvostelun arvostelija."
+        },
+        "published": {
+          "label": "Julkaistu",
+          "description": "Arvostelun julkaisu-ajankohta."
+        },
+        "review": {
+          "label": "Arvio",
+          "description": "Arvosteltavan teoksen arvio."
         }
       }
     }

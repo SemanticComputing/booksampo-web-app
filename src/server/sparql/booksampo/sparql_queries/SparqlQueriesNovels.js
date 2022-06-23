@@ -162,6 +162,12 @@ export const novelProperties = `
     }
     UNION
     {
+      ?id kaunokki:hasReview ?review__id .
+      ?review__id skos:prefLabel ?review__prefLabel .
+      BIND(CONCAT("/reviews/page/", ENCODE_FOR_URI(STR(?review__id)), "/table") AS ?review__dataProviderUrl)
+    }
+    UNION
+    {
       ?id skos:prefLabel [] .
       BIND(CONCAT("https://www.kirjasampo.fi/fi/kulsa/saha3%253A", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?kirjasampoURL__dataProviderUrl)
       BIND(?kirjasampoURL__dataProviderUrl AS ?kirjasampoURL__prefLabel)

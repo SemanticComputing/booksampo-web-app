@@ -11,7 +11,8 @@
         ],
         "onlyInstancePages": [
             "places",
-            "series"
+            "series",
+            "reviews"
         ]
     },
     "localeConfig": {

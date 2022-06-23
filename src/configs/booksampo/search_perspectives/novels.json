@@ -501,6 +501,16 @@
             "minWidth": 150
         },
         {
+            "id": "review",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "disableSort": true,
+            "onlyOnInstancePage": true
+        },
+        {
             "id": "kirjasampoURL",
             "valueType": "object",
             "makeLink": true,
