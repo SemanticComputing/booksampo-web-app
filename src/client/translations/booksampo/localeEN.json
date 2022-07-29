@@ -531,6 +531,14 @@
           "label": "Active years",
           "description": "The years in which the person has or is believed to have actively produced content."
         },
+        "education": {
+          "label": "Education",
+          "description": "The educational background of the person."
+        },
+        "placeOfEducation": {
+          "label": "Place of education",
+          "description": "The place where this person received their education."
+        },
         "hasLivedIn": {
           "label": "Residence",
           "description": "The place(s) where this person lives or has lived in before."
@@ -562,6 +570,10 @@
         "positionOfTrust": {
           "label": "Positions of trust",
           "description": "Positions of trust the person holds or held."
+        },
+        "school": {
+          "label": "Associated school",
+          "description": "The associated school of thought of the person."
         },
         "biography": {
           "label": "Biographical information",

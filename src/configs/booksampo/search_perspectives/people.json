@@ -367,6 +367,24 @@
             "minWidth": 150
         },
         {
+            "id": "education",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 150
+        },
+        {
+            "id": "placeOfEducation",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 150
+        },
+        {
             "id": "hasLivedIn",
             "valueType": "object",
             "makeLink": true,
@@ -440,6 +458,15 @@
             "numberedList": false,
             "minWidth": 150,
             "onlyOnInstancePage": true
+        },
+        {
+            "id": "school",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 150
         },
         {
             "id": "biography",
@@ -561,6 +588,30 @@
             "sortByPredicate": "kaunokki:hasWritten/skos:prefLabel",
             "sortDirection": "desc"
         },
+        "education": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "filterType": "uriFilter",
+            "predicate": "kaunokki:hasEducation",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "kaunokki:hasEducation/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "placeOfEducation": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "filterType": "uriFilter",
+            "predicate": "kaunokki:hasPlaceOfEducation",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "kaunokki:hasPlaceOfEducation/skos:prefLabel",
+            "sortDirection": "desc"
+        },
         "hasLivedIn": {
             "containerClass": "ten",
             "facetType": "list",
@@ -621,6 +672,18 @@
             "sortButton": true,
             "sortBy": "instanceCount",
             "sortByPredicate": "kaunokki:hasAward/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "school": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "filterType": "uriFilter",
+            "predicate": "kaunokki:koulukunta",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "kaunokki:koulukunta/skos:prefLabel",
             "sortDirection": "desc"
         }
     }

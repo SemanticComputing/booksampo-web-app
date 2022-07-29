@@ -72,6 +72,25 @@ export const personProperties = `
     }
     UNION
     {
+      ?id kaunokki:hasEducation ?education__id .
+      OPTIONAL {
+        ?education__id skos:prefLabel ?education__prefLabel_ .
+        FILTER(LANG(?education__prefLabel_) = "<LANG>")
+      }
+      BIND(COALESCE(?education__prefLabel_, ?education__id) as ?education__prefLabel)
+    }
+    UNION
+    {
+      ?id kaunokki:hasPlaceOfEducation ?placeOfEducation__id .
+      OPTIONAL {
+        ?placeOfEducation__id skos:prefLabel ?placeOfEducation__prefLabel_ .
+        FILTER(LANG(?placeOfEducation__prefLabel_) = "<LANG>")
+      }
+      BIND(COALESCE(?placeOfEducation__prefLabel_, ?placeOfEducation__id) as ?placeOfEducation__prefLabel)
+      BIND(CONCAT("/places/page/", ENCODE_FOR_URI(STR(?placeOfEducation__id)), "/table") AS ?placeOfEducation__dataProviderUrl)
+    }
+    UNION
+    {
       ?id kaunokki:hasLivedIn ?hasLivedIn__id .
       OPTIONAL { 
         ?hasLivedIn__id skos:prefLabel ?hasLivedIn__prefLabel_ .
@@ -136,6 +155,15 @@ export const personProperties = `
         FILTER(LANG(?positionOfTrust__prefLabel_) = "<LANG>")
       }
       BIND(COALESCE(?positionOfTrust__prefLabel_, ?positionOfTrust__id) as ?positionOfTrust__prefLabel)
+    }
+    UNION
+    {
+      ?id kaunokki:koulukunta ?school__id .
+      OPTIONAL {
+        ?school__id skos:prefLabel ?school__prefLabel_ .
+        FILTER(LANG(?school__prefLabel_) = "<LANG>")
+      }
+      BIND(COALESCE(?school__prefLabel_, ?school__id) as ?school__prefLabel)
     }
     UNION
     {

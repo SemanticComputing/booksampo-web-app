@@ -518,6 +518,14 @@
           "label": "Aktiivinen vuosina",
           "description": "Vuodet, jolloin henkilö on tiettävästi tuottanut aktiivisesti tuotantoa."
         },
+        "education": {
+          "label": "Koulutus",
+          "description": "Henkilön koulutus."
+        },
+        "placeOfEducation": {
+          "label": "Koulutuspaikka",
+          "description": "Paikka, jossa henkilö on saanut koulutuksensa."
+        },
         "hasLivedIn": {
           "label": "Asuinpaikka",
           "description": "Paikka, jossa henkilö asuu tai on asunut."
@@ -549,6 +557,10 @@
         "positionOfTrust": {
           "label": "Luottamustehtävät",
           "description": "Henkilön luottamustehtävät."
+        },
+        "school": {
+          "label": "Koulukunta",
+          "description": "Henkilön koulukunta."
         },
         "biography": {
           "label": "Elämänkertatietoa",
