@@ -564,3 +564,83 @@ export const novelsPlacesQuery = `
   }
   GROUP BY ?place ?lat ?long ?id ?prefLabel ?dataProviderUrl ?image
 `
+
+export const placePropertiesInfoWindow = `
+    OPTIONAL {
+      ?id skos:prefLabel ?prefLabelFI .
+      FILTER(LANG(?prefLabelFI) = 'fi')
+    }
+    OPTIONAL {
+      ?id skos:prefLabel ?prefLabelGEN .
+    }
+    OPTIONAL {
+      ?id rdfs:label ?labelFI .
+      FILTER(LANG(?labelFI) = 'fi')
+    }
+    OPTIONAL {
+      ?id rdfs:label ?labelGEN .
+    }
+    BIND(COALESCE(?prefLabelFI, ?labelFI, ?prefLabelGEN, ?labelGEN, ?id) as ?prefLabel__id)
+    BIND(?prefLabel__id AS ?prefLabel__prefLabel)
+    BIND(CONCAT("/places/page/", ENCODE_FOR_URI(STR(?id)), "/table") AS ?prefLabel__dataProviderUrl)
+`
+
+export const peopleBornIn = `
+  OPTIONAL {
+    <FILTER>
+    ?related__id kaunokki:placeOfBirth ?id .
+    ?related__id skos:prefLabel ?related__prefLabel .
+    BIND(CONCAT("/${perspectiveID}/page/", ENCODE_FOR_URI(STR(?related__id)), "/table") AS ?related__dataProviderUrl)
+  }
+`
+
+export const peopleDeadIn = `
+  OPTIONAL {
+    <FILTER>
+    ?related__id kaunokki:placeOfDeath ?id .
+    ?related__id skos:prefLabel ?related__prefLabel .
+    BIND(CONCAT("/${perspectiveID}/page/", ENCODE_FOR_URI(STR(?related__id)), "/table") AS ?related__dataProviderUrl)
+  }
+`
+
+export const peopleBirthPlacesQuery = `
+  SELECT ?id ?lat ?long
+  (COUNT(DISTINCT ?people) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    ?people kaunokki:placeOfBirth ?id ;
+          a <FACET_CLASS> .
+    ?id wgs84:lat ?lat ;
+        wgs84:long ?long .
+    FILTER NOT EXISTS {
+      ?id wgs84:lat ?lat, ?lat2 .
+      FILTER(?lat != ?lat2) 
+    }
+    FILTER NOT EXISTS {
+      ?id wgs84:long ?long, ?long2 .
+      FILTER(?long != ?long2) 
+    }
+  }
+  GROUP BY ?id ?lat ?long
+`
+
+export const peopleDeathPlacesQuery = `
+  SELECT ?id ?lat ?long
+  (COUNT(DISTINCT ?people) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    ?people kaunokki:placeOfDeath ?id ;
+          a <FACET_CLASS> .
+    ?id wgs84:lat ?lat ;
+        wgs84:long ?long .
+    FILTER NOT EXISTS {
+      ?id wgs84:lat ?lat, ?lat2 .
+      FILTER(?lat != ?lat2) 
+    }
+    FILTER NOT EXISTS {
+      ?id wgs84:long ?long, ?long2 .
+      FILTER(?long != ?long2) 
+    }
+  }
+  GROUP BY ?id ?lat ?long
+`

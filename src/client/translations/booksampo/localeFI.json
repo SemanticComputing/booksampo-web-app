@@ -83,7 +83,10 @@
     "activity_chart": "aktiivisuus vuosikymmenittäin",
     "genre_decade_chart": "kirjallisuudenlajit vuosikymmenittäin",
     "map": "tapahtumapaikat kartalla",
+    "map_birth": "syntymäpaikat kartalla",
+    "map_death": "kuolinpaikat kartalla",
     "publications_by_decade_and_genre": "julkaisujen genret vuosikymmenittäin",
+    "publications_by_decade_and_theme": "julkaisujen teemat vuosikymmenittäin",
     "publication_years": "vuosittaiset julkaisut",
     "publication_genre_years": "vuosittaiset genret",
     "themes_and_keywords": "vuosittaiset teemat ja asiasanat",
@@ -479,6 +482,16 @@
       "instancePage": {
         "label": "Henkilö",
         "description": ""
+      },
+      "map": {
+        "popup": {
+          "birth": {
+            "label": "Täällä syntyneet henkilöt:"
+          },
+          "death": {
+            "label": "Täällä kuolleet henkilöt:"
+          }
+        }
       },
       "properties": {
         "image": {

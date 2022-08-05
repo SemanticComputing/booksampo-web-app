@@ -256,6 +256,40 @@
             "heatmapRadiusPixels": 50,
             "heatmapThreshold": 0.05,
             "heatmapIntensity": 1
+        },
+        "peopleBirthPlaces": {
+            "tabID": 4,
+            "tabPath": "map_birth",
+            "tabIcon": "AddLocation",
+            "component": "LeafletMap",
+            "showExternalLayers": false,
+            "customMapControl": true,
+            "sparqlQuery": "peopleBirthPlacesQuery",
+            "facetClass": "people",
+            "filterTarget": "people",
+            "resultMapper": "mapPlaces",
+            "instanceConfig": {
+                "propertiesQueryBlock": "placePropertiesInfoWindow",
+                "relatedInstances": "peopleBornIn",
+                "createPopUpContent": "createPopUpContentBookSampo"
+            }
+        },
+        "peopleDeathPlaces": {
+            "tabID": 5,
+            "tabPath": "map_death",
+            "tabIcon": "AddLocation",
+            "component": "LeafletMap",
+            "showExternalLayers": false,
+            "customMapControl": true,
+            "sparqlQuery": "peopleDeathPlacesQuery",
+            "facetClass": "people",
+            "filterTarget": "people",
+            "resultMapper": "mapPlaces",
+            "instanceConfig": {
+                "propertiesQueryBlock": "placePropertiesInfoWindow",
+                "relatedInstances": "peopleDeadIn",
+                "createPopUpContent": "createPopUpContentBookSampo"
+            }
         }
     },
     "maps": {
@@ -274,6 +308,20 @@
             "zoom": 2
         },
         "novelsPlaces": {
+            "center": [
+                22.43,
+                10.37
+            ],
+            "zoom": 2
+        },
+        "peopleBirthPlaces": {
+            "center": [
+                22.43,
+                10.37
+            ],
+            "zoom": 2
+        },
+        "peopleDeathPlaces": {
             "center": [
                 22.43,
                 10.37

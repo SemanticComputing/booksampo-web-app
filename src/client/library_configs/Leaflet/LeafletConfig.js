@@ -277,6 +277,16 @@ export const createPopUpContentBookSampo = ({ data, resultClass }) => {
     p.textContent = intl.get('perspectives.novels.map.popup.label')
     container.appendChild(p)
     container.appendChild(createInstanceListing(data.related))
+  } else if (resultClass === 'peopleBirthPlaces') {
+    const p = document.createElement('p')
+    p.textContent = intl.get('perspectives.people.map.popup.birth.label')
+    container.appendChild(p)
+    container.appendChild(createInstanceListing(data.related))
+  } else if (resultClass === 'peopleDeathPlaces') {
+    const p = document.createElement('p')
+    p.textContent = intl.get('perspectives.people.map.popup.death.label')
+    container.appendChild(p)
+    container.appendChild(createInstanceListing(data.related))
   }
   return container
 }

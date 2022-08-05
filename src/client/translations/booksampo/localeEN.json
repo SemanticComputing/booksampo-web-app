@@ -83,7 +83,10 @@
     "activity_chart": "activity by decade",
     "genre_decade_chart": "genres by decade",
     "map": "concrete places on a map",
+    "map_birth": "places of birth on a map",
+    "map_death": "places of death on a map",
     "publications_by_decade_and_genre": "publication genres per decades",
+    "publications_by_decade_and_theme": "publication themes per decades",
     "publication_years": "publications by year",
     "publication_genre_years": "genres by year",
     "themes_and_keywords": "themes and keywords by year",
@@ -492,6 +495,16 @@
       "instancePage": {
         "label": "Person",
         "description": ""
+      },
+      "map": {
+        "popup": {
+          "birth": {
+            "label": "People who were born here:"
+          },
+          "death": {
+            "label": "People who died here:"
+          }
+        }
       },
       "properties": {
         "image": {
