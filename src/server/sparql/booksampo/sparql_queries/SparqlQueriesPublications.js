@@ -120,6 +120,36 @@ export const publicationProperties = `
     ?series__id skos:prefLabel ?series__prefLabel .
     BIND(CONCAT("/series/page/", ENCODE_FOR_URI(STR(?series__id)), "/table") AS ?series__dataProviderUrl)
   }
+  UNION
+  {
+    ?id ^kaunokki:manifests_in ?abstract_work .
+    ?abstract_work kaunokki:genre ?workGenre__id .
+    OPTIONAL { 
+      ?workGenre__id skos:prefLabel ?workGenre__prefLabel_ .
+      FILTER(LANG(?workGenre__prefLabel_) = "<LANG>")
+    }
+    BIND(COALESCE(?workGenre__prefLabel_, ?workGenre__id) as ?workGenre__prefLabel)
+  }
+  UNION
+  {
+    ?id ^kaunokki:manifests_in ?abstract_work .
+    ?abstract_work kaunokki:teema ?workTheme__id .
+    OPTIONAL { 
+      ?workTheme__id skos:prefLabel ?workTheme__prefLabel_ .
+      FILTER(LANG(?workTheme__prefLabel_) = "<LANG>")
+    }
+    BIND(COALESCE(?workTheme__prefLabel_, ?workTheme__id) as ?workTheme__prefLabel)
+  }
+  UNION
+  {
+    ?id ^kaunokki:manifests_in ?abstract_work .
+    ?abstract_work kaunokki:asiasana ?workKeyword__id .
+    OPTIONAL { 
+      ?workKeyword__id skos:prefLabel ?workKeyword__prefLabel_ .
+      FILTER(LANG(?workKeyword__prefLabel_) = "<LANG>")
+    }
+    BIND(COALESCE(?workKeyword__prefLabel_, ?workKeyword__id) as ?workKeyword__prefLabel)
+  }
 `
 
 export const publicationsByDecadeAndGenreQuery = `

@@ -747,6 +747,18 @@
         "series": {
           "label": "Series",
           "description": "Series of which the publication is part of."
+        },
+        "workGenre": {
+          "label": "Work genre",
+          "description": "The genre(s) of the work"
+        },
+        "workTheme": {
+          "label": "Work theme",
+          "description": "The theme(s) of the work"
+        },
+        "workKeyword": {
+          "label": "Work keyword",
+          "description": "The keyword(s) of the work"
         }
       }
     },

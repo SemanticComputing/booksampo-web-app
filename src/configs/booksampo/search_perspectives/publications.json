@@ -374,6 +374,33 @@
             "disableSort": true,
             "numberedList": false,
             "minWidth": 150
+        },
+        {
+            "id": "workGenre",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 200
+        },
+        {
+            "id": "workTheme",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 150
+        },
+        {
+            "id": "workKeyword",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 150
         }
     ],
     "facets": {
@@ -490,6 +517,42 @@
             "sortButton": true,
             "sortBy": "instanceCount",
             "sortByPredicate": "kaunokki:sarjassa/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "workGenre": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "filterType": "uriFilter",
+            "predicate": "^kaunokki:manifests_in/kaunokki:genre",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "^kaunokki:manifests_in/kaunokki:genre/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "workTheme": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "filterType": "uriFilter",
+            "predicate": "^kaunokki:manifests_in/kaunokki:teema",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "^kaunokki:manifests_in/kaunokki:teema/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "workKeyword": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "filterType": "uriFilter",
+            "predicate": "^kaunokki:manifests_in/kaunokki:asiasana",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "^kaunokki:manifests_in/kaunokki:asiasana/skos:prefLabel",
             "sortDirection": "desc"
         }
     }

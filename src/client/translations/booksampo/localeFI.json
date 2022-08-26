@@ -734,6 +734,18 @@
         "series": {
           "label": "Sarja",
           "description": "Sarja, johon julkaisu kuuluu."
+        },
+        "workGenre": {
+          "label": "Teoksen kirjallisuudenlaji",
+          "description": "Teoksen kirjallisuudenlaji(t)"
+        },
+        "workTheme": {
+          "label": "Teoksen teema",
+          "description": "Teoksen teema(t)"
+        },
+        "workKeyword": {
+          "label": "Teoksen asiasana",
+          "description": "Teoksen asiasana(t)"
         }
       }
     },
