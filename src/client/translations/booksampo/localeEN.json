@@ -83,6 +83,7 @@
     "activity_chart": "activity by decade",
     "genre_decade_chart": "genres by decade",
     "map": "concrete places on a map",
+    "scatterplot": "gender ratio of authors",
     "map_birth": "places of birth on a map",
     "map_death": "places of death on a map",
     "publications_by_decade_and_genre": "publication genres per decades",
@@ -94,6 +95,7 @@
     "length_years": "page count by year",
     "place_of_birth_chart": "places of birth of people who died here",
     "place_of_death_chart": "places of death of people who were born here",
+    "gender_ratio_chart": "gender ratio of novel authors",
     "production_places": "production places",
     "production_places_heatmap": "production heatmap",
     "last_known_locations": "last known locations",
@@ -257,6 +259,14 @@
         "label": "Publications",
         "item": {
           "label": "Publication"
+        }
+      },
+      "scatterplot": {
+        "ratio": {
+          "label": "of authors with novels taking place here were female"
+        },
+        "total": {
+          "label": "total amount of male and female authors"
         }
       },
       "map": {

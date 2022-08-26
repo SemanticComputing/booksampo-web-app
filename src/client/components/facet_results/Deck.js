@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import withStyles from '@mui/styles/withStyles'
+import intl from 'react-intl-universal'
 import DeckGL from '@deck.gl/react'
-import { ArcLayer, PolygonLayer } from '@deck.gl/layers'
+import { ArcLayer, PolygonLayer, ScatterplotLayer } from '@deck.gl/layers'
 import { HeatmapLayer, HexagonLayer } from '@deck.gl/aggregation-layers'
 import ReactMapGL, { NavigationControl, FullscreenControl, HTMLOverlay } from 'react-map-gl'
 import DeckArcLayerLegend from './DeckArcLayerLegend'
@@ -204,6 +205,26 @@ class Deck extends React.Component {
         getLineWidth: 1
       })
 
+    createScatterplotLayer = data =>
+      new ScatterplotLayer({
+        id: 'scatterplot-layer',
+        data,
+        pickable: true,
+        opacity: 0.8,
+        stroked: true,
+        filled: true,
+        radiusScale: 1000,
+        radiusMinPixels: 1,
+        radiusMaxPixels: 100,
+        lineWidthMinPixels: 1,
+        getPosition: d => [+d.long, +d.lat],
+        getRadius: d => Math.sqrt(+d.instanceCount),
+        getFillColor: d => (this.props.perspectiveConfig.resultClasses[this.props.resultClass].scatterplotStartColor && this.props.perspectiveConfig.resultClasses[this.props.resultClass].scatterplotStartColor.length >= 3 && this.props.perspectiveConfig.resultClasses[this.props.resultClass].scatterplotEndColor && this.props.perspectiveConfig.resultClasses[this.props.resultClass].scatterplotEndColor.length >= 3)
+          ? [this.props.perspectiveConfig.resultClasses[this.props.resultClass].scatterplotStartColor[0] + (this.props.perspectiveConfig.resultClasses[this.props.resultClass].scatterplotEndColor[0] - this.props.perspectiveConfig.resultClasses[this.props.resultClass].scatterplotStartColor[0]) * d.ratio, this.props.perspectiveConfig.resultClasses[this.props.resultClass].scatterplotStartColor[1] + (this.props.perspectiveConfig.resultClasses[this.props.resultClass].scatterplotEndColor[1] - this.props.perspectiveConfig.resultClasses[this.props.resultClass].scatterplotStartColor[1]) * d.ratio, this.props.perspectiveConfig.resultClasses[this.props.resultClass].scatterplotStartColor[2] + (this.props.perspectiveConfig.resultClasses[this.props.resultClass].scatterplotEndColor[2] - this.props.perspectiveConfig.resultClasses[this.props.resultClass].scatterplotStartColor[2]) * d.ratio]
+          : [255, 140, 0],
+        getLineColor: d => [0, 0, 0]
+      })
+
     render () {
       const { classes, layerType, fetching, results, showTooltips, portalConfig } = this.props
       const { mapboxAccessToken, mapboxStyle } = portalConfig.mapboxConfig
@@ -234,6 +255,9 @@ class Deck extends React.Component {
             break
           case 'polygonLayer':
             layer = this.createPolygonLayer(results)
+            break
+          case 'scatterplotLayer':
+            layer = this.createScatterplotLayer(results)
             break
           default:
             layer = this.createHeatmapLayer(results)
@@ -286,6 +310,20 @@ class Deck extends React.Component {
                   }
                 : {})
               }
+              {...(layerType === 'scatterplotLayer'
+                ? {
+                    getTooltip: ({ object }) => object && {
+                      html: `
+                      <div>
+                        <h2>${Math.round(object.ratio * 100.0)}% (${object.firstInstanceCount} : ${object.secondInstanceCount})</h2>
+                        <p>${intl.get(`perspectives.${this.props.perspectiveConfig.id}.scatterplot.ratio.label`)}</p>
+                        <p>(${intl.get(`perspectives.${this.props.perspectiveConfig.id}.scatterplot.total.label`)}: ${object.instanceCount})</p>
+                      </div>
+                    `
+                    }
+                  }
+                : {})
+              }
             />
             {this.renderSpinner()}
             {layerType === 'arcLayer' && this.props.instanceAnalysisData && this.state.dialog.open &&
@@ -320,7 +358,7 @@ class Deck extends React.Component {
 Deck.propTypes = {
   classes: PropTypes.object.isRequired,
   results: PropTypes.array,
-  layerType: PropTypes.oneOf(['arcLayer', 'heatmapLayer', 'hexagonLayer', 'polygonLayer']),
+  layerType: PropTypes.oneOf(['arcLayer', 'heatmapLayer', 'hexagonLayer', 'polygonLayer', 'scatterplotLayer']),
   tooltips: PropTypes.bool,
   facetUpdateID: PropTypes.number,
   fetchResults: PropTypes.func,

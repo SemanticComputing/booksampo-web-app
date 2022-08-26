@@ -73,6 +73,34 @@
                     "createChartData": "createApexBarChartData"
                 }
             ]
+          },
+          "instacePageGenderRatio": {
+            "tabID": 3,
+            "component": "ApexCharts",
+            "doNotRenderOnMount": true,
+            "tabPath": "gender_ratio_chart",
+            "tabIcon": "PieChart",
+            "facetClass": "novels",
+            "sparqlQuery": "genderRatioQuery",
+            "resultMapper": "mapPieChart",
+            "filterTarget": "novel",
+            "pageType": "instancePage",
+            "sliceVisibilityThreshold": 0.005,
+            "dropdownForResultClasses": false,
+            "dropdownForChartTypes": true,
+            "resultMapperConfig": {
+                "fillEmptyValues": false
+            },
+            "chartTypes": [
+                {
+                    "id": "pie",
+                    "createChartData": "createApexPieChartData"
+                },
+                {
+                    "id": "bar",
+                    "createChartData": "createApexBarChartData"
+                }
+            ]
           }
         },
         "localIDAsURI": true

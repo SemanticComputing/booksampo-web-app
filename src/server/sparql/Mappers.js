@@ -26,6 +26,21 @@ export const mapPlaces = sparqlBindings => {
   return results
 }
 
+export const mapPlacesRatio = sparqlBindings => {
+  const results = sparqlBindings.map(b => {
+    return {
+      id: b.id.value,
+      lat: b.lat.value,
+      long: b.long.value,
+      ...(Object.prototype.hasOwnProperty.call(b, 'instanceCount') && { instanceCount: b.instanceCount.value }),
+      ...(Object.prototype.hasOwnProperty.call(b, 'firstInstanceCount') && { firstInstanceCount: b.firstInstanceCount.value }),
+      ...(Object.prototype.hasOwnProperty.call(b, 'secondInstanceCount') && { secondInstanceCount: b.secondInstanceCount.value }),
+      ...(Object.prototype.hasOwnProperty.call(b, 'ratio') && { ratio: b.ratio.value })
+    }
+  })
+  return results
+}
+
 export const mapPlacesObjects = sparqlBindings => {
   const results = sparqlBindings.map(b => {
     return {

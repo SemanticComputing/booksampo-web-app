@@ -239,6 +239,37 @@ export const novelsPlacesQuery = `
   GROUP BY ?id ?lat ?long
 `
 
+export const authorsGenderQuery = `
+  SELECT ?id ?lat ?long
+  (xsd:integer(COUNT(?author_f)) + xsd:integer(COUNT(?author_m))  as ?instanceCount)
+  (COUNT(?author_f) as ?firstInstanceCount) (COUNT(?author_m) as ?secondInstanceCount)
+  ((xsd:integer(COUNT(?author_f)) / (xsd:integer(COUNT(?author_f)) + xsd:integer(COUNT(?author_m)))) as ?ratio)
+  WHERE {
+    <FILTER>
+    ?novels kaunokki:worldPlace ?id ;
+          a <FACET_CLASS> .
+    ?id wgs84:lat ?lat ;
+        wgs84:long ?long .
+    FILTER NOT EXISTS {
+      ?id wgs84:lat ?lat, ?lat2 .
+      FILTER(?lat != ?lat2) 
+    }
+    FILTER NOT EXISTS {
+      ?id wgs84:long ?long, ?long2 .
+      FILTER(?long != ?long2) 
+    }
+    OPTIONAL {
+      ?author_m ^kaunokki:tekija ?novels ;
+                foaf:gender kaunokki:male .
+    }
+      OPTIONAL {
+      ?author_f ^kaunokki:tekija ?novels ;
+                foaf:gender kaunokki:female .
+    }
+  }
+  GROUP BY ?id ?lat ?long
+`
+
 export const novelsByGenreQuery = `
   SELECT ?category ?prefLabel (COUNT(DISTINCT ?novel) as ?instanceCount)
   WHERE {

@@ -94,7 +94,7 @@ export const deathplacesQuery = `
         FILTER(LANG(?prefLabelSV) = 'sv')
       }
       OPTIONAL {
-        ?category skos:prefLabel ?prefLabelGEN
+        ?category skos:prefLabel ?prefLabelGEN .
       }
       BIND(COALESCE(?prefLabelFI, ?prefLabelEN, ?prefLabelSV, ?prefLabelGEN, ?category) as ?prefLabel)
     }
@@ -106,6 +106,39 @@ export const deathplacesQuery = `
       ?person kaunokki:timeOfDeath [] .
       FILTER NOT EXISTS {
   		  ?person kaunokki:placeOfDeath [] .
+      }
+      BIND("Unknown" as ?category)
+      BIND("Unknown" as ?prefLabel)
+    }
+  }
+  GROUP BY ?category ?prefLabel
+  ORDER BY DESC(?instanceCount)
+`
+
+export const genderRatioQuery = `
+  SELECT ?category ?prefLabel (COUNT(DISTINCT ?novel) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    {
+      BIND(<ID> as ?place)
+      ?novel kaunokki:worldPlace ?place ;
+              a kaunokki:romaani .
+      ?novel kaunokki:tekija ?author .
+      ?author foaf:gender ?category .
+      OPTIONAL { 
+        ?category skos:prefLabel ?prefLabel_ .
+        FILTER(LANG(?prefLabel_) = "<LANG>")
+      }
+      BIND(COALESCE(?prefLabel_, ?category) as ?prefLabel)
+    }
+    UNION
+    {
+      BIND(<ID> as ?place)
+      ?novel kaunokki:worldPlace ?place ;
+              a kaunokki:romaani .
+      FILTER NOT EXISTS {
+        ?novel kaunokki:tekija ?author .
+        ?author foaf:gender [] .
       }
       BIND("Unknown" as ?category)
       BIND("Unknown" as ?prefLabel)

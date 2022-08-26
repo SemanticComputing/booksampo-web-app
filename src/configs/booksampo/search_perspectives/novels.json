@@ -287,6 +287,19 @@
                     ]
                 }
             }
+        },
+        "authorsGenderScatterplot": {
+            "tabID": 4,
+            "tabPath": "scatterplot",
+            "tabIcon": "AddLocation",
+            "component": "Deck",
+            "layerType": "scatterplotLayer",
+            "sparqlQuery": "authorsGenderQuery",
+            "facetClass": "novels",
+            "filterTarget": "novels",
+            "resultMapper": "mapPlacesRatio",
+            "scatterplotStartColor": [61, 250, 255],
+            "scatterplotEndColor": [233, 30, 99]
         }
     },
     "maps": {
@@ -298,6 +311,13 @@
             "zoom": 2
         },
         "novelsPlacesHeatmap": {
+            "center": [
+                22.43,
+                10.37
+            ],
+            "zoom": 2
+        },
+        "authorsGenderScatterplot": {
             "center": [
                 22.43,
                 10.37
