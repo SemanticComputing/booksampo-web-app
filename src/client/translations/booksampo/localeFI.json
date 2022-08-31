@@ -93,6 +93,7 @@
     "themes_and_keywords": "vuosittaiset teemat ja asiasanat",
     "concrete_place_years": "vuosittaiset tapahtumapaikat",
     "length_years": "vuosittaiset sivumäärät",
+    "publication_gender_ratio_years": "vuosittainen sukupuolijakauma",
     "place_of_birth_chart": "täällä kuolleiden syntymäpaikat",
     "place_of_death_chart": "täällä syntyneiden kuolinpaikat",
     "gender_ratio_chart": "romaanien kirjoittajien sukupuolijakauma",
@@ -154,7 +155,8 @@
       "themeTimespanLineChart": "Top 10 teemojen lukumäärät vuosittain",
       "keywordTimespanLineChart": "Top 10 asiasanojen lukumäärät vuosittain",
       "concretePlacesByYearLineChart": "Top 10 tapahtumapaikkojen lukumäärät vuosittain",
-      "publicationLengthsByYearLineChart": "Sivujen keskimääräiset lukumäärät vuosittain"
+      "publicationLengthsByYearLineChart": "Sivujen keskimääräiset lukumäärät vuosittain",
+      "publicationGenderRatioByYearLineChart": "Julkaisujen tekijöiden sukupuolijakauma vuosittain (pinottu)"
     }
   },
   "lineChart": {

@@ -350,7 +350,8 @@ export const createZoomableMultipleLineTimeSeriesData = ({
     yaxisTitle,
     stroke,
     fill,
-    tooltip
+    tooltip,
+    stacked
   } = resultClassConfig
 
   const data = []
@@ -369,7 +370,7 @@ export const createZoomableMultipleLineTimeSeriesData = ({
   const apexChartOptionsWithData = {
     chart: {
       type: 'area',
-      stacked: false,
+      stacked: stacked,
       height: '100%',
       fontFamily: 'Roboto',
       zoom: {

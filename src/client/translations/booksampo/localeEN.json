@@ -93,6 +93,7 @@
     "themes_and_keywords": "themes and keywords by year",
     "concrete_place_years": "concrete places by year",
     "length_years": "page count by year",
+    "publication_gender_ratio_years": "gender ratio by year",
     "place_of_birth_chart": "places of birth of people who died here",
     "place_of_death_chart": "places of death of people who were born here",
     "gender_ratio_chart": "gender ratio of novel authors",
@@ -154,7 +155,8 @@
       "themeTimespanLineChart": "Top 10 publication themes by year",
       "keywordTimespanLineChart": "Top 10 publication keywords by year",
       "concretePlacesByYearLineChart": "Top 10 concrete places by year",
-      "publicationLengthsByYearLineChart": "Average page counts by year"
+      "publicationLengthsByYearLineChart": "Average page counts by year",
+      "publicationGenderRatioByYearLineChart": "Author gender ratio of publications by year (stacked)"
     }
   },
   "lineChart": {

@@ -489,3 +489,44 @@ export const publicationLengthsByYearLineChartQuery = `
   GROUP BY ?category
   ORDER BY ?category
 `
+
+export const genderRatiosByYearTimeSeriesQuery = `
+  SELECT ?category ?secondaryCategory ?secondaryPrefLabel (COUNT(?publication) as ?secondaryCount) WHERE {
+    <FILTER>
+    ?abstract_work kaunokki:manifests_in ?publication .
+    ?publication kaunokki:onEnsimmainenVersio kaunokki:true .
+    ?publication kaunokki:ilmestymisvuosi ?year .
+    OPTIONAL {
+      ?year skos:prefLabel ?label .
+      FILTER(LANG(?label) != 'fi' && LANG(?label) != 'sv' && LANG(?label) != 'en')
+    }
+    OPTIONAL {
+      ?year skos:prefLabel ?label_FI .
+      FILTER(LANG(?label_FI) = 'fi')
+    }
+    BIND(COALESCE(xsd:integer(?label), xsd:integer(?label_FI), xsd:integer(?year)) as ?category)
+
+    {
+      ?abstract_work kaunokki:tekija ?author_id .
+      ?author_id foaf:gender ?secondaryCategory .
+      OPTIONAL {
+        ?secondaryCategory skos:prefLabel ?gender_label .
+        FILTER(LANG(?gender_label) = "fi")
+      }
+      BIND(COALESCE(?gender_label, ?secondaryCategory) as ?secondaryPrefLabel)
+    }
+    UNION 
+    {
+      ?abstract_work kaunokki:tekija ?author_id .
+      FILTER NOT EXISTS {
+        ?author_id foaf:gender [] .
+      }
+      BIND("gender unknown" as ?secondaryCategory)
+      BIND("gender unknown" as ?secondaryPrefLabel)
+    }
+
+    FILTER(BOUND(?category))
+  }
+  GROUP BY ?category ?secondaryCategory ?secondaryPrefLabel
+  ORDER BY ?category
+`

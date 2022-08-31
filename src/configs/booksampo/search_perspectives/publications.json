@@ -122,6 +122,7 @@
             "xaxisTickAmount": 30,
             "yaxisTitle": "count",
             "seriesTitle": "Count",
+            "stacked": false,
             "stroke": {
                 "width": 2
             }
@@ -149,6 +150,7 @@
                     "xaxisTickAmount": 30,
                     "yaxisTitle": "count",
                     "seriesTitle": "Count",
+                    "stacked": false,
                     "stroke": {
                         "width": 2
                     }
@@ -168,6 +170,7 @@
                     "xaxisTickAmount": 30,
                     "yaxisTitle": "count",
                     "seriesTitle": "Count",
+                    "stacked": false,
                     "stroke": {
                         "width": 2
                     }
@@ -192,6 +195,7 @@
             "xaxisTickAmount": 30,
             "yaxisTitle": "count",
             "seriesTitle": "Count",
+            "stacked": false,
             "stroke": {
                 "width": 2
             }
@@ -216,6 +220,36 @@
             "seriesTitle": "Average",
             "stroke": {
                 "width": 2
+            }
+        },
+        "publicationGenderRatioByYearLineChart": {
+            "tabID": 8,
+            "component": "ApexCharts",
+            "tabPath": "publication_gender_ratio_years",
+            "tabIcon": "ShowChart",
+            "sparqlQuery": "genderRatiosByYearTimeSeriesQuery",
+            "facetClass": "publications",
+            "filterTarget": "publication",
+            "resultMapper": "mapZoomableMultipleLineTimeSeries",
+            "resultMapperConfig": {
+                "fillEmptyValues": true
+            },
+            "createChartData": "createZoomableMultipleLineTimeSeriesData",
+            "xaxisTitle": "year",
+            "xaxisType": "category",
+            "xaxisTickAmount": 30,
+            "yaxisTitle": "count",
+            "seriesTitle": "Count",
+            "stacked": true,
+            "stroke": {
+                "width": 3
+            },
+            "fill": {
+                "type": "gradient",
+                "gradient": {
+                    "opacityFrom": 0.6,
+                    "opacityTo": 0.8
+                }
             }
         }
     },
