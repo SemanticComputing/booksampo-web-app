@@ -96,6 +96,8 @@
     "place_of_birth_chart": "places of birth of people who died here",
     "place_of_death_chart": "places of death of people who were born here",
     "gender_ratio_chart": "gender ratio of novel authors",
+    "novels_taking_place_genres_chart": "novel genres",
+    "novels_taking_place_themes_chart": "novel themes",
     "production_places": "production places",
     "production_places_heatmap": "production heatmap",
     "last_known_locations": "last known locations",

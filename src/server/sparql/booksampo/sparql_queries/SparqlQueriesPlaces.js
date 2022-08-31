@@ -115,6 +115,68 @@ export const deathplacesQuery = `
   ORDER BY DESC(?instanceCount)
 `
 
+export const novelsTakingPlaceByGenreQuery = `
+  SELECT ?category ?prefLabel (COUNT(DISTINCT ?novel) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    {
+      BIND(<ID> as ?place)
+      ?novel kaunokki:worldPlace ?place ;
+              a kaunokki:romaani .
+      ?novel kaunokki:genre ?category .
+      OPTIONAL { 
+        ?category skos:prefLabel ?prefLabel_ .
+        FILTER(LANG(?prefLabel_) = "<LANG>")
+      }
+      BIND(COALESCE(?prefLabel_, ?category) as ?prefLabel)
+    }
+    UNION
+    {
+      BIND(<ID> as ?place)
+      ?novel kaunokki:worldPlace ?place ;
+              a kaunokki:romaani .
+      FILTER NOT EXISTS {
+        ?novel kaunokki:genre [] .
+      }
+      BIND("Unknown" as ?category)
+      BIND("Unknown" as ?prefLabel)
+    }
+  }
+  GROUP BY ?category ?prefLabel
+  ORDER BY DESC(?instanceCount)
+`
+
+export const novelsTakingPlaceByThemeQuery = `
+  SELECT ?category ?prefLabel (COUNT(DISTINCT ?novel) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    {
+      BIND(<ID> as ?place)
+      ?novel kaunokki:worldPlace ?place ;
+              a kaunokki:romaani .
+      ?novel kaunokki:teema ?category .
+      OPTIONAL { 
+        ?category skos:prefLabel ?prefLabel_ .
+        FILTER(LANG(?prefLabel_) = "<LANG>")
+      }
+      BIND(COALESCE(?prefLabel_, ?category) as ?prefLabel)
+    }
+    UNION
+    {
+      BIND(<ID> as ?place)
+      ?novel kaunokki:worldPlace ?place ;
+              a kaunokki:romaani .
+      FILTER NOT EXISTS {
+        ?novel kaunokki:teema [] .
+      }
+      BIND("Unknown" as ?category)
+      BIND("Unknown" as ?prefLabel)
+    }
+  }
+  GROUP BY ?category ?prefLabel
+  ORDER BY DESC(?instanceCount)
+`
+
 export const genderRatioQuery = `
   SELECT ?category ?prefLabel (COUNT(DISTINCT ?novel) as ?instanceCount)
   WHERE {

@@ -96,6 +96,8 @@
     "place_of_birth_chart": "täällä kuolleiden syntymäpaikat",
     "place_of_death_chart": "täällä syntyneiden kuolinpaikat",
     "gender_ratio_chart": "romaanien kirjoittajien sukupuolijakauma",
+    "novels_taking_place_genres_chart": "romaanien genret",
+    "novels_taking_place_themes_chart": "romaanien teemat",
     "production_places": "production places",
     "production_places_heatmap": "production heatmap",
     "last_known_locations": "last known locations",

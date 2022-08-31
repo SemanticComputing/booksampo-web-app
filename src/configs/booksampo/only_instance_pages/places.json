@@ -33,17 +33,17 @@
             "dropdownForResultClasses": false,
             "dropdownForChartTypes": true,
             "resultMapperConfig": {
-                "fillEmptyValues": false
+              "fillEmptyValues": false
             },
             "chartTypes": [
-                {
-                    "id": "pie",
-                    "createChartData": "createApexPieChartData"
-                },
-                {
-                    "id": "bar",
-                    "createChartData": "createApexBarChartData"
-                }
+              {
+                "id": "pie",
+                "createChartData": "createApexPieChartData"
+              },
+              {
+                "id": "bar",
+                "createChartData": "createApexBarChartData"
+              }
             ]
           },
           "instacePageDeathPlaces": {
@@ -56,6 +56,34 @@
             "sparqlQuery": "deathplacesQuery",
             "resultMapper": "mapPieChart",
             "filterTarget": "person",
+            "pageType": "instancePage",
+            "sliceVisibilityThreshold": 0.005,
+            "dropdownForResultClasses": false,
+            "dropdownForChartTypes": true,
+            "resultMapperConfig": {
+              "fillEmptyValues": false
+            },
+            "chartTypes": [
+              {
+                "id": "pie",
+                "createChartData": "createApexPieChartData"
+              },
+              {
+                "id": "bar",
+                "createChartData": "createApexBarChartData"
+              }
+            ]
+          },
+          "instacePageGenderRatio": {
+            "tabID": 3,
+            "component": "ApexCharts",
+            "doNotRenderOnMount": true,
+            "tabPath": "gender_ratio_chart",
+            "tabIcon": "PieChart",
+            "facetClass": "novels",
+            "sparqlQuery": "genderRatioQuery",
+            "resultMapper": "mapPieChart",
+            "filterTarget": "novel",
             "pageType": "instancePage",
             "sliceVisibilityThreshold": 0.005,
             "dropdownForResultClasses": false,
@@ -74,14 +102,42 @@
                 }
             ]
           },
-          "instacePageGenderRatio": {
-            "tabID": 3,
+          "instacePageNovelGenres": {
+            "tabID": 4,
             "component": "ApexCharts",
             "doNotRenderOnMount": true,
-            "tabPath": "gender_ratio_chart",
+            "tabPath": "novels_taking_place_genres_chart",
             "tabIcon": "PieChart",
             "facetClass": "novels",
-            "sparqlQuery": "genderRatioQuery",
+            "sparqlQuery": "novelsTakingPlaceByGenreQuery",
+            "resultMapper": "mapPieChart",
+            "filterTarget": "novel",
+            "pageType": "instancePage",
+            "sliceVisibilityThreshold": 0.01,
+            "dropdownForResultClasses": false,
+            "dropdownForChartTypes": true,
+            "resultMapperConfig": {
+                "fillEmptyValues": false
+            },
+            "chartTypes": [
+                {
+                    "id": "pie",
+                    "createChartData": "createApexPieChartData"
+                },
+                {
+                    "id": "bar",
+                    "createChartData": "createApexBarChartData"
+                }
+            ]
+          },
+          "instacePageNovelThemes": {
+            "tabID": 5,
+            "component": "ApexCharts",
+            "doNotRenderOnMount": true,
+            "tabPath": "novels_taking_place_themes_chart",
+            "tabIcon": "PieChart",
+            "facetClass": "novels",
+            "sparqlQuery": "novelsTakingPlaceByThemeQuery",
             "resultMapper": "mapPieChart",
             "filterTarget": "novel",
             "pageType": "instancePage",
