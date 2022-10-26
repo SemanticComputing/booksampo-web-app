@@ -361,8 +361,8 @@
           "description": "The year(s) the novel was published."
         },
         "collection": {
-          "label": "Part of collection",
-          "description": "The collection(s) the novel is a part of."
+          "label": "Part of collective work",
+          "description": "The collective work(s) the novel is a part of."
         },
         "review": {
           "label": "Review",

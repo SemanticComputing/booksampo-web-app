@@ -348,8 +348,8 @@
           "description": "Teoksen julkaisuvuosi tai -vuodet."
         },
         "collection": {
-          "label": "Osana kokoelmaa",
-          "description": "Kokoelma(t), jossa teos on osana."
+          "label": "Osana kokoomateosta",
+          "description": "Kokoomateos, jossa teos on osana."
         },
         "review": {
           "label": "Arvostelu",
