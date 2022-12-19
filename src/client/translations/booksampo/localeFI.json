@@ -253,8 +253,19 @@
         }
       },
       "scatterplot": {
+        "firstInst": {
+          "label": "naisia"
+        },
+        "secondInst": {
+          "label": "miehiä"
+        },
         "ratio": {
-          "label": "tänne sijoittuvien kirjojen kirjailijoista naisia"
+          "majority": {
+            "label": "tänne sijoittuvien kirjojen kirjailijoista naisia"
+          },
+          "minority": {
+            "label": "tänne sijoittuvien kirjojen kirjailijoista miehiä"
+          }
         },
         "total": {
           "label": "mies- ja naiskirjailijoiden kokonaismäärä"

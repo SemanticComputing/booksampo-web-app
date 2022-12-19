@@ -266,8 +266,19 @@
         }
       },
       "scatterplot": {
+        "firstInst": {
+          "label": "female"
+        },
+        "secondInst": {
+          "label": "male"
+        },
         "ratio": {
-          "label": "of authors with novels taking place here were female"
+          "majority": {
+            "label": "of authors with novels taking place here were female"
+          },
+          "minority": {
+            "label": "of authors with novels taking place here were male"
+          }
         },
         "total": {
           "label": "total amount of male and female authors"

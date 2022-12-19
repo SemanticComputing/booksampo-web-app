@@ -268,6 +268,7 @@ export const authorsGenderQuery = `
     }
   }
   GROUP BY ?id ?lat ?long
+  HAVING(COUNT(?author_f) > 0 || COUNT(?author_m) > 0)
 `
 
 export const novelsByGenreQuery = `

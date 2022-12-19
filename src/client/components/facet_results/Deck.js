@@ -315,8 +315,8 @@ class Deck extends React.Component {
                     getTooltip: ({ object }) => object && {
                       html: `
                       <div>
-                        <h2>${Math.round(object.ratio * 100.0)}% (${object.firstInstanceCount} : ${object.secondInstanceCount})</h2>
-                        <p>${intl.get(`perspectives.${this.props.perspectiveConfig.id}.scatterplot.ratio.label`)}</p>
+                        <h2>${object.ratio < 0.5 ? Math.round((1 - object.ratio) * 100.0) : Math.round(object.ratio * 100.0)}% (${intl.get(`perspectives.${this.props.perspectiveConfig.id}.scatterplot.firstInst.label`)} ${object.firstInstanceCount} : ${intl.get(`perspectives.${this.props.perspectiveConfig.id}.scatterplot.secondInst.label`)} ${object.secondInstanceCount})</h2>
+                        <p>${object.ratio < 0.5 ? intl.get(`perspectives.${this.props.perspectiveConfig.id}.scatterplot.ratio.minority.label`) : intl.get(`perspectives.${this.props.perspectiveConfig.id}.scatterplot.ratio.majority.label`)}</p>
                         <p>(${intl.get(`perspectives.${this.props.perspectiveConfig.id}.scatterplot.total.label`)}: ${object.instanceCount})</p>
                       </div>
                     `
