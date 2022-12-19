@@ -121,3 +121,37 @@ export const sitemapInstancePageQuery = `
   }
   LIMIT 100
 `
+
+// An optimized query for hierarchical facet that requires set maxHierarchyLevel in config
+// Note that this version can be faster in specific cases, but can also be slower in certain other cases
+export const hierarchicalFacetValuesQuery = `
+  SELECT DISTINCT ?id ?prefLabel ?selected ?parent ?instanceCount {
+    {
+      {
+        SELECT DISTINCT (count(DISTINCT ?instance) as ?instanceCount) ?id ?parent ?selected {
+          # facet values that return results
+          {
+            <HIERARCHY>
+
+            <FILTER>
+            VALUES ?facetClass { <FACET_CLASS> }
+            ?instance a ?facetClass .
+
+            OPTIONAL { ?id <PARENTPROPERTY> ?parent_ }
+            BIND(COALESCE(?parent_, '0') as ?parent)
+
+            <SELECTED_VALUES>
+          }
+          <SELECTED_VALUES_NO_HITS>
+          BIND(COALESCE(?selected_, false) as ?selected)
+        }
+        GROUP BY ?id ?parent ?selected
+      }
+      FILTER(BOUND(?id))
+      <FACET_VALUE_FILTER>
+      <LABELS>
+    }
+    <UNKNOWN_VALUES>
+  }
+  <ORDER_BY>
+`
