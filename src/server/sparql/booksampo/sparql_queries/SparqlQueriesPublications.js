@@ -274,7 +274,6 @@ export const publicationsByYearLineChartQuery = `
   SELECT ?category (COUNT(?publication) as ?count) WHERE {
     <FILTER>
     ?abstract_work kaunokki:manifests_in ?publication .
-    ?publication kaunokki:onEnsimmainenVersio kaunokki:true .
     ?publication kaunokki:ilmestymisvuosi ?year .
     OPTIONAL {
         ?year skos:prefLabel ?label .
@@ -298,7 +297,6 @@ export const genresByYearTimeSeriesQuery = `
       SELECT ?genre_id ?genre_label (COUNT(?genre_id) as ?genre_count) WHERE {
         <FILTER>
         ?abstract_work kaunokki:manifests_in ?publication .
-        ?publication kaunokki:onEnsimmainenVersio kaunokki:true .
         ?publication kaunokki:ilmestymisvuosi ?year .
         ?abstract_work kaunokki:genre ?genre_id .
         OPTIONAL { 
@@ -314,7 +312,6 @@ export const genresByYearTimeSeriesQuery = `
     
     ?abstract_work kaunokki:manifests_in ?publication ;
                   kaunokki:genre ?genre_id .
-    ?publication kaunokki:onEnsimmainenVersio kaunokki:true .
     ?publication kaunokki:ilmestymisvuosi ?year .
     OPTIONAL {
       ?year skos:prefLabel ?label .
@@ -340,7 +337,6 @@ export const themesByYearTimeSeriesQuery = `
       SELECT ?theme_id ?theme_label (COUNT(?theme_id) as ?theme_count) WHERE {
         <FILTER>
         ?abstract_work kaunokki:manifests_in ?publication .
-        ?publication kaunokki:onEnsimmainenVersio kaunokki:true .
         ?publication kaunokki:ilmestymisvuosi ?year .
         ?abstract_work kaunokki:teema ?theme_id .
         OPTIONAL { 
@@ -360,7 +356,6 @@ export const themesByYearTimeSeriesQuery = `
     
     ?abstract_work kaunokki:manifests_in ?publication ;
                   kaunokki:teema ?theme_id .
-    ?publication kaunokki:onEnsimmainenVersio kaunokki:true .
     ?publication kaunokki:ilmestymisvuosi ?year .
     OPTIONAL {
       ?year skos:prefLabel ?label .
@@ -386,7 +381,6 @@ export const keywordsByYearTimeSeriesQuery = `
       SELECT ?keyword_id ?keyword_label (COUNT(?keyword_id) as ?keyword_count) WHERE {
         <FILTER>
         ?abstract_work kaunokki:manifests_in ?publication .
-        ?publication kaunokki:onEnsimmainenVersio kaunokki:true .
         ?publication kaunokki:ilmestymisvuosi ?year .
         ?abstract_work kaunokki:asiasana ?keyword_id .
         OPTIONAL { 
@@ -406,7 +400,6 @@ export const keywordsByYearTimeSeriesQuery = `
     
     ?abstract_work kaunokki:manifests_in ?publication ;
                   kaunokki:asiasana ?keyword_id .
-    ?publication kaunokki:onEnsimmainenVersio kaunokki:true .
     ?publication kaunokki:ilmestymisvuosi ?year .
     OPTIONAL {
       ?year skos:prefLabel ?label .
@@ -432,7 +425,6 @@ export const concretePlacesByYearTimeSeriesQuery = `
       SELECT ?place_id ?place_label (COUNT(?place_id) as ?place_count) WHERE {
         <FILTER>
         ?abstract_work kaunokki:manifests_in ?publication .
-        ?publication kaunokki:onEnsimmainenVersio kaunokki:true .
         ?publication kaunokki:ilmestymisvuosi ?year .
         ?abstract_work kaunokki:worldPlace ?place_id .
         OPTIONAL { 
@@ -448,7 +440,6 @@ export const concretePlacesByYearTimeSeriesQuery = `
     
     ?abstract_work kaunokki:manifests_in ?publication ;
                   kaunokki:worldPlace ?place_id .
-    ?publication kaunokki:onEnsimmainenVersio kaunokki:true .
     ?publication kaunokki:ilmestymisvuosi ?year .
     OPTIONAL {
       ?year skos:prefLabel ?label .
@@ -470,7 +461,6 @@ export const publicationLengthsByYearLineChartQuery = `
   SELECT ?category (AVG(?pageCount) as ?count) WHERE {
     <FILTER>
     ?abstract_work kaunokki:manifests_in ?publication .
-    ?publication kaunokki:onEnsimmainenVersio kaunokki:true .
     ?publication kaunokki:ilmestymisvuosi ?year .
     ?publication kaunokki:sivuLkm ?pages .
     BIND(xsd:integer(?pages) as ?pageCount)
@@ -494,7 +484,6 @@ export const genderRatiosByYearTimeSeriesQuery = `
   SELECT ?category ?secondaryCategory ?secondaryPrefLabel (COUNT(?publication) as ?secondaryCount) WHERE {
     <FILTER>
     ?abstract_work kaunokki:manifests_in ?publication .
-    ?publication kaunokki:onEnsimmainenVersio kaunokki:true .
     ?publication kaunokki:ilmestymisvuosi ?year .
     OPTIONAL {
       ?year skos:prefLabel ?label .
