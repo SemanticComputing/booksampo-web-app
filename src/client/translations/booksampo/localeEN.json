@@ -586,7 +586,7 @@
           "description": "The time of birth of the person."
         },
         "placeOfBirth": {
-          "label": "Time of birth",
+          "label": "Place of birth",
           "description": "The place of birth of the person."
         },
         "timeOfDeath": {
@@ -625,7 +625,7 @@
           "label": "Novels",
           "description": "Novels written by this person."
         },
-        "nonfictionBooks": {
+        "nonfictionBook": {
           "label": "Nonfiction books",
           "description": "Nonfiction books written by this person."
         },
