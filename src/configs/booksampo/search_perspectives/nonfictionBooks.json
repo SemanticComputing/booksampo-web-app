@@ -6,7 +6,7 @@
         "prefixesFile": "SparqlQueriesPrefixes.js"
     },
     "sparqlQueriesFile": "SparqlQueriesNonfictionBooks.js",
-    "facetClass": "<http://www.seco.tkk.fi/applications/saha#Instance_ID1237984819752>",
+    "facetClass": "saha:Instance_ID1237984819752",
     "langTag": "fi",
     "frontPageImage": "main_page/places-452x262.jpg",
     "searchMode": "faceted-search",
@@ -123,6 +123,118 @@
                     }
                 },
                 "localIDAsURI": true
+            }
+        },
+        "nonfictionBooksByProperty": {
+            "tabID": 1,
+            "component": "ApexCharts",
+            "doNotRenderOnMount": true,
+            "tabPath": "pie_chart",
+            "tabIcon": "PieChart",
+            "facetClass": "novels",
+            "dropdownForResultClasses": true,
+            "defaultResultClass": "novelsByGenre",
+            "resultClasses": {
+                "novelsByGenre": {
+                    "sparqlQuery": "nonfictionBooksByGenreQuery",
+                    "filterTarget": "book",
+                    "resultMapper": "mapPieChart",
+                    "sliceVisibilityThreshold": 0.01,
+                    "dropdownForChartTypes": true,
+                    "resultMapperConfig": {
+                        "fillEmptyValues": false
+                    },
+                    "chartTypes": [
+                        {
+                            "id": "pie",
+                            "createChartData": "createApexPieChartData"
+                        },
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        }
+                    ]
+                },
+                "novelsByOriginalLanguage": {
+                    "sparqlQuery": "nonfictionBooksByOriginalLanguageQuery",
+                    "filterTarget": "book",
+                    "resultMapper": "mapPieChart",
+                    "sliceVisibilityThreshold": 0.001,
+                    "dropdownForChartTypes": true,
+                    "resultMapperConfig": {
+                        "fillEmptyValues": false
+                    },
+                    "chartTypes": [
+                        {
+                            "id": "pie",
+                            "createChartData": "createApexPieChartData"
+                        },
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        }
+                    ]
+                },
+                "novelsByTheme": {
+                    "sparqlQuery": "nonfictionBooksByThemeQuery",
+                    "filterTarget": "book",
+                    "resultMapper": "mapPieChart",
+                    "sliceVisibilityThreshold": 0.005,
+                    "dropdownForChartTypes": true,
+                    "resultMapperConfig": {
+                        "fillEmptyValues": false
+                    },
+                    "chartTypes": [
+                        {
+                            "id": "pie",
+                            "createChartData": "createApexPieChartData"
+                        },
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        }
+                    ]
+                },
+                "novelsByPublisher": {
+                    "sparqlQuery": "nonfictionBooksByPublisherQuery",
+                    "filterTarget": "book",
+                    "resultMapper": "mapPieChart",
+                    "sliceVisibilityThreshold": 0.01,
+                    "dropdownForChartTypes": true,
+                    "resultMapperConfig": {
+                        "fillEmptyValues": false
+                    },
+                    "chartTypes": [
+                        {
+                            "id": "pie",
+                            "createChartData": "createApexPieChartData"
+                        },
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        }
+                    ]
+                },
+                "novelsByAuthorGender": {
+                    "sparqlQuery": "nonfictionBooksByAuthorGenderQuery",
+                    "filterTarget": "book",
+                    "resultMapper": "mapPieChart",
+                    "sliceVisibilityThreshold": 0.01,
+                    "dropdownForChartTypes": true,
+                    "resultMapperConfig": {
+                        "fillEmptyValues": false
+                    },
+                    "chartTypes": [
+                        {
+                            "id": "pie",
+                            "createChartData": "createApexPieChartData"
+                        },
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        }
+                    ]
+                }
             }
         }
     },

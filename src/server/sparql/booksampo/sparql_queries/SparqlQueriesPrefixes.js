@@ -27,4 +27,5 @@ export const prefixes = `
   PREFIX ks-annotaatio: <http://kulttuurisampo.fi/annotaatio#>
   PREFIX yso-time: <http://www.yso.fi/onto/time-schema#>
   PREFIX saha-ks: <http://seco.tkk.fi/saha3/kirjasampo/>
+  PREFIX saha: <http://www.seco.tkk.fi/applications/saha#>
 `

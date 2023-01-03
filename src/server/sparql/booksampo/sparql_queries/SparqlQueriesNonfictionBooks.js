@@ -232,3 +232,131 @@ export const nonfictionBookPublicationsQuery = `
     }
   }
 `
+
+export const nonfictionBooksByGenreQuery = `
+  SELECT ?category ?prefLabel (COUNT(DISTINCT ?book) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    {
+      ?book a saha:Instance_ID1237984819752 .
+      ?book kaunokki:genre ?category .
+      OPTIONAL { 
+        ?category skos:prefLabel ?prefLabel_ .
+        FILTER(LANG(?prefLabel_) = "<LANG>")
+      }
+      BIND(COALESCE(?prefLabel_, ?category) as ?prefLabel)
+    }
+    UNION
+    {
+      ?book a saha:Instance_ID1237984819752 .
+      FILTER NOT EXISTS {
+        ?book kaunokki:genre [] .
+      }
+      BIND("Unknown" as ?category)
+      BIND("Unknown" as ?prefLabel)
+    }
+  }
+  GROUP BY ?category ?prefLabel
+  ORDER BY DESC(?instanceCount)
+`
+
+export const nonfictionBooksByOriginalLanguageQuery = `
+  SELECT ?category ?prefLabel (COUNT(DISTINCT ?book) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    {
+      ?book a saha:Instance_ID1237984819752 .
+      ?book kaunokki:alkukieli ?category, ?prefLabel .
+    }
+    UNION
+    {
+      ?book a saha:Instance_ID1237984819752 .
+      FILTER NOT EXISTS {
+        ?book kaunokki:alkukieli [] .
+      }
+      BIND("Unknown" as ?category)
+      BIND("Unknown" as ?prefLabel)
+    }
+  }
+  GROUP BY ?category ?prefLabel
+  ORDER BY DESC(?instanceCount)
+`
+
+export const nonfictionBooksByThemeQuery = `
+  SELECT ?category ?prefLabel (COUNT(DISTINCT ?book) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    {
+      ?book a saha:Instance_ID1237984819752 .
+      ?book kaunokki:teema ?category. 
+      OPTIONAL { 
+        ?category skos:prefLabel ?prefLabel_ .
+        FILTER(LANG(?prefLabel_) = "<LANG>")
+      }
+      BIND(COALESCE(?prefLabel_, ?category) as ?prefLabel)
+    }
+    UNION
+    {
+      ?book a saha:Instance_ID1237984819752 .
+      FILTER NOT EXISTS {
+        ?book kaunokki:teema [] .
+      }
+      BIND("Unknown" as ?category)
+      BIND("Unknown" as ?prefLabel)
+    }
+  }
+  GROUP BY ?category ?prefLabel
+  ORDER BY DESC(?instanceCount)
+`
+
+export const nonfictionBooksByPublisherQuery = `
+  SELECT ?category ?prefLabel (COUNT(DISTINCT ?book) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    {
+      ?book a saha:Instance_ID1237984819752 .
+      ?book kaunokki:manifests_in/kaunokki:hasPublisher ?category .
+      ?category skos:prefLabel ?prefLabel .
+    }
+    UNION
+    {
+      ?book a saha:Instance_ID1237984819752 .
+      FILTER NOT EXISTS {
+        ?book kaunokki:manifests_in/kaunokki:hasPublisher [] .
+      }
+      BIND("Unknown" as ?category)
+      BIND("Unknown" as ?prefLabel)
+    }
+  }
+  GROUP BY ?category ?prefLabel
+  ORDER BY DESC(?instanceCount)
+`
+
+export const nonfictionBooksByAuthorGenderQuery = `
+  SELECT ?category ?prefLabel (COUNT(DISTINCT ?book) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    {
+      ?book a saha:Instance_ID1237984819752 .
+      ?book kaunokki:tekija ?author .
+      ?author foaf:gender ?category .
+      OPTIONAL { 
+        ?category skos:prefLabel ?prefLabel_ .
+        FILTER(LANG(?prefLabel_) = "<LANG>")
+      }
+      BIND(COALESCE(?prefLabel_, ?category) as ?prefLabel)
+    }
+    UNION
+    {
+      ?book a saha:Instance_ID1237984819752 .
+      FILTER NOT EXISTS {
+        ?book kaunokki:tekija ?author .
+        ?author foaf:gender [] .
+      }
+      BIND("Unknown" as ?category)
+      BIND("Unknown" as ?prefLabel)
+    }
+  }
+  GROUP BY ?category ?prefLabel
+  ORDER BY DESC(?instanceCount)
+`
