@@ -124,7 +124,7 @@ const SemanticPortal = props => {
   return (
     <Box
       sx={theme => ({
-        backgroundColor: '#bdbdbd',
+        backgroundColor: '#e8e8e8',
         overflowX: 'hidden',
         minHeight: '100%',
         [theme.breakpoints.up(layoutConfig.hundredPercentHeightBreakPoint)]: {
