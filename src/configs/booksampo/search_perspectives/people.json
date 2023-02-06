@@ -95,7 +95,7 @@
                         "sparqlQuery": "novelGenresByDecadeQuery",
                         "filterTarget": "novel",
                         "resultMapper": "mapStackedColumnChart",
-                        "sliceVisibilityThreshold": 0.03,
+                        "sliceVisibilityThreshold": -1,
                         "createChartData": "createStackedColumnChartData",
                         "pageType": "instancePage",
                         "dropdownForResultClasses": false,
