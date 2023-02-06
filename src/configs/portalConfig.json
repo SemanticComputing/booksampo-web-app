@@ -4,10 +4,10 @@
     "perspectives": {
         "searchPerspectives": [
             "novels",
-            "nonfictionBooks",
+            "publications",
             "people",
             "covers",
-            "publications"
+            "nonfictionBooks"
         ],
         "onlyInstancePages": [
             "places",

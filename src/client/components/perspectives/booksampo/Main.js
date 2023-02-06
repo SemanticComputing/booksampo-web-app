@@ -124,8 +124,8 @@ const Main = props => {
         sx={theme => ({
           marginLeft: theme.spacing(1),
           marginRight: theme.spacing(1),
-          [theme.breakpoints.up(800 + getSpacing(theme, 6))]: {
-            width: 800,
+          [theme.breakpoints.up(1100 + getSpacing(theme, 6))]: {
+            width: 1100,
             marginLeft: 'auto',
             marginRight: 'auto'
           }
