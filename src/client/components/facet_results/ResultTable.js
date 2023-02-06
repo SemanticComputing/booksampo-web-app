@@ -290,7 +290,7 @@ class ResultTable extends React.Component {
           count={resultCount == null ? 0 : resultCount}
           labelDisplayedRows={resultCount == null
             ? () => '-'
-            : ({ from, to, count }) => `${from}-${to} of ${count}`}
+            : ({ from, to, count }) => `${from}-${to} ${intl.get('table.of')} ${count}`}
           rowsPerPage={parseInt(pagesize)}
           labelRowsPerPage={intl.get('table.rowsPerPage')}
           rowsPerPageOptions={[5, 10, 15, 20, 25, 30, 50, 100]}
