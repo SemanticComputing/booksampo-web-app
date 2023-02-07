@@ -240,16 +240,22 @@ export const novelsPlacesQuery = `
 `
 
 export const authorsGenderQuery = `
-  SELECT ?id ?lat ?long
+  SELECT ?id ?lat ?long (SAMPLE(?label) as ?prefLabel)
   (xsd:integer(COUNT(?author_f)) + xsd:integer(COUNT(?author_m))  as ?instanceCount)
   (COUNT(?author_f) as ?firstInstanceCount) (COUNT(?author_m) as ?secondInstanceCount)
   ((xsd:integer(COUNT(?author_f)) / (xsd:integer(COUNT(?author_f)) + xsd:integer(COUNT(?author_m)))) as ?ratio)
   WHERE {
     <FILTER>
-    ?novels kaunokki:worldPlace ?id ;
+    ?novel kaunokki:worldPlace ?id ;
           a <FACET_CLASS> .
     ?id wgs84:lat ?lat ;
         wgs84:long ?long .
+    OPTIONAL {
+      ?id skos:prefLabel ?label_fi .
+      FILTER(LANG(?label_fi) = 'fi')
+    }
+    ?id skos:prefLabel ?label_gen .
+    BIND(COALESCE(?label_fi, ?label_gen) as ?label)
     FILTER NOT EXISTS {
       ?id wgs84:lat ?lat, ?lat2 .
       FILTER(?lat != ?lat2) 
@@ -259,11 +265,11 @@ export const authorsGenderQuery = `
       FILTER(?long != ?long2) 
     }
     OPTIONAL {
-      ?author_m ^kaunokki:tekija ?novels ;
+      ?author_m ^kaunokki:tekija ?novel ;
                 foaf:gender kaunokki:male .
     }
       OPTIONAL {
-      ?author_f ^kaunokki:tekija ?novels ;
+      ?author_f ^kaunokki:tekija ?novel ;
                 foaf:gender kaunokki:female .
     }
   }

@@ -315,8 +315,9 @@ class Deck extends React.Component {
                     getTooltip: ({ object }) => object && {
                       html: `
                       <div>
-                        <h2>${object.ratio < 0.5 ? Math.round((1 - object.ratio) * 100.0) : Math.round(object.ratio * 100.0)}% (${intl.get(`perspectives.${this.props.perspectiveConfig.id}.scatterplot.firstInst.label`)} ${object.firstInstanceCount} : ${intl.get(`perspectives.${this.props.perspectiveConfig.id}.scatterplot.secondInst.label`)} ${object.secondInstanceCount})</h2>
-                        <p>${object.ratio < 0.5 ? intl.get(`perspectives.${this.props.perspectiveConfig.id}.scatterplot.ratio.minority.label`) : intl.get(`perspectives.${this.props.perspectiveConfig.id}.scatterplot.ratio.majority.label`)}</p>
+                        <h3>${object.prefLabel}</h3>
+                        <h3>${object.ratio < 0.5 ? Math.round((1 - object.ratio) * 100.0) : Math.round(object.ratio * 100.0)}% ${object.ratio < 0.5 ? intl.get(`perspectives.${this.props.perspectiveConfig.id}.scatterplot.ratio.minority.label`) : intl.get(`perspectives.${this.props.perspectiveConfig.id}.scatterplot.ratio.majority.label`)}</h3>
+                        <p>${intl.get(`perspectives.${this.props.perspectiveConfig.id}.scatterplot.firstInst.label`)} ${object.firstInstanceCount} : ${intl.get(`perspectives.${this.props.perspectiveConfig.id}.scatterplot.secondInst.label`)} ${object.secondInstanceCount}</p>
                         <p>(${intl.get(`perspectives.${this.props.perspectiveConfig.id}.scatterplot.total.label`)}: ${object.instanceCount})</p>
                       </div>
                     `
