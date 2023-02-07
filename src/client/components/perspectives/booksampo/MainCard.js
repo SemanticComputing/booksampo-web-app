@@ -88,13 +88,13 @@ const MainCard = props => {
             gutterBottom
             variant={cardHeadingVariant}
             component='h2'
-            sx={{ color: '#fff' }}
+            sx={{ color: '#fff', backgroundColor: 'rgba(0,0,0,0.75)' }}
           >
             {intl.get(`perspectives.${perspective.id}.label`)}
           </Typography>
           <Typography
             component='p'
-            sx={{ color: '#fff' }}
+            sx={{ color: '#fff', backgroundColor: 'rgba(0,0,0,0.75)' }}
           >
             {intl.get(`perspectives.${perspective.id}.shortDescription`)}
           </Typography>
