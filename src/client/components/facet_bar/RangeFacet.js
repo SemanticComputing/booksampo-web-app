@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import intl from 'react-intl-universal'
 import PropTypes from 'prop-types'
 import CircularProgress from '@mui/material/CircularProgress'
 import withStyles from '@mui/styles/withStyles'
@@ -150,7 +151,7 @@ class RangeFacet extends Component {
               onClick={this.handleApplyOnClick}
               disabled={this.disableApply()}
             >
-              apply
+              {intl.get('facetBar.applyFacetSelection')}
             </Button>
           </div>
         </div>
