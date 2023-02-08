@@ -98,7 +98,13 @@
   },
   "table": {
     "rowsPerPage": "Rivejä per sivu",
-    "of": "/"
+    "of": "/",
+    "pagination": {
+      "first": "Ensimmäinen sivu",
+      "previous": "Edellinen sivu",
+      "next": "Seuraava sivu",
+      "last": "Viimeinen sivu"
+    }
   },
   "apexCharts": {
     "grouping": "Lajitteluperuste:",

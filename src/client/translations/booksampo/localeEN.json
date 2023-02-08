@@ -98,7 +98,13 @@
   },
   "table": {
     "rowsPerPage": "Rows per page",
-    "of": "of"
+    "of": "of",
+    "pagination": {
+      "first": "First Page",
+      "previous": "Previous Page",
+      "next": "Next Page",
+      "last": "Last Page"
+    }
   },
   "apexCharts": {
     "grouping": "Group by:",

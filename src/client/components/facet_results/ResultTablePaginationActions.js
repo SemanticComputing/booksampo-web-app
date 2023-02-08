@@ -1,4 +1,5 @@
 import React from 'react'
+import intl from 'react-intl-universal'
 import PropTypes from 'prop-types'
 import withStyles from '@mui/styles/withStyles'
 import IconButton from '@mui/material/IconButton'
@@ -33,7 +34,7 @@ const ResultTablePaginationActions = props => {
       <IconButton
         onClick={handleFirstPageButtonClick}
         disabled={page === 0}
-        aria-label='First Page'
+        aria-label={intl.get('table.pagination.first')}
         size='large'
       >
         {theme.direction === 'rtl' ? <LastPageIcon /> : <FirstPageIcon />}
@@ -41,7 +42,7 @@ const ResultTablePaginationActions = props => {
       <IconButton
         onClick={handleBackButtonClick}
         disabled={page === 0}
-        aria-label='Previous Page'
+        aria-label={intl.get('table.pagination.previous')}
         size='large'
       >
         {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
@@ -49,7 +50,7 @@ const ResultTablePaginationActions = props => {
       <IconButton
         onClick={handleNextButtonClick}
         disabled={page >= Math.ceil(count / rowsPerPage) - 1}
-        aria-label='Next Page'
+        aria-label={intl.get('table.pagination.next')}
         size='large'
       >
         {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
@@ -57,7 +58,7 @@ const ResultTablePaginationActions = props => {
       <IconButton
         onClick={handleLastPageButtonClick}
         disabled={page >= Math.ceil(count / rowsPerPage) - 1}
-        aria-label='Last Page'
+        aria-label={intl.get('table.pagination.last')}
         size='large'
       >
         {theme.direction === 'rtl' ? <FirstPageIcon /> : <LastPageIcon />}
