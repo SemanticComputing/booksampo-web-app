@@ -202,8 +202,8 @@
     "tooManyResults": "More than 500 results, please use clustered map or heatmap"
   },
   "instancePageGeneral": {
-    "introduction": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> This landing page provides a human-readable summary of the data points that link to this {entity}.</p> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> To cite this record, use its url. You can use also use the url to return directly to the record at any time. </p>",
-    "repetition": "<h6 class=\"MuiTypography-root MuiTypography-h6\"> Repetition of data </h6> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> The same or similar data may appear within a single data field multiple times. This repetition occurs due to the merging of multiple records from different datasets to create the MMM record. </p>"
+    "introduction": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Tämä sivu tarjoaa ihmisluettavan yhteenvedon tietopisteistä, jotka linkittyvät tähän {entity}-entiteettiin.</p> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Viitataksesi tähän tietueeseen, käytä sen URL-osoitetta. Voit käyttää URL-osoitetta myös palataksesi suoraan tähän tietueeseen milloin tahansa. </p>",
+    "repetition": ""
   },
   "deckGlMap": {
     "arcColouring": "Kaarien väritys:",
