@@ -1,4 +1,5 @@
 import React from 'react'
+import intl from 'react-intl-universal'
 import makeStyles from '@mui/styles/makeStyles'
 import { SRLWrapper, useLightbox } from 'simple-react-lightbox'
 import Button from '@mui/material/Button'
@@ -48,12 +49,12 @@ const ImageGallerySRL = props => {
   })
   return (
     <>
-      <Button aria-label='open larger image' onClick={() => openLightbox()}>
+      <Button aria-label={intl.get('table.image.openLarger')} onClick={() => openLightbox()}>
         <img
           className={classes.previewImage}
           height={props.previewImageHeight}
           src={images[0].src}
-          alt='preview image'
+          alt={intl.get('table.image.preview')}
         />
       </Button>
       <SRLWrapper options={srlOptions} elements={images} />

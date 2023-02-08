@@ -104,6 +104,10 @@
       "previous": "Edellinen sivu",
       "next": "Seuraava sivu",
       "last": "Viimeinen sivu"
+    },
+    "image": {
+      "preview": "Esikatselukuva",
+      "openLarger": "Avaa suurempi kuva"
     }
   },
   "apexCharts": {

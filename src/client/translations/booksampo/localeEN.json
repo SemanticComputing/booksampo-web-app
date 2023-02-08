@@ -104,6 +104,10 @@
       "previous": "Previous Page",
       "next": "Next Page",
       "last": "Last Page"
+    },
+    "image": {
+      "preview": "Preview image",
+      "openLarger": "Open larger image"
     }
   },
   "apexCharts": {
