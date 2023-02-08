@@ -12,9 +12,9 @@
   },
   "appDescription1": "Sampo is a web service for searching and studying place names. The search results can be viewed as a table, on maps, and as statistical distributions. Historical and current background maps are provided.",
   "appDescription2": "Start by choosing source dataset(s) and input a place name on the search field. Alternatively you can search by area.",
-  "selectPerspective": "Valitse näkymä tiedon hakuun:",
-  "mainPageImageLicence": "Images used under license from Shutterstock.com",
-  "backendErrorText": "One of the backend services is not available at the moment. Please try again later.",
+  "selectPerspective": "Valitse näkymä etsiäksesi ja selataksesi aineistoja:",
+  "mainPageImageLicence": "Kuvat käytössä Shutterstock.com:in lisensillä",
+  "backendErrorText": "Yksi backend-palveluista ei ole tällä hetkellä saatavilla. Yritä myöhemmin uudelleen.",
   "infoHeader": {
     "toggleInstructions": "Paina näyttääksesi tai piilottaaksesi ohjeet"
   },
@@ -52,27 +52,15 @@
     "min": "Min",
     "max": "Max",
     "facetSearchFieldPlaceholder": "Hae...",
-    "applyFacetSelection": "apply",
+    "applyFacetSelection": "käytä",
     "pieChart": {
-      "tooltip": "Pie chart"
+      "tooltip": "Ympyrädiagrammi"
     },
     "barChart": {
-      "tooltip": "Bar chart",
-      "language": {
-        "title": "Language",
-        "xaxisTitle": "Language",
-        "yaxisTitle": "Manuscript count",
-        "seriesTitle": "Manuscript count"
-      }
+      "tooltip": "Pylväsdiagrammi"
     },
     "lineChart": {
-      "tooltip": "Line chart",
-      "productionTimespan": {
-        "title": "Manuscript production by decade",
-        "xaxisTitle": "Decade",
-        "yaxisTitle": "Manuscript count",
-        "seriesTitle": "Manuscript count"
-      }
+      "tooltip": "Viivakaavio"
     }
   },
   "tabs": {
@@ -99,23 +87,14 @@
     "gender_ratio_chart": "romaanien kirjoittajien sukupuolijakauma",
     "novels_taking_place_genres_chart": "romaanien genret",
     "novels_taking_place_themes_chart": "romaanien teemat",
-    "production_places": "production places",
-    "production_places_heatmap": "production heatmap",
-    "last_known_locations": "last known locations",
     "migrations": "migraatio",
     "network": "network",
-    "export": "export",
-    "production_dates": "production dates",
-    "event_dates": "event dates",
-    "map_clusters": "clustered map",
-    "map_markers": "map",
+    "export": "vie",
     "heatmap": "tapahtumapaikkojen lämpökartta",
     "people_heatmap": "asuinpaikkojen lämpökartta",
-    "statistics": "statistics",
-    "emloLetterNetwork": "Network of letters",
-    "emloSentReceived": "Sent and received letters",
-    "download": "download",
-    "recommendations": "recommendations"
+    "statistics": "tilastot",
+    "download": "lataa",
+    "recommendations": "suositukset"
   },
   "table": {
     "rowsPerPage": "Rivejä per sivu",
@@ -160,12 +139,6 @@
     }
   },
   "lineChart": {
-    "productionCount": "Production",
-    "transferCount": "Transfer of custody",
-    "observationCount": "Observation",
-    "sentCount": "Sent",
-    "receivedCount": "Received",
-    "allCount": "All"
   },
   "exportToYasgui": "avaa tulostaulukkohaku Yasgui SPARQL -editorissa",
   "openInLinkedDataBrowser": "avaa linkitetyn datan selaimessa",

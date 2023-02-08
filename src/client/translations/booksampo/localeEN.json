@@ -57,22 +57,10 @@
       "tooltip": "Pie chart"
     },
     "barChart": {
-      "tooltip": "Bar chart",
-      "language": {
-        "title": "Language",
-        "xaxisTitle": "Language",
-        "yaxisTitle": "Manuscript count",
-        "seriesTitle": "Manuscript count"
-      }
+      "tooltip": "Bar chart"
     },
     "lineChart": {
-      "tooltip": "Line chart",
-      "productionTimespan": {
-        "title": "Manuscript production by decade",
-        "xaxisTitle": "Decade",
-        "yaxisTitle": "Manuscript count",
-        "seriesTitle": "Manuscript count"
-      }
+      "tooltip": "Line chart"
     }
   },
   "tabs": {
@@ -99,21 +87,12 @@
     "gender_ratio_chart": "gender ratio of novel authors",
     "novels_taking_place_genres_chart": "novel genres",
     "novels_taking_place_themes_chart": "novel themes",
-    "production_places": "production places",
-    "production_places_heatmap": "production heatmap",
-    "last_known_locations": "last known locations",
     "migrations": "migrations",
     "network": "network",
     "export": "export",
-    "production_dates": "production dates",
-    "event_dates": "event dates",
-    "map_clusters": "clustered map",
-    "map_markers": "map",
     "heatmap": "concrete places heatmap",
     "people_heatmap": "residences heatmap",
     "statistics": "statistics",
-    "emloLetterNetwork": "Network of letters",
-    "emloSentReceived": "Sent and received letters",
     "download": "download",
     "recommendations": "recommendations"
   },
@@ -160,28 +139,22 @@
     }
   },
   "lineChart": {
-    "productionCount": "Production",
-    "transferCount": "Transfer of custody",
-    "observationCount": "Observation",
-    "sentCount": "Sent",
-    "receivedCount": "Received",
-    "allCount": "All"
   },
   "exportToYasgui": "open the result table query in yasgui sparql editor",
   "openInLinkedDataBrowser": "open in linked data browser",
   "resultsAsCSV": "download the search results as a CSV table",
   "facets": {
     "dateFacet": {
-      "invalidDate": "Epäkelpo päivämäärä.",
-      "toBeforeFrom": "Alkupäivämäärän täytyy olla ennen loppupäivämäärää.",
-      "minDate": "Aikaisin sallittu päivämäärä on {minDate}",
-      "maxDate": "Myöhäisin sallittu päivämäärä on {maxDate}",
-      "cancel": "Peruuta",
-      "fromLabel": "Alku",
-      "toLabel": "Loppu"
+      "invalidDate": "Invalid date.",
+      "toBeforeFrom": "The start date must be before the end date.",
+      "minDate": "Earliest allowed date is {minDate}",
+      "maxDate": "Latest allowed date is {maxDate}",
+      "cancel": "Cancel",
+      "fromLabel": "From",
+      "toLabel": "To"
     },
     "textFacet": {
-      "inputLabel": "Etsi nimellä"
+      "inputLabel": "Search by name"
     },
     "sliderFacet": {
       "invalidStartOrEnd": "Min value must be smaller than max value. The smallest value can be {min} and the largest value can be {max}."
@@ -227,10 +200,10 @@
     "showMoreInformation": "Click to show more information.",
     "peopleMigrations": {
       "legendTitle": "Arc colouring",
-      "legendFrom": "Person birth place",
-      "legendTo": "Person death place",
-      "from": "Birth place:",
-      "to": "Death place:",
+      "legendFrom": "Place of birth of a person",
+      "legendTo": "Place of death of a person",
+      "from": "Place of birth:",
+      "to": "Place of death:",
       "count": "Person count",
       "listHeadingSingleInstance": "Person:",
       "listHeadingMultipleInstances": "People:"
