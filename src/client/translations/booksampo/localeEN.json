@@ -236,8 +236,8 @@
     "novels": {
       "label": "Novels",
       "facetResultsType": "novels",
-      "shortDescription": "Novels description",
-      "longDescription": "",
+      "shortDescription": "Perspective where you can search for novels.",
+      "longDescription": "Perspective where you can search for novels. Different publications/editions of novels can be found from the novel instace pages or alternatively from the 'Publications' perspective.",
       "instancePage": {
         "label": "Novel",
         "description": ""
@@ -383,8 +383,8 @@
     "nonfictionBooks": {
       "label": "Nonfiction books",
       "facetResultsType": "nonfiction books",
-      "shortDescription": "Nonfiction books description",
-      "longDescription": "",
+      "shortDescription": "Perspective where you can search for nonfiction books.",
+      "longDescription": "Perspective where you can search for nonfiction books. Different publications/editions of nonfiction books can be found from the nonfiction book instace pages or alternatively from the 'Publications' perspective.",
       "instancePage": {
         "label": "Nonfiction book",
         "description": ""
@@ -498,7 +498,7 @@
     "people": {
       "label": "People",
       "facetResultsType": "people",
-      "shortDescription": "People description",
+      "shortDescription": "Perspective where you can search for people related to literature.",
       "longDescription": "",
       "instancePage": {
         "label": "Person",
@@ -621,7 +621,7 @@
     "covers": {
       "label": "Covers",
       "facetResultsType": "covers",
-      "shortDescription": "Covers description",
+      "shortDescription": "Perspective where you can search for covers.",
       "longDescription": "",
       "instancePage": {
         "label": "Cover",
@@ -674,7 +674,7 @@
     "publications": {
       "label": "Publications",
       "facetResultsType": "publications",
-      "shortDescription": "Publications description",
+      "shortDescription": "Perspective where you can search for publications.",
       "longDescription": "",
       "instancePage": {
         "label": "Publication",
@@ -763,7 +763,7 @@
     "places": {
       "label": "Places",
       "facetResultsType": "place(s)",
-      "shortDescription": "Places description",
+      "shortDescription": "Perspective where you can search for places.",
       "longDescription": "",
       "instancePage": {
         "label": "Place",
@@ -800,7 +800,7 @@
     "series": {
       "label": "Series",
       "facetResultsType": "series",
-      "shortDescription": "Series description",
+      "shortDescription": "Perspective where you can search for series.",
       "longDescription": "",
       "instancePage": {
         "label": "Series",
@@ -841,7 +841,7 @@
     "reviews": {
       "label": "Reviews",
       "facetResultsType": "review(s)",
-      "shortDescription": "Reviews description",
+      "shortDescription": "Perspective where you can search for reviews.",
       "longDescription": "",
       "instancePage": {
         "label": "Review",
