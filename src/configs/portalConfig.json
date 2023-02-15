@@ -79,6 +79,12 @@
                     "externalLink": true,
                     "translatedUrl": "blogUrl",
                     "translatedText": "blog"
+                },
+                {
+                    "id": "portal",
+                    "externalLink": true,
+                    "translatedUrl": "portalUrl",
+                    "translatedText": "portal"
                 }
             ]
         },
