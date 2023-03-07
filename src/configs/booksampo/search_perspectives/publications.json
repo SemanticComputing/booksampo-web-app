@@ -8,7 +8,7 @@
     "sparqlQueriesFile": "SparqlQueriesPublications.js",
     "facetClass": "kaunokki:fyysinen_teos",
     "langTag": "fi",
-    "frontPageImage": "main_page/manuscripts-452x262.jpg",
+    "frontPageImage": "main_page/publications_persp.jpg",
     "searchMode": "faceted-search",
     "defaultActiveFacets": [
         "prefLabel"

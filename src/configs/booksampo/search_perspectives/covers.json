@@ -8,7 +8,7 @@
     "sparqlQueriesFile": "SparqlQueriesCovers.js",
     "facetClass": "kaunokki:kansi",
     "langTag": "fi",
-    "frontPageImage": "main_page/works-452x262.jpg",
+    "frontPageImage": "main_page/covers_persp.jpg",
     "searchMode": "faceted-search",
     "defaultActiveFacets": [
         "prefLabel"

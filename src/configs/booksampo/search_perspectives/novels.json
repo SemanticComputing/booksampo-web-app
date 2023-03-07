@@ -8,7 +8,7 @@
     "sparqlQueriesFile": "SparqlQueriesNovels.js",
     "facetClass": "kaunokki:romaani",
     "langTag": "fi",
-    "frontPageImage": "main_page/works-452x262.jpg",
+    "frontPageImage": "main_page/novels_persp.jpg",
     "searchMode": "faceted-search",
     "defaultActiveFacets": [
         "prefLabel"

@@ -8,7 +8,7 @@
     "sparqlQueriesFile": "SparqlQueriesPeople.js",
     "facetClass": "foaf:Person",
     "langTag": "fi",
-    "frontPageImage": "main_page/events-452x262.jpg",
+    "frontPageImage": "main_page/people_persp.jpg",
     "searchMode": "faceted-search",
     "defaultActiveFacets": [
         "prefLabel"
