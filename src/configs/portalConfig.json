@@ -65,6 +65,7 @@
             "showSearchField": false,
             "feedbackLink": "https://www.kirjasampo.fi/fi/palaute",
             "externalInstructions": false,
+            "externalAccessibilityStatement": false,
             "externalAboutPage": false,
             "reducedHeight": 48,
             "defaultHeight": 64,
@@ -74,6 +75,11 @@
                     "id": "about",
                     "translatedText": "aboutThePortal",
                     "internalLink": "/about"
+                },
+                {
+                    "id": "accessibility",
+                    "translatedText": "accessibilityStatement",
+                    "internalLink": "/accessibility"
                 },
                 {
                     "id": "blog",

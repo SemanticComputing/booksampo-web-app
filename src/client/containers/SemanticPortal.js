@@ -388,6 +388,13 @@ const SemanticPortal = props => {
               {intl.getHTML('instructions')}
             </TextPage>
           </Route>}
+        {/* create a route for accessibility statement page */}
+        {!layoutConfig.topBar.externalAccessibilityStatement &&
+          <Route path={`${rootUrlWithLang}/accessibility`}>
+            <TextPage layoutConfig={layoutConfig}>
+              {intl.getHTML('accessibility')}
+            </TextPage>
+          </Route>}
       </>
     </Box>
   )
