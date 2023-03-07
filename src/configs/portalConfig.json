@@ -26,8 +26,13 @@
             },
             {
                 "id": "fi",
-                "label": "English",
+                "label": "Finnish",
                 "filename": "localeFI.json"
+            },
+            {
+                "id": "sv",
+                "label": "Swedish",
+                "filename": "localeSV.json"
             }
         ]
     },

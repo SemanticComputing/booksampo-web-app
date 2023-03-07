@@ -327,7 +327,8 @@
             "externalLink": false,
             "sortValues": false,
             "numberedList": false,
-            "disableSort": true
+            "disableSort": true,
+            "minWidth": 150
         },
         {
             "id": "translator",

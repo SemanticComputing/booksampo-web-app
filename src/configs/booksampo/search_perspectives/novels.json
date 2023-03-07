@@ -361,7 +361,7 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 100
+            "minWidth": 150
         },
         {
             "id": "genre",
@@ -398,7 +398,7 @@
             "sortValues": false,
             "numberedList": false,
             "disableSort": true,
-            "minWidth": 100
+            "minWidth": 150
         },
         {
             "id": "award",
@@ -452,7 +452,7 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 150
+            "minWidth": 200
         },
         {
             "id": "exactTimeOfStory",
@@ -518,7 +518,7 @@
             "externalLink": false,
             "sortValues": false,
             "numberedList": false,
-            "minWidth": 150
+            "minWidth": 200
         },
         {
             "id": "review",

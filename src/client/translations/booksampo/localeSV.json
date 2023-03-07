@@ -1,0 +1,871 @@
+{
+  "languageLabel": "Svenska",
+  "html": {
+    "title": "Boksampo",
+    "description": ""
+  },
+  "appTitle": {
+    "short": "Boksampo",
+    "mobile": "Boksampo",
+    "long": "&nbsp; &nbsp; Boksampo &nbsp; &nbsp;",
+    "subheading": "Semantisk sökning och data-analys"
+  },
+  "appDescription1": "Sampo is a web service for searching and studying place names. The search results can be viewed as a table, on maps, and as statistical distributions. Historical and current background maps are provided.",
+  "appDescription2": "Start by choosing source dataset(s) and input a place name on the search field. Alternatively you can search by area.",
+  "selectPerspective": "Välj vy för att söka och bläddra i materialet:",
+  "mainPageImageLicence": "Bilderna används med Shuttertock.com licens",
+  "backendErrorText": "En av backend-tjänsterna är för närvarande inte tillgänglig. Försök igen senare.",
+  "infoHeader": {
+    "toggleInstructions": "Klicka för att visa eller gömma anvisningarna"
+  },
+  "topBar": {
+    "feedback": "respons",
+    "info": {
+      "info": "Info",
+      "blog": "Projektets blogg",
+      "blogUrl": "https://seco.cs.aalto.fi/applications/kirjasampo/",
+      "portal": "Boksampo-huvudportal",
+      "portalUrl": "https://www.boksampo.fi/",
+      "aboutThePortal": "Information om portalen",
+      "accessibilityStatement": "Tillgänglighetsutlåtande"
+    },
+    "searchBarPlaceHolder": "Sök igenom hela innehållet",
+    "searchBarPlaceHolderShort": "Sök",
+    "instructions": "anvisningar"
+  },
+  "facetBar": {
+    "results": "Resultat",
+    "filters": "Filter",
+    "activeFilters": "Aktiva filter:",
+    "removeAllFilters": "Ta bort alla",
+    "narrowDownBy": "Begränsa",
+    "filterOptions": "Filterinställningar",
+    "filterByName": "Filtrera enligt namn",
+    "filterByBoundingBox": "Filtera med en avgränsande rektangel",
+    "selectionOptions": "Urvalsinställningar",
+    "selectAlsoSubconcepts": "Välj alla underbegrepp automatiskt",
+    "doNotSelectSubconcepts": "Välj inte underbegrepp",
+    "sortingOptions": "Sorteringsinställningar",
+    "sortAlphabetically": "Sortera i alfabetisk ordning",
+    "sortByNumberOfSearchResults": "Sortera enligt antal sökresultat",
+    "useDisjunction": "Använd en logisk OR-koppling mellan valen",
+    "useConjuction": "Använd en logisk AND-koppling mellan valen",
+    "minYear": "Minimiår",
+    "maxYear": "Maximiår",
+    "min": "Min",
+    "max": "Max",
+    "facetSearchFieldPlaceholder": "Sök...",
+    "applyFacetSelection": "använd",
+    "pieChart": {
+      "tooltip": "Cirkeldiagram"
+    },
+    "barChart": {
+      "tooltip": "Stapeldiagram"
+    },
+    "lineChart": {
+      "tooltip": "Linjediagram"
+    }
+  },
+  "tabs": {
+    "table": "tabell",
+    "publications": "publikationer",
+    "pie_chart": "cirkeldiagram/stapeldiagram",
+    "genre_chart": "litterära genrer",
+    "activity_chart": "aktivitet per decennium",
+    "genre_decade_chart": "litterära genrer per decennium",
+    "map": "karta över händelseplatser",
+    "scatterplot": "författarnas könsfördelning",
+    "map_birth": "karta över födelseorter",
+    "map_death": "karta över dödsorter",
+    "publications_by_decade_and_genre": "publikationernas genrer per decennium",
+    "publications_by_decade_and_theme": "publikationernas teman per decennium",
+    "publication_years": "publikationer per år",
+    "publication_genre_years": "genrer enligt år",
+    "themes_and_keywords": "teman och ämnesord enligt år",
+    "concrete_place_years": "Händelseplatser enligt år",
+    "length_years": "sidantal enligt år",
+    "publication_gender_ratio_years": "könsfördelning enligt år",
+    "place_of_birth_chart": "födelseorter för dem som dött här",
+    "place_of_death_chart": "dödsorter för dem som fötts här",
+    "gender_ratio_chart": "romanförfattarnas könsfördelning",
+    "novels_taking_place_genres_chart": "romanernas genrer",
+    "novels_taking_place_themes_chart": "romanernas teman",
+    "migrations": "migration",
+    "network": "network",
+    "export": "exportera",
+    "heatmap": "värmekarta över händelseplatserna",
+    "people_heatmap": "värmekarta över bostadsorter",
+    "statistics": "statistik",
+    "download": "ladda",
+    "recommendations": "rekommendationer"
+  },
+  "table": {
+    "rowsPerPage": "Rader per sida",
+    "of": "/",
+    "pagination": {
+      "first": "Första sidan",
+      "previous": "Föregående sida",
+      "next": "Följande sida",
+      "last": "Sista sidan"
+    },
+    "image": {
+      "preview": "Förhandsvisning",
+      "openLarger": "Öppna en större bild"
+    }
+  },
+  "apexCharts": {
+    "grouping": "Sorteringskriterium:",
+    "by": "by",
+    "property": "X-axel:",
+    "numberOfNovels": "Antal romaner",
+    "chartType": "Diagramtyp:",
+    "pie": "Cirkeldiagram",
+    "bar": "stapeldiagram",
+    "other": "annat",
+    "count": "antal",
+    "year": "år",
+    "average": "medeltal",
+    "resultClasses": {
+      "novelsByGenre": "litterär genre",
+      "novelsByOriginalLanguage": "orginalspråk",
+      "novelsByTheme": "tema",
+      "novelsByPublisher": "förlag",
+      "novelsByCharacter": "upphovsman",
+      "novelsByAuthorGender": "upphovsmannens kön",
+      "peopleByGender": "kön",
+      "peopleByOccupation": "yrke",
+      "peopleByNationality": "nationalitet",
+      "peopleByGenreWritten": "genre",
+      "novelsByDecade": "antal verk per decennium",
+      "novelGenresByDecade": "verkens genrer per decennium",
+      "coversByKeyword": "ämnesord",
+      "coversByWorkType": "typ av verk",
+      "coversByWorkGenre": "verkets genre",
+      "coversByWorkTheme": "verkets tema",
+      "publicationsByYearLineChart": "Publikationer per år",
+      "publicationGenresByYearLineChart": "Tio i topp genrer enligt år",
+      "themeTimespanLineChart": "Tio i topp teman enligt år",
+      "keywordTimespanLineChart": "Tio i topp ämnesord enligt år",
+      "concretePlacesByYearLineChart": "Tio i topp händelseplatser enligt år",
+      "publicationLengthsByYearLineChart": "Genomsnittligt antal sidor per år",
+      "publicationGenderRatioByYearLineChart": "Könsfördelning för publikationernas upphovsmän enligt år (staplad)"
+    }
+  },
+  "lineChart": {
+  },
+  "exportToYasgui": "öppna resultattabellsökningen i Yasgui SPARQL -redigeraren",
+  "openInLinkedDataBrowser": "öppna länkad data i webbläsaren",
+  "resultsAsCSV": "ladda ner sökresultaten som en CSV-tabell",
+  "facets": {
+    "dateFacet": {
+      "invalidDate": "Ogiltigt datum.",
+      "toBeforeFrom": "Startdatumet måste vara före slutdatumet",
+      "minDate": "Det tidigaste tillåtna datumet är{minDate}",
+      "maxDate": "Det senaste tillåtna datumet är {maxDate}",
+      "cancel": "Avbryt",
+      "fromLabel": "Början",
+      "toLabel": "Slutet"
+    },
+    "textFacet": {
+      "inputLabel": "Sök på namn"
+    },
+    "sliderFacet": {
+      "invalidStartOrEnd": "Minimivärdet måste vara mindre än maximivärdet. Det lägsta möjliga värdet är {min} och det högsta möjliga värdet är {max}."
+    }
+  },
+  "leafletMap": {
+    "basemaps": {
+      "mapbox": {
+        "light-v10": "Mapbox Light (OpenStreetMap)"
+      },
+      "googleRoadmap": "Google Maps",
+      "topographicalMapNLS": "Topographical map (National Land Survey of Finland)",
+      "backgroundMapNLS": "Background map (National Land Survey of Finland)",
+      "airMapNLS": "Aerial map (National Land Survey of Finland)"
+    },
+    "externalLayers": {
+      "WFS_MV_Kulttuuriymparisto:Arkeologiset_kohteet_alue": "Register of Archaeological Sites, areas (Finnish Heritage Agency)",
+      "WFS_MV_Kulttuuriymparisto:Arkeologiset_kohteet_piste": "Register of Archaeological Sites, points (Finnish Heritage Agency)",
+      "WFS_MV_KulttuuriymparistoSuojellut:Muinaisjaannokset_alue": "Register of Archaeological Sites, areas (Finnish Heritage Agency)",
+      "WFS_MV_KulttuuriymparistoSuojellut:Muinaisjaannokset_piste": "Register of Archaeological Sites, points (Finnish Heritage Agency)",
+      "fhaLidar": "Elevation model (Finnish Heritage Agency)",
+      "karelianMaps": "Karelian maps, 1:100 000 topographic (SeCo)",
+      "senateAtlas": "Senate atlas, 1:21 000 topographic (SeCo)",
+      "kotus:pitajat": "Finnish parishes in 1938 (Institute for the Languages of Finland)",
+      "kotus:rajat-sms-alueet": "Dialectical regions in Finland (Institute for the Languages of Finland)",
+      "kotus:rajat-sms-alueosat": "Dialectical subregions in Finland (Institute for the Languages of Finland)",
+      "kotus:rajat-lansi-ita": "Border between western and eastern dialects in Finland (Institute for the Languages of Finland)"
+    },
+    "mapModeButtons": {
+      "markers": "Markers",
+      "heatmap": "Heatmap"
+    },
+    "wrongZoomLevel": "The map zoom level has to at least 11",
+    "wrongZoomLevelFHA": "The map zoom level has to be at least 13 in order to show this layer",
+    "tooManyResults": "More than 500 results, please use clustered map or heatmap"
+  },
+  "instancePageGeneral": {
+    "introduction": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Den här sidan ger en för människor läsbar sammanfattning av de datapunkter som är länkade till denna {entity}-entitet.</p> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> För att referera till denna post, använd dess URL-adress. Du kan använda URL-adressen också för att när som helst gå tillbaka direkt till denna post. </p>",
+    "repetition": ""
+  },
+  "deckGlMap": {
+    "arcColouring": "Bågarnas färgsättning:",
+    "showMoreInformation": "Klicka för att se mer information",
+    "peopleMigrations": {
+      "legendTitle": "Bågarnas färgsättning",
+      "legendFrom": "Personens födelseort",
+      "legendTo": "Personens dödsort",
+      "from": "Födelseort:",
+      "to": "Dödsort:",
+      "count": "Antal personer",
+      "listHeadingSingleInstance": "Person:",
+      "listHeadingMultipleInstances": "Personer:"
+    }
+  },
+  "perspectives": {
+    "novels": {
+      "label": "Romaner",
+      "facetResultsType": "roman(er)",
+      "shortDescription": "Vy för sökning av romaner.",
+      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">Vy för sökning av romaner. Separata publikationer hittas på romanens egna sida eller alternativt i vyn Publikationer.</p>",
+      "instancePage": {
+        "label": "Roman",
+        "description": ""
+      },
+      "novelInstancePagePublications": {
+        "label": "Publikationer",
+        "item": {
+          "label": "Publikation"
+        }
+      },
+      "scatterplot": {
+        "firstInst": {
+          "label": "kvinnor"
+        },
+        "secondInst": {
+          "label": "män"
+        },
+        "ratio": {
+          "majority": {
+            "label": "andel kvinnor av författarna till böcker som utspelar sig här"
+          },
+          "minority": {
+            "label": "andel män av författarna till böcker som utspelar sig här"
+          }
+        },
+        "total": {
+          "label": "sammanlagda antalet manliga och kvinnliga författare"
+        }
+      },
+      "map": {
+        "popup": {
+          "label": "Romaner som utspelar sig här:"
+        }
+      },
+      "properties": {
+        "image": {
+          "label": "Pärmbild",
+          "description": "Verkets pärmbild."
+        },
+        "uri": {
+          "label": "URI",
+          "description": "Unik identifierare"
+        },
+        "prefLabel": {
+          "label": "Namn",
+          "description": "Verkets namn.",
+          "textFacetInputPlaceholder": ""
+        },
+        "author": {
+          "label": "Upphovsman",
+          "description": "Verkets upphovsman."
+        },
+        "genre": {
+          "label": "Litterär genre",
+          "description": "Verkets litterära genre."
+        },
+        "theme": {
+          "label": "Tema",
+          "description": "Verkets tema."
+        },
+        "keyword": {
+          "label": "Ämnesord",
+          "description": "Verkets ämnesord."
+        },
+        "originalLanguage": {
+          "label": "Orginalspråk",
+          "description": "Verkets orginalspråk."
+        },
+        "award": {
+          "label": "Pris och utmärkelser",
+          "description": "Eventuella pris och utmärkelser som tilldelats verket."
+        },
+        "mainCharacter": {
+          "label": "Huvudperson",
+          "description": "Verkets huvudperson(er)."
+        },
+        "character": {
+          "label": "Aktör",
+          "description": "Verkets aktör(er)."
+        },
+        "setting": {
+          "label": "Händelesernas miljö",
+          "description": "Händelsernas miljö i verket."
+        },
+        "concretePlace": {
+          "label": "Händelseplats",
+          "description": "Plats för händelserna i verket."
+        },
+        "timeOfStory": {
+          "label": "Händelsernas tidpunkt",
+          "description": "Händelsernas tidpunkt i verket."
+        },
+        "exactTimeOfStory": {
+          "label": "Exakt tidpunkt ",
+          "description": "Exakt tidpunkt för händelserna i verket."
+        },
+        "isbn": {
+          "label": "ISBN",
+          "description": "Verkets ISBN."
+        },
+        "bookDescription": {
+          "label": "Beskrivning",
+          "description:": "Beskrivning av verket."
+        },
+        "pageCount": {
+          "label": "Sidantal",
+          "description": "Sidantal i verkets publikationer." 
+        },
+        "publisher": {
+          "label": "Förlag",
+          "description": "Förlag för verkets publikationer."
+        },
+        "publicationYear": {
+          "label": "Publikationsår",
+          "description": "Verkets publikationsår."
+        },
+        "collection": {
+          "label": "Som del av samlingsverk",
+          "description": "Samlingsverk, som verket är en del av."
+        },
+        "review": {
+          "label": "Recension",
+          "description": "Recension av verket."
+        },
+        "kirjasampoURL": {
+          "label": "Länk till sida i Boksampo",
+          "description": "Länk till verkets sida i Boksampo."
+        },
+        "language": {
+          "label": "Språk",
+          "description": "Publikationens språk."
+        },
+        "firstVersion": {
+          "label": "Första versionen",
+          "description": "Beskriver om publikationen är den första version av verket."
+        },
+        "otherAuthor": {
+          "label": "Övriga upphovsmän",
+          "description": "Andra upphovsmän som deltagit i skapandet av publikationen."
+        }
+      }
+    },
+    "nonfictionBooks": {
+      "label": "Fackböcker",
+      "facetResultsType": "fackbok/fackböcker",
+      "shortDescription": "Vy för sökning av fackböcker.",
+      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">Vy för sökning av fackböcker. Separata publikationer hittas på fackbokens egna sida eller alternativt i vyn Publikationer.</p>",
+      "instancePage": {
+        "label": "Fackbok",
+        "description": ""
+      },
+      "nonfictionBookInstancePagePublications": {
+        "label": "Publikationer",
+        "item": {
+          "label": "Publikation"
+        }
+      },
+      "properties": {
+        "image": {
+          "label": "Pärmbild",
+          "description": "Verkets pärmbild."
+        },
+        "uri": {
+          "label": "URI",
+          "description": "Unik identifierare"
+        },
+        "prefLabel": {
+          "label": "Namn",
+          "description": "Verkets namn",
+          "textFacetInputPlaceholder": ""
+        },
+        "author": {
+          "label": "Upphovsman",
+          "description": "Verkets upphovsman"
+        },
+        "genre": {
+          "label": "Litterär genre",
+          "description": "Verkets litterära genre"
+        },
+        "theme": {
+          "label": "Tema",
+          "description": "Verkets tema"
+        },
+        "keyword": {
+          "label": "Ämnesord",
+          "description": "Verkets ämnesord."
+        },
+        "originalLanguage": {
+          "label": "Orginalspråk",
+
+          "description": "Verkets orginalspråk."
+        },
+        "award": {
+          "label": "Pris och utmärkelser",
+          "description": "Eventuella pris och utmärkelser som tilldelats verket."
+        },
+        "mainCharacter": {
+          "label": "Huvudperson",
+          "description": "Verkets huvudperson(er)."
+        },
+        "character": {
+          "label": "Aktör",
+          "description": "Verkets aktör(er)."
+        },
+        "setting": {
+          "label": "Händelsernas miljö",
+          "description": "Händelsernas miljö i verket."
+        },
+        "concretePlace": {
+          "label": "Händelseplats",
+          "description": "Plats för händelserna i verket."
+        },
+        "timeOfStory": {
+          "label": "Tidpunkt för händelserna",
+          "description": "Tidpunkt för händelserna i verket."
+        },
+        "exactTimeOfStory": {
+          "label": "Exakt tidpunkt",
+          "description": "Exakt tidpunkt för verket."
+        },
+        "isbn": {
+          "label": "ISBN",
+          "description": "Verkets ISBN."
+        },
+        "bookDescription": {
+          "label": "Beskrivning",
+          "description:": "Beskrivning av verket."
+        },
+        "pageCount": {
+          "label": "Sidantal",
+          "description": "Sidantal i verkets publikationer"
+        },
+        "publisher": {
+          "label": "Förlag",
+          "description": "Förlag för verkets publikationer."
+        },
+        "publicationYear": {
+          "label": "Publikationsår",
+          "description": "Verkets publikationsår."
+        },
+        "language": {
+          "label": "Språk",
+          "description": "Publikationens språk."
+        },
+        "firstVersion": {
+          "label": "Första versionen",
+          "description": "Beskriver om publikationen är den första versionen av verket."
+        },
+        "otherAuthor": {
+          "label": "Övriga upphovsmän",
+          "description": "Andra upphovsmän som deltagit i skapandet av publikationen."
+        },
+        "yklClass": {
+          "label": "KAB-klass",
+          "description": "Verkets KAB-klass."
+        }
+      }
+    },
+    "people": {
+      "label": "Personer",
+      "facetResultsType": "person(er)",
+      "shortDescription": "Vy för sökning av personer med anknytning till litteratur",
+      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">Vy för sökning av personer med anknytning till litteratur. Till dessa personer hör till exempel författare, översättare och illustratörer.</p>",
+      "instancePage": {
+        "label": "Person",
+        "description": ""
+      },
+      "map": {
+        "popup": {
+          "birth": {
+            "label": "Här födda personer:"
+          },
+          "death": {
+            "label": "Här döda personer:"
+          }
+        }
+      },
+      "properties": {
+        "image": {
+          "label": "Bild",
+          "description": "Bild på personen."
+        },
+        "uri": {
+          "label": "URI",
+          "description": "Unik identifierare"
+        },
+        "prefLabel": {
+          "label": "Namn",
+          "description": "Personens namn.",
+          "textFacetInputPlaceholder": ""
+        },
+        "otherName": {
+          "label": "Övriga namn",
+          "description": "Personens övriga namn."
+        },
+        "occupation": {
+          "label": "Yrke",
+          "description": "Personens yrke."
+        },
+        "gender": {
+          "label": "Kön",
+          "description": "Personens kön."
+        },
+        "language": {
+          "label": "Språk",
+          "description": "Språk som personen använder."
+        },
+        "nationality": {
+          "label": "Nationalitet",
+          "description": "Personens nationalitet."
+        },
+        "activeYears": {
+          "label": "Aktiva år",
+          "description": "De år personer veterligen aktivt producerat material."
+        },
+        "education": {
+          "label": "Utbildning",
+          "description": "Personens utbildning."
+        },
+        "placeOfEducation": {
+          "label": "Studieort(er)",
+          "description": "Ort där personen fått sin utbildning."
+        },
+        "hasLivedIn": {
+          "label": "Hemort(er)",
+          "description": "Ort där personen bor eller bott."
+        },
+        "timeOfBirth": {
+          "label": "Född",
+          "description": "Personens födelsedatum."
+        },
+        "placeOfBirth": {
+          "label": "Födelseort",
+          "description": "Personens födelseort."
+        },
+        "timeOfDeath": {
+          "label": "Död",
+          "description": "Personens dödsdatum."
+        },
+        "placeOfDeath": {
+          "label": "Dödsort",
+          "description": "Personens dödsort."
+        },
+        "keyword": {
+          "label": "Ämnesord",
+          "description": "Ämnesord relaterade till personen."
+        },
+        "award": {
+          "label": "Pris och utmärkelser",
+          "description": "Pris och utmärkelser som personen fått."
+        },
+        "positionOfTrust": {
+          "label": "Förtoendeuppdrag",
+          "description": "Personens förtoendeuppdrag."
+        },
+        "school": {
+          "label": "Stilart",
+          "description": "Stilart relaterad till personen."
+        },
+        "biography": {
+          "label": "Biografiska uppgifter",
+          "description": "Biografiska uppgifter om personen."
+        },
+        "samePersonAs": {
+          "label": "Samma person som",
+          "description": "Andra namn eller pseudonymer som personen använder."
+        },
+        "novel": {
+          "label": "Romaner",
+          "description": "Romaner som personen skrivit."
+        },
+        "nonfictionBook": {
+          "label": "Fackböcker",
+          "description": "Fackböcker som personen skrivit."
+        },
+        "otherWork": {
+          "label": "Övriga verk",
+          "description": "Övriga verk skrivna av personen."
+        }
+      }
+    },
+    "covers": {
+      "label": "Pärmbilder",
+      "facetResultsType": "pärmbild(er)",
+      "shortDescription": "Vy för sökning av verkens pärmbilder",
+      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">Vy för sökning av verkens pärmbilder.</p>",
+      "instancePage": {
+        "label": "Pärmbild",
+        "description": ""
+      },
+      "properties": {
+        "image": {
+          "label": "Pärmbild",
+          "description": "Pärmbild."
+        },
+        "uri": {
+          "label": "URI",
+          "description": "Unik identifierare"
+        },
+        "prefLabel": {
+          "label": "Namn",
+          "description": "Pärmbildens namn.",
+          "textFacetInputPlaceholder": ""
+        },
+        "keyword": {
+          "label": "Ämnesord",
+          "description": "Pärmbildens ämnesord."
+        },
+        "illustrator": {
+          "label": "Illustratör",
+          "description": "Pärmbildsillustratör(er)."
+        },
+        "work": {
+          "label": "Verk",
+          "description": "Verket som pärmen är gjord för."
+        },
+        "workType": {
+          "label": "Typ av verk",
+          "description": "Typ av verk(t.ex. roman, novell, ...)"
+        },
+        "workGenre": {
+          "label": "Verkets genre",
+          "description": "Verket genre(r)"
+        },
+        "workTheme": {
+          "label": "Verkets tema",
+          "description": "Verkets tema(n)"
+        },
+        "workKeyword": {
+          "label": "Verkets ämnesord",
+          "description": "Verkets ämnesord"
+        }
+      }
+    },
+    "publications": {
+      "label": "Publikationer",
+      "facetResultsType": "publikation(er)",
+      "shortDescription": "Vy för sökning av information om verkets publikationer.",
+      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">Vy för sökning av information om verkets publikationer. Till exempel upplagor utgivna på olika språk är separata publikationer.</p>",
+      "instancePage": {
+        "label": "Publikation",
+        "description": ""
+      },
+      "properties": {
+        "image": {
+          "label": "Pärmbild",
+          "description": "Publikationens pärmbild."
+        },
+        "uri": {
+          "label": "URI",
+          "description": "Unik identifierare"
+        },
+        "prefLabel": {
+          "label": "Namn",
+          "description": "Publikationens namn",
+          "textFacetInputPlaceholder": ""
+        },
+        "pageCount": {
+          "label": "Sidantal",
+          "description": "Publikationens sidantal."
+        },
+        "publisher": {
+          "label": "Förlag",
+          "description": "Pubikationens förlag."
+        },
+        "publicationYear": {
+          "label": "Publikationsår",
+          "description": "Publikationens publikationsår."
+        },
+        "language": {
+          "label": "Språk",
+          "description": "Publikationens språk."
+        },
+        "firstVersion": {
+          "label": "Första versionen",
+          "description": "Beskriver om publikationen är den första version av verket."
+        },
+        "translator": {
+          "label": "Översättare",
+          "description": "Publikationens översättare."
+        },
+        "illustrator": {
+          "label": "Illustratör",
+          "description": "Publikationens illustratör."
+        },
+        "otherAuthor": {
+          "label": "Övriga upphovsmän",
+          "description": "Andra upphovsmän som deltagit i skapandet av publikationen."
+        },
+        "work": {
+          "label": "Verk",
+          "description": "Det verk publikationen är en publikation av."
+        },
+        "workPart": {
+          "label": "Del av verk",
+          "description": "Den del av ett verk som publicerats i publikationen."
+        },
+        "workType": {
+          "label": "Typ av verk",
+          "description": "Typ av verk (t.ex. roman, novell, ...)"
+        },
+        "part": {
+          "label": "Samlingens delar",
+          "description": "De delar publikationen består av, om den är en publikation av ett samlingsverk."
+        },
+        "series": {
+          "label": "Serie",
+          "description": "Serie till vilken publikationen hör."
+        },
+        "workGenre": {
+          "label": "Verkets genre",
+          "description": "Verkets litterära genre(r)"
+        },
+        "workTheme": {
+          "label": "Verkets tema",
+          "description": "Verkets tema(n)"
+        },
+        "workKeyword": {
+          "label": "Verkets ämnesord",
+          "description": "Verkets ämnesord"
+        }
+      }
+    },
+    "places": {
+      "label": "Platser",
+      "facetResultsType": "plats(er)",
+      "shortDescription": "Vy för sökning av information om platser.",
+      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">Vy för sökning av information om platser.</p>",
+      "instancePage": {
+        "label": "Plats",
+        "description": ""
+      },
+      "properties": {
+        "uri": {
+          "label": "URI",
+          "description": "Unik identifierare"
+        },
+        "prefLabel": {
+          "label": "Namn",
+          "description": "Platsens namn",
+          "textFacetInputPlaceholder": ""
+        },
+        "personBorn": {
+          "label": "Här födda",
+          "description": "Personer som är födda på den här platsen."
+        },
+        "personDead": {
+          "label": "Här döda",
+          "description": "Personer som dött på den här platsen."
+        },
+        "personLivedIn": {
+          "label": "Här boende / bott här",
+          "description": "Personer som har bott eller bor på den här platsen."
+        },
+        "novel": {
+          "label": "Roman(er) som utspelar sig här",
+          "description": "Romaner som utspelar sig på den här platsen."
+        }
+      }
+    },
+    "series": {
+      "label": "Serier",
+      "facetResultsType": "serie(r)",
+      "shortDescription": "Vy för sökning av serier.",
+      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">Vy för sökning av serier..</p>",
+      "instancePage": {
+        "label": "Serie",
+        "description": ""
+      },
+      "properties": {
+        "uri": {
+          "label": "URI",
+          "description": "Unik identifierare"
+        },
+        "prefLabel": {
+          "label": "Namn",
+          "description": "Seriens namn",
+          "textFacetInputPlaceholder": ""
+        },
+        "description": {
+          "label": "Beskrivning",
+          "description": "Beskrivning av serien."
+        },
+        "keyword": {
+          "label": "Ämnesord",
+          "description": "Seriens ämnesord."
+        },
+        "part": {
+          "label": "Del",
+          "description": "Seriens del(ar)."
+        },
+        "series": {
+          "label": "Serie",
+          "description": "Serie som serien är en del av."
+        },
+        "subseries": {
+          "label": "Underserie",
+          "description": "Seriens underserie(r)."
+        }
+      }
+    },
+    "reviews": {
+      "label": "Recensioner",
+      "facetResultsType": "recension(er)",
+      "shortDescription": "Vy för sökning av information om recensioner.",
+      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">Vy för sökning av information om recensioner.</p>",
+      "instancePage": {
+        "label": "Recension",
+        "description": ""
+      },
+      "properties": {
+        "uri": {
+          "label": "URI",
+          "description": "Unik identifierare"
+        },
+        "prefLabel": {
+          "label": "Namn",
+          "description": "Seriens namn",
+          "textFacetInputPlaceholder": ""
+        },
+        "author": {
+          "label": "Recensent",
+          "description": "Recensionens recensent."
+        },
+        "published": {
+          "label": "Publicerad",
+          "description": "Publiceringstidpunkt för recensionen."
+        },
+        "review": {
+          "label": "Omdöme",
+          "description": "Omdöme om verket som recenserats."
+        }
+      }
+    }
+  },
+  "aboutThePortalPartOne": "",
+  "aboutThePortalPartTwo": "",
+  "instructions": "",
+  "feedback": "",
+  "accessibility": ""
+}
