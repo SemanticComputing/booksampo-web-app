@@ -24,9 +24,9 @@
       "info": "Info",
       "blog": "Projektin blogi",
       "blogUrl": "https://seco.cs.aalto.fi/applications/kirjasampo/",
-      "portal": "Kirjasampo-pääportaali",
+      "portal": "Kirjasampo-pääsivusto",
       "portalUrl": "https://www.kirjasampo.fi/",
-      "aboutThePortal": "Tietoa portaalista",
+      "aboutThePortal": "Tietoa sivustosta",
       "accessibilityStatement": "Saavutettavuusseloste"
     },
     "searchBarPlaceHolder": "Hae kaikesta sisällöstä",
