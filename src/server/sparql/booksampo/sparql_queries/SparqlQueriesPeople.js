@@ -47,7 +47,11 @@ export const personProperties = `
     UNION
     {
       ?id kaunokki:aidinkieli ?language__id .
-      BIND(?language__id as ?language__prefLabel)
+      OPTIONAL { 
+        ?language__id skos:prefLabel ?language__prefLabel_ .
+        FILTER(LANG(?language__prefLabel_) = "<LANG>")
+      }
+      BIND(COALESCE(?language__prefLabel_, ?language__id) as ?language__prefLabel)
     }
     UNION
     {

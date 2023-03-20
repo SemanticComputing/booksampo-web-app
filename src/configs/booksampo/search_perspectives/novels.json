@@ -601,7 +601,7 @@
         "originalLanguage": {
             "containerClass": "ten",
             "facetType": "list",
-            "facetLabelPredicate": "<http://ldf.fi/nonexistentURI>",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
             "filterType": "uriFilter",
             "predicate": "kaunokki:alkukieli",
             "searchField": true,

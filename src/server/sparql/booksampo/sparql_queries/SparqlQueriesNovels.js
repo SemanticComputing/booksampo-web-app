@@ -42,7 +42,11 @@ export const novelProperties = `
     UNION
     {
       ?id kaunokki:alkukieli ?originalLanguage__id .
-      BIND(?originalLanguage__id as ?originalLanguage__prefLabel)
+      OPTIONAL { 
+        ?originalLanguage__id skos:prefLabel ?originalLanguage__prefLabel_ .
+        FILTER(LANG(?originalLanguage__prefLabel_) = "<LANG>")
+      }
+      BIND(COALESCE(?originalLanguage__prefLabel_, ?originalLanguage__id) as ?originalLanguage__prefLabel) 
     }
     UNION
     {
@@ -310,7 +314,12 @@ export const novelsByOriginalLanguageQuery = `
     <FILTER>
     {
       ?novel a kaunokki:romaani .
-      ?novel kaunokki:alkukieli ?category, ?prefLabel .
+      ?novel kaunokki:alkukieli ?category .
+      OPTIONAL { 
+        ?category skos:prefLabel ?prefLabel_ .
+        FILTER(LANG(?prefLabel_) = "<LANG>")
+      }
+      BIND(COALESCE(?prefLabel_, ?category) as ?prefLabel) 
     }
     UNION
     {
@@ -483,7 +492,11 @@ export const novelPublicationsQuery = `
     UNION
     {
       ?object__id kaunokki:kieli ?object__language__id .
-      BIND(?object__language__id as ?object__language__prefLabel)
+      OPTIONAL {
+        ?object__language__id skos:prefLabel ?object__language__prefLabel_ .
+        FILTER(LANG(?object__language__prefLabel_) = "<LANG>")
+      }
+      BIND(COALESCE(?object__language__prefLabel_, ?object__language__id) as ?object__language__prefLabel)
     }
     UNION
     {
