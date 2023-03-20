@@ -19,6 +19,7 @@
     "toggleInstructions": "Click to show or hide instructions"
   },
   "topBar": {
+    "logoImage": "primary",
     "feedback": "feedback",
     "info": {
       "info": "Info",

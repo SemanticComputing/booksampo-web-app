@@ -19,6 +19,7 @@
     "toggleInstructions": "Klicka för att visa eller gömma anvisningarna"
   },
   "topBar": {
+    "logoImage": "secondary",
     "feedback": "respons",
     "info": {
       "info": "Info",

@@ -222,10 +222,23 @@ const TopBar = props => {
             component={AdapterLink} to='/'
             onClick={() => federatedSearchMode ? props.clientFSClearResults() : null}
           >
-            {topBar.logoImage &&
+            {topBar.logoImage && intl.get('topBar.logoImage') === 'primary' &&
               <Box
                 component='img'
                 src={topBar.logoImage}
+                alt={`${intl.get('appTitle.short')} logo`}
+                sx={theme => ({
+                  height: props.layoutConfig.topBar.logoImageReducedHeight || 23,
+                  [theme.breakpoints.up(props.layoutConfig.reducedHeightBreakpoint)]: {
+                    height: props.layoutConfig.topBar.logoImageHeight || 40
+                  },
+                  marginRight: theme.spacing(1)
+                })}
+              />}
+            {topBar.logoImageSecondary && intl.get('topBar.logoImage') === 'secondary' &&
+              <Box
+                component='img'
+                src={topBar.logoImageSecondary}
                 alt={`${intl.get('appTitle.short')} logo`}
                 sx={theme => ({
                   height: props.layoutConfig.topBar.logoImageReducedHeight || 23,
@@ -256,29 +269,6 @@ const TopBar = props => {
                 {props.screenSize === 'xs' ? intl.get('appTitle.mobile') : intl.get('appTitle.short')}
               </Typography>}
           </Button>
-          {topBar.logoImageSecondary &&
-            <a
-              href={topBar.logoImageSecondaryLink}
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              <Button>
-                <Box
-                  component='img'
-                  src={topBar.logoImageSecondary}
-                  alt='logoSecondary'
-                  sx={theme => ({
-                    height: 26,
-                    [theme.breakpoints.up('sm')]: {
-                      height: 32
-                    },
-                    [theme.breakpoints.up(props.layoutConfig.reducedHeightBreakpoint)]: {
-                      height: 52
-                    }
-                  })}
-                />
-              </Button>
-            </a>}
           {showSearchField &&
             <TopBarSearchField
               fetchFullTextResults={props.fetchFullTextResults}

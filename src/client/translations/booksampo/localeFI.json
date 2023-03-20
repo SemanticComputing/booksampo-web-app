@@ -19,6 +19,7 @@
     "toggleInstructions": "Paina näyttääksesi tai piilottaaksesi ohjeet"
   },
   "topBar": {
+    "logoImage": "primary",
     "feedback": "palaute",
     "info": {
       "info": "Info",

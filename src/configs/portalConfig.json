@@ -64,6 +64,7 @@
         "tableFontSize": "0.8rem",
         "topBar": {
             "logoImage": "logos/kirjasampo-tunnus-fi.svg",
+            "logoImageSecondary": "logos/boksampo-tunnus-fi.svg",
             "logoTextTransform": "none",
             "hideLogoTextOnMobile": true,
             "showLanguageButton": true,
