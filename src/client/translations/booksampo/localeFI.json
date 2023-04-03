@@ -287,11 +287,11 @@
         },
         "theme": {
           "label": "Teema",
-          "description": "Teoksen teema."
+          "description": "Teoksen aihe tai teema."
         },
         "keyword": {
           "label": "Asiasana",
-          "description": "Teoksen asiasana(t)."
+          "description": "Teokselle lisätyt omat avainsanat, jotka eivät ole ontologiatermejä."
         },
         "originalLanguage": {
           "label": "Alkukieli",
@@ -303,15 +303,15 @@
         },
         "mainCharacter": {
           "label": "Päähenkilö",
-          "description": "Teoksen päähenkilö(t)."
+          "description": "Teoksen päähenkilö(ide)n nimet."
         },
         "character": {
           "label": "Toimija",
-          "description": "Teoksen toimija(t)."
+          "description": "Teoksen henkilöt tai toimijat ontologiatermeinä."
         },
         "setting": {
           "label": "Tapahtumaympäristö",
-          "description": "Teoksen tapahtumaympäristö."
+          "description": "Teoksen miljöö / tapahtumaympäristö."
         },
         "concretePlace": {
           "label": "Tapahtumapaikka",
@@ -323,7 +323,7 @@
         },
         "exactTimeOfStory": {
           "label": "Tarkka aika",
-          "description": "Teoksen tarkka tapahtuma-aika."
+          "description": "Teoksen tapahtuma-aika tarkkoina ajanmääreinä, kuten päivämäärät ja vuosiluvut."
         },
         "isbn": {
           "label": "ISBN",
@@ -393,7 +393,7 @@
         },
         "uri": {
           "label": "URI",
-          "description": "Yksilöivä tunniste"
+          "description": "Yksilöivä tunniste."
         },
         "prefLabel": {
           "label": "Nimi",
@@ -402,19 +402,19 @@
         },
         "author": {
           "label": "Tekijä",
-          "description": "Teoksen tekijä"
+          "description": "Teoksen tekijä."
         },
         "genre": {
           "label": "Kirjallisuudenlaji",
-          "description": "Teoksen kirjallisuudenlaji"
+          "description": "Teoksen kirjallisuudenlaji."
         },
         "theme": {
           "label": "Teema",
-          "description": "Teoksen teema"
+          "description": "Teoksen aihe tai teema."
         },
         "keyword": {
           "label": "Asiasana",
-          "description": "Teoksen asiasana(t)."
+          "description": "Teokselle lisätyt omat avainsanat, jotka eivät ole ontologiatermejä."
         },
         "originalLanguage": {
           "label": "Alkukieli",
@@ -426,15 +426,15 @@
         },
         "mainCharacter": {
           "label": "Päähenkilö",
-          "description": "Teoksen päähenkilö(t)."
+          "description": "Teoksen päähenkilö(ide)n nimet."
         },
         "character": {
           "label": "Toimija",
-          "description": "Teoksen toimija(t)."
+          "description": "Teoksen henkilöt tai toimijat ontologiatermeinä."
         },
         "setting": {
           "label": "Tapahtumaympäristö",
-          "description": "Teoksen tapahtumaympäristö."
+          "description": "Teoksen miljöö / tapahtumaympäristö."
         },
         "concretePlace": {
           "label": "Tapahtumapaikka",
@@ -446,7 +446,7 @@
         },
         "exactTimeOfStory": {
           "label": "Tarkka aika",
-          "description": "Teoksen tarkka tapahtuma-aika."
+          "description": "Teoksen tapahtuma-aika tarkkoina ajanmääreinä, kuten päivämäärät ja vuosiluvut."
         },
         "isbn": {
           "label": "ISBN",
@@ -512,7 +512,7 @@
         },
         "uri": {
           "label": "URI",
-          "description": "Yksilöivä tunniste"
+          "description": "Yksilöivä tunniste."
         },
         "prefLabel": {
           "label": "Nimi",
@@ -541,11 +541,11 @@
         },
         "activeYears": {
           "label": "Aktiivinen vuosina",
-          "description": "Vuodet, jolloin henkilö on tiettävästi tuottanut aktiivisesti tuotantoa."
+          "description": "Vuosikymmenet, joiden aikana henkilöltä on julkaistu teoksia."
         },
         "education": {
           "label": "Koulutus",
-          "description": "Henkilön koulutus."
+          "description": "Henkilön suorittamat tutkinnot."
         },
         "placeOfEducation": {
           "label": "Koulutuspaikka",
@@ -625,7 +625,7 @@
         },
         "uri": {
           "label": "URI",
-          "description": "Yksilöivä tunniste"
+          "description": "Yksilöivä tunniste."
         },
         "prefLabel": {
           "label": "Nimi",
@@ -646,19 +646,19 @@
         },
         "workType": {
           "label": "Teoksen tyyppi",
-          "description": "Teoksen tyyppi (esim. romaani, novelli, ...)"
+          "description": "Teoksen tyyppi (esim. romaani, novelli, ...)."
         },
         "workGenre": {
           "label": "Teoksen kirjallisuudenlaji",
-          "description": "Teoksen kirjallisuudenlaji(t)"
+          "description": "Teoksen kirjallisuudenlaji(t)."
         },
         "workTheme": {
           "label": "Teoksen teema",
-          "description": "Teoksen teema(t)"
+          "description": "Teoksen aihe tai teema."
         },
         "workKeyword": {
           "label": "Teoksen asiasana",
-          "description": "Teoksen asiasana(t)"
+          "description": "Teokselle lisätyt omat avainsanat, jotka eivät ole ontologiatermejä."
         }
       }
     },
@@ -678,11 +678,11 @@
         },
         "uri": {
           "label": "URI",
-          "description": "Yksilöivä tunniste"
+          "description": "Yksilöivä tunniste."
         },
         "prefLabel": {
           "label": "Nimi",
-          "description": "Julkaisun nimi",
+          "description": "Julkaisun nimi.",
           "textFacetInputPlaceholder": ""
         },
         "pageCount": {
@@ -727,7 +727,7 @@
         },
         "workType": {
           "label": "Teoksen tyyppi",
-          "description": "Teoksen tyyppi (esim. romaani, novelli, ...)"
+          "description": "Teoksen tyyppi (esim. romaani, novelli, ...)."
         },
         "part": {
           "label": "Kokoelman osat",
@@ -739,15 +739,15 @@
         },
         "workGenre": {
           "label": "Teoksen kirjallisuudenlaji",
-          "description": "Teoksen kirjallisuudenlaji(t)"
+          "description": "Teoksen kirjallisuudenlaji(t)."
         },
         "workTheme": {
           "label": "Teoksen teema",
-          "description": "Teoksen teema(t)"
+          "description": "Teoksen aihe tai teema."
         },
         "workKeyword": {
           "label": "Teoksen asiasana",
-          "description": "Teoksen asiasana(t)"
+          "description": "Teokselle lisätyt omat avainsanat, jotka eivät ole ontologiatermejä."
         }
       }
     },
