@@ -283,7 +283,7 @@
         },
         "uri": {
           "label": "URI",
-          "description": "Uniform Resource Identifier"
+          "description": "Uniform Resource Identifier."
         },
         "prefLabel": {
           "label": "Title",
@@ -300,11 +300,11 @@
         },
         "theme": {
           "label": "Theme",
-          "description": "Theme of the novel."
+          "description": "Topic or theme of the novel."
         },
         "keyword": {
           "label": "Keywords",
-          "description": "Keyword(s) of the novel."
+          "description": "Custom non–ontology term keywords added for the novel."
         },
         "originalLanguage": {
           "label": "Original language",
@@ -316,11 +316,11 @@
         },
         "mainCharacter": {
           "label": "Main character",
-          "description": "The main character(s) of the novel."
+          "description": "The name(s) of the main character(s) of the novel."
         },
         "character": {
           "label": "Character",
-          "description": "The character(s) of the novel."
+          "description": "The character(s) of the novel as ontology terms."
         },
         "setting": {
           "label": "Setting",
@@ -336,7 +336,7 @@
         },
         "exactTimeOfStory": {
           "label": "Exact time of story",
-          "description": "The exact time of the story taking place."
+          "description": "The time of the story taking place in the novel as exact time references, such as dates and years."
         },
         "isbn": {
           "label": "ISBN",
@@ -406,7 +406,7 @@
         },
         "uri": {
           "label": "URI",
-          "description": "Uniform Resource Identifier"
+          "description": "Uniform Resource Identifier."
         },
         "prefLabel": {
           "label": "Title",
@@ -423,11 +423,11 @@
         },
         "theme": {
           "label": "Theme",
-          "description": "Theme of the nonfiction book."
+          "description": "Topic or theme of the nonfiction book."
         },
         "keyword": {
           "label": "Keywords",
-          "description": "Keyword(s) of the nonfiction book."
+          "description": "Custom non–ontology term keywords added for the nonfiction book."
         },
         "originalLanguage": {
           "label": "Original language",
@@ -439,11 +439,11 @@
         },
         "mainCharacter": {
           "label": "Main character",
-          "description": "The main character(s) of the nonfiction book."
+          "description": "The name(s) of the main character(s) of the nonfiction book."
         },
         "character": {
           "label": "Character",
-          "description": "The character(s) of the nonfiction book."
+          "description": "The character(s) of the nonfiction book as ontology terms."
         },
         "setting": {
           "label": "Setting",
@@ -459,7 +459,7 @@
         },
         "exactTimeOfStory": {
           "label": "Exact time of story",
-          "description": "The exact time of the story taking place in the nonfiction book."
+          "description": "The time of the story taking place in the nonfiction book as exact time references, such as dates and years."
         },
         "isbn": {
           "label": "ISBN",
@@ -525,7 +525,7 @@
         },
         "uri": {
           "label": "URI",
-          "description": "Uniform Resource Identifier"
+          "description": "Uniform Resource Identifier."
         },
         "prefLabel": {
           "label": "Name",
@@ -647,7 +647,7 @@
         },
         "keyword": {
           "label": "Keyword",
-          "description": "Keywords relating to the cover."
+          "description": "Custom non–ontology term keywords added for the cover."
         },
         "illustrator": {
           "label": "Illustrator",
@@ -659,19 +659,19 @@
         },
         "workType": {
           "label": "Work type",
-          "description": "The type of the work (e.g. novel, short story, ...)"
+          "description": "The type of the work (e.g. novel, short story, ...)."
         },
         "workGenre": {
           "label": "Work genre",
-          "description": "The genre(s) of the work"
+          "description": "The genre(s) of the work."
         },
         "workTheme": {
           "label": "Work theme",
-          "description": "The theme(s) of the work"
+          "description": "The topic(s) or theme(s) of the work."
         },
         "workKeyword": {
           "label": "Work keyword",
-          "description": "The keyword(s) of the work"
+          "description": "Custom non–ontology term keywords added for the work."
         }
       }
     },
@@ -691,7 +691,7 @@
         },
         "uri": {
           "label": "URI",
-          "description": "Uniform Resource Identifier"
+          "description": "Uniform Resource Identifier."
         },
         "prefLabel": {
           "label": "Title",
@@ -740,7 +740,7 @@
         },
         "workType": {
           "label": "Work type",
-          "description": "The type of the work (e.g. novel, short story, ...)"
+          "description": "The type of the work (e.g. novel, short story, ...)."
         },
         "part": {
           "label": "Parts of the collection",
@@ -752,15 +752,15 @@
         },
         "workGenre": {
           "label": "Work genre",
-          "description": "The genre(s) of the work"
+          "description": "The genre(s) of the work."
         },
         "workTheme": {
           "label": "Work theme",
-          "description": "The theme(s) of the work"
+          "description": "The topic(s) or theme(s) of the work."
         },
         "workKeyword": {
           "label": "Work keyword",
-          "description": "The keyword(s) of the work"
+          "description": "Custom non–ontology term keywords added for the work."
         }
       }
     },
@@ -776,7 +776,7 @@
       "properties": {
         "uri": {
           "label": "URI",
-          "description": "Uniform Resource Identifier"
+          "description": "Uniform Resource Identifier."
         },
         "prefLabel": {
           "label": "Name",
@@ -813,7 +813,7 @@
       "properties": {
         "uri": {
           "label": "URI",
-          "description": "Uniform Resource Identifier"
+          "description": "Uniform Resource Identifier."
         },
         "prefLabel": {
           "label": "Name",
@@ -854,7 +854,7 @@
       "properties": {
         "uri": {
           "label": "URI",
-          "description": "Uniform Resource Identifier"
+          "description": "Uniform Resource Identifier."
         },
         "prefLabel": {
           "label": "Name",
