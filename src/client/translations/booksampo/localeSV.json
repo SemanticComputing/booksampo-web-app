@@ -161,7 +161,7 @@
     "dateFacet": {
       "invalidDate": "Ogiltigt datum.",
       "toBeforeFrom": "Startdatumet måste vara före slutdatumet",
-      "minDate": "Det tidigaste tillåtna datumet är{minDate}",
+      "minDate": "Det tidigaste tillåtna datumet är {minDate}",
       "maxDate": "Det senaste tillåtna datumet är {maxDate}",
       "cancel": "Avbryt",
       "fromLabel": "Början",
@@ -270,7 +270,7 @@
         },
         "uri": {
           "label": "URI",
-          "description": "Unik identifierare"
+          "description": "Unik identifierare."
         },
         "prefLabel": {
           "label": "Namn",
@@ -287,11 +287,11 @@
         },
         "theme": {
           "label": "Tema",
-          "description": "Verkets tema."
+          "description": "Verkets ämne(n) eller tema(n)."
         },
         "keyword": {
           "label": "Ämnesord",
-          "description": "Verkets ämnesord."
+          "description": "Egna ämnesord, som inte är ontologitermer."
         },
         "originalLanguage": {
           "label": "Orginalspråk",
@@ -303,15 +303,15 @@
         },
         "mainCharacter": {
           "label": "Huvudperson",
-          "description": "Verkets huvudperson(er)."
+          "description": "Namn på verkets huvudperson(er)."
         },
         "character": {
           "label": "Aktör",
-          "description": "Verkets aktör(er)."
+          "description": "Ontologitermer för personer eller aktörer i verket."
         },
         "setting": {
           "label": "Händelesernas miljö",
-          "description": "Händelsernas miljö i verket."
+          "description": "Verkets miljö / miljö för händelserna i verket."
         },
         "concretePlace": {
           "label": "Händelseplats",
@@ -323,7 +323,7 @@
         },
         "exactTimeOfStory": {
           "label": "Exakt tidpunkt ",
-          "description": "Exakt tidpunkt för händelserna i verket."
+          "description": "Exakt tidpunkt, så som datum eller årtal, för händelserna i verket."
         },
         "isbn": {
           "label": "ISBN",
@@ -393,28 +393,28 @@
         },
         "uri": {
           "label": "URI",
-          "description": "Unik identifierare"
+          "description": "Unik identifierare."
         },
         "prefLabel": {
           "label": "Namn",
-          "description": "Verkets namn",
+          "description": "Verkets namn.",
           "textFacetInputPlaceholder": ""
         },
         "author": {
           "label": "Upphovsman",
-          "description": "Verkets upphovsman"
+          "description": "Verkets upphovsman."
         },
         "genre": {
           "label": "Litterär genre",
-          "description": "Verkets litterära genre"
+          "description": "Verkets litterära genre."
         },
         "theme": {
           "label": "Tema",
-          "description": "Verkets tema"
+          "description": "Verkets ämne(n) eller tema(n)."
         },
         "keyword": {
           "label": "Ämnesord",
-          "description": "Verkets ämnesord."
+          "description": "Egna ämnesord, som inte är ontologitermer."
         },
         "originalLanguage": {
           "label": "Orginalspråk",
@@ -427,15 +427,15 @@
         },
         "mainCharacter": {
           "label": "Huvudperson",
-          "description": "Verkets huvudperson(er)."
+          "description": "Namn på verkets huvudperson(er)."
         },
         "character": {
           "label": "Aktör",
-          "description": "Verkets aktör(er)."
+          "description": "Ontologitermer för personer eller aktörer i verket."
         },
         "setting": {
           "label": "Händelsernas miljö",
-          "description": "Händelsernas miljö i verket."
+          "description": "Verkets miljö / miljö för händelserna i verket."
         },
         "concretePlace": {
           "label": "Händelseplats",
@@ -447,7 +447,7 @@
         },
         "exactTimeOfStory": {
           "label": "Exakt tidpunkt",
-          "description": "Exakt tidpunkt för verket."
+          "description": "Exakt tidpunkt, så som datum eller årtal, för händelserna i verket."
         },
         "isbn": {
           "label": "ISBN",
@@ -459,7 +459,7 @@
         },
         "pageCount": {
           "label": "Sidantal",
-          "description": "Sidantal i verkets publikationer"
+          "description": "Sidantal i verkets publikationer."
         },
         "publisher": {
           "label": "Förlag",
@@ -513,7 +513,7 @@
         },
         "uri": {
           "label": "URI",
-          "description": "Unik identifierare"
+          "description": "Unik identifierare."
         },
         "prefLabel": {
           "label": "Namn",
@@ -542,11 +542,11 @@
         },
         "activeYears": {
           "label": "Aktiva år",
-          "description": "De år personer veterligen aktivt producerat material."
+          "description": "De årtionden under vilka verk av personen har publicerat."
         },
         "education": {
           "label": "Utbildning",
-          "description": "Personens utbildning."
+          "description": " Examina som personen avlag."
         },
         "placeOfEducation": {
           "label": "Studieort(er)",
@@ -626,7 +626,7 @@
         },
         "uri": {
           "label": "URI",
-          "description": "Unik identifierare"
+          "description": "Unik identifierare."
         },
         "prefLabel": {
           "label": "Namn",
@@ -647,19 +647,19 @@
         },
         "workType": {
           "label": "Typ av verk",
-          "description": "Typ av verk(t.ex. roman, novell, ...)"
+          "description": "Typ av verk(t.ex. roman, novell, ...)."
         },
         "workGenre": {
           "label": "Verkets genre",
-          "description": "Verket genre(r)"
+          "description": "Verket genre(r)."
         },
         "workTheme": {
           "label": "Verkets tema",
-          "description": "Verkets tema(n)"
+          "description": "Verkets ämne(n) eller tema(n)."
         },
         "workKeyword": {
           "label": "Verkets ämnesord",
-          "description": "Verkets ämnesord"
+          "description": "Egna ämnesord, som inte är ontologitermer."
         }
       }
     },
@@ -679,11 +679,11 @@
         },
         "uri": {
           "label": "URI",
-          "description": "Unik identifierare"
+          "description": "Unik identifierare."
         },
         "prefLabel": {
           "label": "Namn",
-          "description": "Publikationens namn",
+          "description": "Publikationens namn.",
           "textFacetInputPlaceholder": ""
         },
         "pageCount": {
@@ -728,7 +728,7 @@
         },
         "workType": {
           "label": "Typ av verk",
-          "description": "Typ av verk (t.ex. roman, novell, ...)"
+          "description": "Typ av verk (t.ex. roman, novell, ...)."
         },
         "part": {
           "label": "Samlingens delar",
@@ -740,15 +740,15 @@
         },
         "workGenre": {
           "label": "Verkets genre",
-          "description": "Verkets litterära genre(r)"
+          "description": "Verkets litterära genre(r)."
         },
         "workTheme": {
           "label": "Verkets tema",
-          "description": "Verkets tema(n)"
+          "description": "Verkets ämne(n) eller tema(n)."
         },
         "workKeyword": {
           "label": "Verkets ämnesord",
-          "description": "Verkets ämnesord"
+          "description": "Verkets ämnesord."
         }
       }
     },
@@ -764,11 +764,11 @@
       "properties": {
         "uri": {
           "label": "URI",
-          "description": "Unik identifierare"
+          "description": "Unik identifierare."
         },
         "prefLabel": {
           "label": "Namn",
-          "description": "Platsens namn",
+          "description": "Platsens namn.",
           "textFacetInputPlaceholder": ""
         },
         "personBorn": {
@@ -801,11 +801,11 @@
       "properties": {
         "uri": {
           "label": "URI",
-          "description": "Unik identifierare"
+          "description": "Unik identifierare."
         },
         "prefLabel": {
           "label": "Namn",
-          "description": "Seriens namn",
+          "description": "Seriens namn.",
           "textFacetInputPlaceholder": ""
         },
         "description": {
@@ -842,11 +842,11 @@
       "properties": {
         "uri": {
           "label": "URI",
-          "description": "Unik identifierare"
+          "description": "Unik identifierare."
         },
         "prefLabel": {
           "label": "Namn",
-          "description": "Seriens namn",
+          "description": "Seriens namn.",
           "textFacetInputPlaceholder": ""
         },
         "author": {

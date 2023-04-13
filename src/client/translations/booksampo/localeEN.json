@@ -296,11 +296,11 @@
         },
         "genre": {
           "label": "Genre",
-          "description": "Genre of the novel."
+          "description": "The genre(s) of the novel."
         },
         "theme": {
           "label": "Theme",
-          "description": "Topic or theme of the novel."
+          "description": "The topic(s) or theme(s) of the novel."
         },
         "keyword": {
           "label": "Keywords",
@@ -419,11 +419,11 @@
         },
         "genre": {
           "label": "Genre",
-          "description": "Genre of the nonfiction book."
+          "description": "The genre of the nonfiction book."
         },
         "theme": {
           "label": "Theme",
-          "description": "Topic or theme of the nonfiction book."
+          "description": "The topic(s) or theme(s) of the nonfiction book."
         },
         "keyword": {
           "label": "Keywords",
@@ -554,11 +554,11 @@
         },
         "activeYears": {
           "label": "Active years",
-          "description": "The years in which the person has or is believed to have actively produced content."
+          "description": "The decades during which works by the person have been published."
         },
         "education": {
           "label": "Education",
-          "description": "The educational background of the person."
+          "description": "The degrees completed by the person."
         },
         "placeOfEducation": {
           "label": "Place of education",
