@@ -397,7 +397,6 @@
             "externalLink": false,
             "sortValues": false,
             "numberedList": false,
-            "disableSort": true,
             "minWidth": 150
         },
         {
@@ -546,6 +545,7 @@
             "facetType": "text",
             "filterType": "textFilter",
             "sortByPredicate": "skos:prefLabel",
+            "sortDirection": "desc",
             "textQueryProperty": "skos:prefLabel"
         },
         "author": {
@@ -607,6 +607,7 @@
             "searchField": true,
             "sortButton": true,
             "sortBy": "instanceCount",
+            "sortByPredicate": "kaunokki:alkukieli/skos:prefLabel",
             "sortDirection": "desc"
         },
         "award": {
