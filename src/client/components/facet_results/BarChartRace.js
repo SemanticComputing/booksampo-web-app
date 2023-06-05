@@ -4,6 +4,7 @@ import * as am5 from '@amcharts/amcharts5'
 import * as am5xy from '@amcharts/amcharts5/xy'
 import am5themesAnimated from '@amcharts/amcharts5/themes/Animated'
 import Paper from '@mui/material/Paper'
+import CircularProgress from '@mui/material/CircularProgress'
 
 // https://www.amcharts.com/docs/v5/
 
@@ -18,7 +19,7 @@ class BarChartRace extends React.Component {
 
     componentDidUpdate = prevProps => {
       if (prevProps.resultUpdateID !== this.props.resultUpdateID) {
-        if (this.props.results && Object.prototype.hasOwnProperty.call(this.props.results, this.props.stepBegin)) {
+        if (this.props.results && !this.props.fetching && Object.prototype.hasOwnProperty.call(this.props.results, this.props.stepBegin)) {
           this.setInitialData()
           this.playAnimation()
         }
@@ -254,10 +255,30 @@ class BarChartRace extends React.Component {
       })
     }
 
+    renderSpinner () {
+      if (this.props.fetching) {
+        const spinnerContainerStyle = {
+          display: 'flex',
+          width: '100%',
+          height: '100%',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }
+        return (
+          <div style={spinnerContainerStyle}>
+            <CircularProgress />
+          </div>
+        )
+      }
+      return null
+    }
+
     render () {
       return (
         <Paper square style={{ width: 'calc(100% - 64px)', height: 'calc(100% - 72px)', paddingLeft: 32, paddingRight: 32 }}>
-          <div style={{ width: '100%', height: '100%' }} id='chartdiv' />
+          <div style={{ width: '100%', height: '100%' }} id='chartdiv'>
+            {this.renderSpinner()}
+          </div>
         </Paper>
       )
     }

@@ -406,6 +406,7 @@ const ResultClassRoute = props => {
         facetClass,
         resultUpdateID: perspectiveState.resultUpdateID,
         results: props.perspectiveState.results,
+        fetching: perspectiveState.fetching,
         stepBegin,
         stepEnd,
         stepIncrement,
