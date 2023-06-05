@@ -158,50 +158,30 @@ export const publicationProperties = `
 
 export const publicationsByDecadeAndGenreQuery = `
   SELECT ?id ?dataItem__id ?dataItem__prefLabel (COUNT(?publication) as ?dataItem__value) WHERE {
-    <FILTER>
     {
       ?abstract_work kaunokki:manifests_in ?publication .
       ?publication kaunokki:onEnsimmainenVersio kaunokki:true .
-      ?publication kaunokki:ilmestymisvuosi ?year .
+      ?publication kaunokki:ilmestymisvuosi ?yearId .
       OPTIONAL {
-        {
-          ?year skos:prefLabel ?label .
-          FILTER(LANG(?label) != 'fi' && LANG(?label) != 'sv' && LANG(?label) != 'en')
-          FILTER(regex(?label, "\\\\.") && !regex(?label, "-"))
-          BIND(CONCAT(REPLACE(?label, "^.*[\\\\.](.*)\\\\d.*$", "$1"), "0") AS ?prefLabel_)
-        }
-        UNION {
-          ?year skos:prefLabel ?label .
-          FILTER(LANG(?label) != 'fi' && LANG(?label) != 'sv' && LANG(?label) != 'en')
-          FILTER(!regex(?label, "\\\\.") && regex(?label, "-"))
-          BIND(CONCAT(REPLACE(?label, "(^.*).[-].*.$", "$1"), "0") AS ?prefLabel_)
-        }
-        UNION {
-          ?year skos:prefLabel ?label .
-          FILTER(LANG(?label) != 'fi' && LANG(?label) != 'sv' && LANG(?label) != 'en')
-          FILTER(!regex(?label, "\\\\.") && !regex(?label, "-"))
-          BIND(CONCAT(REPLACE(?label, "(.*)\\\\d.*$", "$1"), "0") AS ?prefLabel_)
-        }
-        UNION {
-          ?year skos:prefLabel ?label .
-          FILTER(LANG(?label) = 'fi')
-          FILTER(regex(?label, "\\\\.") && !regex(?label, "-"))
-          BIND(CONCAT(REPLACE(?label, "^.*[\\\\.](.*)\\\\d.*$", "$1"), "0") AS ?prefLabel_)
-        }
-        UNION {
-          ?year skos:prefLabel ?label .
-          FILTER(LANG(?label) = 'fi')
-          FILTER(!regex(?label, "\\\\.") && regex(?label, "-"))
-          BIND(CONCAT(REPLACE(?label, "(^.*).[-].*.$", "$1"), "0") AS ?prefLabel_)
-        }
-        UNION {
-          ?year skos:prefLabel ?label .
-          FILTER(LANG(?label) = 'fi')
-          FILTER(!regex(?label, "\\\\.") && !regex(?label, "-"))
-          BIND(CONCAT(REPLACE(?label, "(.*)\\\\d.*$", "$1"), "0") AS ?prefLabel_)
-        }
+        ?yearId skos:prefLabel ?label .
+        FILTER(LANG(?label) != 'fi' && LANG(?label) != 'sv' && LANG(?label) != 'en')
       }
-      BIND(COALESCE(xsd:integer(?prefLabel_), xsd:integer(?year)) as ?id)
+      OPTIONAL {
+        ?yearId skos:prefLabel ?label_FI .
+        FILTER(LANG(?label_FI) = 'fi')
+      }
+      OPTIONAL {
+        ?yearId skos:prefLabel ?label_SV .
+        FILTER(LANG(?label_SV) = 'sv')
+      }
+      OPTIONAL {
+        ?yearId skos:prefLabel ?label_EN .
+        FILTER(LANG(?label_FI) = 'en')
+      }
+      BIND(COALESCE(xsd:integer(?label), xsd:integer(?label_FI), xsd:integer(?label_SV), xsd:integer(?label_EN)) as ?year)
+      FILTER(BOUND(?year))
+      BIND(CONCAT(REPLACE(STR(?year), "(.*)\\\\d.*$", "$1"), "0") AS ?decade)
+      BIND(xsd:integer(?decade) as ?id)
       ?abstract_work kaunokki:genre ?dataItem__id .
       OPTIONAL { 
         ?dataItem__id skos:prefLabel ?dataItem__prefLabel_ .
@@ -217,50 +197,22 @@ export const publicationsByDecadeAndGenreQuery = `
 
 export const publicationsByDecadeAndThemeQuery = `
   SELECT ?id ?dataItem__id ?dataItem__prefLabel (COUNT(?publication) as ?dataItem__value) WHERE {
-    <FILTER>
     {
       ?abstract_work kaunokki:manifests_in ?publication .
       ?publication kaunokki:onEnsimmainenVersio kaunokki:true .
-      ?publication kaunokki:ilmestymisvuosi ?year .
+      ?publication kaunokki:ilmestymisvuosi ?yearId .
       OPTIONAL {
-        {
-          ?year skos:prefLabel ?label .
-          FILTER(LANG(?label) != 'fi' && LANG(?label) != 'sv' && LANG(?label) != 'en')
-          FILTER(regex(?label, "\\\\.") && !regex(?label, "-"))
-          BIND(CONCAT(REPLACE(?label, "^.*[\\\\.](.*)\\\\d.*$", "$1"), "0") AS ?prefLabel_)
-        }
-        UNION {
-          ?year skos:prefLabel ?label .
-          FILTER(LANG(?label) != 'fi' && LANG(?label) != 'sv' && LANG(?label) != 'en')
-          FILTER(!regex(?label, "\\\\.") && regex(?label, "-"))
-          BIND(CONCAT(REPLACE(?label, "(^.*).[-].*.$", "$1"), "0") AS ?prefLabel_)
-        }
-        UNION {
-          ?year skos:prefLabel ?label .
-          FILTER(LANG(?label) != 'fi' && LANG(?label) != 'sv' && LANG(?label) != 'en')
-          FILTER(!regex(?label, "\\\\.") && !regex(?label, "-"))
-          BIND(CONCAT(REPLACE(?label, "(.*)\\\\d.*$", "$1"), "0") AS ?prefLabel_)
-        }
-        UNION {
-          ?year skos:prefLabel ?label .
-          FILTER(LANG(?label) = 'fi')
-          FILTER(regex(?label, "\\\\.") && !regex(?label, "-"))
-          BIND(CONCAT(REPLACE(?label, "^.*[\\\\.](.*)\\\\d.*$", "$1"), "0") AS ?prefLabel_)
-        }
-        UNION {
-          ?year skos:prefLabel ?label .
-          FILTER(LANG(?label) = 'fi')
-          FILTER(!regex(?label, "\\\\.") && regex(?label, "-"))
-          BIND(CONCAT(REPLACE(?label, "(^.*).[-].*.$", "$1"), "0") AS ?prefLabel_)
-        }
-        UNION {
-          ?year skos:prefLabel ?label .
-          FILTER(LANG(?label) = 'fi')
-          FILTER(!regex(?label, "\\\\.") && !regex(?label, "-"))
-          BIND(CONCAT(REPLACE(?label, "(.*)\\\\d.*$", "$1"), "0") AS ?prefLabel_)
-        }
+        ?yearId skos:prefLabel ?label .
+        FILTER(LANG(?label) != 'fi' && LANG(?label) != 'sv' && LANG(?label) != 'en')
       }
-      BIND(COALESCE(xsd:integer(?prefLabel_), xsd:integer(?year)) as ?id)
+      OPTIONAL {
+        ?yearId skos:prefLabel ?label_FI .
+        FILTER(LANG(?label_FI) = 'fi')
+      }
+      BIND(COALESCE(xsd:integer(?label), xsd:integer(?label_FI)) as ?year)
+      FILTER(BOUND(?year))
+      BIND(CONCAT(REPLACE(STR(?year), "(.*)\\\\d.*$", "$1"), "0") AS ?decade)
+      BIND(?decade as ?id)
       ?abstract_work kaunokki:teema ?dataItem__id .
       OPTIONAL { 
         ?dataItem__id skos:prefLabel ?dataItem__prefLabel_ .
