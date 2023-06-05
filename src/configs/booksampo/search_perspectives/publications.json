@@ -47,7 +47,7 @@
             "tabIcon": "CalendarViewDay",
             "tabPath": "publications_by_decade_and_genre",
             "component": "BarChartRace",
-            "stepBegin": 1700,
+            "stepBegin": 1800,
             "stepEnd": 2020,
             "stepIncrement": 10,
             "stepDuration": 3000,
@@ -62,28 +62,8 @@
                 }
             }
         },
-        "publicationsByDecadeAndTheme": {
-            "tabID": 2,
-            "tabIcon": "CalendarViewDay",
-            "tabPath": "publications_by_decade_and_theme",
-            "component": "BarChartRace",
-            "stepBegin": 1800,
-            "stepEnd": 2020,
-            "stepIncrement": 10,
-            "stepDuration": 3000,
-            "sparqlQuery": "publicationsByDecadeAndThemeQuery",
-            "facetClass": "publications",
-            "filterTarget": "publication",
-            "resultMapper": "makeObjectList",
-            "postprocess": {
-                "func": "toBarChartRaceFormat",
-                "config": {
-                    "step": 10
-                }
-            }
-        },
         "publicationsByYearLineChart": {
-            "tabID": 3,
+            "tabID": 2,
             "component": "ApexCharts",
             "tabPath": "publication_years",
             "tabIcon": "ShowChart",
@@ -105,7 +85,7 @@
             }
         },
         "publicationGenresByYearLineChart": {
-            "tabID": 4,
+            "tabID": 3,
             "component": "ApexCharts",
             "tabPath": "publication_genre_years",
             "tabIcon": "ShowChart",
@@ -128,7 +108,7 @@
             }
         },
         "themeAndKeywordTimespanLineChart": {
-            "tabID": 5,
+            "tabID": 4,
             "component": "ApexChartsDouble",
             "tabPath": "themes_and_keywords",
             "tabIcon": "ShowChart",
@@ -178,7 +158,7 @@
             }
         },
         "concretePlacesByYearLineChart": {
-            "tabID": 6,
+            "tabID": 5,
             "component": "ApexCharts",
             "tabPath": "concrete_place_years",
             "tabIcon": "ShowChart",
@@ -201,7 +181,7 @@
             }
         },
         "publicationLengthsByYearLineChart": {
-            "tabID": 7,
+            "tabID": 6,
             "component": "ApexCharts",
             "tabPath": "length_years",
             "tabIcon": "ShowChart",
@@ -223,7 +203,7 @@
             }
         },
         "publicationGenderRatioByYearLineChart": {
-            "tabID": 8,
+            "tabID": 7,
             "component": "ApexCharts",
             "tabPath": "publication_gender_ratio_years",
             "tabIcon": "ShowChart",
