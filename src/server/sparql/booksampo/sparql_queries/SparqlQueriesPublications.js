@@ -197,30 +197,16 @@ export const publicationsByDecadeAndGenreQuery = `
 
 export const publicationsByDecadeAndThemeQuery = `
   SELECT ?id ?dataItem__id ?dataItem__prefLabel (COUNT(?publication) as ?dataItem__value) WHERE {
-    {
-      ?abstract_work kaunokki:manifests_in ?publication .
-      ?publication kaunokki:onEnsimmainenVersio kaunokki:true .
-      ?publication kaunokki:ilmestymisvuosi ?yearId .
-      OPTIONAL {
-        ?yearId skos:prefLabel ?label .
-        FILTER(LANG(?label) != 'fi' && LANG(?label) != 'sv' && LANG(?label) != 'en')
-      }
-      OPTIONAL {
-        ?yearId skos:prefLabel ?label_FI .
-        FILTER(LANG(?label_FI) = 'fi')
-      }
-      BIND(COALESCE(xsd:integer(?label), xsd:integer(?label_FI)) as ?year)
-      FILTER(BOUND(?year))
-      BIND(CONCAT(REPLACE(STR(?year), "(.*)\\\\d.*$", "$1"), "0") AS ?decade)
-      BIND(?decade as ?id)
-      ?abstract_work kaunokki:teema ?dataItem__id .
-      OPTIONAL { 
-        ?dataItem__id skos:prefLabel ?dataItem__prefLabel_ .
-        FILTER(LANG(?dataItem__prefLabel_) = "<LANG>")
-      }
-      BIND(COALESCE(?dataItem__prefLabel_, ?dataItem__id) as ?dataItem__prefLabel)
-      FILTER(BOUND(?id))
-    }
+    ?publication ^kaunokki:manifests_in ?abstract_work ;
+                  kaunokki:onEnsimmainenVersio kaunokki:true ;
+                  kaunokki:ilmestymisvuosi ?yearId .
+    ?yearId skos:prefLabel ?label .
+    BIND(xsd:integer(?label) as ?year)
+    FILTER(BOUND(?year))
+    BIND(xsd:integer(FLOOR(?year/10)*10) AS ?id)
+    ?dataItem__id ^kaunokki:teema ?abstract_work ;
+                  skos:prefLabel ?dataItem__prefLabel .
+    FILTER(LANG(?dataItem__prefLabel) = "<LANG>")
   } 
   GROUP BY ?id ?dataItem__id ?dataItem__prefLabel
   ORDER BY ?id
