@@ -134,7 +134,7 @@
             "customMapControl": true,
             "sparqlQuery": "novelsPlacesQuery",
             "facetClass": "novels",
-            "filterTarget": "novels",
+            "filterTarget": "novel",
             "resultMapper": "mapPlaces",
             "instanceConfig": {
                 "propertiesQueryBlock": "placePropertiesInfoWindow",
@@ -150,7 +150,7 @@
             "layerType": "heatmapLayer",
             "sparqlQuery": "novelsPlacesQuery",
             "facetClass": "novels",
-            "filterTarget": "novels",
+            "filterTarget": "novel",
             "resultMapper": "mapPlaces",
             "heatmapRadiusPixels": 50,
             "heatmapThreshold": 0.05,
@@ -296,7 +296,7 @@
             "layerType": "scatterplotLayer",
             "sparqlQuery": "authorsGenderQuery",
             "facetClass": "novels",
-            "filterTarget": "novels",
+            "filterTarget": "novel",
             "resultMapper": "mapPlacesRatio",
             "scatterplotStartColor": [61, 250, 255],
             "scatterplotEndColor": [233, 30, 99]

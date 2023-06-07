@@ -224,10 +224,10 @@ export const novelsTakingPlaceAt = `
 
 export const novelsPlacesQuery = `
   SELECT ?id ?lat ?long
-  (COUNT(DISTINCT ?novels) as ?instanceCount)
+  (COUNT(DISTINCT ?novel) as ?instanceCount)
   WHERE {
     <FILTER>
-    ?novels kaunokki:worldPlace ?id ;
+    ?novel kaunokki:worldPlace ?id ;
           a <FACET_CLASS> .
     ?id wgs84:lat ?lat ;
         wgs84:long ?long .
