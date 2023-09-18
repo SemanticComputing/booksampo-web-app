@@ -94,7 +94,8 @@ export const novelProperties = `
         ?concretePlace__id skos:prefLabel ?concretePlace__prefLabelGEN_ .
       }
       BIND(COALESCE(?concretePlace__prefLabel_, ?concretePlace__prefLabelGEN_, ?concretePlace__id) as ?concretePlace__prefLabel)
-      BIND(CONCAT("/places/page/", ENCODE_FOR_URI(STR(?concretePlace__id)), "/table") AS ?concretePlace__dataProviderUrl)
+      BIND(CONCAT("/places/page/", ENCODE_FOR_URI(STR(REPLACE(STR(REPLACE(STR(?concretePlace__id), "%28", "~p28~", "i")), "%29", "~p29~", "i"))), "/table") AS ?concretePlace__dataProviderUrl)
+      # BIND(CONCAT("/places/page/", ENCODE_FOR_URI(STR(?concretePlace__id)), "/table") AS ?concretePlace__dataProviderUrl)
     }
     UNION
     {
@@ -210,7 +211,8 @@ export const placePropertiesInfoWindow = `
     }
     BIND(COALESCE(?prefLabelFI, ?labelFI, ?prefLabelGEN, ?labelGEN, ?id) as ?prefLabel__id)
     BIND(?prefLabel__id AS ?prefLabel__prefLabel)
-    BIND(CONCAT("/places/page/", ENCODE_FOR_URI(STR(?id)), "/table") AS ?prefLabel__dataProviderUrl)
+    BIND(CONCAT("/places/page/", ENCODE_FOR_URI(STR(REPLACE(STR(REPLACE(STR(?id), "%28", "~p28~", "i")), "%29", "~p29~", "i"))), "/table") AS ?prefLabel__dataProviderUrl)
+    # BIND(CONCAT("/places/page/", ENCODE_FOR_URI(STR(?id)), "/table") AS ?prefLabel__dataProviderUrl)
 `
 
 export const novelsTakingPlaceAt = `

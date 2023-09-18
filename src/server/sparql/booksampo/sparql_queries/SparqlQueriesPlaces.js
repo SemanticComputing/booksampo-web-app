@@ -1,7 +1,8 @@
 export const placePropertiesInstancePage = `
   ?id skos:prefLabel|rdfs:label ?prefLabel__id .
   BIND(?prefLabel__id AS ?prefLabel__prefLabel)
-  BIND(CONCAT("/places/page/", ENCODE_FOR_URI(STR(?id)), "/table") AS ?prefLabel__dataProviderUrl)
+  BIND(CONCAT("/places/page/", ENCODE_FOR_URI(STR(REPLACE(STR(REPLACE(STR(?id), "%28", "~p28~", "i")), "%29", "~p29~", "i"))), "/table") AS ?prefLabel__dataProviderUrl)
+  # BIND(CONCAT("/places/page/", ENCODE_FOR_URI(STR(?id)), "/table") AS ?prefLabel__dataProviderUrl)
   BIND(?id as ?uri__id)
   BIND(?id as ?uri__prefLabel)
   BIND(CONCAT("https://demo.seco.tkk.fi/saha/project/resource.shtml?uri=", ENCODE_FOR_URI(STR(?id)), "&model=booksampo-2022") as ?uri__dataProviderUrl)

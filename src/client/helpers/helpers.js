@@ -198,7 +198,7 @@ export const createURIfromLocalID = ({ localID, baseURI, URITemplate, localIDAsU
   if (localIDAsURI) {
     uri = decodeURIComponent(localID)
     const ending = uri.substring(uri.lastIndexOf('/') + 1)
-    uri = uri.replace(ending, encodeURIComponent(ending).replaceAll('%2B', '+').replaceAll('%23', '#').replaceAll('(', '%28').replaceAll(')', '%29'))
+    uri = uri.replace(ending, encodeURIComponent(ending).replaceAll('%2B', '+').replaceAll('%23', '#').replaceAll('(', '%28').replaceAll(')', '%29').replaceAll('~p28~', '%28').replaceAll('~p29~', '%29'))
   } else {
     uri = URITemplate
     uri = uri.replaceAll('<BASE_URI>', baseURI)
