@@ -11,7 +11,7 @@ export const countQuery = `
   WHERE {
     <FILTER>
     VALUES ?facetClass { <FACET_CLASS> }
-    ?id a ?facetClass .
+    ?id <FACET_CLASS_PREDICATE> ?facetClass .
   }
 `
 
@@ -40,7 +40,7 @@ export const facetResultSetQuery = `
         SELECT DISTINCT ?id ?score ?literal ?orderBy {
           <FILTER>
           VALUES ?facetClass { <FACET_CLASS> }
-          ?id a ?facetClass .
+          ?id <FACET_CLASS_PREDICATE> ?facetClass .
           <ORDER_BY_TRIPLE>
         }
       }
@@ -63,7 +63,7 @@ export const facetValuesQuery = `
             ?instance <PREDICATE> ?id .
             <PARENTS>
             VALUES ?facetClass { <FACET_CLASS> }
-            ?instance a ?facetClass .
+            ?instance <FACET_CLASS_PREDICATE> ?facetClass .
             <SELECTED_VALUES>
           }
           <SELECTED_VALUES_NO_HITS>     
@@ -87,7 +87,7 @@ export const facetValuesQueryTimespan = `
       SELECT (MIN(?start) AS ?min) {
         ?instance <PREDICATE> ?timespan .
         VALUES ?facetClass { <FACET_CLASS> }
-        ?instance a ?facetClass .
+        ?instance <FACET_CLASS_PREDICATE> ?facetClass .
         ?timespan <START_PROPERTY> ?start .
         <FACET_VALUE_FILTER>
       }
@@ -96,7 +96,7 @@ export const facetValuesQueryTimespan = `
       SELECT (MAX(?end) AS ?max) {
         ?instance <PREDICATE> ?timespan .
         VALUES ?facetClass { <FACET_CLASS> }
-        ?instance a ?facetClass .
+        ?instance <FACET_CLASS_PREDICATE> ?facetClass .
         ?timespan <END_PROPERTY> ?end .
         <FACET_VALUE_FILTER>
       }
@@ -109,7 +109,7 @@ export const facetValuesRange = `
   SELECT (MIN(?value) AS ?min) (MAX(?value) AS ?max) {
     ?instance <PREDICATE> ?value .
     VALUES ?facetClass { <FACET_CLASS> }
-    ?instance a ?facetClass .
+    ?instance <FACET_CLASS_PREDICATE> ?facetClass .
     <FACET_VALUE_FILTER>
   }
 `
@@ -137,7 +137,7 @@ export const hierarchicalFacetValuesQuery = `
 
             <FILTER>
             VALUES ?facetClass { <FACET_CLASS> }
-            ?instance a ?facetClass .
+            ?instance <FACET_CLASS_PREDICATE> ?facetClass .
 
             OPTIONAL { ?id <PARENTPROPERTY> ?parent_ }
             BIND(COALESCE(?parent_, '0') as ?parent)
