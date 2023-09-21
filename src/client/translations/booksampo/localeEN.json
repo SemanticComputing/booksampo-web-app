@@ -1,14 +1,14 @@
 {
   "languageLabel": "English",
   "html": {
-    "title": "BookSampo",
+    "title": "BookSampo 2.0",
     "description": ""
   },
   "appTitle": {
-    "short": "BookSampo",
-    "mobile": "BookSampo",
-    "long": "&nbsp; &nbsp; BookSampo &nbsp; &nbsp;",
-    "subheading": "Semantic search and data analysis"
+    "short": "BookSampo 2.0",
+    "mobile": "BookSampo 2.0",
+    "long": "&nbsp; &nbsp; BookSampo 2.0 &nbsp; &nbsp;",
+    "subheading": "Semantic search, browsing and data analysis"
   },
   "appDescription1": "Sampo is a web service for searching and studying place names. The search results can be viewed as a table, on maps, and as statistical distributions. Historical and current background maps are provided.",
   "appDescription2": "Start by choosing source dataset(s) and input a place name on the search field. Alternatively you can search by area.",

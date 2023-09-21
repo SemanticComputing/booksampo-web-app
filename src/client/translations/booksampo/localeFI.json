@@ -1,14 +1,14 @@
 {
   "languageLabel": "Suomi",
   "html": {
-    "title": "Kirjasampo",
+    "title": "Kirjasampo 2.0",
     "description": ""
   },
   "appTitle": {
-    "short": "Kirjasampo",
-    "mobile": "Kirjasampo",
-    "long": "&nbsp; &nbsp; Kirjasampo &nbsp; &nbsp;",
-    "subheading": "Semanttinen haku ja data-analyysi"
+    "short": "Kirjasampo 2.0",
+    "mobile": "Kirjasampo 2.0",
+    "long": "&nbsp; &nbsp; Kirjasampo 2.0 &nbsp; &nbsp;",
+    "subheading": "Semanttinen haku, selailu ja data-analyysit"
   },
   "appDescription1": "Sampo is a web service for searching and studying place names. The search results can be viewed as a table, on maps, and as statistical distributions. Historical and current background maps are provided.",
   "appDescription2": "Start by choosing source dataset(s) and input a place name on the search field. Alternatively you can search by area.",
