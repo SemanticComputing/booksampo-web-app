@@ -123,7 +123,7 @@ export const novelProperties = `
     }
     UNION
     {
-      ?id sch:isbn ?isbn__id, ?isbn__prefLabel .
+      ?id sch:isbn ?isbn .
     }
     UNION
     {

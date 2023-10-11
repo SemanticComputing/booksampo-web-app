@@ -464,7 +464,7 @@
         },
         {
             "id": "isbn",
-            "valueType": "object",
+            "valueType": "string",
             "makeLink": false,
             "externalLink": false,
             "sortValues": false,
