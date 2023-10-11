@@ -376,7 +376,8 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 150
+            "minWidth": 150,
+            "expandedOnInstancePage": true
         },
         {
             "id": "gender",
@@ -394,7 +395,8 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 150
+            "minWidth": 150,
+            "expandedOnInstancePage": true
         },
         {
             "id": "nationality",
@@ -403,7 +405,8 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 150
+            "minWidth": 150,
+            "expandedOnInstancePage": true
         },
         {
             "id": "activeYears",
@@ -412,7 +415,8 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 150
+            "minWidth": 150,
+            "expandedOnInstancePage": true
         },
         {
             "id": "education",
@@ -421,7 +425,8 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 150
+            "minWidth": 150,
+            "expandedOnInstancePage": true
         },
         {
             "id": "placeOfEducation",
@@ -486,7 +491,8 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 200
+            "minWidth": 200,
+            "expandedOnInstancePage": true
         },
         {
             "id": "award",
@@ -495,7 +501,8 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 250
+            "minWidth": 250,
+            "expandedOnInstancePage": true
         },
         {
             "id": "positionOfTrust",
@@ -505,7 +512,8 @@
             "sortValues": true,
             "numberedList": false,
             "minWidth": 150,
-            "onlyOnInstancePage": true
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
         },
         {
             "id": "school",
@@ -514,7 +522,8 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 150
+            "minWidth": 150,
+            "expandedOnInstancePage": true
         },
         {
             "id": "biography",
@@ -524,7 +533,8 @@
             "sortValues": true,
             "numberedList": false,
             "minWidth": 150,
-            "onlyOnInstancePage": true
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
         },
         {
             "id": "samePersonAs",

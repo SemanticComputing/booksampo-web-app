@@ -265,7 +265,8 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 200
+            "minWidth": 200,
+            "expandedOnInstancePage": true
         },
         {
             "id": "author",
@@ -274,7 +275,8 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 150
+            "minWidth": 150,
+            "expandedOnInstancePage": true
         },
         {
             "id": "genre",
@@ -283,7 +285,8 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 200
+            "minWidth": 200,
+            "expandedOnInstancePage": true
         },
         {
             "id": "theme",
@@ -292,7 +295,8 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 200
+            "minWidth": 200,
+            "expandedOnInstancePage": true
         },
         {
             "id": "keyword",
@@ -301,7 +305,8 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 150 
+            "minWidth": 150,
+            "expandedOnInstancePage": true
         },
         {
             "id": "originalLanguage",
@@ -320,7 +325,8 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 200
+            "minWidth": 200,
+            "expandedOnInstancePage": true
         },
         {
             "id": "mainCharacter",
@@ -329,7 +335,8 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 150
+            "minWidth": 150,
+            "expandedOnInstancePage": true
         },
         {
             "id": "character",
@@ -338,7 +345,8 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 200
+            "minWidth": 200,
+            "expandedOnInstancePage": true
         },
         {
             "id": "setting",
@@ -347,7 +355,8 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 200
+            "minWidth": 200,
+            "expandedOnInstancePage": true
         },
         {
             "id": "concretePlace",
@@ -356,7 +365,8 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 150
+            "minWidth": 150,
+            "expandedOnInstancePage": true
         },
         {
             "id": "timeOfStory",
@@ -365,7 +375,8 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 200
+            "minWidth": 200,
+            "expandedOnInstancePage": true
         },
         {
             "id": "exactTimeOfStory",
@@ -374,7 +385,8 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 150
+            "minWidth": 150,
+            "expandedOnInstancePage": true
         },
         {
             "id": "isbn",
@@ -384,7 +396,8 @@
             "sortValues": false,
             "numberedList": false,
             "disableSort": true,
-            "onlyOnInstancePage": true
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
         },
         {
             "id": "bookDescription",
@@ -404,7 +417,8 @@
             "sortValues": false,
             "numberedList": false,
             "disableSort": true,
-            "minWidth": 100
+            "minWidth": 100,
+            "expandedOnInstancePage": true
         },
         {
             "id": "publisher",
@@ -413,7 +427,8 @@
             "externalLink": false,
             "sortValues": false,
             "numberedList": false,
-            "minWidth": 200
+            "minWidth": 200,
+            "expandedOnInstancePage": true
         },
         {
             "id": "publicationYear",
@@ -422,7 +437,8 @@
             "externalLink": false,
             "sortValues": false,
             "numberedList": false,
-            "minWidth": 150
+            "minWidth": 150,
+            "expandedOnInstancePage": true
         },
         {
             "id": "yklClass",

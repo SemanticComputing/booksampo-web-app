@@ -417,7 +417,8 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 200
+            "minWidth": 200,
+            "expandedOnInstancePage": true
         },
         {
             "id": "workTheme",
@@ -426,7 +427,8 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 150
+            "minWidth": 150,
+            "expandedOnInstancePage": true
         },
         {
             "id": "workKeyword",
@@ -435,7 +437,8 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 150
+            "minWidth": 150,
+            "expandedOnInstancePage": true
         }
     ],
     "facets": {
