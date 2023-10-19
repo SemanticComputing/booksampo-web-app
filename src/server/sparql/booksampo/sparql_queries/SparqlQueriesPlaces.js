@@ -1,33 +1,33 @@
 export const placePropertiesInstancePage = `
   ?id skos:prefLabel|rdfs:label ?prefLabel__id .
   BIND(?prefLabel__id AS ?prefLabel__prefLabel)
-  BIND(CONCAT("/places/page/", ENCODE_FOR_URI(STR(REPLACE(STR(REPLACE(STR(?id), "%28", "~p28~", "i")), "%29", "~p29~", "i"))), "/table") AS ?prefLabel__dataProviderUrl)
-  # BIND(CONCAT("/places/page/", ENCODE_FOR_URI(STR(?id)), "/table") AS ?prefLabel__dataProviderUrl)
+  BIND(CONCAT('/places/page/', ENCODE_FOR_URI(STR(REPLACE(STR(REPLACE(STR(?id), '%28', '~p28~', 'i')), '%29', '~p29~', 'i'))), '/table') AS ?prefLabel__dataProviderUrl)
+  # BIND(CONCAT('/places/page/', ENCODE_FOR_URI(STR(?id)), '/table') AS ?prefLabel__dataProviderUrl)
   BIND(?id as ?uri__id)
   BIND(?id as ?uri__prefLabel)
-  BIND(CONCAT("https://demo.seco.tkk.fi/saha/project/resource.shtml?uri=", ENCODE_FOR_URI(STR(?id)), "&model=booksampo-2022") as ?uri__dataProviderUrl)
+  BIND(CONCAT('https://demo.seco.tkk.fi/saha/project/resource.shtml?uri=', ENCODE_FOR_URI(STR(?id)), '&model=booksampo-2022') as ?uri__dataProviderUrl)
   {
     ?id ^kaunokki:placeOfBirth ?personBorn__id .
     ?personBorn__id skos:prefLabel ?personBorn__prefLabel .
-    BIND(CONCAT("/people/page/", ENCODE_FOR_URI(STR(?personBorn__id)), "/table") AS ?personBorn__dataProviderUrl)
+    BIND(CONCAT('/people/page/', ENCODE_FOR_URI(STR(?personBorn__id)), '/table') AS ?personBorn__dataProviderUrl)
   }
   UNION
   {
     ?id ^kaunokki:placeOfDeath ?personDead__id .
     ?personDead__id skos:prefLabel ?personDead__prefLabel .
-    BIND(CONCAT("/people/page/", ENCODE_FOR_URI(STR(?personDead__id)), "/table") AS ?personDead__dataProviderUrl)
+    BIND(CONCAT('/people/page/', ENCODE_FOR_URI(STR(?personDead__id)), '/table') AS ?personDead__dataProviderUrl)
   }
   UNION
   {
     ?id ^kaunokki:hasLivedIn ?personLivedIn__id .
     ?personLivedIn__id skos:prefLabel ?personLivedIn__prefLabel .
-    BIND(CONCAT("/people/page/", ENCODE_FOR_URI(STR(?personLivedIn__id)), "/table") AS ?personLivedIn__dataProviderUrl)
+    BIND(CONCAT('/people/page/', ENCODE_FOR_URI(STR(?personLivedIn__id)), '/table') AS ?personLivedIn__dataProviderUrl)
   }
   UNION
   {
     ?id ^kaunokki:worldPlace ?novel__id .
     ?novel__id skos:prefLabel ?novel__prefLabel .
-    BIND(CONCAT("/novels/page/", ENCODE_FOR_URI(STR(?novel__id)), "/table") AS ?novel__dataProviderUrl)
+    BIND(CONCAT('/novels/page/', ENCODE_FOR_URI(STR(?novel__id)), '/table') AS ?novel__dataProviderUrl)
   }
 `
 
@@ -65,8 +65,8 @@ export const birthplacesQuery = `
       FILTER NOT EXISTS {
   		  ?person kaunokki:placeOfBirth [] .
       }
-      BIND("Unknown" as ?category)
-      BIND("Unknown" as ?prefLabel)
+      BIND('Unknown' as ?category)
+      BIND('Unknown' as ?prefLabel)
     }
   }
   GROUP BY ?category ?prefLabel
@@ -108,8 +108,8 @@ export const deathplacesQuery = `
       FILTER NOT EXISTS {
   		  ?person kaunokki:placeOfDeath [] .
       }
-      BIND("Unknown" as ?category)
-      BIND("Unknown" as ?prefLabel)
+      BIND('Unknown' as ?category)
+      BIND('Unknown' as ?prefLabel)
     }
   }
   GROUP BY ?category ?prefLabel
@@ -127,9 +127,13 @@ export const novelsTakingPlaceByGenreQuery = `
       ?novel kaunokki:genre ?category .
       OPTIONAL { 
         ?category skos:prefLabel ?prefLabel_ .
-        FILTER(LANG(?prefLabel_) = "<LANG>")
+        FILTER(LANG(?prefLabel_) = '<LANG>')
       }
-      BIND(COALESCE(?prefLabel_, ?category) as ?prefLabel)
+      OPTIONAL { 
+        ?category skos:prefLabel ?prefLabel_fi .
+        FILTER(LANG(?prefLabel_fi) = 'fi')
+      }
+      BIND(COALESCE(?prefLabel_, ?prefLabel_fi, ?category) as ?prefLabel)
     }
     UNION
     {
@@ -139,8 +143,8 @@ export const novelsTakingPlaceByGenreQuery = `
       FILTER NOT EXISTS {
         ?novel kaunokki:genre [] .
       }
-      BIND("Unknown" as ?category)
-      BIND("Unknown" as ?prefLabel)
+      BIND('Unknown' as ?category)
+      BIND('Unknown' as ?prefLabel)
     }
   }
   GROUP BY ?category ?prefLabel
@@ -158,9 +162,13 @@ export const novelsTakingPlaceByThemeQuery = `
       ?novel kaunokki:teema ?category .
       OPTIONAL { 
         ?category skos:prefLabel ?prefLabel_ .
-        FILTER(LANG(?prefLabel_) = "<LANG>")
+        FILTER(LANG(?prefLabel_) = '<LANG>')
       }
-      BIND(COALESCE(?prefLabel_, ?category) as ?prefLabel)
+      OPTIONAL { 
+        ?category skos:prefLabel ?prefLabel_fi .
+        FILTER(LANG(?prefLabel_fi) = 'fi')
+      }
+      BIND(COALESCE(?prefLabel_, ?prefLabel_fi, ?category) as ?prefLabel)
     }
     UNION
     {
@@ -170,8 +178,8 @@ export const novelsTakingPlaceByThemeQuery = `
       FILTER NOT EXISTS {
         ?novel kaunokki:teema [] .
       }
-      BIND("Unknown" as ?category)
-      BIND("Unknown" as ?prefLabel)
+      BIND('Unknown' as ?category)
+      BIND('Unknown' as ?prefLabel)
     }
   }
   GROUP BY ?category ?prefLabel
@@ -190,9 +198,13 @@ export const genderRatioQuery = `
       ?author foaf:gender ?category .
       OPTIONAL { 
         ?category skos:prefLabel ?prefLabel_ .
-        FILTER(LANG(?prefLabel_) = "<LANG>")
+        FILTER(LANG(?prefLabel_) = '<LANG>')
       }
-      BIND(COALESCE(?prefLabel_, ?category) as ?prefLabel)
+      OPTIONAL { 
+        ?category skos:prefLabel ?prefLabel_fi .
+        FILTER(LANG(?prefLabel_fi) = 'fi')
+      }
+      BIND(COALESCE(?prefLabel_, ?prefLabel_fi, ?category) as ?prefLabel)
     }
     UNION
     {
@@ -203,8 +215,8 @@ export const genderRatioQuery = `
         ?novel kaunokki:tekija ?author .
         ?author foaf:gender [] .
       }
-      BIND("Unknown" as ?category)
-      BIND("Unknown" as ?prefLabel)
+      BIND('Unknown' as ?category)
+      BIND('Unknown' as ?prefLabel)
     }
   }
   GROUP BY ?category ?prefLabel

@@ -473,7 +473,7 @@
         "genre": {
             "containerClass": "ten",
             "facetType": "list",
-            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_ . FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabel_fi . FILTER(LANG(?prefLabel_fi) = 'fi') } BIND(COALESCE(?prefLabel_, ?prefLabel_fi, ?id) AS ?prefLabel)",
             "hideUnknownValue": false,
             "filterType": "uriFilter",
             "predicate": "kaunokki:genre",
@@ -486,7 +486,7 @@
         "theme": {
             "containerClass": "ten",
             "facetType": "list",
-            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_ . FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabel_fi . FILTER(LANG(?prefLabel_fi) = 'fi') } BIND(COALESCE(?prefLabel_, ?prefLabel_fi, ?id) AS ?prefLabel)",
             "hideUnknownValue": false,
             "filterType": "uriFilter",
             "predicate": "kaunokki:teema",
@@ -499,7 +499,7 @@
         "keyword": {
             "containerClass": "ten",
             "facetType": "list",
-            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_ . FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabel_fi . FILTER(LANG(?prefLabel_fi) = 'fi') } BIND(COALESCE(?prefLabel_, ?prefLabel_fi, ?id) AS ?prefLabel)",
             "hideUnknownValue": true,
             "filterType": "uriFilter",
             "predicate": "kaunokki:asiasana",
@@ -512,7 +512,7 @@
         "originalLanguage": {
             "containerClass": "ten",
             "facetType": "list",
-            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_ . FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabel_fi . FILTER(LANG(?prefLabel_fi) = 'fi') } BIND(COALESCE(?prefLabel_, ?prefLabel_fi, ?id) AS ?prefLabel)",
             "filterType": "uriFilter",
             "predicate": "kaunokki:alkukieli",
             "searchField": true,
@@ -523,7 +523,7 @@
         "award": {
             "containerClass": "ten",
             "facetType": "hierarchical",
-            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_ . FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabel_fi . FILTER(LANG(?prefLabel_fi) = 'fi') } BIND(COALESCE(?prefLabel_, ?prefLabel_fi, ?id) AS ?prefLabel)",
             "hideUnknownValue": true,
             "filterType": "uriFilter",
             "parentProperty": "kaunokki:palkintosarja",
@@ -537,7 +537,7 @@
         "mainCharacter": {
             "containerClass": "ten",
             "facetType": "list",
-            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_. FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabelFI_ . FILTER(LANG(?prefLabelFI_) = 'fi') } OPTIONAL { ?id skos:prefLabel ?prefLabelGEN_ } BIND(COALESCE(COALESCE(COALESCE(STR(?prefLabel_), STR(?prefLabelFI_)), STR(?prefLabelGEN_)), STR(?id)) AS ?prefLabel)",
+            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_ . FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabelFI_ . FILTER(LANG(?prefLabelFI_) = 'fi') } OPTIONAL { ?id skos:prefLabel ?prefLabelGEN_ } BIND(COALESCE(?prefLabel_, ?prefLabelFI_, ?prefLabelGEN_, ?id) AS ?prefLabel)",
             "filterType": "uriFilter",
             "predicate": "kaunokki:paahenkilo",
             "searchField": true,
@@ -549,7 +549,7 @@
         "character": {
             "containerClass": "ten",
             "facetType": "list",
-            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_. FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabelFI_ . FILTER(LANG(?prefLabelFI_) = 'fi') } OPTIONAL { ?id skos:prefLabel ?prefLabelGEN_ } BIND(COALESCE(COALESCE(COALESCE(STR(?prefLabel_), STR(?prefLabelFI_)), STR(?prefLabelGEN_)), STR(?id)) AS ?prefLabel)",
+            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_ . FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabelFI_ . FILTER(LANG(?prefLabelFI_) = 'fi') } OPTIONAL { ?id skos:prefLabel ?prefLabelGEN_ } BIND(COALESCE(?prefLabel_, ?prefLabelFI_, ?prefLabelGEN_, ?id) AS ?prefLabel)",
             "filterType": "uriFilter",
             "predicate": "kaunokki:toimija",
             "searchField": true,
@@ -561,7 +561,7 @@
         "setting": {
             "containerClass": "ten",
             "facetType": "list",
-            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_ . FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabel_fi . FILTER(LANG(?prefLabel_fi) = 'fi') } BIND(COALESCE(?prefLabel_, ?prefLabel_fi, ?id) AS ?prefLabel)",
             "hideUnknownValue": true,
             "filterType": "uriFilter",
             "predicate": "kaunokki:paikka",
@@ -574,7 +574,7 @@
         "concretePlace": {
             "containerClass": "ten",
             "facetType": "list",
-            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_ . FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabelGEN_ . } BIND(COALESCE(COALESCE(?prefLabel_, ?prefLabelGEN_), ?id) as ?prefLabel)",
+            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_ . FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabel_fi . FILTER(LANG(?prefLabel_fi) = 'fi') } OPTIONAL { ?id skos:prefLabel ?prefLabel_gen . } BIND(COALESCE(?prefLabel_, ?prefLabel_fi, ?prefLabel_gen, ?id) as ?prefLabel)",
             "hideUnknownValue": true,
             "filterType": "uriFilter",
             "predicate": "kaunokki:worldPlace",
@@ -587,7 +587,7 @@
         "timeOfStory": {
             "containerClass": "ten",
             "facetType": "list",
-            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_ . FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabelGEN_ . } BIND(COALESCE(COALESCE(?prefLabel_, ?prefLabelGEN_), ?id) as ?prefLabel)",
+            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_ . FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabel_fi . FILTER(LANG(?prefLabel_fi) = 'fi') } OPTIONAL { ?id skos:prefLabel ?prefLabel_gen . } BIND(COALESCE(?prefLabel_, ?prefLabel_fi, ?prefLabel_gen, ?id) as ?prefLabel)",
             "hideUnknownValue": true,
             "filterType": "uriFilter",
             "predicate": "kaunokki:tapahtumaaika",
@@ -600,7 +600,7 @@
         "exactTimeOfStory": {
             "containerClass": "ten",
             "facetType": "list",
-            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_ . FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabelGEN_ . } BIND(COALESCE(COALESCE(?prefLabel_, ?prefLabelGEN_), ?id) as ?prefLabel)",
+            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_ . FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabel_fi . FILTER(LANG(?prefLabel_fi) = 'fi') } OPTIONAL { ?id skos:prefLabel ?prefLabel_gen . } BIND(COALESCE(?prefLabel_, ?prefLabel_fi, ?prefLabel_gen, ?id) as ?prefLabel)",
             "hideUnknownValue": true,
             "filterType": "uriFilter",
             "predicate": "kaunokki:hasTimeOfStory",

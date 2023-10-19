@@ -99,8 +99,8 @@ class ResultTable extends React.Component {
       search: `?page=${page}`
     })
 
-    // check if facet updates have been made before
-    if (this.props.facetUpdateID > 0) {
+    // check if facet updates have been made before or re-fetch the results when the language changes
+    if (this.props.facetUpdateID > 0 || this.props.currentLocale) {
       this.fetchResults()
     }
   }
@@ -364,7 +364,8 @@ ResultTable.propTypes = {
   updatePage: PropTypes.func.isRequired,
   updateRowsPerPage: PropTypes.func.isRequired,
   location: PropTypes.object.isRequired,
-  rootUrl: PropTypes.string.isRequired
+  rootUrl: PropTypes.string.isRequired,
+  currentLocale: PropTypes.string.isRequired
 }
 
 export const ResultTableComponent = ResultTable

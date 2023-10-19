@@ -5,8 +5,8 @@ export const publicationProperties = `
   BIND(?prefLabel__id AS ?prefLabel__prefLabel)
   BIND(?id as ?uri__id)
   BIND(?id as ?uri__prefLabel)
-  BIND(CONCAT("/${perspectiveID}/page/", ENCODE_FOR_URI(STR(?id)), "/table") AS ?prefLabel__dataProviderUrl)
-  BIND(CONCAT("https://demo.seco.tkk.fi/saha/project/resource.shtml?uri=", ENCODE_FOR_URI(STR(?id)), "&model=booksampo-2022") as ?uri__dataProviderUrl)
+  BIND(CONCAT('/${perspectiveID}/page/', ENCODE_FOR_URI(STR(?id)), '/table') AS ?prefLabel__dataProviderUrl)
+  BIND(CONCAT('https://demo.seco.tkk.fi/saha/project/resource.shtml?uri=', ENCODE_FOR_URI(STR(?id)), '&model=booksampo-2022') as ?uri__dataProviderUrl)
   {
     ?id kaunokki:kansikuva ?image__id .
     ?image__id ks-annotaatio:tiedostoUrl ?image__url .
@@ -40,33 +40,44 @@ export const publicationProperties = `
     ?id kaunokki:kieli ?language__id .
     OPTIONAL {
       ?language__id skos:prefLabel ?language__prefLabel_ .
-      FILTER(LANG(?language__prefLabel_) = "<LANG>")
+      FILTER(LANG(?language__prefLabel_) = '<LANG>')
     }
-    BIND(COALESCE(?language__prefLabel_, ?language__id) as ?language__prefLabel)
+    OPTIONAL {
+      ?language__id skos:prefLabel ?language__prefLabel_fi .
+      FILTER(LANG(?language__prefLabel_fi) = 'fi')
+    }
+    BIND(COALESCE(?language__prefLabel_, ?language__prefLabel_fi, ?language__id) as ?language__prefLabel)
   }
   UNION
   {
     ?id kaunokki:onEnsimmainenVersio ?firstVersion__id .
-    ?firstVersion__id skos:prefLabel ?firstVersion__prefLabel .
-    FILTER(LANG(?firstVersion__prefLabel) = "<LANG>")
+    OPTIONAL {
+      ?firstVersion__id skos:prefLabel ?firstVersion__prefLabel_ .
+      FILTER(LANG(?firstVersion__prefLabel_) = '<LANG>')
+    }
+    OPTIONAL {
+      ?firstVersion__id skos:prefLabel ?firstVersion__prefLabel_fi .
+      FILTER(LANG(?firstVersion__prefLabel_fi) = 'fi')
+    }
+    BIND(COALESCE(?firstVersion__prefLabel_, ?firstVersion__prefLabel_fi, ?firstVersion__id) as ?firstVersion__prefLabel)
   }
   UNION
   {
     ?id kaunokki:kaantaja ?translator__id .
     ?translator__id skos:prefLabel ?translator__prefLabel .
-    BIND(CONCAT("/people/page/", ENCODE_FOR_URI(STR(?translator__id)), "/table") AS ?translator__dataProviderUrl)
+    BIND(CONCAT('/people/page/', ENCODE_FOR_URI(STR(?translator__id)), '/table') AS ?translator__dataProviderUrl)
   }
   UNION
   {
     ?id kaunokki:kuvittaja ?illustrator__id .
     ?illustrator__id skos:prefLabel ?illustrator__prefLabel .
-    BIND(CONCAT("/people/page/", ENCODE_FOR_URI(STR(?illustrator__id)), "/table") AS ?illustrator__dataProviderUrl)
+    BIND(CONCAT('/people/page/', ENCODE_FOR_URI(STR(?illustrator__id)), '/table') AS ?illustrator__dataProviderUrl)
   }
   UNION
   {
     ?id kaunokki:toimittaja ?otherAuthor__id .
     ?otherAuthor__id skos:prefLabel ?otherAuthor__prefLabel .
-    BIND(CONCAT("/people/page/", ENCODE_FOR_URI(STR(?otherAuthor__id)), "/table") AS ?otherAuthor__dataProviderUrl)
+    BIND(CONCAT('/people/page/', ENCODE_FOR_URI(STR(?otherAuthor__id)), '/table') AS ?otherAuthor__dataProviderUrl)
   }
   UNION
   {
@@ -77,11 +88,11 @@ export const publicationProperties = `
     BIND(COALESCE(?work__prefLabel_, ?work__id) as ?work__prefLabel)
     OPTIONAL {
       ?work__id a kaunokki:romaani .
-      BIND(CONCAT("/novels/page/", ENCODE_FOR_URI(STR(?work__id)), "/table") AS ?work__dataProviderUrl_novel)
+      BIND(CONCAT('/novels/page/', ENCODE_FOR_URI(STR(?work__id)), '/table') AS ?work__dataProviderUrl_novel)
     }
     OPTIONAL {
       ?work__id a <http://www.seco.tkk.fi/applications/saha#Instance_ID1237984819752> .
-      BIND(CONCAT("/nonfictionBooks/page/", ENCODE_FOR_URI(STR(?work__id)), "/table") AS ?work__dataProviderUrl_nonfiction)
+      BIND(CONCAT('/nonfictionBooks/page/', ENCODE_FOR_URI(STR(?work__id)), '/table') AS ?work__dataProviderUrl_nonfiction)
     }
     BIND(COALESCE(?work__dataProviderUrl_novel, ?work__dataProviderUrl_nonfiction) as ?work__dataProviderUrl)
   }
@@ -94,11 +105,11 @@ export const publicationProperties = `
     BIND(COALESCE(?workPart__prefLabel_, ?workPart__id) as ?workPart__prefLabel)
     OPTIONAL {
       ?workPart__id a kaunokki:romaani .
-      BIND(CONCAT("/novels/page/", ENCODE_FOR_URI(STR(?workPart__id)), "/table") AS ?workPart__dataProviderUrl_novel)
+      BIND(CONCAT('/novels/page/', ENCODE_FOR_URI(STR(?workPart__id)), '/table') AS ?workPart__dataProviderUrl_novel)
     }
     OPTIONAL {
       ?workPart__id a <http://www.seco.tkk.fi/applications/saha#Instance_ID1237984819752> .
-      BIND(CONCAT("/nonfictionBooks/page/", ENCODE_FOR_URI(STR(?workPart__id)), "/table") AS ?workPart__dataProviderUrl_nonfiction)
+      BIND(CONCAT('/nonfictionBooks/page/', ENCODE_FOR_URI(STR(?workPart__id)), '/table') AS ?workPart__dataProviderUrl_nonfiction)
     }
     BIND(COALESCE(?workPart__dataProviderUrl_novel, ?workPart__dataProviderUrl_nonfiction) as ?workPart__dataProviderUrl)
   }
@@ -108,21 +119,25 @@ export const publicationProperties = `
     ?abstract_work a ?workType__id .
     OPTIONAL { 
       ?workType__id skos:prefLabel ?workType__prefLabel_ .
-      FILTER(LANG(?workType__prefLabel_) = "<LANG>")
+      FILTER(LANG(?workType__prefLabel_) = '<LANG>')
     }
-    BIND(COALESCE(?workType__prefLabel_, ?workType__id) as ?workType__prefLabel)
+    OPTIONAL { 
+      ?workType__id skos:prefLabel ?workType__prefLabel_fi .
+      FILTER(LANG(?workType__prefLabel_fi) = 'fi')
+    }
+    BIND(COALESCE(?workType__prefLabel_, ?workType__prefLabel_fi, ?workType__id) as ?workType__prefLabel)
   }
   UNION
   {
     ?id ^kaunokki:partOfCollectiveWorks ?part__id .
     ?part__id skos:prefLabel ?part__prefLabel .
-    BIND(CONCAT("/publications/page/", ENCODE_FOR_URI(STR(?part__id)), "/table") AS ?part__dataProviderUrl)
+    BIND(CONCAT('/publications/page/', ENCODE_FOR_URI(STR(?part__id)), '/table') AS ?part__dataProviderUrl)
   }
   UNION
   {
     ?id kaunokki:sarjassa ?series__id .
     ?series__id skos:prefLabel ?series__prefLabel .
-    BIND(CONCAT("/series/page/", ENCODE_FOR_URI(STR(?series__id)), "/table") AS ?series__dataProviderUrl)
+    BIND(CONCAT('/series/page/', ENCODE_FOR_URI(STR(?series__id)), '/table') AS ?series__dataProviderUrl)
   }
   UNION
   {
@@ -130,9 +145,13 @@ export const publicationProperties = `
     ?abstract_work kaunokki:genre ?workGenre__id .
     OPTIONAL { 
       ?workGenre__id skos:prefLabel ?workGenre__prefLabel_ .
-      FILTER(LANG(?workGenre__prefLabel_) = "<LANG>")
+      FILTER(LANG(?workGenre__prefLabel_) = '<LANG>')
     }
-    BIND(COALESCE(?workGenre__prefLabel_, ?workGenre__id) as ?workGenre__prefLabel)
+    OPTIONAL { 
+      ?workGenre__id skos:prefLabel ?workGenre__prefLabel_fi .
+      FILTER(LANG(?workGenre__prefLabel_fi) = 'fi')
+    }
+    BIND(COALESCE(?workGenre__prefLabel_, ?workGenre__prefLabel_fi, ?workGenre__id) as ?workGenre__prefLabel)
   }
   UNION
   {
@@ -140,9 +159,13 @@ export const publicationProperties = `
     ?abstract_work kaunokki:teema ?workTheme__id .
     OPTIONAL { 
       ?workTheme__id skos:prefLabel ?workTheme__prefLabel_ .
-      FILTER(LANG(?workTheme__prefLabel_) = "<LANG>")
+      FILTER(LANG(?workTheme__prefLabel_) = '<LANG>')
     }
-    BIND(COALESCE(?workTheme__prefLabel_, ?workTheme__id) as ?workTheme__prefLabel)
+    OPTIONAL { 
+      ?workTheme__id skos:prefLabel ?workTheme__prefLabel_fi .
+      FILTER(LANG(?workTheme__prefLabel_fi) = 'fi')
+    }
+    BIND(COALESCE(?workTheme__prefLabel_, ?workTheme__prefLabel_fi, ?workTheme__id) as ?workTheme__prefLabel)
   }
   UNION
   {
@@ -150,9 +173,13 @@ export const publicationProperties = `
     ?abstract_work kaunokki:asiasana ?workKeyword__id .
     OPTIONAL { 
       ?workKeyword__id skos:prefLabel ?workKeyword__prefLabel_ .
-      FILTER(LANG(?workKeyword__prefLabel_) = "<LANG>")
+      FILTER(LANG(?workKeyword__prefLabel_) = '<LANG>')
     }
-    BIND(COALESCE(?workKeyword__prefLabel_, ?workKeyword__id) as ?workKeyword__prefLabel)
+    OPTIONAL { 
+      ?workKeyword__id skos:prefLabel ?workKeyword__prefLabel_fi .
+      FILTER(LANG(?workKeyword__prefLabel_fi) = 'fi')
+    }
+    BIND(COALESCE(?workKeyword__prefLabel_, ?workKeyword__prefLabel_fi, ?workKeyword__id) as ?workKeyword__prefLabel)
   }
 `
 
@@ -164,7 +191,7 @@ export const publicationsByDecadeAndGenreQuery = `
       ?publication kaunokki:ilmestymisvuosi ?yearId .
       OPTIONAL {
         ?yearId skos:prefLabel ?label .
-        FILTER(LANG(?label) != 'fi' && LANG(?label) != 'sv' && LANG(?label) != 'en')
+        FILTER(LANG(?label) = '')
       }
       OPTIONAL {
         ?yearId skos:prefLabel ?label_FI .
@@ -180,14 +207,18 @@ export const publicationsByDecadeAndGenreQuery = `
       }
       BIND(COALESCE(xsd:integer(?label), xsd:integer(?label_FI), xsd:integer(?label_SV), xsd:integer(?label_EN)) as ?year)
       FILTER(BOUND(?year))
-      BIND(CONCAT(REPLACE(STR(?year), "(.*)\\\\d.*$", "$1"), "0") AS ?decade)
+      BIND(CONCAT(REPLACE(STR(?year), '(.*)\\\\d.*$', '$1'), '0') AS ?decade)
       BIND(xsd:integer(?decade) as ?id)
       ?abstract_work kaunokki:genre ?dataItem__id .
       OPTIONAL { 
         ?dataItem__id skos:prefLabel ?dataItem__prefLabel_ .
-        FILTER(LANG(?dataItem__prefLabel_) = "<LANG>")
+        FILTER(LANG(?dataItem__prefLabel_) = '<LANG>')
       }
-      BIND(COALESCE(?dataItem__prefLabel_, ?dataItem__id) as ?dataItem__prefLabel)
+      OPTIONAL { 
+        ?dataItem__id skos:prefLabel ?dataItem__prefLabel_fi .
+        FILTER(LANG(?dataItem__prefLabel_fi) = 'fi')
+      }
+      BIND(COALESCE(?dataItem__prefLabel_, ?dataItem__prefLabel_fi, ?dataItem__id) as ?dataItem__prefLabel)
       FILTER(BOUND(?id))
     }
   } 
@@ -204,9 +235,16 @@ export const publicationsByDecadeAndThemeQuery = `
     BIND(xsd:integer(?label) as ?year)
     FILTER(BOUND(?year))
     BIND(xsd:integer(FLOOR(?year/10)*10) AS ?id)
-    ?dataItem__id ^kaunokki:teema ?abstract_work ;
-                  skos:prefLabel ?dataItem__prefLabel .
-    FILTER(LANG(?dataItem__prefLabel) = "<LANG>")
+    ?dataItem__id ^kaunokki:teema ?abstract_work .
+    OPTIONAL { 
+      ?dataItem__id skos:prefLabel ?dataItem__prefLabel_ .
+      FILTER(LANG(?dataItem__prefLabel_) = '<LANG>')
+    }
+    OPTIONAL { 
+      ?dataItem__id skos:prefLabel ?dataItem__prefLabel_fi .
+       FILTER(LANG(?dataItem__prefLabel_fi) = 'fi')
+    }
+    BIND(COALESCE(?dataItem__prefLabel_, ?dataItem__prefLabel_fi, ?dataItem__id) as ?dataItem__prefLabel)
   } 
   GROUP BY ?id ?dataItem__id ?dataItem__prefLabel
   ORDER BY ?id
@@ -219,7 +257,7 @@ export const publicationsByYearLineChartQuery = `
     ?publication kaunokki:ilmestymisvuosi ?year .
     OPTIONAL {
         ?year skos:prefLabel ?label .
-        FILTER(LANG(?label) != 'fi' && LANG(?label) != 'sv' && LANG(?label) != 'en')
+        FILTER(LANG(?label) = '')
     }
     OPTIONAL {
         ?year skos:prefLabel ?label_FI .
@@ -243,9 +281,13 @@ export const genresByYearTimeSeriesQuery = `
         ?abstract_work kaunokki:genre ?genre_id .
         OPTIONAL { 
           ?genre_id skos:prefLabel ?genre_label_ .
-          FILTER(LANG(?genre_label_) = "fi")
+          FILTER(LANG(?genre_label_) = '<LANG>')
         }
-        BIND(COALESCE(?genre_label_, ?genre_id) as ?genre_label)
+        OPTIONAL { 
+          ?genre_id skos:prefLabel ?genre_label_fi .
+          FILTER(LANG(?genre_label_fi) = 'fi')
+        }
+        BIND(COALESCE(?genre_label_, ?genre_label_fi, ?genre_id) as ?genre_label)
       }
       GROUP BY ?genre_id ?genre_label
       ORDER BY DESC(?genre_count)
@@ -257,7 +299,7 @@ export const genresByYearTimeSeriesQuery = `
     ?publication kaunokki:ilmestymisvuosi ?year .
     OPTIONAL {
       ?year skos:prefLabel ?label .
-      FILTER(LANG(?label) != 'fi' && LANG(?label) != 'sv' && LANG(?label) != 'en')
+      FILTER(LANG(?label) = '')
     }
     OPTIONAL {
       ?year skos:prefLabel ?label_FI .
@@ -283,13 +325,13 @@ export const themesByYearTimeSeriesQuery = `
         ?abstract_work kaunokki:teema ?theme_id .
         OPTIONAL { 
           ?theme_id skos:prefLabel ?theme_label_ .
-          FILTER(LANG(?theme_label_) = "fi")
+          FILTER(LANG(?theme_label_) = '<LANG>')
         }
         OPTIONAL {
-          ?theme_id skos:prefLabel ?theme_label_SV .
-          FILTER(LANG(?theme_label_SV) = "sv")
+          ?theme_id skos:prefLabel ?theme_label_fi .
+          FILTER(LANG(?theme_label_fi) = 'fi')
         }
-        BIND(COALESCE(?theme_label_, ?theme_label_SV, ?theme_id) as ?theme_label)
+        BIND(COALESCE(?theme_label_, ?theme_label_fi, ?theme_id) as ?theme_label)
       }
       GROUP BY ?theme_id ?theme_label
       ORDER BY DESC(?theme_count)
@@ -301,7 +343,7 @@ export const themesByYearTimeSeriesQuery = `
     ?publication kaunokki:ilmestymisvuosi ?year .
     OPTIONAL {
       ?year skos:prefLabel ?label .
-      FILTER(LANG(?label) != 'fi' && LANG(?label) != 'sv' && LANG(?label) != 'en')
+      FILTER(LANG(?label) = '')
     }
     OPTIONAL {
       ?year skos:prefLabel ?label_FI .
@@ -327,13 +369,13 @@ export const keywordsByYearTimeSeriesQuery = `
         ?abstract_work kaunokki:asiasana ?keyword_id .
         OPTIONAL { 
           ?keyword_id skos:prefLabel ?keyword_label_ .
-          FILTER(LANG(?keyword_label_) = "fi")
+          FILTER(LANG(?keyword_label_) = '<LANG>')
         }
         OPTIONAL {
-          ?keyword_id skos:prefLabel ?keyword_label_SV .
-          FILTER(LANG(?keyword_label_SV) = "sv")
+          ?keyword_id skos:prefLabel ?keyword_label_fi .
+          FILTER(LANG(?keyword_label_fi) = 'fi')
         }
-        BIND(COALESCE(?keyword_label_, ?keyword_label_SV, ?keyword_id) as ?keyword_label)
+        BIND(COALESCE(?keyword_label_, ?keyword_label_fi, ?keyword_id) as ?keyword_label)
       }
       GROUP BY ?keyword_id ?keyword_label
       ORDER BY DESC(?keyword_count)
@@ -345,7 +387,7 @@ export const keywordsByYearTimeSeriesQuery = `
     ?publication kaunokki:ilmestymisvuosi ?year .
     OPTIONAL {
       ?year skos:prefLabel ?label .
-      FILTER(LANG(?label) != 'fi' && LANG(?label) != 'sv' && LANG(?label) != 'en')
+      FILTER(LANG(?label) = '')
     }
     OPTIONAL {
       ?year skos:prefLabel ?label_FI .
@@ -371,9 +413,13 @@ export const concretePlacesByYearTimeSeriesQuery = `
         ?abstract_work kaunokki:worldPlace ?place_id .
         OPTIONAL { 
           ?place_id skos:prefLabel ?place_label_ .
-          FILTER(LANG(?place_label_) = "fi")
+          FILTER(LANG(?place_label_) = '<LANG>')
         }
-        BIND(COALESCE(?place_label_, ?place_id) as ?place_label)
+        OPTIONAL { 
+          ?place_id skos:prefLabel ?place_label_fi .
+          FILTER(LANG(?place_label_fi) = 'fi')
+        }
+        BIND(COALESCE(?place_label_, ?place_label_fi, ?place_id) as ?place_label)
       }
       GROUP BY ?place_id ?place_label
       ORDER BY DESC(?place_count)
@@ -385,7 +431,7 @@ export const concretePlacesByYearTimeSeriesQuery = `
     ?publication kaunokki:ilmestymisvuosi ?year .
     OPTIONAL {
       ?year skos:prefLabel ?label .
-      FILTER(LANG(?label) != 'fi' && LANG(?label) != 'sv' && LANG(?label) != 'en')
+      FILTER(LANG(?label) = '')
     }
     OPTIONAL {
       ?year skos:prefLabel ?label_FI .
@@ -409,7 +455,7 @@ export const publicationLengthsByYearLineChartQuery = `
     FILTER(BOUND(?pageCount))
     OPTIONAL {
         ?year skos:prefLabel ?label .
-        FILTER(LANG(?label) != 'fi' && LANG(?label) != 'sv' && LANG(?label) != 'en')
+        FILTER(LANG(?label) = '')
     }
     OPTIONAL {
         ?year skos:prefLabel ?label_FI .
@@ -442,9 +488,13 @@ export const genderRatiosByYearTimeSeriesQuery = `
       ?author_id foaf:gender ?secondaryCategory .
       OPTIONAL {
         ?secondaryCategory skos:prefLabel ?gender_label .
-        FILTER(LANG(?gender_label) = 'fi')
+        FILTER(LANG(?gender_label) = '<LANG>')
       }
-      BIND(COALESCE(?gender_label, ?secondaryCategory) as ?secondaryPrefLabel)
+      OPTIONAL {
+        ?secondaryCategory skos:prefLabel ?gender_label_fi .
+        FILTER(LANG(?gender_label_fi) = 'fi')
+      }
+      BIND(COALESCE(?gender_label, ?gender_label_fi, ?secondaryCategory) as ?secondaryPrefLabel)
     }
     UNION 
     {
@@ -452,8 +502,8 @@ export const genderRatiosByYearTimeSeriesQuery = `
       FILTER NOT EXISTS {
         ?author_id foaf:gender [] .
       }
-      BIND("gender unknown" as ?secondaryCategory)
-      BIND("gender unknown" as ?secondaryPrefLabel)
+      BIND('gender unknown' as ?secondaryCategory)
+      BIND('gender unknown' as ?secondaryPrefLabel)
     }
   }
   GROUP BY ?category ?secondaryCategory ?secondaryPrefLabel

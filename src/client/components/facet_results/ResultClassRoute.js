@@ -2,6 +2,7 @@ import React, { lazy } from 'react'
 import intl from 'react-intl-universal'
 import { Route, useLocation } from 'react-router-dom'
 import { has } from 'lodash'
+import { useSelector } from 'react-redux'
 // import LineChartSotasurmat from '../perspectives/sotasurmat/LineChartSotasurmat'
 const ResultTable = lazy(() => import('./ResultTable'))
 const InstancePageTable = lazy(() => import('../main_layout/InstancePageTable'))
@@ -49,6 +50,7 @@ const ResultClassRoute = props => {
     popupMaxWidth = 150
   }
   const { component } = resultClassConfig
+  const currentLocale = useSelector(state => state.options.currentLocale)
   let routeComponent
   switch (component) {
     case 'ResultTable':
@@ -67,6 +69,7 @@ const ResultClassRoute = props => {
           rootUrl={rootUrl}
           layoutConfig={layoutConfig}
           location={useLocation()}
+          currentLocale={currentLocale}
         />
       )
       break

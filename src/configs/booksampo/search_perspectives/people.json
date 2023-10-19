@@ -589,7 +589,7 @@
         "occupation": {
             "containerClass": "ten",
             "facetType": "list",
-            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_ . FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabel_fi . FILTER(LANG(?prefLabel_fi) = 'fi') } BIND(COALESCE(?prefLabel_, ?prefLabel_fi, ?id) AS ?prefLabel)",
             "filterType": "uriFilter",
             "predicate": "kaunokki:occupation",
             "searchField": true,
@@ -601,7 +601,7 @@
         "gender": {
             "containerClass": "four",
             "facetType": "list",
-            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_ . FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabel_fi . FILTER(LANG(?prefLabel_fi) = 'fi') } BIND(COALESCE(?prefLabel_, ?prefLabel_fi, ?id) AS ?prefLabel)",
             "filterType": "uriFilter",
             "predicate": "foaf:gender",
             "searchField": true,
@@ -614,7 +614,7 @@
         "language": {
             "containerClass": "ten",
             "facetType": "list",
-            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_ . FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabel_fi . FILTER(LANG(?prefLabel_fi) = 'fi') } BIND(COALESCE(?prefLabel_, ?prefLabel_fi, ?id) AS ?prefLabel)",
             "filterType": "uriFilter",
             "predicate": "kaunokki:aidinkieli",
             "searchField": true,
@@ -625,7 +625,7 @@
         "nationality": {
             "containerClass": "ten",
             "facetType": "list",
-            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_ . FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabel_fi . FILTER(LANG(?prefLabel_fi) = 'fi') } BIND(COALESCE(?prefLabel_, ?prefLabel_fi, ?id) AS ?prefLabel)",
             "filterType": "uriFilter",
             "predicate": "kaunokki:kansallisuus",
             "searchField": true,
@@ -637,7 +637,7 @@
         "activeYears": {
             "containerClass": "ten",
             "facetType": "list",
-            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_ . FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabel_fi . FILTER(LANG(?prefLabel_fi) = 'fi') } BIND(COALESCE(?prefLabel_, ?prefLabel_fi, ?id) AS ?prefLabel)",
             "filterType": "uriFilter",
             "predicate": "kaunokki:hasWritten",
             "searchField": true,
@@ -649,7 +649,7 @@
         "education": {
             "containerClass": "ten",
             "facetType": "list",
-            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_ . FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabel_fi . FILTER(LANG(?prefLabel_fi) = 'fi') } BIND(COALESCE(?prefLabel_, ?prefLabel_fi, ?id) AS ?prefLabel)",
             "filterType": "uriFilter",
             "predicate": "kaunokki:hasEducation",
             "searchField": true,
@@ -661,7 +661,7 @@
         "placeOfEducation": {
             "containerClass": "ten",
             "facetType": "list",
-            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_ . FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabel_fi . FILTER(LANG(?prefLabel_fi) = 'fi') } BIND(COALESCE(?prefLabel_, ?prefLabel_fi, ?id) AS ?prefLabel)",
             "filterType": "uriFilter",
             "predicate": "kaunokki:hasPlaceOfEducation",
             "searchField": true,
@@ -673,7 +673,7 @@
         "hasLivedIn": {
             "containerClass": "ten",
             "facetType": "list",
-            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_ . FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabel_fi . FILTER(LANG(?prefLabel_fi) = 'fi') } BIND(COALESCE(?prefLabel_, ?prefLabel_fi, ?id) AS ?prefLabel)",
             "filterType": "uriFilter",
             "predicate": "kaunokki:hasLivedIn",
             "searchField": true,
@@ -685,7 +685,7 @@
         "placeOfBirth": {
             "containerClass": "ten",
             "facetType": "list",
-            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_ . FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabel_fi . FILTER(LANG(?prefLabel_fi) = 'fi') } BIND(COALESCE(?prefLabel_, ?prefLabel_fi, ?id) AS ?prefLabel)",
             "filterType": "uriFilter",
             "predicate": "kaunokki:placeOfBirth",
             "searchField": true,
@@ -697,7 +697,7 @@
         "placeOfDeath": {
             "containerClass": "ten",
             "facetType": "list",
-            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_ . FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabel_fi . FILTER(LANG(?prefLabel_fi) = 'fi') } BIND(COALESCE(?prefLabel_, ?prefLabel_fi, ?id) AS ?prefLabel)",
             "filterType": "uriFilter",
             "predicate": "kaunokki:placeOfDeath",
             "searchField": true,
@@ -709,7 +709,7 @@
         "keyword": {
             "containerClass": "ten",
             "facetType": "list",
-            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_ . FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabel_fi . FILTER(LANG(?prefLabel_fi) = 'fi') } BIND(COALESCE(?prefLabel_, ?prefLabel_fi, ?id) AS ?prefLabel)",
             "filterType": "uriFilter",
             "predicate": "kaunokki:asiasana",
             "searchField": true,
@@ -721,7 +721,7 @@
         "award": {
             "containerClass": "ten",
             "facetType": "hierarchical",
-            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_ . FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabel_fi . FILTER(LANG(?prefLabel_fi) = 'fi') } BIND(COALESCE(?prefLabel_, ?prefLabel_fi, ?id) AS ?prefLabel)",
             "hideUnknownValue": true,
             "filterType": "uriFilter",
             "parentProperty": "kaunokki:palkintosarja",
@@ -735,7 +735,7 @@
         "school": {
             "containerClass": "ten",
             "facetType": "list",
-            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_ . FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabel_fi . FILTER(LANG(?prefLabel_fi) = 'fi') } BIND(COALESCE(?prefLabel_, ?prefLabel_fi, ?id) AS ?prefLabel)",
             "filterType": "uriFilter",
             "predicate": "kaunokki:koulukunta",
             "searchField": true,

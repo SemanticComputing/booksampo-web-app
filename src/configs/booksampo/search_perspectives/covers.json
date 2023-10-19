@@ -245,7 +245,7 @@
         "keyword": {
             "containerClass": "ten",
             "facetType": "list",
-            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_ . FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabel_fi . FILTER(LANG(?prefLabel_fi) = 'fi') } BIND(COALESCE(?prefLabel_, ?prefLabel_fi, ?id) AS ?prefLabel)",
             "filterType": "uriFilter",
             "predicate": "kaunokki:asiasana",
             "searchField": true,
@@ -268,7 +268,7 @@
         "workType": {
             "containerClass": "ten",
             "facetType": "list",
-            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_ . FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabel_fi . FILTER(LANG(?prefLabel_fi) = 'fi') } BIND(COALESCE(?prefLabel_, ?prefLabel_fi, ?id) AS ?prefLabel)",
             "filterType": "uriFilter",
             "predicate": "^kaunokki:kansikuva/^kaunokki:manifests_in/rdf:type",
             "searchField": true,
@@ -280,7 +280,7 @@
         "workGenre": {
             "containerClass": "ten",
             "facetType": "list",
-            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_ . FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabel_fi . FILTER(LANG(?prefLabel_fi) = 'fi') } BIND(COALESCE(?prefLabel_, ?prefLabel_fi, ?id) AS ?prefLabel)",
             "filterType": "uriFilter",
             "predicate": "^kaunokki:kansikuva/^kaunokki:manifests_in/kaunokki:genre",
             "searchField": true,
@@ -292,7 +292,7 @@
         "workTheme": {
             "containerClass": "ten",
             "facetType": "list",
-            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_ . FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabel_fi . FILTER(LANG(?prefLabel_fi) = 'fi') } BIND(COALESCE(?prefLabel_, ?prefLabel_fi, ?id) AS ?prefLabel)",
             "filterType": "uriFilter",
             "predicate": "^kaunokki:kansikuva/^kaunokki:manifests_in/kaunokki:teema",
             "searchField": true,
@@ -304,7 +304,7 @@
         "workKeyword": {
             "containerClass": "ten",
             "facetType": "list",
-            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "labelPattern": "OPTIONAL { ?id skos:prefLabel ?prefLabel_ . FILTER(LANG(?prefLabel_) = '<LANG>') } OPTIONAL { ?id skos:prefLabel ?prefLabel_fi . FILTER(LANG(?prefLabel_fi) = 'fi') } BIND(COALESCE(?prefLabel_, ?prefLabel_fi, ?id) AS ?prefLabel)",
             "filterType": "uriFilter",
             "predicate": "^kaunokki:kansikuva/^kaunokki:manifests_in/kaunokki:asiasana",
             "searchField": true,

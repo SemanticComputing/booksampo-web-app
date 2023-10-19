@@ -17,7 +17,8 @@ export const getPaginatedResults = ({
   constraints,
   sortBy,
   sortDirection,
-  resultFormat
+  resultFormat,
+  propertyLangTag
 }) => {
   let q = facetResultSetQuery
   const perspectiveConfig = backendSearchConfig[resultClass]
@@ -79,6 +80,9 @@ export const getPaginatedResults = ({
   }
   q = q.replace('<PAGE>', `LIMIT ${pagesize} OFFSET ${page * pagesize}`)
   q = q.replace('<RESULT_SET_PROPERTIES>', propertiesQueryBlock)
+  if (propertyLangTag) {
+    q = q.replace(/<LANG>/g, propertyLangTag)
+  }
   if (langTag) {
     q = q.replace(/<LANG>/g, langTag)
   }
@@ -110,7 +114,8 @@ export const getAllResults = ({
   fromID = null,
   toID = null,
   period = null,
-  province = null
+  province = null,
+  propertyLangTag
 }) => {
   const finalPerspectiveID = perspectiveID || facetClass
   const perspectiveConfig = backendSearchConfig[finalPerspectiveID]
@@ -163,6 +168,9 @@ export const getAllResults = ({
     q = q.replace(/<FACET_CLASS_PREDICATE>/g, backendSearchConfig[resultClass].facetClassPredicate)
   } else {
     q = q.replace(/<FACET_CLASS_PREDICATE>/g, 'a')
+  }
+  if (propertyLangTag) {
+    q = q.replace(/<LANG>/g, propertyLangTag)
   }
   if (langTag) {
     q = q.replace(/<LANG>/g, langTag)
@@ -265,7 +273,8 @@ export const getByURI = ({
   facetClass,
   constraints,
   uri,
-  resultFormat
+  resultFormat,
+  propertyLangTag
 }) => {
   let perspectiveConfig
   if (perspectiveID) {
@@ -304,6 +313,9 @@ export const getByURI = ({
     }))
   }
   q = q.replace(/<ID>/g, `<${uri}>`)
+  if (propertyLangTag) {
+    q = q.replace(/<LANG>/g, propertyLangTag)
+  }
   if (langTag) {
     q = q.replace(/<LANG>/g, langTag)
   }
