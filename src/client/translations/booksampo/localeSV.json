@@ -21,6 +21,7 @@
   "topBar": {
     "logoImage": "secondary",
     "feedback": "respons",
+    "feedbackLink": "https://www.boksampo.fi/sv/palaute",
     "info": {
       "info": "Info",
       "blog": "Projektets blogg",

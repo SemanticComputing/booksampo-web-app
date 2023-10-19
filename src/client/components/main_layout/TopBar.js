@@ -180,7 +180,7 @@ const TopBar = props => {
         <Divider />
         {renderMobileMenuItem({
           id: 'feedback',
-          externalUrl: props.layoutConfig.topBar.feedbackLink,
+          externalUrl: intl.get('topBar.feedbackLink') ? intl.get('topBar.feedbackLink') : props.layoutConfig.topBar.feedbackLink,
           label: intl.get('topBar.feedback')
         })}
         {infoDropdown.map(item => renderInfoItem(item))}
@@ -295,7 +295,7 @@ const TopBar = props => {
             />
             {renderDesktopTopMenuItem({
               id: 'feedback',
-              externalUrl: props.layoutConfig.topBar.feedbackLink,
+              externalUrl: intl.get('topBar.feedbackLink') ? intl.get('topBar.feedbackLink') : props.layoutConfig.topBar.feedbackLink,
               label: intl.get('topBar.feedback')
             })}
             <TopBarInfoButton rootUrl={props.rootUrl} layoutConfig={layoutConfig} />

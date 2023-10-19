@@ -21,13 +21,14 @@
   "topBar": {
     "logoImage": "primary",
     "feedback": "feedback",
+    "feedbackLink": "https://www.kirjasampo.fi/fi/palaute",
     "info": {
       "info": "Info",
       "blog": "Project blog",
       "blogUrl": "https://seco.cs.aalto.fi/applications/kirjasampo/",
       "portal": "Kirjasampo main website",
       "portalUrl": "https://www.kirjasampo.fi/",
-      "aboutThePortal": "About the Website",
+      "aboutThePortal": "About the website",
       "accessibilityStatement": "Accessibility statement (in Finnish)"
     },
     "searchBarPlaceHolder": "Search all content",

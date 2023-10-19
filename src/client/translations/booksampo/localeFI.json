@@ -21,6 +21,7 @@
   "topBar": {
     "logoImage": "primary",
     "feedback": "palaute",
+    "feedbackLink": "https://www.kirjasampo.fi/fi/palaute",
     "info": {
       "info": "Info",
       "blog": "Projektin blogi",
