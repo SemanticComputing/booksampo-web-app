@@ -228,23 +228,28 @@ export const publicationsByDecadeAndGenreQuery = `
 
 export const publicationsByDecadeAndThemeQuery = `
   SELECT ?id ?dataItem__id ?dataItem__prefLabel (COUNT(?publication) as ?dataItem__value) WHERE {
-    ?publication ^kaunokki:manifests_in ?abstract_work ;
-                  kaunokki:onEnsimmainenVersio kaunokki:true ;
+    {
+      SELECT ?dataItem__id (COUNT(?publication) as ?theme_count) {
+        ?publication ^kaunokki:manifests_in ?abstract_work ;
+                      kaunokki:onEnsimmainenVersio kaunokki:true ;
+                      kaunokki:ilmestymisvuosi ?yearId .
+        ?dataItem__id ^kaunokki:teema ?abstract_work .
+      }
+      GROUP BY ?dataItem__id
+      HAVING(?theme_count > 17)
+    }
+
+    ?dataItem__id ^kaunokki:teema ?abstract_work .
+    ?abstract_work kaunokki:manifests_in ?publication .
+    ?publication kaunokki:onEnsimmainenVersio kaunokki:true ;
                   kaunokki:ilmestymisvuosi ?yearId .
     ?yearId skos:prefLabel ?label .
     BIND(xsd:integer(?label) as ?year)
     FILTER(BOUND(?year))
     BIND(xsd:integer(FLOOR(?year/10)*10) AS ?id)
-    ?dataItem__id ^kaunokki:teema ?abstract_work .
-    OPTIONAL { 
-      ?dataItem__id skos:prefLabel ?dataItem__prefLabel_ .
-      FILTER(LANG(?dataItem__prefLabel_) = '<LANG>')
-    }
-    OPTIONAL { 
-      ?dataItem__id skos:prefLabel ?dataItem__prefLabel_fi .
-       FILTER(LANG(?dataItem__prefLabel_fi) = 'fi')
-    }
-    BIND(COALESCE(?dataItem__prefLabel_, ?dataItem__prefLabel_fi, ?dataItem__id) as ?dataItem__prefLabel)
+    ?dataItem__id skos:prefLabel ?dataItem__prefLabel .
+    FILTER(LANG(?dataItem__prefLabel) = '<LANG>')
+
   } 
   GROUP BY ?id ?dataItem__id ?dataItem__prefLabel
   ORDER BY ?id

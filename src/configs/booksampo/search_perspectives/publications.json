@@ -67,7 +67,7 @@
             "tabIcon": "CalendarViewDay",
             "tabPath": "publications_by_decade_and_theme",
             "component": "BarChartRace",
-            "stepBegin": 1800,
+            "stepBegin": 1900,
             "stepEnd": 2020,
             "stepIncrement": 10,
             "stepDuration": 3000,
