@@ -131,7 +131,7 @@
             "doNotRenderOnMount": true,
             "tabPath": "pie_chart",
             "tabIcon": "PieChart",
-            "facetClass": "novels",
+            "facetClass": "nonfictionBooks",
             "dropdownForResultClasses": true,
             "defaultResultClass": "novelsByGenre",
             "resultClasses": {
@@ -236,6 +236,14 @@
                     ]
                 }
             }
+        },
+        "export": {
+            "tabID": 2,
+            "component": "ExportLink",
+            "tabPath": "share",
+            "tabIcon": "CloudDownload",
+            "resultClass": "nonfictionBooks",
+            "facetClass": "nonfictionBooks"
         }
     },
     "properties": [

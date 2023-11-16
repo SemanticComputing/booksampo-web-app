@@ -17,6 +17,7 @@ const WordCloud = lazy(() => import('../main_layout/WordCloud'))
 const TemporalMap = lazy(() => import('./TemporalMap'))
 const BarChartRace = lazy(() => import('./BarChartRace'))
 const ExportCSV = lazy(() => import('./ExportCSV'))
+const ExportLink = lazy(() => import('./ExportLink'))
 const Export = lazy(() => import('./Export'))
 
 const getVisibleRows = perspectiveState => {
@@ -65,6 +66,9 @@ const ResultClassRoute = props => {
           fetchPaginatedResults={props.fetchPaginatedResults}
           updatePage={props.updatePage}
           updateRowsPerPage={props.updateRowsPerPage}
+          updateFacetOption={props.updateFacetOption}
+          fetchFacet={props.fetchFacet}
+          facetState={props.facetState}
           sortResults={props.sortResults}
           rootUrl={rootUrl}
           layoutConfig={layoutConfig}
@@ -190,7 +194,13 @@ const ResultClassRoute = props => {
         customMapControl,
         layerConfigs: props.leafletConfig.layerConfigs,
         infoHeaderExpanded: perspectiveState.facetedSearchHeaderExpanded,
-        layoutConfig: props.layoutConfig
+        layoutConfig: props.layoutConfig,
+        updateFacetOption: props.updateFacetOption,
+        fetchFacet: props.fetchFacet,
+        facetState: props.facetState,
+        location: useLocation(),
+        rootUrl: rootUrl,
+        tabPath: resultClassConfig.tabPath
       }
       if (pageType === 'facetResults') {
         leafletProps.facetUpdateID = facetState.facetUpdateID
@@ -198,8 +208,7 @@ const ResultClassRoute = props => {
           leafletProps = {
             ...leafletProps,
             facet: facetState.facets[facetID],
-            facetID,
-            updateFacetOption: props.updateFacetOption
+            facetID
           }
         }
       }
@@ -231,7 +240,13 @@ const ResultClassRoute = props => {
         layerType,
         updateMapBounds: props.updateMapBounds,
         showTooltips,
-        layoutConfig: props.layoutConfig
+        layoutConfig: props.layoutConfig,
+        updateFacetOption: props.updateFacetOption,
+        fetchFacet: props.fetchFacet,
+        facetState: props.facetState,
+        location: useLocation(),
+        rootUrl: rootUrl,
+        tabPath: resultClassConfig.tabPath
       }
       if (instanceAnalysisData) {
         deckProps = {
@@ -279,7 +294,12 @@ const ResultClassRoute = props => {
         instanceAnalysisDataUpdateID: perspectiveState.instanceAnalysisDataUpdateID,
         instanceAnalysisData: perspectiveState.instanceAnalysisData,
         facetUpdateID: facetState ? facetState.facetUpdateID : null,
-        fetchData: props.fetchResults
+        updateFacetOption: props.updateFacetOption,
+        fetchData: props.fetchResults,
+        fetchFacet: props.fetchFacet,
+        facetState: props.facetState,
+        location: useLocation(),
+        rootUrl: rootUrl
       }
       routeComponent = <ApexCharts {...apexProps} />
       break
@@ -299,7 +319,13 @@ const ResultClassRoute = props => {
         instanceAnalysisDataUpdateID: perspectiveState.instanceAnalysisDataUpdateID,
         instanceAnalysisData: perspectiveState.instanceAnalysisData,
         facetUpdateID: facetState ? facetState.facetUpdateID : null,
-        fetchData: props.fetchResults
+        updateFacetOption: props.updateFacetOption,
+        fetchData: props.fetchResults,
+        fetchFacet: props.fetchFacet,
+        facetState: props.facetState,
+        location: useLocation(),
+        rootUrl: rootUrl,
+        tabPath: resultClassConfig.tabPath
       }
       const upperApexProps = {
         ...commonApexProps,
@@ -322,7 +348,8 @@ const ResultClassRoute = props => {
         perspectiveState,
         results: perspectiveState.lower,
         fetching: perspectiveState.lowerFetching,
-        resultUpdateID: perspectiveState.lowerResultUpdateID
+        resultUpdateID: perspectiveState.lowerResultUpdateID,
+        doNotImportConstraints: true
       }
       routeComponent = (
         <>
@@ -467,6 +494,21 @@ const ResultClassRoute = props => {
           facetUpdateID={facetState.facetUpdateID}
           facets={facetState.facets}
           layoutConfig={layoutConfig}
+        />
+      )
+      break
+    }
+    case 'ExportLink': {
+      routeComponent = (
+        <ExportLink
+          resultClass={resultClass}
+          facetClass={facetClass}
+          facetUpdateID={facetState.facetUpdateID}
+          facets={facetState.facets}
+          layoutConfig={layoutConfig}
+          rootUrl={rootUrl}
+          data={perspectiveState}
+          perspectiveConfig={perspective}
         />
       )
       break

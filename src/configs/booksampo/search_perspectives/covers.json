@@ -133,6 +133,14 @@
                     ]
                 }
             }
+        },
+        "export": {
+            "tabID": 2,
+            "component": "ExportLink",
+            "tabPath": "share",
+            "tabIcon": "CloudDownload",
+            "resultClass": "covers",
+            "facetClass": "covers"
         }
     },
     "properties": [

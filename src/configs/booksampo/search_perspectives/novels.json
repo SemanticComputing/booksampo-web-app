@@ -300,6 +300,14 @@
             "resultMapper": "mapPlacesRatio",
             "scatterplotStartColor": [61, 250, 255],
             "scatterplotEndColor": [233, 30, 99]
+        },
+        "export": {
+            "tabID": 5,
+            "component": "ExportLink",
+            "tabPath": "share",
+            "tabIcon": "CloudDownload",
+            "resultClass": "novels",
+            "facetClass": "novels"
         }
     },
     "maps": {

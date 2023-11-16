@@ -290,6 +290,14 @@
                 "relatedInstances": "peopleDeadIn",
                 "createPopUpContent": "createPopUpContentBookSampo"
             }
+        },
+        "export": {
+            "tabID": 6,
+            "component": "ExportLink",
+            "tabPath": "share",
+            "tabIcon": "CloudDownload",
+            "resultClass": "people",
+            "facetClass": "people"
         }
     },
     "maps": {

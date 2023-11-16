@@ -251,6 +251,14 @@
                     "opacityTo": 0.8
                 }
             }
+        },
+        "export": {
+            "tabID": 9,
+            "component": "ExportLink",
+            "tabPath": "share",
+            "tabIcon": "CloudDownload",
+            "resultClass": "publications",
+            "facetClass": "publications"
         }
     },
     "properties": [
