@@ -7,7 +7,7 @@
     },
     "sparqlQueriesFile": "SparqlQueriesNovels.js",
     "facetClass": "kaunokki:romaani",
-    "langTag": "fi",
+    "enableDynamicLanguageChange": true,
     "frontPageImage": "main_page/novels_persp.jpg",
     "searchMode": "faceted-search",
     "defaultActiveFacets": [

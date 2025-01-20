@@ -7,7 +7,7 @@
     },
     "sparqlQueriesFile": "SparqlQueriesPeople.js",
     "facetClass": "foaf:Person",
-    "langTag": "fi",
+    "enableDynamicLanguageChange": true,
     "frontPageImage": "main_page/people_persp.jpg",
     "searchMode": "faceted-search",
     "defaultActiveFacets": [

@@ -25,10 +25,11 @@ export const getFacet = async ({
   constraints,
   resultFormat,
   constrainSelf,
-  langTag
+  dynamicLangTag
 }) => {
   const facetConfig = backendSearchConfig[facetClass].facets[facetID]
-  const { endpoint, defaultConstraint = null } = backendSearchConfig[facetClass]
+  const { endpoint, defaultConstraint = null, enableDynamicLanguageChange } = backendSearchConfig[facetClass]
+  const langTag = enableDynamicLanguageChange ? dynamicLangTag : backendSearchConfig[facetClass].langTag || null
   // choose query template and result mapper:
   let q = ''
   let mapper = null

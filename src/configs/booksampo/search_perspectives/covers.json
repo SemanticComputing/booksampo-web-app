@@ -7,7 +7,7 @@
     },
     "sparqlQueriesFile": "SparqlQueriesCovers.js",
     "facetClass": "kaunokki:kansi",
-    "langTag": "fi",
+    "enableDynamicLanguageChange": true,
     "frontPageImage": "main_page/covers_persp.jpg",
     "searchMode": "faceted-search",
     "defaultActiveFacets": [

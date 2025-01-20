@@ -18,7 +18,7 @@ export const getPaginatedResults = ({
   sortBy,
   sortDirection,
   resultFormat,
-  propertyLangTag
+  dynamicLangTag
 }) => {
   let q = facetResultSetQuery
   const perspectiveConfig = backendSearchConfig[resultClass]
@@ -26,10 +26,11 @@ export const getPaginatedResults = ({
     endpoint,
     facets,
     facetClass,
+    enableDynamicLanguageChange,
     defaultConstraint = null,
-    langTag = null,
     langTagSecondary = null
   } = perspectiveConfig
+  const langTag = enableDynamicLanguageChange ? dynamicLangTag : perspectiveConfig.langTag || null
   const resultClassConfig = perspectiveConfig.resultClasses[resultClass]
   const {
     propertiesQueryBlock,
@@ -80,9 +81,6 @@ export const getPaginatedResults = ({
   }
   q = q.replace('<PAGE>', `LIMIT ${pagesize} OFFSET ${page * pagesize}`)
   q = q.replace('<RESULT_SET_PROPERTIES>', propertiesQueryBlock)
-  if (propertyLangTag) {
-    q = q.replace(/<LANG>/g, propertyLangTag)
-  }
   if (langTag) {
     q = q.replace(/<LANG>/g, langTag)
   }
@@ -115,7 +113,7 @@ export const getAllResults = ({
   toID = null,
   period = null,
   province = null,
-  propertyLangTag
+  dynamicLangTag
 }) => {
   const finalPerspectiveID = perspectiveID || facetClass
   const perspectiveConfig = backendSearchConfig[finalPerspectiveID]
@@ -129,9 +127,10 @@ export const getAllResults = ({
   const {
     endpoint,
     defaultConstraint = null,
-    langTag = null,
-    langTagSecondary = null
+    langTagSecondary = null,
+    enableDynamicLanguageChange
   } = perspectiveConfig
+  const langTag = enableDynamicLanguageChange ? dynamicLangTag : perspectiveConfig.langTag || null
   const resultClassConfig = perspectiveConfig.resultClasses[resultClass]
   if (resultClassConfig === undefined) {
     console.log(`Error: result class "${resultClass}" not defined for perspective "${finalPerspectiveID}"`)
@@ -168,9 +167,6 @@ export const getAllResults = ({
     q = q.replace(/<FACET_CLASS_PREDICATE>/g, backendSearchConfig[resultClass].facetClassPredicate)
   } else {
     q = q.replace(/<FACET_CLASS_PREDICATE>/g, 'a')
-  }
-  if (propertyLangTag) {
-    q = q.replace(/<LANG>/g, propertyLangTag)
   }
   if (langTag) {
     q = q.replace(/<LANG>/g, langTag)
@@ -274,7 +270,7 @@ export const getByURI = ({
   constraints,
   uri,
   resultFormat,
-  propertyLangTag
+  dynamicLangTag
 }) => {
   let perspectiveConfig
   if (perspectiveID) {
@@ -284,9 +280,10 @@ export const getByURI = ({
   }
   const {
     endpoint,
-    langTag = null,
-    langTagSecondary = null
+    langTagSecondary = null,
+    enableDynamicLanguageChange
   } = perspectiveConfig
+  const langTag = enableDynamicLanguageChange ? dynamicLangTag : perspectiveConfig.langTag || null
   const resultClassConfig = perspectiveConfig.resultClasses[resultClass]
   const {
     propertiesQueryBlock,
@@ -313,9 +310,6 @@ export const getByURI = ({
     }))
   }
   q = q.replace(/<ID>/g, `<${uri}>`)
-  if (propertyLangTag) {
-    q = q.replace(/<LANG>/g, propertyLangTag)
-  }
   if (langTag) {
     q = q.replace(/<LANG>/g, langTag)
   }

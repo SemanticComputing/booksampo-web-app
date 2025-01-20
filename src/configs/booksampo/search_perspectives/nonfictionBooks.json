@@ -7,7 +7,7 @@
     },
     "sparqlQueriesFile": "SparqlQueriesNonfictionBooks.js",
     "facetClass": "saha:Instance_ID1237984819752",
-    "langTag": "fi",
+    "enableDynamicLanguageChange": true,
     "frontPageImage": "main_page/places-452x262.jpg",
     "searchMode": "faceted-search",
     "defaultActiveFacets": [

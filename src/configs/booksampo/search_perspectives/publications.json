@@ -7,7 +7,7 @@
     },
     "sparqlQueriesFile": "SparqlQueriesPublications.js",
     "facetClass": "kaunokki:fyysinen_teos",
-    "langTag": "fi",
+    "enableDynamicLanguageChange": true,
     "frontPageImage": "main_page/publications_persp.jpg",
     "searchMode": "faceted-search",
     "defaultActiveFacets": [
