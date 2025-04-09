@@ -4,7 +4,7 @@ export const seriesPropertiesInstancePage = `
   BIND(CONCAT('/series/page/', ENCODE_FOR_URI(STR(?id)), '/table') AS ?prefLabel__dataProviderUrl)
   BIND(?id as ?uri__id)
   BIND(?id as ?uri__prefLabel)
-  BIND(CONCAT('https://demo.seco.tkk.fi/saha/project/resource.shtml?uri=', ENCODE_FOR_URI(STR(?id)), '&model=booksampo-2022') as ?uri__dataProviderUrl)
+  BIND(CONCAT('https://demo.seco.tkk.fi/saha/project/resource.shtml?uri=', ENCODE_FOR_URI(STR(?id)), '&model=kirjasampo') as ?uri__dataProviderUrl)
   {
     ?id dce:description ?description__id .
     ?description__id skos:prefLabel ?description__prefLabel .

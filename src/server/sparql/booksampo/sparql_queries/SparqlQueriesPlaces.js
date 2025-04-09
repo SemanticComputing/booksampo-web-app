@@ -5,7 +5,7 @@ export const placePropertiesInstancePage = `
   # BIND(CONCAT('/places/page/', ENCODE_FOR_URI(STR(?id)), '/table') AS ?prefLabel__dataProviderUrl)
   BIND(?id as ?uri__id)
   BIND(?id as ?uri__prefLabel)
-  BIND(CONCAT('https://demo.seco.tkk.fi/saha/project/resource.shtml?uri=', ENCODE_FOR_URI(STR(?id)), '&model=booksampo-2022') as ?uri__dataProviderUrl)
+  BIND(CONCAT('https://demo.seco.tkk.fi/saha/project/resource.shtml?uri=', ENCODE_FOR_URI(STR(?id)), '&model=kirjasampo') as ?uri__dataProviderUrl)
   {
     ?id ^kaunokki:placeOfBirth ?personBorn__id .
     ?personBorn__id skos:prefLabel ?personBorn__prefLabel .
