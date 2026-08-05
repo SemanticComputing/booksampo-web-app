@@ -59,17 +59,17 @@ class ExportLink extends React.Component {
   }
 
   componentDidMount = () => {
-    this.setState({ downloadLink: this.createDownloadLink() })
+    this.setState({ downloadLink: this.createLink() })
   }
 
   componentDidUpdate = prevProps => {
     // check if filters have changed
     if (prevProps.facetUpdateID !== this.props.facetUpdateID) {
-      this.setState({ downloadLink: this.createDownloadLink() })
+      this.setState({ downloadLink: this.createLink() })
     }
   }
 
-  createDownloadLink = () => {
+  createLink = () => {
     const params = stateToUrl({
       facetClass: this.props.facetClass,
       facets: this.props.facets
@@ -77,7 +77,7 @@ class ExportLink extends React.Component {
 
     const constraints = params.constraints ? params.constraints : []
     const mappedConstraints = []
-    // go through constraints:
+    // go through constraints
     for (const constraint of constraints) {
       const facetId = constraint.facetID
       const filterType = constraint.filterType
@@ -133,7 +133,7 @@ class ExportLink extends React.Component {
   }
 
   updateDownloadLink = () => {
-    this.setState({ downloadLink: this.createDownloadLink() })
+    this.setState({ downloadLink: this.createLink() })
   }
 
   handleViewChange (event) {
@@ -144,14 +144,14 @@ class ExportLink extends React.Component {
     const { classes } = this.props
     const fullLink = window.location.origin + this.state.downloadLink
     const fieldLabel = intl.get('exportLink.fieldLabel') ? intl.get('exportLink.fieldLabel') : 'Generated link (read-only)'
-    const infoBody = intl.getHTML('exportLink.infoBody') ? intl.getHTML('exportLink.infoBody') : 'You can share the query you made by using the link below. The link is generated based on what you have selected for different facets and will open the search view of this perpsective with those choices on the selected tab. You can change the opened tab to any of the supported ones using the dropdown menu below. If you make additional choices while on this page, the link will be automatically updated to include those.'
+    const infoBody = intl.getHTML('exportLink.infoBody') ? intl.getHTML('exportLink.infoBody') : 'You can share the query you made by using the link below. The link is generated based on what you have selected for different facets and will open the search view of this perspective with those choices on the selected tab. You can change the opened tab to any of the supported ones using the dropdown menu below. If you make additional choices while on this page, the link will be automatically updated to include those.'
     const warningTitle = intl.get('exportLink.warningTitle') ? intl.get('exportLink.warningTitle') : 'Generated link might be too long for some browsers'
     const warningBody = intl.getHTML('exportLink.warningBody') ? intl.getHTML('exportLink.warningBody') : parse('The current length of the generated link is more than 2,000 characters. Browsers have different limits for the maximum lengths of links they can handle. <strong>This link might not work on all browsers</strong> — you can reduce the length of the link by deselecting some facet options.')
     const errorTitle = intl.get('exportLink.errorTitle') ? intl.get('exportLink.errorTitle') : 'Generated link is too long'
     const errorBody = intl.getHTML('exportLink.errorBody') ? intl.getHTML('exportLink.errorBody') : parse('The current length of the generated link is more than 15,800 characters. <strong>The server will refuse to handle requests that go over certain length limits</strong> — you can reduce the length of the link by deselecting some facet options.')
     const copyLinkToClipboard = intl.get('exportLink.copyLinkToClipboard') ? intl.get('exportLink.copyLinkToClipboard') : 'Copy link to clipboard'
 
-    const acceptedComponentTypes = ['ApexCharts', 'ApexChartsDouble', 'LeafletMap', 'Deck']
+    const acceptedComponentTypes = ['ApexCharts', 'ApexChartsDouble', 'LeafletMap', 'Deck', 'Network']
     const defaultTab = this.props.perspectiveConfig.resultClasses[this.props.perspectiveConfig.id].paginatedResultsConfig
     const suitableResultClasses = Object.values(this.props.perspectiveConfig.resultClasses).filter(resultClass => acceptedComponentTypes.includes(resultClass.component))
     return (
